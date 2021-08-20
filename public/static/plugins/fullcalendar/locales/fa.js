@@ -1,0 +1,1 @@
+FullCalendar.globalLocales.push(function(){"use strict";return{code:"fa",week:{dow:6,doy:12},direction:"rtl",buttonText:{prev:"قبلی",next:"بعدی",today:"امروز",month:"ماه",week:"هفته",day:"روز",list:"برنامه"},weekText:"هف",allDayText:"تمام روز",moreLinkText:function(e){return"بیش از "+e},noEventsText:"هیچ رویدادی به نمایش"}}());
