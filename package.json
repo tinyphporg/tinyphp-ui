@@ -1,0 +1,82 @@
+{
+  "name": "tinyphp-bootstrap",
+  "version": "1.0.1",
+  "description": "Application development platform integrated bootstrap and tinyphp for PHP frameworks",
+  "main": "application/build-front/src/app/tinyphp.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev webpack serve --config application/build-front/conf/webpack.config.dev.js --progress",
+    "build": "cross-env NODE_ENV=prod webpack --config application/build-front/conf/webpack.config.prod.js --progress"	  
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinycn/tinyphp-bootstrap.git"
+  },
+  "author": "tinycn@qq.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tinycn/tinyphp-bootstrap/issues"
+  },
+  "homepage": "https://github.com/tinycn/tinyphp-bootstrap#readme",
+  "devDependencies": {
+    "@babel/core": "^7.13.6",
+    "@babel/parser": "^7.13.6",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/runtime": "^7.13.17",
+    "@babel/types": "^7.13.17",
+    "@webpack-cli/serve": "^1.4.0",
+    "add-asset-html-webpack-plugin": "^3.2.0",
+    "autoprefixer": "^9.0.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "cross-env": "^7.0.2",
+    "css-loader": "^5.2.6",
+    "eslint": "^7.2.0",
+    "eslint-config-alloy": "^3.7.2",
+    "eslint-loader": "^4.0.2",
+    "expose-loader": "^2.0.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
+    "html-minifier-terser": "^5.1.1",
+    "html-webpack-inline-source-plugin": "^0.0.10",
+    "html-webpack-plugin": "^5.3.1",
+    "html-withimg-loader": "^0.1.16",
+    "image-webpack-loader": "^7.0.1",
+    "inline-html-withimg-loader": "^1.1.0",
+    "mini-css-extract-plugin": "^1.5.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-loader": "^6.1.1",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "1.32.13",
+    "sass-loader": "^11.1.1",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.0",
+    "webpack": "^5.37.0",
+    "webpack-bundle-analyzer": "^4.4.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3",
+    "webpack-plugin-hash-output": "^3.2.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@popperjs/core": "^2.9.2",
+    "admin-lte": "^3.1.0",
+    "bootstrap": "^5.0.1",
+    "bootstrap-icons": "^1.5.0",
+    "echarts": "^5.1.1",
+    "jquery": "^3.6.0",
+    "resolve-url-loader": "^4.0.0",
+    "sweetalert2": "^11.0.7",
+    "vue-html-loader": "^1.2.4"
+  },
+  "browserslist": [
+    "ie > 10",
+    "> 1%",
+    "last 2 versions"
+  ]
+}
