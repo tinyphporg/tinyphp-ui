@@ -932,6 +932,3 @@ $(function() {
 
     
 })
-
-
-console.log($.swal.fire('aaaa111'))

@@ -12,7 +12,6 @@ webpack4-bootstrap4-demo
 dist
 package-lock.json
 *.lock
-public/static
 application/front-build/src/dist
 application/runtime/view/*.php
 application/runtime/cache
