@@ -5,8 +5,8 @@
   "main": "application/build-front/src/app/tinyphp.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack serve --config application/build-front/conf/webpack.config.dev.js --progress",
-    "build": "cross-env NODE_ENV=prod webpack --config application/build-front/conf/webpack.config.prod.js --progress"	  
-},
+    "build": "cross-env NODE_ENV=prod webpack --config application/build-front/conf/webpack.config.prod.js --progress"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tinycn/tinyphp-bootstrap.git"
