@@ -19,20 +19,21 @@ module.exports = merge(baseWebpackConfig, {
             maxInitialRequests: 30,
             name: false,
             cacheGroups: {
-                ...appConfig.plugins,
                 lib: {
                     test: /[\\/]node_modules[\\/]/,
                     priority: -1,
                     chunks: 'initial',
-                    name: 'tinyphp-lib'
+                    name: 'tinyphp-lte'
                 },
                 app: {
                     test: /[\\/]src[\\/]app[\\/]/,
                     priority: -1,
                     chunks: 'initial',
                     name: 'tinyphp'
-                }
-                
+                },
+                ...appConfig.plugins,
+
+
             }
         }
     },

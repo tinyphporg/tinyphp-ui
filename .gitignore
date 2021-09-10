@@ -16,3 +16,4 @@ application/front-build/src/dist
 application/runtime/view/*.php
 application/runtime/cache
 application/runtime/log
+application/build-front/plugins

@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const plugins = require('./webpack.config.plugin.js');
+const pluginsConfig = require('./webpack.config.plugin.js');
 let currentDir = path.resolve(__dirname, '../');
 let srcDir = path.resolve(currentDir, './src');
 let viewDir = path.resolve(currentDir, './src/views');
@@ -9,18 +9,23 @@ let projectDir = path.resolve(__dirname, '../../../');
 let publicDir = path.resolve(projectDir, './public');
 let distDir = path.resolve(publicDir, './static');
 let adminlteDir = path.resolve(projectDir, './node_modules/adminlte');
+let appDir = path.resolve(currentDir, './src/app');
+let pluginConfigFile = path.resolve(appDir, './plugins.json');
 
+
+let prodPublicPath = '/static/';
+let devPublicPath = 'http://front.dev.tinycn.com/';
 module.exports = {
     isProd: (process.env.NODE_ENV === 'prod'),
     copyright: '',
     dev: {
-        publicPath: 'http://front.dev.tinycn.com/',
+        publicPath: devPublicPath,
         apiDomain: 'http://api.dev.tinycn.com/',
         host: 'localhost',
         port: 8080
     },
     prod: {
-        publicPath: '/static/',
+        publicPath: prodPublicPath,
         apiDomain: '',
     },
     stat: {
@@ -28,14 +33,27 @@ module.exports = {
         port: 8888,
     },
     plugins: (() => {
-        let ps = {}
-
-        ps['plugin'] = {
-            test: /[\\/]node_modules[\\/]moment/,
-            priority: 1,
-            chunks: 'all',
-            name: 'plugin-moment'
-        }
+        let ps = []
+        let plugins = [];
+        pluginsConfig.forEach((plugin) =>{
+            let name =  plugin.name
+            css = plugin.css ? prodPublicPath + 'plugins/' + name + '.css' : false;
+            javascript = plugin.javascript ? prodPublicPath + 'plugins/' + name + '.js' : false;
+            plugins.push({
+                name: name,
+                css: css,
+                javascript: javascript,
+                enable:plugin.enable
+            });
+            
+            ps.push({
+                test:plugin.test,
+                name: '../plugins/' + name,
+                priority: 1,
+                chunks: 'all',
+            });
+        });
+        console.log(plugins,ps);
         return ps;
     })(),
     path: {
