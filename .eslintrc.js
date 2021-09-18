@@ -15,6 +15,7 @@ module.exports = {
         "no-debugger": "off", // 允许使用debugger
 		"no-invalid-this": 'off',
 		"max-params": [0, 4],
+        "eqeqeq": ["error", "smart"],
         "no-undef": "off",// 允许使用未定义的变量，因为项目中有许多全局变量，如Utils，Helper
         // @fixable 一个缩进必须用两个空格替代
         'indent': [

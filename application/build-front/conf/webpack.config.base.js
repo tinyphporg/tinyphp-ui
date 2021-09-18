@@ -2,20 +2,20 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const appConfig = require('./webpack.config.app');
+const tconfig = require('./tinyphp.config');
 
 let entry = {};
 let plugins = [];
-let isProd = appConfig.isProd;
-let appPath = appConfig.path;
-let publicPath = isProd ? appConfig.prod.publicPath : appConfig.dev.publicPath;
+let isProd = tconfig.isProd;
+let appPath = tconfig.path;
+let publicPath = isProd ? tconfig.prod.publicPath : tconfig.dev.publicPath;
 
 // multi entry
-appConfig.path.viewPages.forEach(page => {
+tconfig.path.viewPages.forEach(page => {
     entry[page.id] = page.entry;
     plugins.push(
         new HtmlWebpackPlugin({
-            favicon: appConfig.path.faviconDir,
+            favicon: tconfig.path.faviconDir,
             filename: path.resolve(appPath.distDir, `./html/${page.id}.html`),
             template: page.template,
             chunks: [page.id],
@@ -48,7 +48,7 @@ module.exports = {
     entry: entry,
     output: {
         publicPath: publicPath,
-        path: appConfig.path.distDir,
+        path: tconfig.path.distDir,
         filename: 'js/' + (isProd ? '[name].min.js' : '[name].js'),
         chunkFilename: 'js/' + (isProd ? '[name].chunk.min.js' : '[name].chunk.js'),
         clean: true,

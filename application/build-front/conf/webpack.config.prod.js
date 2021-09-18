@@ -1,14 +1,12 @@
-const webpack = require('webpack');
-const path = require('path');
+import { BannerPlugin } from 'webpack';
+import { merge } from 'webpack-merge';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+// const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+import { plugins as _plugins, copyright, stat } from './webpack.config.app';
+import baseWebpackConfig from './webpack.config.base';
 
-const { merge } = require('webpack-merge');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
-const appConfig = require('./webpack.config.app');
-const baseWebpackConfig = require('./webpack.config.base');
-
-module.exports = merge(baseWebpackConfig, {
+export default merge(baseWebpackConfig, {
     mode: 'production',
     optimization: {
         minimize: true,
@@ -23,7 +21,7 @@ module.exports = merge(baseWebpackConfig, {
                     test: /[\\/]node_modules[\\/]/,
                     priority: -1,
                     chunks: 'initial',
-                    name: 'tinyphp-lte'
+                    name: 'tinyphp-lib'
                 },
                 app: {
                     test: /[\\/]src[\\/]app[\\/]/,
@@ -31,7 +29,7 @@ module.exports = merge(baseWebpackConfig, {
                     chunks: 'initial',
                     name: 'tinyphp'
                 },
-                ...appConfig.plugins,
+                ..._plugins,
 
 
             }
@@ -39,10 +37,10 @@ module.exports = merge(baseWebpackConfig, {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new webpack.BannerPlugin(appConfig.copyright),
+        new BannerPlugin(copyright),
         new BundleAnalyzerPlugin({
-            analyzerHost: appConfig.stat.host,
-            analyzerPort: appConfig.stat.port
+            analyzerHost: stat.host,
+            analyzerPort: stat.port
         })
     ]
 });

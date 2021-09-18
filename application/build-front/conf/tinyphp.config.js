@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
-const pluginsConfig = require('./webpack.config.plugin.js');
+const pluginsConfig = require('./tinyphp.config.plugin.js');
+
 let currentDir = path.resolve(__dirname, '../');
 let srcDir = path.resolve(currentDir, './src');
 let viewDir = path.resolve(currentDir, './src/views');
@@ -9,13 +10,13 @@ let projectDir = path.resolve(__dirname, '../../../');
 let publicDir = path.resolve(projectDir, './public');
 let distDir = path.resolve(publicDir, './static');
 let adminlteDir = path.resolve(projectDir, './node_modules/adminlte');
-let appDir = path.resolve(currentDir, './src/app');
-let pluginConfigFile = path.resolve(appDir, './plugins.json');
-
+let libDir = path.resolve(currentDir, './src/lib');
+let configFile = path.resolve(libDir, './tinyphp/config.json');
 
 let prodPublicPath = '/static/';
 let devPublicPath = 'http://front.dev.tinycn.com/';
-module.exports = {
+
+const Config =  {
     isProd: (process.env.NODE_ENV === 'prod'),
     copyright: '',
     dev: {
@@ -35,25 +36,30 @@ module.exports = {
     plugins: (() => {
         let ps = []
         let plugins = [];
-        pluginsConfig.forEach((plugin) =>{
-            let name =  plugin.name
+        pluginsConfig.forEach((plugin) => {
+            let name = plugin.name
             css = plugin.css ? prodPublicPath + 'plugins/' + name + '.css' : false;
             javascript = plugin.javascript ? prodPublicPath + 'plugins/' + name + '.js' : false;
             plugins.push({
                 name: name,
                 css: css,
                 javascript: javascript,
-                enable:plugin.enable
+                enable: plugin.enable
             });
-            
+
             ps.push({
-                test:plugin.test,
+                test: plugin.test,
                 name: '../plugins/' + name,
                 priority: 1,
                 chunks: 'all',
             });
         });
-        console.log(plugins,ps);
+
+        let data = {};
+        data['plugins'] = plugins;
+        data['domain'] = prodPublicPath;
+        fs.writeFileSync(configFile, JSON.stringify(data));
+        console.log(plugins, ps);
         return ps;
     })(),
     path: {
@@ -97,7 +103,10 @@ module.exports = {
         })(),
         alias: {
             '@assets': assetDir,
-            '@app': path.resolve(srcDir, './app')
+            '@lib': libDir,
+            '@src': srcDir
         }
     }
 }
+
+module.exports = Config

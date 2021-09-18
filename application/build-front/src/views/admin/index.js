@@ -1,4 +1,4 @@
-import '@app/tinyphp';
+import '@lib/tinyphp/tinyphp';
 
 // 颜色选择器
 import 'bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css'
@@ -28,8 +28,8 @@ import 'chart.js/dist/Chart.css';
 import 'chart.js';
 
 // 代码编辑器
-import 'codemirror/codemirror.css'
-import 'codemirror/codemirror.js'
+import 'codemirror/lib/codemirror.css'
+import 'codemirror/lib/codemirror.js'
 
 import './index.scss';
 import './index.html';
