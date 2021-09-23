@@ -1,8 +1,7 @@
 import $ from 'jquery'
-import './tinyphp.scss'
-
-const plugins = require('./plugins.json');
-console.log(plugins);
+import './_tinyphp.scss'
+console.log('vvv');
+const plugins = require('./config.json');
 (($, window) => {
 
     const isArray = (arr) => Array.isArray(arr);
@@ -477,4 +476,5 @@ console.log(plugins);
     });
 
     window.tinyphp = __T;
+    console.log(__T);
 })($, window);

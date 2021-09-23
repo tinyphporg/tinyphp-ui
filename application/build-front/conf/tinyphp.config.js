@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
-const pluginsConfig = require('./tinyphp.config.plugin.js');
+const pluginsConfig = require('./tinyphp.plugin.js');
+const { merge } = require('webpack-merge');
 
 let currentDir = path.resolve(__dirname, '../');
 let srcDir = path.resolve(currentDir, './src');
@@ -11,12 +12,13 @@ let publicDir = path.resolve(projectDir, './public');
 let distDir = path.resolve(publicDir, './static');
 let adminlteDir = path.resolve(projectDir, './node_modules/adminlte');
 let libDir = path.resolve(currentDir, './src/lib');
-let configFile = path.resolve(libDir, './tinyphp/config.json');
+let configFile = path.resolve(libDir, './config.json');
 
+let pluginDir = path.resolve(currentDir, './src/plugins');
 let prodPublicPath = '/static/';
 let devPublicPath = 'http://front.dev.tinycn.com/';
 
-const Config =  {
+const Config = {
     isProd: (process.env.NODE_ENV === 'prod'),
     copyright: '',
     dev: {
@@ -33,6 +35,9 @@ const Config =  {
         host: 'localhost',
         port: 8888,
     },
+    copypaths: [
+        { from: pluginDir, to: 'plugins' }
+    ],
     plugins: (() => {
         let ps = []
         let plugins = [];
@@ -91,14 +96,21 @@ const Config =  {
                     if (!fs.existsSync(tfp)) {
                         return;
                     }
+                    let conf = {};
+                    let jfp = fp.replace('.js', '.json');
+                    if (fs.existsSync(jfp)) {
+                        conf = merge(conf, require(jfp));
+                    }
                     views.push({
                         id: f1 + '/' + f2.replace('.js', ''),
                         entry: fp,
-                        template: fp.replace('.js', '.html')
+                        template: fp.replace('.js', '.html'),
+                        conf:conf
                     });
                 })
 
             });
+            console.log(views);
             return views;
         })(),
         alias: {

@@ -17,13 +17,13 @@ const Plugins = [
         javascript: true
     },
     {
-        name: 'echarts',
-        test: /node_modules[\\/]echarts/,
+        name: 'daterangepicker',
+        test: /(node_modules|src[\\/]lib)[\\/](daterangepicker|moment)/,
         dest: "开源图表库",
         enable: true,
         css: true,
         javascript: true
-    }
+    }       
 ]
 
 module.exports = Plugins

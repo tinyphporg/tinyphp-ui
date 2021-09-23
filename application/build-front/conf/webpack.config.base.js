@@ -19,6 +19,7 @@ tconfig.path.viewPages.forEach(page => {
             filename: path.resolve(appPath.distDir, `./html/${page.id}.html`),
             template: page.template,
             chunks: [page.id],
+            inject: 'head',
             chunksSortMode: 'manual',
             versionPath: 'v12.1',
             minify: {
@@ -52,6 +53,10 @@ module.exports = {
         filename: 'js/' + (isProd ? '[name].min.js' : '[name].js'),
         chunkFilename: 'js/' + (isProd ? '[name].chunk.min.js' : '[name].chunk.js'),
         clean: true,
+        library: {
+            name: 'tp',
+            type: 'umd',
+        },
     },
     externals: {
     },
@@ -166,6 +171,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new CopyPlugin({
+            patterns: tconfig.copypaths,
+        }),
         ...plugins,
     ],
 };

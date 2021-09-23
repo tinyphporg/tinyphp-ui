@@ -1,12 +1,12 @@
-import { BannerPlugin } from 'webpack';
-import { merge } from 'webpack-merge';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+const webpack = require('webpack');
+const { merge } = require('webpack-merge');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 // const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
-import { plugins as _plugins, copyright, stat } from './webpack.config.app';
-import baseWebpackConfig from './webpack.config.base';
+const tconfig = require('./tinyphp.config');
+const baseWebpackConfig = require('./webpack.config.base');
 
-export default merge(baseWebpackConfig, {
+module.exports = merge(baseWebpackConfig, {
     mode: 'production',
     optimization: {
         minimize: true,
@@ -24,23 +24,29 @@ export default merge(baseWebpackConfig, {
                     name: 'tinyphp-lib'
                 },
                 app: {
-                    test: /[\\/]src[\\/]app[\\/]/,
+                    test: /[\\/]src[\\/]lib[\\/]/,
                     priority: -1,
                     chunks: 'initial',
                     name: 'tinyphp'
                 },
-                ..._plugins,
+                ...tconfig.plugins,
 
 
             }
         }
     },
     plugins: [
+        new webpack.ids.HashedModuleIdsPlugin({
+            context: __dirname,
+            hashFunction: 'sha256',
+            hashDigest: 'hex',
+            hashDigestLength: 20,
+        }),
         new CleanWebpackPlugin(),
-        new BannerPlugin(copyright),
+        new webpack.BannerPlugin(tconfig.copyright),
         new BundleAnalyzerPlugin({
-            analyzerHost: stat.host,
-            analyzerPort: stat.port
+            analyzerHost: tconfig.stat.host,
+            analyzerPort: tconfig.stat.port
         })
     ]
 });
