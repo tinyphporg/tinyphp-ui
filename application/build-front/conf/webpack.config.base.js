@@ -56,6 +56,8 @@ module.exports = {
         library: {
             name: 'tp',
             type: 'umd',
+            export: 'default',
+            umdNamedDefine: true,
         },
     },
     externals: {
@@ -159,7 +161,7 @@ module.exports = {
         },
         {
             test: /\.js$/,
-            exclude: /node_modules/,
+            exclude: [/node_modules/ , path.resolve(__dirname, '../src/TinyPHP.js')],
             use: {
                 loader: 'babel-loader',
                 options: {

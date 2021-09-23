@@ -1,9 +1,10 @@
 import '@lib/adminlte';
 import '@lib/bootstrap';
 import '@lib/_tinyphp';
-import $ from 'jquery'
-console.log($)
 
-export default {
-    $
-}
+const TinyPHP = {$}
+
+window.tp = TinyPHP;
+window.tp1 = TinyPHP;
+console.log(window.tp)
+export default TinyPHP

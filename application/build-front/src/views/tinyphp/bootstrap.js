@@ -1,12 +1,12 @@
 
-import Tinyphp1 from '@lib/TinyPHP.js';
+import Tinyphp from '@lib/TinyPHP.js';
 
 
 import './bootstrap.scss';
 import './bootstrap.html';
 
 
-export const Tinyphp = Tinyphp1;
+export default Tinyphp;
 
 /**
  * AdminLTE Demo Menu
