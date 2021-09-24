@@ -23,6 +23,8 @@ const Config = {
     copyright: '',
     dev: {
         publicPath: devPublicPath,
+        staticDir: pluginDir,
+        staticPublicPath: '/static/plugins',
         apiDomain: 'http://api.dev.tinycn.com/',
         host: 'localhost',
         port: 8080
@@ -72,6 +74,7 @@ const Config = {
         srcDir: srcDir,
         viewDir: viewDir,
         distDir: distDir,
+        publicDir:publicDir,
         faviconDir: path.resolve(assetDir, './img/favicon.ico'),
         haveAdminlte: (() => {
             if (!fs.existsSync(adminlteDir) || !fs.open) {

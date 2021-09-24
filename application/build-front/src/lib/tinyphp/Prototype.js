@@ -1,63 +1,17 @@
-import $ from 'jquery'
-import './_tinyphp.scss'
-console.log('vvv');
-const plugins = require('./config.json');
-(($, window) => {
 
-    const isArray = (arr) => Array.isArray(arr);
-    const isObject = (obj) => Object.prototype.toString.call(obj) === '[object Object]';
 
-    const __T = function(config) {
-        __T.config = isObject(config)  ? __T.merge(__T._defaultConfig, config) : __T._defaultConfig;
-    }
+class Prototype {
 
-    __T.config = null;
-    __T._defaultConfig = plugins;
-
-    __T.merge = (target, ...arg) => {
-        return arg.reduce((acc, cur) => {
-
-            return Object.keys(cur).reduce((subAcc, key) => {
-                const srcVal = cur[key]
-                if (isObject(srcVal)) {
-                    subAcc[key] = merge(subAcc[key] ? subAcc[key] : {}, srcVal)
-                } else if (isArray(srcVal)) {
-                    subAcc[key] = srcVal.map((item, idx) => {
-                        if (isObject(item)) {
-                            const curAccVal = subAcc[key] ? subAcc[key] : []
-                            return merge(curAccVal[idx] ? curAccVal[idx] : {}, item)
-                        } else {
-                            return item
-                        }
-                    })
-                } else {
-                    subAcc[key] = srcVal
-                }
-                return subAcc
-            }, acc)
-        }, target)
-    }
-
-    /* 继承元素 */
-    /* @param: destination 继承对象 */
-    /* @param: source 继承源对象 */
-    __T.extend = function() {
-        if (arguments.length <= 1) { return; }
-
-        let destination = arguments[0];
-        let source = arguments[1];
-        let property;
-        for (property in source) {
-            if (Object.prototype.hasOwnProperty.call(source, property)) {
-                destination[property] = source[property];
-            }
-
-        }
-    } /* end of __T.extend... */
-
-    /* 初始化开始 */
-    __T.extend(window.Array.prototype, {
-        each: (callback, args) => {
+    static _Window = window;
+    
+    static _String = String;
+    
+    static _Array = Array;
+    
+    static _IS_PROTOTYPE_INITED = false;
+    
+    static _PROTOTYPE_ARRAY = {
+        each: function(callback, args) {
             if (typeof callback !== 'function') {
                 return false;
             }
@@ -76,7 +30,7 @@ const plugins = require('./config.json');
             }
             return this;
         },
-        inArray: (val) => {
+        inArray: function(val) {
             for (let i = 0, len = this.length; i < len; i++) {
                 if (val === this[i]) {
                     return true;
@@ -84,7 +38,7 @@ const plugins = require('./config.json');
             }
             return false;
         },
-        unquie: () => {
+        unquie: function(){
             for (let i = 0; i < this.length; i++) {
                 for (let j = i + 1; j < arr.length; j++) {
                     if (this[i] === arr[j]) {
@@ -110,10 +64,9 @@ const plugins = require('./config.json');
             return re;
 
         }
-    });
-
-    /* 字符串扩展 */
-    __T.extend(window.String.prototype, {
+    }
+    
+    static _PROTOTYPE_STRING = {
         isNum: function() {
             return !isNaN(parseFloat(this)) && isFinite(this);
         },
@@ -473,8 +426,63 @@ const plugins = require('./config.json');
             return out;
         }
 
-    });
+    }
+    
+    static isArray(arr) {
+        return Array.isArray(arr);
+    }
 
-    window.tinyphp = __T;
-    console.log(__T);
-})($, window);
+    static isObject(obj) {
+        return Object.prototype.toString.call(obj) === '[object Object]';
+    }
+
+    static merge(target, ...arg) {
+        return arg.reduce((acc, cur) => {
+
+            return Object.keys(cur).reduce((subAcc, key) => {
+                const srcVal = cur[key]
+                if (isObject(srcVal)) {
+                    subAcc[key] = Prototype.merge(subAcc[key] ? subAcc[key] : {}, srcVal)
+                } else if (isArray(srcVal)) {
+                    subAcc[key] = srcVal.map((item, idx) => {
+                        if (isObject(item)) {
+                            const curAccVal = subAcc[key] ? subAcc[key] : []
+                            return Prototype.merge(curAccVal[idx] ? curAccVal[idx] : {}, item)
+                        } else {
+                            return item
+                        }
+                    })
+                } else {
+                    subAcc[key] = srcVal
+                }
+                return subAcc
+            }, acc)
+        }, target)
+    }
+
+    static extend(...arg) {
+        if (arg.length <= 1) { return; }
+        let destination = arg[0];
+        let source = arg[1];
+        let property;
+        for (property in source) {
+            if (Object.prototype.hasOwnProperty.call(source, property)) {
+                destination[property] = source[property];
+            }
+
+        }
+    }
+
+    static _init() {
+        /* 初始化开始 */
+        Prototype.extend(Prototype._Array.prototype, Prototype._PROTOTYPE_ARRAY);
+        Prototype.extend(Prototype._String.prototype, Prototype._PROTOTYPE_STRING);
+    }
+
+
+}
+
+/* String & Array extended by ProtoType */
+Prototype._init();
+
+export default Prototype

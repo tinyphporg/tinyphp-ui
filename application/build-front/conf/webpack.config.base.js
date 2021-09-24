@@ -54,7 +54,7 @@ module.exports = {
         chunkFilename: 'js/' + (isProd ? '[name].chunk.min.js' : '[name].chunk.js'),
         clean: true,
         library: {
-            name: 'tp',
+            name: '$t',
             type: 'umd',
             export: 'default',
             umdNamedDefine: true,

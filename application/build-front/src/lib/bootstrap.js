@@ -3,7 +3,6 @@ import 'jquery-ui-dist/jquery-ui.css';
 import 'jquery-ui-dist/jquery-ui';
 import 'bootstrap';
 import '@popperjs/core';
-import './sweetalert2';
 import 'bootstrap/scss/bootstrap.scss';
 import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 import './fontawsome.scss';

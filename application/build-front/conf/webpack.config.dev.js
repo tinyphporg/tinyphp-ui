@@ -1,9 +1,9 @@
 const webpack = require('webpack');
-const {merge} = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const tconfig = require('./tinyphp.config.js');
 const baseWebpackConfig = require('./webpack.config.base.js');
 
-module.exports =  merge(baseWebpackConfig, {
+module.exports = merge(baseWebpackConfig, {
     mode: 'development',
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -11,12 +11,12 @@ module.exports =  merge(baseWebpackConfig, {
     ],
     devtool: 'eval-source-map',
     devServer: {
-        inline: true,
+        hot: true,
+        inline: false,
         open: true, // 自动打开浏览器
-        contentBase: tconfig.path.publicDir,
         publicPath: '',
         compress: true,
-        hot: true,
+        
         host: tconfig.dev.host, // 0.0.0.0 localhost
         port: tconfig.dev.port,
         overlay: {
