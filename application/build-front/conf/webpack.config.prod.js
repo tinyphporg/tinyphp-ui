@@ -23,12 +23,6 @@ module.exports = merge(baseWebpackConfig, {
                     chunks: 'initial',
                     name: 'tinyphp-lib'
                 },
-                app: {
-                    test: /[\\/]src[\\/]lib[\\/]/,
-                    priority: -1,
-                    chunks: 'initial',
-                    name: 'tinyphp'
-                },
                 ...tconfig.plugins,
 
 

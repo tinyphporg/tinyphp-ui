@@ -17,13 +17,21 @@ const Plugins = [
         javascript: true
     },
     {
-        name: 'daterangepicker',
-        test: /(node_modules|src[\\/]lib)[\\/](daterangepicker|moment)/,
+        name: 'sweetalert2',
+        test: /(node_modules|src[\\/]lib)[\\/](sweetalert2)/,
         dest: "开源图表库",
         enable: true,
         css: true,
         javascript: true
-    }       
+    },
+    {
+        name: 'summernote',
+        test: /(node_modules|src[\\/]lib)[\\/](summernote)/,
+        dest: "开源图表库",
+        enable: true,
+        css: true,
+        javascript: true
+    }           
 ]
 
 module.exports = Plugins

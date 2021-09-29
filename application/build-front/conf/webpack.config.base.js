@@ -22,6 +22,7 @@ tconfig.path.viewPages.forEach(page => {
             inject: 'head',
             chunksSortMode: 'manual',
             versionPath: 'v12.1',
+            scriptLoading:"blocking",
             minify: {
                 collapseWhitespace: false,
                 keepClosingSlash: true,
@@ -39,7 +40,7 @@ if (isProd) {
     plugins.push(
         new MiniCssExtractPlugin({
             filename: 'css/' + (isProd ? '[name].min.css' : '[name].css'),
-            chunkFilename: 'css/' + (isProd ? '[name].chunk.min.css' : '[name].chunk.css'),
+            chunkFilename: 'css/' + (isProd ? '[name].plugin.min.css' : '[name].plugin.css'),
         })
     );
 }
@@ -51,7 +52,7 @@ module.exports = {
         publicPath: publicPath,
         path: tconfig.path.distDir,
         filename: 'js/' + (isProd ? '[name].min.js' : '[name].js'),
-        chunkFilename: 'js/' + (isProd ? '[name].chunk.min.js' : '[name].chunk.js'),
+        chunkFilename: 'js/' + (isProd ? '[name].plugin.min.js' : '[name].plugin.js'),
         clean: true,
         library: {
             name: '$t',

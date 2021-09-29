@@ -58,7 +58,7 @@ const Config = {
                 test: plugin.test,
                 name: '../plugins/' + name,
                 priority: 1,
-                chunks: 'all',
+                chunks: 'async',
             });
         });
 
@@ -106,6 +106,7 @@ const Config = {
                     }
                     views.push({
                         id: f1 + '/' + f2.replace('.js', ''),
+                        name:  f1 + '-' + f2.replace('.js', ''),
                         entry: fp,
                         template: fp.replace('.js', '.html'),
                         conf:conf
