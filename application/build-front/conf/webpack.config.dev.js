@@ -9,10 +9,16 @@ module.exports = merge(baseWebpackConfig, {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
     ],
+    watch: true,  
     devtool: 'eval-source-map',
     devServer: {
         hot: true,
         inline: false,
+        watchOptions: {
+            poll: 1000, // 每秒询问多少次
+            aggregateTimeout: 500,  // 防抖 多少毫秒后再次触发
+            ignored: /node_modules/ // 忽略时时监听
+        },
         open: true, // 自动打开浏览器
         publicPath: '',
         compress: true,
