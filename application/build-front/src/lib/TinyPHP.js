@@ -3,7 +3,8 @@ import Prototype from '@lib/tinyphp/Prototype';
 import '@lib/bootstrap';
 import AdminLTE from '@lib/adminlte';
 
-import Alert from './plugin/Alert';
+import Alert from './plugin/Alert.js';
+import Cookie from './plugin/Cookie.js';
 import Summernote from './plugin/Summernote';
 
 class Tiny {
@@ -32,7 +33,8 @@ class Tiny {
     
     static _plugins = {
         alert: Alert,
-        summernote: Summernote
+        summernote: Summernote,
+        cookie: Cookie
     };
 
     static _preload() {
@@ -107,6 +109,7 @@ class Tiny {
 
         return Promise.all(loads);
     }
+    
 }
 
 
