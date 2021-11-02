@@ -2,10 +2,10 @@
   "name": "tinyphp-bootstrap",
   "version": "1.0.1",
   "description": "Application development platform integrated bootstrap and tinyphp for PHP frameworks",
-  "main": "application/build-front/src/tinyphp.js",
+  "main": "src/js/tinyphp.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev webpack serve --config application/build-front/conf/webpack.config.dev.js --progress",
-    "build": "cross-env NODE_ENV=prod webpack --config application/build-front/conf/webpack.config.prod.js --progress"
+    "dev": "cross-env NODE_ENV=dev webpack serve --config conf/webpack.config.dev.js --progress",
+    "build": "cross-env NODE_ENV=prod webpack --config conf/webpack.config.prod.js --progress"
   },
   "repository": {
     "type": "git",

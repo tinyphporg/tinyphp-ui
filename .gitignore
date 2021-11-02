@@ -9,11 +9,6 @@ webpack4-bootstrap4-demo
 /src/dist
 .DS_Store
 *.phar
-dist
+src/js/assets/adminlte/*
 package-lock.json
 *.lock
-application/front-build/src/dist
-application/runtime/view/*.php
-application/runtime/cache
-application/runtime/log
-application/build-front/plugins
