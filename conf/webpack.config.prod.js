@@ -21,7 +21,7 @@ module.exports = merge(baseWebpackConfig, {
                     test: /[\\/]node_modules[\\/]/,
                     priority: -1,
                     chunks: 'initial',
-                    name: 'tinyphp-lib'
+                    name: 'tinyphp-ui-lib'
                 },
                 ...tconfig.plugins,
 

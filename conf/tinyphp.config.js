@@ -10,7 +10,7 @@ let assetDir = path.resolve(currentDir, './src/js/assets');
 let projectDir = path.resolve(__dirname, '../');
 let publicDir = path.resolve(projectDir, './dist');
 console.log(publicDir)
-let distDir = path.resolve(publicDir, './tinyphp-bootstrap');
+let distDir = path.resolve(publicDir, './tinyphp-ui');
 let adminlteDir = path.resolve(projectDir, './node_modules/adminlte');
 let libDir = path.resolve(currentDir, './src/js/lib');
 let configFile = path.resolve(libDir, './config.json');

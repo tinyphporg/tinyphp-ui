@@ -2,8 +2,8 @@
 import Tinyphp from '@lib/TinyPHP.js';
 
 
-import './bootstrap.scss';
-import './bootstrap.html';
+import './ui.scss';
+import './ui.html';
 
 
 export default Tinyphp;

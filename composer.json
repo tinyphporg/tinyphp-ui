@@ -1,16 +1,18 @@
 {
-    "name": "saasjit/tinyphp-bootstrap",
-    "description": "a framework for php",
-    "type" : "project",
-    "author" : {
-    	"name" : "tinycn",
-    	"email" : "tinycn@qq.com"
+    "name": "saasjit/tinyphp-ui",
+    "description": "UI of the TinyPHP for Frameworks",
+    "type": "project",
+    "author": {
+        "name": "tinycn",
+        "email": "tinycn@qq.com"
     },
-    "require" : {
-      "php" : ">7"
+    "require": {
+        "php": ">7"
     },
-    "autoload":{
-    "psr-4" : {}
+    "autoload": {
+        "psr-4": {
+            "Tiny\\MVC\\View\\UI": "src/php"
+        }
     },
-    "timeout" : 1000000
+    "timeout": 1000000
 }
