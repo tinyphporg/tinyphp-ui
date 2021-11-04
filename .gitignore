@@ -6,7 +6,6 @@
 /vendor/
 webpack4-bootstrap4-demo
 /node_modules
-/src/dist
 .DS_Store
 *.phar
 src/js/assets/adminlte/*

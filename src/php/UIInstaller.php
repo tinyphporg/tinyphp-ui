@@ -119,6 +119,7 @@ class UIInstaller implements Iplugin
     protected function _copyUIFrontendLibrary($config)
     {
         
+        
         $installerPath = dirname(get_included_files()[0]) . '/' . $config['installer_path'];
         if (! is_dir(self::UI_FRONTEND_LIBRARY_PATH))
         {
@@ -141,7 +142,7 @@ class UIInstaller implements Iplugin
                 return;
             }
             printf("Tinyphp-ui library is updated and rm -rf [%s]\n", $installerPath);
-            system(sprintf("rm -rf %s", self::UI_FRONTEND_LIBRARY_PATH, $installerPath));
+            system(sprintf("rm -rf %s", $installerPath));
         }
         printf("Tinyphp-ui library [%s] is copyded from [%s]\n", $installerPath, self::UI_FRONTEND_LIBRARY_PATH);
         system(sprintf("cp -ar %s %s", self::UI_FRONTEND_LIBRARY_PATH, $installerPath));
