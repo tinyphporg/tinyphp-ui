@@ -16,8 +16,8 @@ let libDir = path.resolve(currentDir, './src/js/lib');
 let configFile = path.resolve(libDir, './config.json');
 
 let pluginDir = path.resolve(currentDir, './src/js/plugins');
-let prodPublicPath = '/tinyphp-bootstrap/';
-let devPublicPath = 'http://front.dev.tinycn.com/';
+let prodPublicPath = '/tinyphp-ui/';
+let devPublicPath = '/';
 
 const Config = {
     isProd: (process.env.NODE_ENV === 'prod'),
@@ -25,7 +25,7 @@ const Config = {
     dev: {
         publicPath: devPublicPath,
         staticDir: pluginDir,
-        apiDomain: 'http://api.dev.tinycn.com/',
+        apiDomain: '/',
         host: 'localhost',
         port: 8080
     },

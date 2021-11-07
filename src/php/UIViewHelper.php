@@ -31,7 +31,7 @@ class UIViewHelper implements IHelper
      *
      * @param View $view
      */
-    public function setViewHelper(View $view, array $hconfig)
+    public function setViewHelperConfig(View $view, array $hconfig)
     {
         $this->_view = $view;
         $this->_config = $hconfig;
@@ -42,7 +42,7 @@ class UIViewHelper implements IHelper
      *
      * @param string $hname
      */
-    public function checkHelperName($hname)
+    public function matchHelperByName($hname)
     {
         echo $hname;
         return in_array($hname, self::HELPER_NAME_LIST);

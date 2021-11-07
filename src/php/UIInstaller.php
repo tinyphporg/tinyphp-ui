@@ -97,6 +97,7 @@ class UIInstaller implements Iplugin
     public function onRouterStartup()
     {
         $config = (array) $this->_app->properties['view.ui'];
+       
         if (! $config['enabled'] || ! $config['installer']) 
         {
             return;
@@ -118,9 +119,9 @@ class UIInstaller implements Iplugin
      */
     protected function _copyUIFrontendLibrary($config)
     {
+        $installPath = dirname(get_included_files()[0]) . '/' . $config['frontend_path'];
+        $sourcePath = self::UI_FRONTEND_LIBRARY_PATH;
         
-        
-        $installerPath = dirname(get_included_files()[0]) . '/' . $config['installer_path'];
         if (! is_dir(self::UI_FRONTEND_LIBRARY_PATH))
         {
             return;
@@ -141,11 +142,50 @@ class UIInstaller implements Iplugin
             {
                 return;
             }
-            printf("Tinyphp-ui library is updated and rm -rf [%s]\n", $installerPath);
+            printf("Frontend Library of saasjit/tinyphp-ui is updated and rm -rf [%s]\n", $installerPath);
             system(sprintf("rm -rf %s", $installerPath));
         }
-        printf("Tinyphp-ui library [%s] is copyded from [%s]\n", $installerPath, self::UI_FRONTEND_LIBRARY_PATH);
+        printf("Frontend Library of saasjit/tinyphp-ui [%s] is copyded from [%s]\n", $installerPath, self::UI_FRONTEND_LIBRARY_PATH);
         system(sprintf("cp -ar %s %s", self::UI_FRONTEND_LIBRARY_PATH, $installerPath));
+    }
+    
+    /**
+     * 复制文件夹去安装路径
+     * 
+     * @param string $sourcePath 源文件路径
+     * @param string $installPath 安装路径
+     * @throws UIException
+     * @return void|boolean
+     */
+    protected function _copyto($sourcePath, $installPath)
+    {
+        if (!function_exists('system'))
+        {
+            throw new UIException(sprintf('Function "system" is not exists for copy UI library from %s to %s', $sourcePath, $installPath));
+        }
+        
+        if (preg_match("/^(\*|\/|\/(usr|home|root|lib|lib64|etc|var)\/?|)$/i", $installPath))
+        {
+            return;
+        }
+        
+        if (file_exists($installPath))
+        {
+            // 更新最新文件
+            if (filemtime($installPath) >= filemtime(self::UI_FRONTEND_LIBRARY_PATH))
+            {
+                return;
+            }
+            printf("saasjit/tinyphp-ui is updated and rm -rf [%s]\n", $installPath);
+            system(sprintf("rm -rf %s", $installPath));
+        }
+        
+        $ret = system(sprintf("cp -ar %s %s", self::UI_FRONTEND_LIBRARY_PATH, $installPath));
+        if ($ret === FALSE)
+        {
+            return;
+        }
+        return TRUE;
     }
     
     /**
