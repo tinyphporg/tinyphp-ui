@@ -3,13 +3,13 @@ namespace Tiny\MVC\View\UI;
 
 use Tiny\MVC\View\IHelper;
 use Tiny\MVC\View\View;
+use Tiny\MVC\Request\WebRequest;
+use Tiny\MVC\View\UI\Helper\Messagebox;
 
 class UIViewHelper implements IHelper
 {
 
-    const HELPER_NAME_LIST = [
-        'ui'
-    ];
+    const HELPER_NAME_LIST = ['ui', 'messagebox'];
 
     /**
      * View 当前view实例
@@ -26,12 +26,12 @@ class UIViewHelper implements IHelper
     protected $_config;
     
     /**
-     * 标题
+     * 代理的Helper实例
      * 
-     * @var string
+     * @var array
      */
-    protected $_subject = '提示';
-
+    protected $_helpers = [];
+    
     /**
      * 设置View实例
      *
@@ -41,6 +41,7 @@ class UIViewHelper implements IHelper
     {
         $this->_view = $view;
         $this->_config = $hconfig;
+        $this->_helpers['ui'] = $this;
     }
 
     /**
@@ -50,22 +51,41 @@ class UIViewHelper implements IHelper
      */
     public function matchHelperByName($hname)
     {
-        return in_array($hname, self::HELPER_NAME_LIST);
+       if (in_array($hname, self::HELPER_NAME_LIST))
+       {
+           if (key_exists($hname, $this->_helpers))
+           {
+               return $this->_helpers[$hname];
+           }
+           return $this->_helpers[$hname] = $this->_getHelperByName($hname); 
+       }
     }
     
-    
-    public function messagebox($message, $toUrl = NULL, $subject = NULL, $timeout = null)
+    /**
+     * 根据助手名返回助手实例
+     * 
+     * @param string $hname
+     * @return \Tiny\MVC\View\UI\Helper\Messagebox
+     */
+    protected function _getHelperByName($hname)
     {
-        $subject = trim($subject) ?: $this->_subject;
-        $toUrl = trim($toUrl);
-        $timeout = (int)$timeout ?: $this->_timeout;   
-        $messageBox = [
-            'subject' => $subject . 'AAAA',
-            'tourl' => $toUrl,
-            'timeout' => $timeout
-        ];
-        
-        echo $this->_view->display('helper/messagebox.htm', $messageBox);
+        switch ($hname)
+        {
+            case 'messagebox':
+                return $this->_getMessageboxHelper();
+        }
+    }
+    
+    /**
+     *  获取messagebox的助手实例
+     *  
+     * @return \Tiny\MVC\View\UI\Helper\Messagebox
+     */
+    protected function _getMessageBoxHelper()
+    {
+        $helperInstance = new Messagebox();
+        $helperInstance->setViewHelperConfig($this->_view, $this->_config);
+        return $helperInstance;
     }
 }
 
