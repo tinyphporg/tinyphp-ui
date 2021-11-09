@@ -25,6 +25,12 @@ class UIViewHelper implements IHelper
      */
     protected $_config;
     
+    /**
+     * 标题
+     * 
+     * @var string
+     */
+    protected $_subject = '提示';
 
     /**
      * 设置View实例
@@ -44,13 +50,22 @@ class UIViewHelper implements IHelper
      */
     public function matchHelperByName($hname)
     {
-        echo $hname;
         return in_array($hname, self::HELPER_NAME_LIST);
     }
     
-    public function messagebox($aaa)
+    
+    public function messagebox($message, $toUrl = NULL, $subject = NULL, $timeout = null)
     {
-        echo "aaaa";
+        $subject = trim($subject) ?: $this->_subject;
+        $toUrl = trim($toUrl);
+        $timeout = (int)$timeout ?: $this->_timeout;   
+        $messageBox = [
+            'subject' => $subject . 'AAAA',
+            'tourl' => $toUrl,
+            'timeout' => $timeout
+        ];
+        
+        echo $this->_view->display('helper/messagebox.htm', $messageBox);
     }
 }
 

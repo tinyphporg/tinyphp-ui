@@ -167,14 +167,15 @@ class UIViewTemplatePlugin implements IPlugin
         {
             return FALSE;
         }
+        
         $injectTag = ($this->_inject === 'body') ? '</body>' : '</head>';
-        if (strpos($template, $injectTag) < 0)
+        if (strpos($template, $injectTag) === FALSE)
         {
             return FALSE;
-        }
-        $this->_isOnceInjected = TRUE;
+        }   
         $libraryTag = $this->_parseTagUILibraryTag();
-        $count = 1;
+        $count = 0;
+        echo 'aaaa';
         return str_replace($injectTag, $libraryTag ."\n". $injectTag, $template, $count);
     }
     
@@ -184,6 +185,8 @@ class UIViewTemplatePlugin implements IPlugin
         {
             return '';
         }
+        $this->_isOnceInjected = TRUE;
+        
         return  <<<EOT
         <link href="/tinyphp-ui/css/tinyphp-ui-lib.min.css" rel="stylesheet"/>
         <link href="/tinyphp-ui/css/tinyphp-ui.min.css" rel="stylesheet"/>

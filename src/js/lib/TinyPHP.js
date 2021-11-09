@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import Prototype from '@lib/tinyphp/Prototype';
-import '@lib/bootstrap';
 import AdminLTE from '@lib/adminlte';
 
 import Alert from './plugin/Alert.js';
