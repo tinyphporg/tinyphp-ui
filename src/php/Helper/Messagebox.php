@@ -87,6 +87,7 @@ class Messagebox implements IHelper
         $toUrl = trim($toUrl) ?: WebRequest::getInstance()->referer;
         $timeout = (int)$timeout ?: $this->_timeout;
         $messageBox = [
+            'title' => $subject,
             'subject' => $subject,
             'messageTitle' => $title,
             'tourl' => $toUrl,

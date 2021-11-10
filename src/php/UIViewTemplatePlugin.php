@@ -23,7 +23,7 @@ class UIViewTemplatePlugin implements IPlugin
      * 可解析的标签列表
      * @var array
      */
-    const PARSE_TAG_LIST = ['ui.lib'];
+    const PARSE_TAG_LIST = ['ui.lib', 'ui.jslib'];
     
     /**
      * 默认插入前端库的位置为头部标签最下
@@ -131,6 +131,8 @@ class UIViewTemplatePlugin implements IPlugin
         {
             case 'ui.lib':
                 return $this->_parseTagUILibraryTag();
+            case 'ui.jslib':
+                return $this->_parseTagUIJSLibraryTag();
             case 'ui.preload':
                 return $this->_parseTagUIPreload($tagName, $tagBody, $extra);
         }
@@ -175,8 +177,19 @@ class UIViewTemplatePlugin implements IPlugin
         }   
         $libraryTag = $this->_parseTagUILibraryTag();
         $count = 0;
-        echo 'aaaa';
         return str_replace($injectTag, $libraryTag ."\n". $injectTag, $template, $count);
+    }
+    
+    protected function _parseTagUIJSLibraryTag()
+    {
+        if ($this->_isOnceInjected)
+        {
+            return '';
+        }
+        $this->_isOnceInjected = TRUE;
+        
+        return  '<script src="/tinyphp-ui/js/tinyphp-ui-lib.min.js"></script><script src="/tinyphp-ui/js/tinyphp-ui.min.js"></script>';
+        
     }
     
     protected function _parseTagUILibraryTag()

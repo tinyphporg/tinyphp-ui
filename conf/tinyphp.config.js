@@ -119,7 +119,8 @@ const Config = {
         alias: {
             '@assets': assetDir,
             '@lib': libDir,
-            '@src': srcDir
+            '@src': srcDir,
+            'jQuery' : path.resolve(projectDir,'./node_modules/jquery/dist/jquery.js')
         }
     }
 }

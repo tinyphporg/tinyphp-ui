@@ -5,6 +5,7 @@ import AdminLTE from '@lib/adminlte';
 import Alert from './plugin/Alert.js';
 import Cookie from './plugin/Cookie.js';
 import Summernote from './plugin/Summernote';
+import Debug from './plugin/Debug';
 
 class Tiny {
 
@@ -33,7 +34,8 @@ class Tiny {
     static _plugins = {
         alert: Alert,
         summernote: Summernote,
-        cookie: Cookie
+        cookie: Cookie,
+        debug: Debug,
     };
 
     static _preload() {
@@ -102,6 +104,7 @@ class Tiny {
     static _postload() {
         Tiny._isPostLoaded = true;
         let loads = [];
+        
         Tiny._postLoadPlugins.forEach(plugin => {
             loads.push(plugin.load());
         });

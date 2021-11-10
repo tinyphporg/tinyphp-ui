@@ -1,10 +1,11 @@
+
 {template pub/header.htm}
-<div class="card  card-secondary text-center" style="max-width:70%;margin:10% 15%">
-    <h5 class=" card-header">{$messagebox['subject']}</h5>
+<div class="card" style="margin:10% 15%">
+    <h5 class="card-header">{$messagebox['subject']}</h5>
   <div class="card-body">
     <h5 class="card-title">{$messagebox['title']}</h5>
     <p class="card-text">{$messagebox['message']}</p>
-    <a id="TINY_UI_messageGoto" href="javascript:void(0)" class="btn btn-primary">确认</a>
+    <a id="TINY_UI_messageGoto" href="javascript:void(0)" class="btn btn-primary">确认返回</a>
   </div>
   <div class="card-footer text-muted">
    <span id="TINY_UI_messageTimeout">{$messagebox['timeout']}</span>秒后自动跳转
