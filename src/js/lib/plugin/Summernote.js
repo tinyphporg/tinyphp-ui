@@ -20,6 +20,8 @@ class Summernote {
     static async load() {
         const module = await import('@lib/summernote');
         Summernote._module = module.default;
+        
+
         return module.default;
     }
 
