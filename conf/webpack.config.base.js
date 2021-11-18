@@ -15,7 +15,7 @@ tconfig.path.viewPages.forEach(page => {
     entry[page.id] = page.entry;
     plugins.push(
         new HtmlWebpackPlugin({
-            favicon: tconfig.path.faviconDir,
+            favicon: false,
             filename: path.resolve(appPath.distDir, `./html/${page.id}.html`),
             template: page.template,
             chunks: [page.id],

@@ -1,233 +1,262 @@
-<html>
-<head>
-</head>
-<body>
+<!-- tinyphp debug start -->
+{ui.lib} 
+<style>
+.tinyphp-debug-box .card-body p{font-size:14px;margin:0;padding:0}
+</style>
 
-    
-<!-- Exception Start -->
-{if $debugFirstException}
-  <div class="card" id="debugException">
-    <div class="card-body">
-      <h1 class="card-title"><strong>{$debugFirstException['type']}</strong></h1>
-      <p class="card-text text-muted"><b>{$debugFirstException['handler']}: </b>{$debugFirstException['message']}.<br/>
-     <b>Line: </b>{$debugFirstException['line']}<br/>
-     <b>File: </b>{$debugFirstException['file']}<br/>
-       <b>Trace: </b> {$debugFirstException['traceString']} </p>
- {if $debugExceptions}
-<br/>
-{loop $debugExceptions $de}
-<p><b  class="text-muted">{$de['type']}: </b> {$de['handler']}  {$de['message']} On {$de['file']} Line {$de['line']}</p>
-{/loop}
-{/if}            
-       <div id ="TINYPHP_DEBUG_CODE" class="row border bg-light ">
-    <div class="col col-1  text-center bg-secondary px-0" style="max-width:35px">
-{loop $debugFirstException['codes'] $code}
-<p {if $code[2]}class="bg-light"{/if}><small>{$code[0]}</small></p>
-{/loop}
-    </div>
-    <div class="col px-0">
-{loop $debugFirstException['codes'] $code}
-        <p class="{if $code[2]}bg-secondary text-white{/if} pl-1"> <small>{$code[1]}</small></p>
-{/loop}
-    </div>
-</div>
+	<div class="container-fluid m-0 p-0 tinyphp-debug-container">
 
-</div>
+		{if $debugFirstException}
+		<!-- Exception Start -->
+		<div class="row tinyphp-debug-exception">
+			<div class="card border-0">
+				<div class="card-body">
+					<h1 class="card-title">
+						<strong>{$debugFirstException['type']}</strong>
+					</h1>
+					<p class="card-text">
+						<b>{$debugFirstException['handler']}: </b>{$debugFirstException['message']}.<br />
+						<b>Line: </b>{$debugFirstException['line']}<br /> <b>File: </b>{$debugFirstException['file']}<br />
+						<b>Trace: </b> {$debugFirstException['traceString']}
+					</p>
 
-    </div>
-{/if}
+					<div  class="row bg-light rounded mx-1 p-2" style="font-size:13px;">
+						<div class="col col-1  text-left" style="max-width:60px">
+							{loop $debugFirstException['codes'] $code}
+							<p class="{if $code[2]}fw-bold{/if} p-1 m-0">{$code[0]}</p>
+							{/loop}
+						</div>
+						<div class="col rounded tinyphp-debug-code" id="TINYPHP_DEBUG_CODE">
+							{loop $debugFirstException['codes'] $code}
+							<p class="p-1 m-0" {if $code[2]}{/if}>{$code[1]}</p>
+							{/loop}
+						</div>
+					</div>
+					{if $debugExceptions} <br /> {loop $debugExceptions $de}
+					<p>
+						<b>{$de['type']}: </b> {$de['handler']} {$de['message']} On
+						{$de['file']} Line {$de['line']}
+					</p>
+					{/loop} {/if}
+				</div>
 
-
-
-<div class="accordion" id="debugBox">
-
-<!-- EXEC BOX Start -->
-  <div class="card" style="margin-bottom:0">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-           <span style="float: left">Total Time: <span class="font_red_d"> {$debugInterval} </span>second(s), Total Memory: <span class="font_red_d">{$debugMemory}</span> M.
-                </span>
-        </button>
-      </h2>
-    </div>
-
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#debugBox">
-      <div class="card-body">
-<p><span class="font_green">URL: </span>{$request->url}</p>
-{if $request->referer}
-<p><span class="font_green">Referer: </span>{$request->referer}</p>
-{/if}
-{if $debugRouterName}
-<p><span class="font_green">Router: </span>{$debugRouterName}</p>
-<p><span class="font_green">Router Matched URL: </span>{$debugRouterUrl}</p>
-<p><span class="font_green">Router Matched Router Params: </span>{eval echo var_export($debugRouterParams, TRUE)}</p>
-{/if}
-<p><span class="font_green">Controller: </span>{$debugControllerList} </p>
-<p><span class="font_green">Action: </span>{$actionName}({$controllerName}->{$actionName}Action)</p>
-<p><span class="font_green">Model List: </span>{$debugModelList}
-      </div>
-    </div>
-</div>    
-<!-- EXEC BOX End -->
-
-<!-- SQL Helper Start -->
-  <div class="card" >
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-            <span style="float: left;"> SQL Total Time: <span class="font_red_d"> {$debugDbTimeTotal} </span> second(s), <span class="font_red_d">{$debugDbQueryTotal}</span> querys.
-
-                </span>
-        </button>
-      </h2>
-    </div>
-
-    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#debugBox">
-      <div class="card-body" id="TINYPHP_DEBUG_SQL_HELPER" >
-            {loop $debugDbQuerys $query}
-            <p > 
-                <span style="padding-right:5px">{$query['engine']} : </span>
-                <span class="font_green">{$query['sql']}</span>
-                <span>Exec Time: </span><span class="font_red">{$query['time']}<span class="font_blue"> s.</span> </span>
-           </p>
-            {/loop}
-      </div>
-    </div>
-</div> 
-<!-- SQL Helper End -->
-
-<!-- View Start -->
-  <div class="card" >
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-             <span style="float: left">Views</span> 
-        </button>
-      </h2>
-    </div>
-
-    <div id="collapseThree" class="collapse hide" aria-labelledby="headingThree" data-parent="#debugBox">
-      <div class="card-body" >
-               <p><span class="font_green">视图变量:&nbsp;</span>${eval echo join(', $', array_keys($debugViewAssign))}</p>
-
-                {loop $debugViewPaths $vpath}
-                
-                    <p><span class="font_green">[{$vpath[2]}</span>] <span class="font_green">{$vpath[0]}:&nbsp;</span>{$vpath[1]}</p>
-                {/loop}
-      </div>
-    </div>
-</div> 
-<!-- View End -->
+			</div>
+		</div>
+		<!-- Exception End -->
+		{/if}
 
 
-<!-- Const Start -->
-  <div class="card" >
-    <div class="card-header" id="headingFour">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-             <span style="float: left">Variables</span> 
-        </button>
-      </h2>
-    </div>
+		<!-- debugbox Start -->
+		<div class="row tinyphp-debug-box">
 
-    <div id="collapseFour" class="collapse hide" aria-labelledby="headingFour" data-parent="#debugBox">
-      <div class="card-body" >
-      
-            <p class="font_yellow_d">以下为未经框架处理的原生数据, 仅供参考, 请勿直接调用\\$_GET,\\$_POST,\\$_COOKIE三个全局数组.应在控制器内，,以$this->get,$this->post,$this->cookie获取.</p>
-            <p><b class="font_blue">Const</b></p>
-            {loop $debugConstants['user'] $key $const}
-            <p>
-            {$key} =  {if is_bool($const)}
-            <span class="font_blue">&nbsp;{eval echo $const ? 'TRUE' : 'FALSE'}&nbsp;</span>
-            {elseif is_int($const)}
-            <span class="font_blue">&nbsp;{$const}&nbsp;</span>
-            {elseif is_string($const)}
-            <span class="font_green">&nbsp;"{$const}"&nbsp;</span>
-            {/if}
-            </p>
-            {/loop}
+			<!-- EXEC BOX Start -->
+			<div class="card border-0" >
+				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxExec">
+					<h4 class="my-2 fs-6 fw-normal">
+						<small>Total Time: {$debugInterval} second(s), Total Memory: {$debugMemory} M.</small>
+					</h4>
+				</div>
 
-<p><b class="font_blue" >_GET</b></p>
-{loop $debugRequestData['get']  $key $val}
-<p>{$key} = <span class="font_green">&nbsp;"{$val}"&nbsp;</span></p>
-{/loop}
-<p><b class="font_blue" >_POST</b></p>
-{loop $debugRequestData['post']  $key $val}
-<p>{$key} = <span class="font_green">&nbsp;"{$val}"&nbsp;</span></p>
-{/loop}
-<p><b class="font_blue" >_COOKIE</b></p>
-{loop $debugRequestData['cookie']  $key $val}
-<p>{$key} = <span class="font_green">&nbsp;"{$val}"&nbsp;</span></p>
-{/loop}
-<p><b class="font_blue" >_SESSION</b></p>
-{loop $debugRequestData['session']  $key $val}
-<p>{$key} = <span class="font_green">&nbsp;"{$val}"&nbsp;</span></p>
-{/loop}
-<p><b class="font_blue" >_SERVER</b></p>
-{loop $debugRequestData['server']  $key $val}
-<p>{$key} = <span class="font_green">&nbsp;"{$val}"&nbsp;</span></p>
-{/loop}
-<p><b class="font_blue" >_argv</b></p>
-{loop $debugRequestData['argv']  $key $val}
-<p>{$key} = <span class="font_green">&nbsp;"{$val}"&nbsp;</span></p>
-{/loop}
-      </div>
-    </div>
-</div> 
-<!-- Const End -->
+				<div id="debugBoxExec" class="collapse show">
+					<div class="card-body">
+						<p>URL:{$request->url}</p>
+						{if $request->referer}
+						<p>Referer: {$request->referer}</p>
+						{/if} {if $debugRouterName}
+						<p>Router: {$debugRouterName} </p>
+						<p>Router Matched URL: {$debugRouterUrl}</p>
+						<p> Router Matched Router Params: {eval echo var_export($debugRouterParams, TRUE)}</p>
+						{/if}
+						<p>Controller:{$debugControllerList}</p>
+						<p>Action: {$actionName}({$controllerName}->{$actionName}Action) </p>
+						<p>Model List: {$debugModelList}</p>
+					</div>
+				</div>
+			</div>
+			<!-- EXEC BOX End -->
 
-<!-- Include Start -->
-  <div class="card" >
-    <div class="card-header" id="headingFive">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-             <span style="float: left">Includes</span>
-        </button>
-      </h2>
-    </div>
+			<!-- SQL Helper Start -->
+			<div class="card border-0">
+				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxSqlHelper">
+					<h4 class="my-2 fs-6 fw-normal" > 
+					   <small>SQL Total Time:  {$debugDbTimeTotal} second(s), {$debugDbQueryTotal} querys.</small>
+					</h4>
+				</div>
 
-    <div id="collapseFive" class="collapse hide" aria-labelledby="headingFive" data-parent="#debugBox">
-      <div class="card-body" >
-<p><b class="font_blue" >loaded extensions</b></p>
-<p style="height:auto"><span class="font_green">&nbsp;"{eval echo join('</span>,<span class="font_green">', $debugExts)}"&nbsp; </p>
-<p><b class="font_blue" >INCLUDE FILES</b></p>
-{eval $debugIncludeFiles = get_included_files()}
-{loop $debugIncludeFiles $key $val}
-<p>{$key} = <span class="font_green">&nbsp;"{$val}"&nbsp;</span></p>
-{/loop}
+				<div id="debugBoxSqlHelper" class="collapse show">
+					<div class="card-body" id="TINYPHP_DEBUG_SQL_HELPER">
+						{loop $debugDbQuerys $query}
+						<p>
+							<span>{$query['engine']} : </span> <span
+								class="font_green">{$query['sql']}</span> <span>Exec
+								Time: </span><span class="font_red">{$query['time']}<span
+								class="font_blue"> s.</span>
+							</span>
+						</p>
+						{/loop}
+					</div>
+				</div>
+			</div>
+			<!-- SQL Helper End -->
+
+			<!-- View Start -->
+			<div class="card border-0">
+				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxView">
+					<h4 class="my-2 fs-6 fw-normal">
+						<small>Views</small>
+					</h4>
+				</div>
+
+				<div id="debugBoxView" class="collapse hide">
+					<div class="card-body">
+						<p>
+							视图变量: ${eval echo join(',$', array_keys($debugViewAssign))}
+						</p>
+
+						{loop $debugViewPaths $vpath}
+						<p>
+							[{$vpath[2]}]{$vpath[0]}:&nbsp;{$vpath[1]}
+						</p>
+						{/loop}
+					</div>
+				</div>
+			</div>
+			<!-- View End -->
+
+
+			<!-- Const Start -->
+			<div class="card border-0">
+				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxVar">
+					<h4 class="my-2 fs-6 fw-normal" >
+					<small>Variables</small>
+					</h4>
+				</div>
+
+				<div id="debugBoxVar" class="collapse hide" >
+					<div class="card-body">
+                        <p>以下为未经框架处理的原生数据, 仅供参考,请勿直接调用\\$_GET,\\$_POST,\\$_COOKIE三个全局数组.应在控制器内，,以$this->get,$this->post,$this->cookie获取.</p>
+						<p>
+							Const
+						</p>
+						
+						{loop $debugConstants['user'] $key $val}
+						<p>
+							{$key} = {$val}
+						</p>
+						{/loop}
+
+						<p>
+							<b>_GET</b>
+						</p>
+						{loop $debugRequestData['get'] $key $val}
+						<p>
+							{$key} = "{$val}"
+						</p>
+						{/loop}
+						<p>
+							<b>_POST</b>
+						</p>
+						{loop $debugRequestData['post'] $key $val}
+						<p>
+							{$key} = "{$val}" 
+						</p>
+						{/loop}
+						<p>
+							<b>_COOKIE</b>
+						</p>
+						{loop $debugRequestData['cookie'] $key $val}
+						<p>
+							{$key} = "{$val}"
+						</p>
+						{/loop}
+						<p>
+							<b>_SESSION</b>
+						</p>
+						{loop $debugRequestData['session'] $key $val}
+						<p>
+							{$key} = "{$val}"
+						</p>
+						{/loop}
+						<p>
+							<b>_SERVER</b>
+						</p>
+						{loop $debugRequestData['server'] $key $val}
+						<p>
+							{$key} = "{$val}"
+						</p>
+						{/loop}
+						<p>
+							<b>_argv</b>
+						</p>
+						{loop $debugRequestData['argv'] $key $val}
+						<p>
+							{$key} = "{$val}"
+						</p>
+						{/loop}
+					</div>
+				</div>
+			</div>
+			<!-- Const End -->
+
+			<!-- Include Start -->
+			<div class="card border-0">
+				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxInclude">
+					<h4 class="my-2 fs-6 fw-normal">
+						<small>Includes</small>
+					</h4>
+				</div>
+
+				<div id="debugBoxInclude" class="collapse hide">
+					<div class="card-body">
+						<p>
+							<b>loaded extensions</b>
+						</p>
+						<p>
+							"{eval echo join(',', $debugExts)}"
+						</p>
+						<p>
+							<b>INCLUDE FILES</b>
+						</p>
+						{eval $debugIncludeFiles = get_included_files()} 
+						{loop $debugIncludeFiles $key $val}
+						<p>
+							{$key} =  "{$val}"
+						</p>
+						{/loop}
 
 
 
-<p><b class="font_blue" >INCLUDE PATHS</b></p>
-{loop $debugIncludePaths $key $val}
-<p>INCLUDE_PATH_{$key} = <span class="font_green">&nbsp;"{$val}"&nbsp;</span></p>
-{/loop}
-      </div>
-    </div>
-</div> 
-<!-- Include End -->
+						<p>
+							<b>INCLUDE PATHS</b>
+						</p>
+						{loop $debugIncludePaths $key $val}
+						<p>
+							INCLUDE_PATH_{$key} = "{$val}"
+						</p>
+						{/loop}
+					</div>
+				</div>
+			</div>
+			<!-- Include End -->
 
-<!-- Docs Start -->
-  <div class="card" >
-    <div class="card-header" id="headingSix">
-      <h2  onclick="__TINYPHP_DEBUG.showdoc('TINYPHP_DEBUG_DOCS', 'TINYPHP_DEBUG_IFRAME', '{$debugDocUrl}')" class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-             <span style="float: left">Docs</span>
-        </button>
-      </h2>
-    </div>
+			<!-- Docs Start -->
+			<div class="card border-0">
+				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxDocs">
+					<h4 onclick="__TINYPHP_DEBUG.showdoc('TINYPHP_DEBUG_DOCS', 'TINYPHP_DEBUG_IFRAME', '{$debugDocUrl}')" class="my-2 fs-6 fw-normal">
+						<small>Docs</small>
+					</h4>
+				</div>
+				<div  id="debugBoxDocs" class="collapse"  >
+					<div  id="TINYPHP_DEBUG_DOCS"  class="card-body">
+					</div>
+				</div>
+			</div>
+			<!-- Docs End -->
+			<!-- sss-->
 
-    <div id="collapseSix" class="collapse hide" aria-labelledby="headingSix" data-parent="#debugBox">
-      <div id="TINYPHP_DEBUG_DOCS" class="card-body" >
- <p><a href="javascript:__TINYPHP_DEBUG.showdoc('TINYPHP_DEBUG_DOCS', 'TINYPHP_DEBUG_IFRAME', '{$debugDocUrl}');void(0)">Tiny PHP Framework Docs</a></p>
-      </div>
-    </div>
-</div> 
-<!-- Docs End -->
-<!-- sss-->
-</div>       
-<script type="text/javascript">
+		</div>
+		</div>
+		<script type="text/javascript">
 
 (function(window) {
     var document = window.document;
@@ -288,12 +317,12 @@
         if (!string) {
             return string;
         }
-        string = string.replace(/(('.+')|(".+"))/gm, "<span style=\"color:green\">$1</span>");
-        string = string.replace(/(public|var|if|else|elseif|show|array|__construct|static|private|protected|class|throw|show|\->|;|throw|\(|\)|\{|\}|\=>|return|new|\$this|(\:\:)|function|self)/igm, "<span style=\"color:blue\">$1</span>");
-        string = string.replace(/(\/\*.*\*\/)/gm, "<span style=\"color:green\">$1</span>");
-        string = string.replace(/(\$[A-Za-z]{1}([a-zA-Z0-9]*)?)/gm, "<span style=\"color:#6a0b0b\">$1</span>");
-        string = string.replace(/(\s+\d+\s+)/gm, "<span style=\"color:red\">$1</span>");
-        string = string.replace(/(\/\/.*)/gm, "<span style=\"color:#aaa\">$1</span>");
+        string = string.replace(/(('.+')|(".+"))/gm, "<span class=\"text-success\">$1</span>");
+        string = string.replace(/(public|var|if|else|elseif|show|array|__construct|static|private|protected|class|throw|show|\->|;|throw|\(|\)|\{|\}|\=>|return|new|\$this|(\:\:)|function|self) /igm, "<span class=\"text-primary\"> $1 </span>");
+        string = string.replace(/(\/\*.*\*\/)/gm, "<span class=\"text-success\">$1</span>");
+        string = string.replace(/(\$[A-Za-z]{1}([a-zA-Z0-9]*)?)/gm, "<span class=\"\">$1</span>");
+        string = string.replace(/(\s+\d+\s+)/gm, "<span class=\"text-primary\">$1</span>");
+        string = string.replace(/(\/\/.*)/gm, "<span class=\"text-black-50\">$1</span>");
         return string;
     }
 
@@ -301,23 +330,10 @@
         if (!string) {
             return string;
         }
-        string = string.replace(/(('.+')|(".+")|(`.+`))/gm, "<span class=\"font_yellow_d\">$1</span>");
-        string = string.replace(/(INSERT |SELECT |ORDER |BY | JOIN | FROM | LIMIT | DESC | AND | ON |\(|\))/igm, "<span style=\"color:blue\">$1</span>");
-        string = string.replace(/(\s+\d+\s+)/gm, "<span style=\"color:red\">$1</span>");
+        string = string.replace(/(('.+')|(".+")|(`.+`))/gm, "<span class=\"text-warning\">$1</span>");
+        string = string.replace(/(INSERT |SELECT |ORDER |BY | JOIN | FROM | LIMIT | DESC | AND | ON | WHERE |\(|\))/igm, "<span class=\"text-primary\">$1</span>");
+        string = string.replace(/(\s+\d+\s+)/gm, "<span class=\"text-danger\">$1</span>");
         return string;
-    }
-
-    __D.down = function(id) {
-        var B = __D(id);
-        var jt = __D(id + '_JT');
-        if (B.style.display != 'block') {
-            B.isdown = true;
-            B.style.display = "block";
-            jt.className = 'jt_down';
-        } else {
-            B.style.display = 'none';
-            jt.className = 'jt_up';
-        }
     }
     
     __D.showdoc = function(id, fid, url) {
@@ -336,6 +352,9 @@
                 }
            }            
             __D(id).appendChild(element);
+        } else {
+            
+            __D(fid).src = url;
         }
         return false;
     }
@@ -354,5 +373,4 @@
     window.__TINYPHP_DEBUG = __D;
 })(window);
 </script>
-</body>
-</html>
+<!-- tinyphp debug end -->

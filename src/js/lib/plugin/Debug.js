@@ -20,6 +20,7 @@ class Debug {
 
 
     static output() {
+        
         console.log(window.hasOwnProperty('__tinyphp_debuginfo'))
         if (!window.hasOwnProperty('__tinyphp_debuginfo'))
         {
@@ -36,6 +37,7 @@ class Debug {
         }
     }
 }
+
 $(()=>{Debug.output();});
 
 export default Debug;

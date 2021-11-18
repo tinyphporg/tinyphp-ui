@@ -1,11 +1,10 @@
 import $ from 'jquery';
 import Prototype from '@lib/tinyphp/Prototype';
-import AdminLTE from '@lib/adminlte';
+import Bootstrap from '@lib/bootstrap';
 
 import Alert from './plugin/Alert.js';
 import Cookie from './plugin/Cookie.js';
 import Summernote from './plugin/Summernote';
-import Debug from './plugin/Debug';
 
 class Tiny {
 
@@ -15,7 +14,7 @@ class Tiny {
 
     static _Prototype = Prototype;
 
-    static _AdminLTE = AdminLTE;
+    static _Boostrap = Bootstrap;
 
     static _Plugin = Plugin;
 
@@ -34,8 +33,7 @@ class Tiny {
     static _plugins = {
         alert: Alert,
         summernote: Summernote,
-        cookie: Cookie,
-        debug: Debug,
+        cookie: Cookie
     };
 
     static _preload() {

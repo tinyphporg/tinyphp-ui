@@ -1,9 +1,32 @@
-<?php 
+<?php
+/**
+ *
+ * @copyright (C), 2013-, King.
+ * @name UIViewTemplatePlugin.php
+ * @author King
+ * @version stable 1.0
+ * @Date 2017年3月12日下午2:05:36
+ * @Class List
+ * @Function List
+ * @History King 2021年11月16日下午5:40:10 0 第一次建立该文件
+ *          King 2021年11月16日下午5:40:10 1 修改
+ *          King 2021年11月16日下午5:40:10 stable 1.0.01 审定
+ */
+
 namespace Tiny\MVC\View\UI;
 
 use Tiny\MVC\View\Engine\Template\IPlugin;
 use Tiny\MVC\View\Engine\Template;
 
+/**
+ * 
+ * View Template 插件
+ * 
+ * @package Tiny.MVC.View.UI
+ * @since  King 2021年11月16日下午5:40:10 
+ * @final  King 2021年11月16日下午5:40:10 
+ *
+ */
 class UIViewTemplatePlugin implements IPlugin
 {
     /**
@@ -131,10 +154,6 @@ class UIViewTemplatePlugin implements IPlugin
         {
             case 'ui.lib':
                 return $this->_parseTagUILibraryTag();
-            case 'ui.jslib':
-                return $this->_parseTagUIJSLibraryTag();
-            case 'ui.preload':
-                return $this->_parseTagUIPreload($tagName, $tagBody, $extra);
         }
         
         return;
@@ -165,7 +184,7 @@ class UIViewTemplatePlugin implements IPlugin
      */
     public function onPostParse($template)
     {
-        if (!$this->_inject || $this->_isOnceInjected)
+        if (!$this->_inject)
         {
             return FALSE;
         }
@@ -176,41 +195,30 @@ class UIViewTemplatePlugin implements IPlugin
             return FALSE;
         }   
         $libraryTag = $this->_parseTagUILibraryTag();
-        $count = 0;
+        $count = 1;
+  
         return str_replace($injectTag, $libraryTag ."\n". $injectTag, $template, $count);
     }
     
-    protected function _parseTagUIJSLibraryTag()
-    {
-        if ($this->_isOnceInjected)
-        {
-            return '';
-        }
-        $this->_isOnceInjected = TRUE;
-        
-        return  '<script src="/tinyphp-ui/js/tinyphp-ui-lib.min.js"></script><script src="/tinyphp-ui/js/tinyphp-ui.min.js"></script>';
-        
-    }
-    
+    /**
+     * 解析UI library库标签
+     * 
+     * @return string
+     */
     protected function _parseTagUILibraryTag()
-    {
-        if ($this->_isOnceInjected)
-        {
-            return '';
-        }
-        $this->_isOnceInjected = TRUE;
-        
+    {   
         return  <<<EOT
-        <link href="/tinyphp-ui/css/tinyphp-ui-lib.min.css" rel="stylesheet"/>
-        <link href="/tinyphp-ui/css/tinyphp-ui.min.css" rel="stylesheet"/>
-        <script src="/tinyphp-ui/js/tinyphp-ui-lib.min.js"></script>
-        <script src="/tinyphp-ui/js/tinyphp-ui.min.js"></script>
+        <?php
+        if (!\$this->__tinyphpUILibraryInjected) 
+        {
+            \$this->__tinyphpUILibraryInjected = TRUE;
+            echo '<link href="/tinyphp-ui/css/tinyphp-ui-lib.min.css" rel="stylesheet"/>';
+            echo '<link href="/tinyphp-ui/css/tinyphp-ui.min.css" rel="stylesheet"/>';
+            echo '<script src="/tinyphp-ui/js/tinyphp-ui-lib.min.js"></script>';
+            echo '<script src="/tinyphp-ui/js/tinyphp-ui.min.js"></script>';
+        }
+        ?>
         EOT;  
-    }
-    
-    protected function _parseTagUIPreload($tagName, $tagBody, $extra)
-    {
-        
     }
 }
 ?>
