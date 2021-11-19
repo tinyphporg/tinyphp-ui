@@ -6,6 +6,7 @@
 @function theme-color($key: "primary") {
   @return map-get($theme-colors, $key);
 }
+
 @mixin box-shadow($shadow...) {
   @if $enable-shadows {
     $result: ();

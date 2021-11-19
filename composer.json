@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Tiny\\MVC\\View\\UI\\": "src/php"
+            "Tiny\\MVC\\View\\UI\\": "src/"
         }
     },
     "timeout": 1000000

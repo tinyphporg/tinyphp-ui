@@ -19,18 +19,25 @@ use Tiny\Config\Configuration;
 use Tiny\MVC\Plugin\Iplugin;
 
 /**
+ * tinyphp-ui的根目录
+ * 
+ * @var string
+ */
+define('TINY_UI_ROOT', dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR);
+
+/**
  * JS前端库的绝对路径
  *
  * @var string
  */
-define('TINY_UI_FRONTEND_LIBRARY_PATH', dirname(dirname(__DIR__)) . '/dist/tinyphp-ui/');
+define('TINY_UI_FRONTEND_LIBRARY_DIR', TINY_UI_ROOT . 'dist/tinyphp-ui/');
 
 /**
  * 模板库的绝对路径
  *
  * @var string
  */
-define('TINY_UI_VIEW_TEMPLATE_PATH', dirname(dirname(__DIR__)) . '/src/views/tinyphp-ui/');
+define('TINY_UI_VIEW_TEMPLATE_DIR', TINY_UI_ROOT . 'templates/');
 
 /**
  * 打包器插件
@@ -47,14 +54,14 @@ class UIInstaller implements Iplugin
      *
      * @var string
      */
-    const UI_FRONTEND_LIBRARY_PATH = TINY_UI_FRONTEND_LIBRARY_PATH;
+    const UI_FRONTEND_LIBRARY_DIR = TINY_UI_FRONTEND_LIBRARY_DIR;
 
     /**
      *  UI 视图模板库的安装路径
      *  
      * @var string
      */
-    const UI_VIEW_TEMPLATE_PATH = TINY_UI_VIEW_TEMPLATE_PATH;
+    const UI_VIEW_TEMPLATE_DIR = TINY_UI_VIEW_TEMPLATE_DIR;
     
     /**
      * 预定义的Template解析插件
@@ -94,6 +101,8 @@ class UIInstaller implements Iplugin
     {
         $this->_app = $app;
         $this->_properties = $app->properties;
+        $this->_properties['view.ui.enabled'] = FALSE;
+        echo 'sss';
     }
 
     /**
@@ -136,15 +145,16 @@ class UIInstaller implements Iplugin
             return;
         }
         
+        
         // 复制前端JS库
         $frontPath = dirname(get_included_files()[0]) . '/' . trim($installConfig['frontend_path']);
-        $this->_copyto(self::UI_FRONTEND_LIBRARY_PATH, $frontPath);
+        $this->_copyto(self::UI_FRONTEND_LIBRARY_DIR, $frontPath);
         
         //生成配置文件
         $uiconfig = [
             'template_plugin' => '\Tiny\MVC\View\UI\UIViewTemplatePlugin',
             'helper' => '\Tiny\MVC\View\UI\UIViewHelper',
-            'template_dirname' => self::UI_VIEW_TEMPLATE_PATH,
+            'template_dirname' => self::UI_VIEW_TEMPLATE_DIR,
         ];
         
         $configPath = (string)$installConfig['config_path'];
