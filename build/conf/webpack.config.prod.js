@@ -17,12 +17,6 @@ module.exports = merge(baseWebpackConfig, {
             maxInitialRequests: 30,
             name: false,
             cacheGroups: {
-                lib: {
-                    test: /(node_modules|src[\\/]js[\\/]lib)[\\/](bootstrap|tinyphp|fontawsome)/,
-                    priority: -1,
-                    chunks: 'initial',
-                    name: 'tinyphp-ui-lib'
-                },
                 ...tconfig.plugins,
 
 

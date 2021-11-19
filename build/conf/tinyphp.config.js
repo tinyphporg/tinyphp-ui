@@ -1,25 +1,39 @@
 const path = require('path');
 const fs = require('fs');
-const pluginsConfig = require('./tinyphp.plugin.js');
 const { merge } = require('webpack-merge');
 
-let currentDir = path.resolve(__dirname, '../');
-let srcDir = path.resolve(currentDir, './src/js');
-let viewDir = path.resolve(currentDir, './src/js/views');
-let assetDir = path.resolve(currentDir, './src/js/assets');
-let projectDir = path.resolve(__dirname, '../');
-let publicDir = path.resolve(projectDir, './dist');
-console.log(publicDir)
-let distDir = path.resolve(publicDir, './tinyphp-ui');
-let adminlteDir = path.resolve(projectDir, './node_modules/adminlte');
-let libDir = path.resolve(currentDir, './src/js/lib');
-let configFile = path.resolve(libDir, './config.json');
+const pluginsConfig = require('./tinyphp.plugin.js');
 
-let pluginDir = path.resolve(currentDir, './src/js/plugins');
+
+let rootDir = path.resolve(__dirname, '../../');
+let buildDir = path.resolve(__dirname, '../');
+let srcDir = path.resolve(buildDir, './js/');
+
+let assetDir = path.resolve(buildDir, './assets');
+let scssDir = path.resolve(buildDir, './scss');
+
+// pages 
+let pageDir = path.resolve(buildDir, './pages');
+let pluginDir = path.resolve(srcDir, './plugins');
+
+// 编译后的存储路径
+let distDir = path.resolve(rootDir, './dist');
+
+// page编译后的存储路径
+let pageDistDir = path.resolve(rootDir, './pages');
+
+// prod环境下的publicPath
 let prodPublicPath = '/tinyphp-ui/';
+
+// dev环境下的publicPath
 let devPublicPath = '/';
 
+let uiConfigFile = path.resolve(srcDir, './TinyPHP.json');
+
 const Config = {
+    entry: {
+        'tinyphp-ui': path.resolve(srcDir, './TinyPHP.js')
+    },
     isProd: (process.env.NODE_ENV === 'prod'),
     copyright: '',
     dev: {
@@ -65,62 +79,60 @@ const Config = {
         let data = {};
         data['plugins'] = plugins;
         data['domain'] = prodPublicPath;
-        fs.writeFileSync(configFile, JSON.stringify(data));
+        fs.writeFileSync(uiConfigFile, JSON.stringify(data));
         return ps;
     })(),
     path: {
-        currentDir: currentDir,
+        currentDir: rootDir,
         srcDir: srcDir,
-        viewDir: viewDir,
+        pageDir: pageDir,
         distDir: distDir,
-        publicDir:publicDir,
-        faviconDir: path.resolve(assetDir, './img/favicon.ico'),
-        haveAdminlte: (() => {
-            if (!fs.existsSync(adminlteDir) || !fs.open) {
-                return false;
-            }
+        pageDistDir: pageDistDir,
+        faviconDir: null,
+        pages: (() => {
+            let pageList = [];
+            fs.readdirSync(pageDir).forEach((f1) => {
+                let fpath = pageDir + '/' + f1;
+                if (fs.statSync(fpath).isFile()) {
+                    pageList.push({
+                        id: 'tinyphp-ui',
+                        name: f1.replace('.html', ''),
+                        filename: path.resolve(distDir, './pages/' + f1),
+                        template: fpath,
+                    });
+                    return;
+                }
 
-            return true;
-        })(),
-        viewPages: (() => {
-            let views = [];
-            fs.readdirSync(viewDir).forEach((f1) => {
-                let fpath = viewDir + '/' + f1;
                 if (!fs.statSync(fpath).isDirectory()) {
+                    return;
+                }
+                if (f1.indexOf('_') === 0) {
                     return;
                 }
                 fs.readdirSync(fpath).forEach((f2) => {
                     let fp = fpath + '/' + f2;
-                    if (!(fs.statSync(fp).isFile() && /\.js$/.test(fp))) {
+                    let fpname = f1 + '/' + f2.replace('.html', '');
+                    if (!(fs.statSync(fp).isFile() && /\.html$/.test(fp))) {
                         return;
                     }
-                    let tfp = fp.replace('.js', '.html');
-                    if (!fs.existsSync(tfp)) {
-                        return;
-                    }
-                    let conf = {};
-                    let jfp = fp.replace('.js', '.json');
-                    if (fs.existsSync(jfp)) {
-                        conf = merge(conf, require(jfp));
-                    }
-                    views.push({
-                        id: f1 + '-' + f2.replace('.js', ''),
-                        name:  f1 + '-' + f2.replace('.js', ''),
-                        entry: fp,
-                        template: fp.replace('.js', '.html'),
-                        conf:conf
+                    pageList.push({
+                        id: 'tinyphp-ui',
+                        name: fpname,
+                        filename: path.resolve(pageDistDir, './' + fpname + '.html'),
+                        template: fp,
                     });
-                })
+                });
 
             });
-            console.log(views);
-            return views;
+            console.log(pageList);
+            return pageList;
         })(),
         alias: {
-            '@assets': assetDir,
-            '@lib': libDir,
-            '@src': srcDir,
-            'jQuery' : path.resolve(projectDir,'./node_modules/jquery/dist/jquery.js')
+            '~assets': assetDir,
+            '~src': srcDir,
+            '~scss': scssDir,
+            '~plugin': pluginDir,
+            'jQuery': path.resolve(rootDir, './node_modules/jquery/dist/jquery.js')
         }
     }
 }

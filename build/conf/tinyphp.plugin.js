@@ -18,7 +18,7 @@ const Plugins = [
     },
     {
         name: 'sweetalert2',
-        test: /(node_modules|src[\\/]js[\\/]lib)[\\/](sweetalert2)/,
+        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](sweetalert2)/,
         dest: "开源图表库",
         enable: true,
         css: true,
@@ -26,7 +26,7 @@ const Plugins = [
     },
     {
         name: 'summernote',
-        test: /(node_modules|src[\\/]js[\\/]lib)[\\/](summernote)/,
+        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](summernote)/,
         dest: "开源图表库",
         enable: true,
         css: true,

@@ -4,9 +4,10 @@
   "description": "Application development platform integrated bootstrap and tinyphp for PHP frameworks",
   "main": "src/js/tinyphp.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev webpack serve --config conf/webpack.config.dev.js --progress",
-    "build": "cross-env NODE_ENV=prod webpack --config conf/webpack.config.prod.js --progress"
-  },
+    "dev": "cross-env NODE_ENV=dev webpack serve --config build/conf/webpack.config.dev.js --progress",
+    "build": "cross-env NODE_ENV=prod webpack --config build/conf/webpack.config.prod.js --progress",
+    "scss" : "sass --load-path=node_modules/  --source-map --watch build/scss/tinyphp.ui.scss:/tinyphp.ui.css"  
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/saasjit/tinyphp-bootstrap.git"

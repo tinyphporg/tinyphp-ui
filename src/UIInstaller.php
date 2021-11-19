@@ -23,14 +23,14 @@ use Tiny\MVC\Plugin\Iplugin;
  * 
  * @var string
  */
-define('TINY_UI_ROOT', dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR);
+define('TINY_UI_ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 
 /**
  * JS前端库的绝对路径
  *
  * @var string
  */
-define('TINY_UI_FRONTEND_LIBRARY_DIR', TINY_UI_ROOT . 'dist/tinyphp-ui/');
+define('TINY_UI_FRONTEND_LIBRARY_DIR', TINY_UI_ROOT . 'dist/');
 
 /**
  * 模板库的绝对路径
@@ -101,8 +101,6 @@ class UIInstaller implements Iplugin
     {
         $this->_app = $app;
         $this->_properties = $app->properties;
-        $this->_properties['view.ui.enabled'] = FALSE;
-        echo 'sss';
     }
 
     /**
@@ -144,7 +142,6 @@ class UIInstaller implements Iplugin
         {
             return;
         }
-        
         
         // 复制前端JS库
         $frontPath = dirname(get_included_files()[0]) . '/' . trim($installConfig['frontend_path']);

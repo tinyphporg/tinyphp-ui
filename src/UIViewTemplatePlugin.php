@@ -212,9 +212,7 @@ class UIViewTemplatePlugin implements IPlugin
         if (!\$this->__tinyphpUILibraryInjected) 
         {
             \$this->__tinyphpUILibraryInjected = TRUE;
-            echo '<link href="/tinyphp-ui/css/tinyphp-ui-lib.min.css" rel="stylesheet"/>';
             echo '<link href="/tinyphp-ui/css/tinyphp-ui.min.css" rel="stylesheet"/>';
-            echo '<script src="/tinyphp-ui/js/tinyphp-ui-lib.min.js"></script>';
             echo '<script src="/tinyphp-ui/js/tinyphp-ui.min.js"></script>';
         }
         ?>

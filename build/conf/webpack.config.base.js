@@ -4,19 +4,19 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const tconfig = require('./tinyphp.config');
 
-let entry = {};
 let plugins = [];
 let isProd = tconfig.isProd;
 let appPath = tconfig.path;
 let publicPath = isProd ? tconfig.prod.publicPath : tconfig.dev.publicPath;
 
 // multi entry
-tconfig.path.viewPages.forEach(page => {
-    entry[page.id] = page.entry;
+tconfig.path.pages.forEach(page => {
+    // entry[page.id] = page.entry;
+
     plugins.push(
         new HtmlWebpackPlugin({
             favicon: false,
-            filename: path.resolve(appPath.distDir, `./html/${page.id}.html`),
+            filename: page.filename,
             template: page.template,
             chunks: [page.id],
             inject: 'head',
@@ -47,7 +47,7 @@ if (isProd) {
 
 
 module.exports = {
-    entry: entry,
+    entry: tconfig.entry,
     output: {
         publicPath: publicPath,
         path: tconfig.path.distDir,
@@ -82,10 +82,12 @@ module.exports = {
                 }]
             }
         },
-        {
-            test: /\.(html|htm)$/,
-            use: ['html-withimg-loader?min=false']
-        },
+        /*
+         {
+             test: /\.(html|htm)$/,
+             use: ['html-withimg-loader?min=false']
+         },
+         */
         {
             test: /\.(png|jpg|jpe?g|gif)$/,
             use: [
@@ -208,9 +210,9 @@ module.exports = {
     },
 
     plugins: [
-        new CopyPlugin({
-            patterns: tconfig.copypaths,
-        }),
+        // new CopyPlugin({
+        //     patterns: tconfig.copypaths,
+        // }),
         ...plugins,
     ],
 };
