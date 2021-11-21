@@ -6,7 +6,7 @@ import Bootstrap from './Bootstrap.js';
 import Alert from './Alert.js';
 import Cookie from './Cookie.js';
 import Summernote from './Summernote.js';
-
+import * as AdminLTE from 'admin-lte/build/js/AdminLTE';
 
 class Tiny {
 
@@ -17,6 +17,8 @@ class Tiny {
     static _Prototype = Prototype;
 
     static _Boostrap = Bootstrap;
+    
+    static _adminlte = AdminLTE;
 
     static _Plugin = Plugin;
 
@@ -36,6 +38,7 @@ class Tiny {
         alert: Alert,
         summernote: Summernote,
         cookie: Cookie
+        
     };
 
     static _preload() {

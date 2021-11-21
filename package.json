@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack serve --config build/conf/webpack.config.dev.js --progress",
     "build": "cross-env NODE_ENV=prod webpack --config build/conf/webpack.config.prod.js --progress",
-    "scss" : "sass --load-path=node_modules/  --source-map --watch build/scss/tinyphp.ui.scss:/tinyphp.ui.css"  
-},
+    "scss": "sass --load-path=node_modules/  --source-map --watch build/scss/tinyphp.ui.scss:/tinyphp.ui.css"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/saasjit/tinyphp-bootstrap.git"

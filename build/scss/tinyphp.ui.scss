@@ -1,12 +1,24 @@
 @import './fontawsome.scss';
-@import './bootstrap.scss';
+
 
 // Bootstrap
 // ---------------------------------------------------
-@import "bootstrap/scss/functions";
-
-@import "./bootstrap-variables";
 @import "bootstrap/scss/bootstrap";
+
+@function theme-color($key: "primary") {
+  @return map-get($theme-colors, $key);
+}
+// Request a theme color level
+@function theme-color-level($color-name: "primary", $level: 0) {
+  $color: theme-color($color-name);
+  $color-base: if($level > 0, $black, $white);
+  $level: abs($level);
+
+  @return mix($color-base, $color, $level * $theme-color-interval);
+}
+
+
+@import "bootstrap-variables";
 
 // Variables and Mixins
 // ---------------------------------------------------
@@ -14,7 +26,13 @@
 @import "variables-alt";
 @import "mixins";
 
+@mixin caret-right() {
+  @include caret-end;
+}
 
+@mixin caret-left() {
+  @include caret-start;
+}
 
 // Color contrast
 @function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
@@ -40,4 +58,5 @@
 @import "parts/pages";
 @import "parts/plugins";
 @import "parts/miscellaneous";
+ 
  
