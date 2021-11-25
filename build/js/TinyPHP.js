@@ -117,7 +117,6 @@ class Tiny {
     
 }
 
-
 Tiny._preload();
 $(Tiny._postload);
 export default Tiny;

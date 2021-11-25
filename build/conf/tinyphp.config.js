@@ -26,7 +26,7 @@ let pageDistDir = path.resolve(rootDir, './pages');
 let prodPublicPath = '/tinyphp-ui/';
 
 // dev环境下的publicPath
-let devPublicPath = '/';
+let devPublicPath = 'http://front.dev.tinycn.com/';
 
 let uiConfigFile = path.resolve(srcDir, './TinyPHP.json');
 

@@ -18,14 +18,6 @@
 }
 
 
-@import "bootstrap-variables";
-
-// Variables and Mixins
-// ---------------------------------------------------
-@import "variables";
-@import "variables-alt";
-@import "mixins";
-
 @mixin caret-right() {
   @include caret-end;
 }
@@ -33,6 +25,34 @@
 @mixin caret-left() {
   @include caret-start;
 }
+
+@mixin hover() {
+  &:hover { @content; }
+}
+
+@mixin hover-focus() {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin plain-hover-focus() {
+  &,
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin hover-focus-active() {
+  &:hover,
+  &:focus,
+  &:active {
+    @content;
+  }
+}
+
 
 // Color contrast
 @function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
@@ -50,13 +70,16 @@
 }
 
 
-@import 'mixins/hover';
- 
+@import "bootstrap-variables";
+@import "variables";
+@import "variables-alt";
+@import "mixins";
+
 @import "parts/core";
 @import "parts/components";
 @import "parts/extra-components";
 @import "parts/pages";
 @import "parts/plugins";
 @import "parts/miscellaneous";
- 
+
  

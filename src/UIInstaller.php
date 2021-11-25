@@ -33,13 +33,6 @@ define('TINY_UI_ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 define('TINY_UI_FRONTEND_LIBRARY_DIR', TINY_UI_ROOT . 'dist/');
 
 /**
- * 模板库的绝对路径
- *
- * @var string
- */
-define('TINY_UI_VIEW_TEMPLATE_DIR', TINY_UI_ROOT . 'templates/');
-
-/**
  * 打包器插件
  *
  * @package Tiny.MVC.Plugin
@@ -55,26 +48,6 @@ class UIInstaller implements Iplugin
      * @var string
      */
     const UI_FRONTEND_LIBRARY_DIR = TINY_UI_FRONTEND_LIBRARY_DIR;
-
-    /**
-     *  UI 视图模板库的安装路径
-     *  
-     * @var string
-     */
-    const UI_VIEW_TEMPLATE_DIR = TINY_UI_VIEW_TEMPLATE_DIR;
-    
-    /**
-     * 预定义的Template解析插件
-     * @var string
-     */
-    const UI_VIEW_TEMPLATE_PLUGIN = '\Tiny\MVC\View\UI\UIViewTemplatePlugin';
-    
-    /**
-     * 预定义的视图插件
-     * 
-     * @var string
-     */
-    const UI_VIEW_HELPER = '\Tiny\MVC\View\UI\UIViewHelper';
     
     /**
      * 当前应用实例
@@ -146,30 +119,7 @@ class UIInstaller implements Iplugin
         // 复制前端JS库
         $frontPath = dirname(get_included_files()[0]) . '/' . trim($installConfig['frontend_path']);
         $this->_copyto(self::UI_FRONTEND_LIBRARY_DIR, $frontPath);
-        
-        //生成配置文件
-        $uiconfig = [
-            'template_plugin' => '\Tiny\MVC\View\UI\UIViewTemplatePlugin',
-            'helper' => '\Tiny\MVC\View\UI\UIViewHelper',
-            'template_dirname' => self::UI_VIEW_TEMPLATE_DIR,
-        ];
-        
-        $configPath = (string)$installConfig['config_path'];
-        if ($configPath)
-        {
-            $configPath = $this->_app->path . '/' . $configPath;
-            $configDir = dirname($configPath);
-            
-            if (!file_exists($configDir))
-            {
-                mkdir($configDir, 0777, TRUE);
-            }
-            elseif(!is_dir($configDir))
-            {
-                return;
-            }
-            file_put_contents($configPath,"<?php\n return " . var_export($uiconfig, TRUE) . ";\n ?>", LOCK_EX);
-        }
+
         $this->_app->response->end();
     }
     

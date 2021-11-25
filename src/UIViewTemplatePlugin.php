@@ -28,20 +28,7 @@ use Tiny\MVC\View\Engine\Template;
  *
  */
 class UIViewTemplatePlugin implements IPlugin
-{
-    /**
-     * 当前template实例
-     *
-     * @var Template
-     */
-    protected $_template;
-    
-    /**
-     * 当前URL插件的配置数组
-     *
-     * @var array
-     */
-    protected $_templateConfig;
+{    
     /**
      * 可解析的标签列表
      * @var array
@@ -61,6 +48,20 @@ class UIViewTemplatePlugin implements IPlugin
      * @var array
      */
     const UI_FRONTEND_INJECT_LIST = ['head', 'body'];
+    
+    /**
+     * 当前template实例
+     *
+     * @var Template
+     */
+    protected $_template;
+    
+    /**
+     * 当前URL插件的配置数组
+     *
+     * @var array
+     */
+    protected $_templateConfig;
     
     /**
      * 是否自动注入前端库
@@ -83,6 +84,18 @@ class UIViewTemplatePlugin implements IPlugin
      */
     protected $_publicPath = '/';
     
+    /**
+     * 是否为开发模式
+     * @var boolean
+     */
+    protected $_isDev = FALSE;
+    
+    /**
+     * 开发模式下的公共地址
+     * 
+     * @var string
+     */
+    protected $_devPublicPath;
     
     /**
      * 实现接口
@@ -93,10 +106,15 @@ class UIViewTemplatePlugin implements IPlugin
     {
         $this->_template = $template;
         $this->_templateConfig = $config;
-        
         if (isset($config['public_path']))
         {
             $this->_publicPath = (string)$config['public_path'];
+        }
+        // 兼容开发模式
+        $this->_isDev = (bool)$config['dev_enabled'];
+        if ($this->_isDev && isset($config['dev_public_path']))
+        {
+            $this->_devPublicPath = (string)$config['dev_public_path'];
         }
         if (!isset($config['inject']))
         {
@@ -207,13 +225,16 @@ class UIViewTemplatePlugin implements IPlugin
      */
     protected function _parseTagUILibraryTag()
     {   
+        $lib = $this->_isDev 
+            ? sprintf('<script src="%s"></script>', $this->_devPublicPath)
+            : sprintf('<link href="%scss/tinyphp-ui.min.css" rel="stylesheet"/><script src="%sjs/tinyphp-ui.min.js"></script>', $this->_publicPath, $this->_publicPath);
+        
         return  <<<EOT
         <?php
         if (!\$this->__tinyphpUILibraryInjected) 
         {
             \$this->__tinyphpUILibraryInjected = TRUE;
-            echo '<link href="/tinyphp-ui/css/tinyphp-ui.min.css" rel="stylesheet"/>';
-            echo '<script src="/tinyphp-ui/js/tinyphp-ui.min.js"></script>';
+            echo '{$lib}';
         }
         ?>
         EOT;  
