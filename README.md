@@ -1,59 +1,105 @@
-tinyphp-bootstrap
+tinyphp-ui
 ====
 
-+ 本项目作为tinyphp for PHP Frameworks的开箱即用DEMO
-+ 后端框架: tinyphp 
-+ 前端框架: 以webpack5为编译工具，集成了bootstrap4即一系列开源组件
-    + bootstrap4
-       + jQuery: JavaScript框架
-       + pppoer@core: popup定位引擎
-       + font-awesome: 图标字体库和CSS框架
-       + sweetalert2： 漂亮、响应式、可定制、易用的JavaScript 弹窗
-    + echarts: 基于JavaScript的数据可视化图表库
-
-项目适合做什么
+简介   
 ----
-+ 熟练掌握bootstrap前端框架,jquery
-+ 具备JS全栈技能的PHP爱好者和PHP工程师。
-+ 普遍适应于PHP框架的开发和生产环境。
-+ 无需前端UI交互设计，依赖bootstrap，可快速进行以下开发
-    + API接口开发
-    + 后台管理应用开发
-    + bootstrap通用风格的WEB应用开发
 
+> 基于[tinyphp for PHP Frameworks](https://github.com/saasjit/tinyphp)的前端UI库  
+> 项目地址: https://github.com/saasjit/tinyphp
 
-从0开始一键安装运行环境
----
-+  推荐使用[tinycn/lnmp-utils](https://github.com/tinycn/lnmp-utils.git)搭建开发/生产环境
-	+ Linux(CentOS7X_64) +openresty(nginx)+Mysql+PHP+Redis一键安装包，服务于TinyPHP的生产环境。
-	
-```shell
-   git clone https://github.com/tinycn/lnmp-utils.git
-   cd lnmp-utils
-      
-   #一键安装tinyphp-bootstrap的运行环境
-   git clone https://github.com/tinycn/lnmp-utils.git
-   cd lnmp-utils
-   ./install.sh -m lnmp
-```
+面向对象
+----
+  + 熟练掌握bootstrap/jquery/css，
+  + 熟悉JS语言
+  + PHP全栈工程师 
+  + <b>自定义开发需要熟悉webpack。</b>
+ 
+适合做什么
+----
++  API接口快速开发  
+    +  可不加载tinyphp-ui
++ 管理后台
++ 响应式WEB程序
++ SPA 单页面程序开放(待完善)
 
-componser安装方式
+tinyphp中的使用
+----
+componser
 ----
 ```shell
- composer create tinycn/tinyphp-bootstrap ./ master-dev
+ composer require saasjit/tinyphp-ui
 ```
-
-npm安装方式
+npm
 ---
 ```shell
-npm i tinyphp-bootstrap
-mv node_modules/tinyphp-bootstrap ./
-cd tinyphp-bootstrap
-npm i
+npm i saasjit/tinyphp-ui
+```
+profile.php
+----
+> 开启tinyphp-ui 默认自动注入tinyphp-ui的前端库   
+```php
+# application/config/profile.php
+$profile['view']['ui']['enabled'] = TRUE;
+$profile['view']['ui']['public_path'] = '/tinyphp-ui/'; //公共访问地址
+$profile['view']['ui']['inject'] = TRUE;  //自动注入
+$profile['view']['ui']['template_plugin'] = '\\Tiny\\MVC\\View\\UI\\UIViewTemplatePlugin';
+$profile['view']['ui']['helper'] = '\\Tiny\\MVC\\View\\UI\\UIViewHelper';
+$profile['view']['ui']['template_dirname'] = '../vendor/saasjit/tinyphp-ui/templates/';
+
+// ui dev
+$profile['view']['ui']['dev_enabled'] = TRUE;
+$profile['view']['ui']['dev_public_path'] = "http://127.0.0.1:8080/js/tinyphp-ui.js";
+$profile['plugins']['ui_dev_plugin'] = '\Tiny\MVC\View\UI\UITemplatePlugin'; //添加调试pages的插件
+
+// ui installer
+$profile['view']['ui']['installer']['param_name'] = 'ui-install';
+$profile['view']['ui']['installer']['frontend_path'] = 'tinyphp-ui/';     //public目录下的相对安装路径
+$profile['view']['ui']['installer']['plugin'] = '\Tiny\MVC\View\UI\UIInstaller';
 ```
 
-docker一键安装运行环境
----
-```shell
-   docker pull tinycn/centos7-tinyphp
+> 在视图引擎Template中，以tag的形式引入
+```php
+{ui.lib}
+or 
+<link href="/tinyphp-ui/css/tinyphp-ui.min.css" rel="stylesheet"/>
+<script src="/tinyphp-ui/js/tinyphp-ui.min.js"></script>
 ```
+
+前端组件库
+----
++ 基础库:
+  + webpack5   
+  + bootstrap5   
+  + JQuery   
+  + font-awesome
+  + adminlte
++ 可选加载库 
+  + sweetalert2： 漂亮、响应式、可定制、易用的JavaScript 弹窗
+  + echarts: 基于JavaScript的数据可视化图表库
+
+在tinyphp中的调试与自定义开发
+----
+
+```shell
+cd vendor/saasjit/tinyphp-ui
+npm i 
+npm run dev
+#即可开启基于127.0.0.1:8080的调试webserver
+```
+```php
+#在profile.php中检测以下配置
+$profile['view']['ui']['dev_enabled'] = TRUE;
+$profile['view']['ui']['dev_public_path'] = "http://front.dev.tinycn.com/js/tinyphp-ui.js";
+$profile['plugins']['ui_dev_plugin'] = '\Tiny\MVC\View\UI\UITemplatePlugin'; //添加调试pages的插件
+
+#在tinyphp的测试域名（默认为127.0.0.1）下 打开浏览器输入http://127.0.0.1/pages/index 测试
+```
+```shell
+npm run build
+#重新打包 浏览器输入http://127.0.0.1:8989 可查看打包文件的详情
+
+cd tinyphp
+composer post-update-cmd 
+#更新到tinyphp/public/tinyphp-ui文件夹下
+```
+
