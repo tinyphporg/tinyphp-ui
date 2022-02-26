@@ -84,7 +84,7 @@ class Messagebox implements IHelper
     public function show($message, $toUrl = NULL, $subject = NULL, $timeout = NULL, $title = NULL)
     {
         $subject = trim($subject) ?: $this->_subject;
-        $toUrl = trim($toUrl) ?: WebRequest::getInstance()->referer;
+        $toUrl = trim($toUrl) ?: $this->referer;
         $timeout = (int)$timeout ?: $this->_timeout;
         $messageBox = [
             'title' => $subject,

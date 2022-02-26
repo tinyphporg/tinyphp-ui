@@ -26,7 +26,7 @@ let pageDistDir = path.resolve(rootDir, './pages');
 let prodPublicPath = '/tinyphp-ui/';
 
 // dev环境下的publicPath
-let devPublicPath = 'http://front.dev.tinycn.com/';
+let devPublicPath = 'http://localhost:8080/';
 
 let uiConfigFile = path.resolve(srcDir, './TinyPHP.json');
 
@@ -40,7 +40,7 @@ const Config = {
         publicPath: devPublicPath,
         staticDir: pluginDir,
         apiDomain: '/',
-        host: 'localhost',
+        host: '0.0.0.0',
         port: 8080
     },
     prod: {
@@ -48,7 +48,7 @@ const Config = {
         apiDomain: '',
     },
     stat: {
-        host: 'localhost',
+        host: '0.0.0.0',
         port: 8888,
     },
     copypaths: [

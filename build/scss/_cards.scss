@@ -13,7 +13,7 @@
 
 .card {
   @include box-shadow($card-shadow);
-  margin-bottom: map-get($spacers, 3);
+  //margin-bottom: map-get($spacers, 3);
 
   &.bg-dark {
     .card-header {
@@ -211,7 +211,7 @@ html.maximized-card {
 
 // Box header
 .card-header {
-  background-color: transparent;
+  //background-color: transparent;
   border-bottom: 1px solid $card-border-color;
   padding: (($card-spacer-y / 2) * 2) $card-spacer-x;
   position: relative;

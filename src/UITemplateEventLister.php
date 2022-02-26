@@ -15,9 +15,11 @@
 namespace Tiny\MVC\View\UI;
 
 
-use Tiny\MVC\Plugin\Iplugin;
-use Tiny\MVC\ApplicationBase;
 use Tiny\Config\Configuration;
+use Tiny\MVC\Event\Listener\RouteEventListener;
+use Tiny\MVC\Application\ApplicationBase;
+use Tiny\MVC\Event\MvcEvent;
+use Tiny\MVC\View\View;
 
 
 /**
@@ -28,12 +30,13 @@ use Tiny\Config\Configuration;
 define('TINY_UI_VIEW_TEMPLATE_DIR', dirname(__DIR__) . '/templates');
 
 /**
- *  pages视图调试插件
- *  
- *  
- *
- */
-class UITemplatePlugin implements Iplugin
+* UI库调试插件
+* 
+* @package Tiny.MVC.View.UI
+* @since 2022年2月16日上午9:53:10 
+* @final 2022年2月16日上午9:53:10 
+*/
+class UITemplateEventLister implements RouteEventListener
 {   
     /**
      *  UI 视图模板库的安装路径
@@ -42,15 +45,19 @@ class UITemplatePlugin implements Iplugin
      */
     const UI_VIEW_TEMPLATE_DIR = TINY_UI_VIEW_TEMPLATE_DIR;
     
-    
+    /**
+     * 配置路径
+     * 
+     * @var string
+     */
     const UI_VIEW_TEMPLATE_CONFIG = TINY_UI_VIEW_TEMPLATE_DIR . '/conf/';
     
     /**
      * 当前应用实例
      *
-     * @var \Tiny\MVC\ApplicationBase
+     * @var ApplicationBase
      */
-    protected $_app;
+    protected $app;
     
     /**
      * 初始化
@@ -61,28 +68,8 @@ class UITemplatePlugin implements Iplugin
      */
     public function __construct(ApplicationBase $app)
     {
-        $this->_app = $app;
-        $this->_properties = $app->properties;
-    }
-    
-    /**
-     * 本次请求初始化时发生的事件
-     *
-     * @return void
-     */
-    public function onBeginRequest()
-    {
-        
-    }
-    
-    /**
-     * 本次请求初始化结束时发生的事件
-     *
-     * @return void
-     */
-    public function onEndRequest()
-    {
-        
+        $this->app = $app;
+        $this->properties = $app->properties;
     }
     
     /**
@@ -90,10 +77,10 @@ class UITemplatePlugin implements Iplugin
      *
      * @return void
      */
-    public function onRouterStartup()
+    public function onRouterStartup(MvcEvent $event, array $params)
     {
         
-        $routePath = $this->_app->request->getRouterString();
+        $routePath = $this->app->request->uri;
         if (!preg_match('/^\\/pages\/([^\?]*)?/is', $routePath))
         {
             return;
@@ -102,11 +89,12 @@ class UITemplatePlugin implements Iplugin
         $fpath = self::UI_VIEW_TEMPLATE_DIR . $routePath . $extname;
         if (!is_file($fpath))
         {
+            throw new UIException(sprintf("UITemplateEventLister to faild:%s is not exists", $fpath));
             return;
         }
 
         $templatefile = $routePath . $extname;        
-        $view = $this->_app->getView();
+        $view = $this->app->getView();
         
         // 预加载模板变量
         $configDir = self::UI_VIEW_TEMPLATE_CONFIG;
@@ -115,14 +103,16 @@ class UITemplatePlugin implements Iplugin
             $tconfigInstance = new Configuration($configDir);
             $tAssigns = $tconfigInstance->get();
         }
-        $config = $this->_app->getConfig();
+        // config
+        $config = $this->app->getConfig();
         $pagesAssign = ($config && $config['pages']) ? ['pages'  => $config['pages']]: [];
         $pagesAssign = array_merge($tAssigns, $pagesAssign);
+        
+        // parse
         $body = $view->fetch($templatefile, $pagesAssign);
-        $this->_app->response->appendBody($body);
-        $this->_app->properties['debug.console'] = TRUE;
-        //$this->_app->response->end();
-        $this->_app->end();
+        $this->app->response->appendBody($body);
+        $this->app->properties['debug.console'] = TRUE;
+        $this->app->end();
         
     }
 
@@ -132,27 +122,7 @@ class UITemplatePlugin implements Iplugin
      *
      * @return void
      */
-    public function onRouterShutdown()
-    {
-        
-    }
-    
-    /**
-     * 执行分发前发生的动作
-     *
-     * @return void
-     */
-    public function onPreDispatch()
-    {
-        
-    }
-    
-    /**
-     * 执行分发后发生的动作
-     *
-     * @return void
-     */
-    public function onPostDispatch()
+    public function onRouterShutdown(MvcEvent $event, array $params)
     {
         
     }

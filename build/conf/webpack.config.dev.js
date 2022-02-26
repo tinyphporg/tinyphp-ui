@@ -22,7 +22,9 @@ module.exports = merge(baseWebpackConfig, {
         open: true, // 自动打开浏览器
         publicPath: '',
         compress: true,
-        
+        headers: {
+			'Access-Control-Allow-Origin' : '*',
+		},
         host: tconfig.dev.host, // 0.0.0.0 localhost
         port: tconfig.dev.port,
         overlay: {

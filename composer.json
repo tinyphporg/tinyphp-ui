@@ -1,10 +1,12 @@
 {
     "name": "saasjit/tinyphp-ui",
-    "description": "UI of the TinyPHP for Frameworks",
-    "type": "project",
+    "description": "UI component library of tinyphp framework 2.0",
+    "type": "library",
+    "version": "2.0.0",
+    "minimum-stability": "stable",    
     "author": {
-        "name": "tinycn",
-        "email": "tinycn@qq.com"
+        "name": "Da.Jin",
+        "email": "da.jin@opensaas.net"
     },
     "require": {
         "php": ">7"
@@ -13,6 +15,5 @@
         "psr-4": {
             "Tiny\\MVC\\View\\UI\\": "src/"
         }
-    },
-    "timeout": 1000000
+    }
 }

@@ -15,8 +15,8 @@
 
 namespace Tiny\MVC\View\UI;
 
-use Tiny\MVC\View\Engine\Template\IPlugin;
 use Tiny\MVC\View\Engine\Template;
+use Tiny\MVC\View\Engine\Template\TemplatePluginInterface;
 
 /**
  * 
@@ -27,7 +27,7 @@ use Tiny\MVC\View\Engine\Template;
  * @final  King 2021年11月16日下午5:40:10 
  *
  */
-class UIViewTemplatePlugin implements IPlugin
+class UIViewTemplatePlugin implements TemplatePluginInterface
 {    
     /**
      * 可解析的标签列表
@@ -98,12 +98,13 @@ class UIViewTemplatePlugin implements IPlugin
     protected $_devPublicPath;
     
     /**
-     * 实现接口
+     * 
      * {@inheritDoc}
-     * @see \Tiny\MVC\View\Engine\Template\IPlugin::setTemplateConfig()
+     * @see \Tiny\MVC\View\Engine\Template\TemplatePluginInterface::setTemplateConfig()
      */
     public function setTemplateConfig(Template $template, array $config)
     {
+        print_r($config);
         $this->_template = $template;
         $this->_templateConfig = $config;
         if (isset($config['public_path']))
@@ -144,9 +145,9 @@ class UIViewTemplatePlugin implements IPlugin
     }
     
     /**
-     * 解析URL的闭合标签
+     * 
      * {@inheritDoc}
-     * @see \Tiny\MVC\View\Engine\Template\IPlugin::onParseCloseTag()
+     * @see \Tiny\MVC\View\Engine\Template\TemplatePluginInterface::onParseCloseTag()
      */
     public function onParseCloseTag($tagName)
     {
@@ -156,11 +157,11 @@ class UIViewTemplatePlugin implements IPlugin
         }
         return '';
     }
-    
+
     /**
-     * 解析URL标签
+     *
      * {@inheritDoc}
-     * @see \Tiny\MVC\View\Engine\Template\IPlugin::onParseTag()
+     * @see \Tiny\MVC\View\Engine\Template\TemplatePluginInterface::onParseTag()
      */
     public function onParseTag($tagName, $tagBody, $extra = NULL)
     {

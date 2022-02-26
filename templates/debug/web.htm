@@ -2,6 +2,7 @@
 {ui.lib} 
 <style>
 .tinyphp-debug-box .card-body p{font-size:14px;margin:0;padding:0}
+.tinyphp-debug-box  .card small{cursor:default}
 </style>
 
 	<div class="container-fluid m-0 p-0 tinyphp-debug-container">
@@ -63,13 +64,13 @@
 						{if $request->referer}
 						<p>Referer: {$request->referer}</p>
 						{/if} {if $debugRouterName}
-						<p>Router: {$debugRouterName} </p>
-						<p>Router Matched URL: {$debugRouterUrl}</p>
-						<p> Router Matched Router Params: {eval echo var_export($debugRouterParams, TRUE)}</p>
+						<p>Dispatcher: ({$debugControllerName}->{$debugActionName}) </p>
+						<p>Matched Route: {$debugRouterName} </p>
+						<p>Route Matched URI: {$debugRouterUrl}</p>
+						<p> Route Matched Router Params: {$debugRouterParams}</p>
 						{/if}
-						<p>Controller:{$debugControllerList}</p>
-						<p>Action: {$actionName}({$controllerName}->{$actionName}Action) </p>
-						<p>Model List: {$debugModelList}</p>
+						
+						
 					</div>
 				</div>
 			</div>
@@ -145,10 +146,10 @@
 						</p>
 						{/loop}
 
-						<p>
+						<p> 
 							<b>_GET</b>
 						</p>
-						{loop $debugRequestData['get'] $key $val}
+						{loop $request->get $key $val}
 						<p>
 							{$key} = "{$val}"
 						</p>
@@ -156,7 +157,7 @@
 						<p>
 							<b>_POST</b>
 						</p>
-						{loop $debugRequestData['post'] $key $val}
+						{loop $request->post $key $val}
 						<p>
 							{$key} = "{$val}" 
 						</p>
@@ -164,7 +165,7 @@
 						<p>
 							<b>_COOKIE</b>
 						</p>
-						{loop $debugRequestData['cookie'] $key $val}
+						{loop $request->cookie $key $val}
 						<p>
 							{$key} = "{$val}"
 						</p>
@@ -172,7 +173,7 @@
 						<p>
 							<b>_SESSION</b>
 						</p>
-						{loop $debugRequestData['session'] $key $val}
+						{loop $request->session $key $val}
 						<p>
 							{$key} = "{$val}"
 						</p>
@@ -180,7 +181,7 @@
 						<p>
 							<b>_SERVER</b>
 						</p>
-						{loop $debugRequestData['server'] $key $val}
+						{loop $request->server $key $val}
 						<p>
 							{$key} = "{$val}"
 						</p>
@@ -188,7 +189,7 @@
 						<p>
 							<b>_argv</b>
 						</p>
-						{loop $debugRequestData['argv'] $key $val}
+						{loop $request->server['argv'] $key $val}
 						<p>
 							{$key} = "{$val}"
 						</p>
@@ -243,7 +244,7 @@
 			<div class="card border-0">
 				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxDocs">
 					<h4 onclick="__TINYPHP_DEBUG.showdoc('TINYPHP_DEBUG_DOCS', 'TINYPHP_DEBUG_IFRAME', '{$debugDocUrl}')" class="my-2 fs-6 fw-normal">
-						<small>Docs</small>
+						<small style="cusor:default" >Docs</small>
 					</h4>
 				</div>
 				<div  id="debugBoxDocs" class="collapse"  >

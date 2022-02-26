@@ -14,13 +14,13 @@
  */
 namespace Tiny\MVC\View\UI;
 
-use Tiny\MVC\ApplicationBase;
-use Tiny\Config\Configuration;
-use Tiny\MVC\Plugin\Iplugin;
+use Tiny\MVC\Event\MvcEvent;
+use Tiny\MVC\Event\Listener\BootstrapEventListener;
+use Tiny\MVC\Application\ApplicationBase;
 
 /**
  * tinyphp-ui的根目录
- * 
+ *
  * @var string
  */
 define('TINY_UI_ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR);
@@ -39,9 +39,9 @@ define('TINY_UI_FRONTEND_LIBRARY_DIR', TINY_UI_ROOT . 'dist/');
  * @since 2020年6月1日下午5:37:30
  * @final 2020年6月1日下午5:37:30
  */
-class UIInstaller implements Iplugin
+class UIInstaller implements BootstrapEventListener
 {
-
+    
     /**
      * UI前端JS库安装路径
      *
@@ -52,161 +52,88 @@ class UIInstaller implements Iplugin
     /**
      * 当前应用实例
      *
-     * @var \Tiny\MVC\ApplicationBase
+     * @var ApplicationBase
      */
-    protected $_app;
-
+    protected $app;
+    
     /**
-     * app属性
      *
-     * @var Configuration
-     */
-    protected $_properties;
-
-    /**
-     * 初始化
-     *
-     * @param $app ApplicationBase
-     *            当前应用实例
-     * @return void
+     * @param ApplicationBase $app
      */
     public function __construct(ApplicationBase $app)
     {
-        $this->_app = $app;
-        $this->_properties = $app->properties;
+        $this->app = $app;
     }
-
+    
     /**
-     * 本次请求初始化时发生的事件
      *
-     * @return void
+     * @param MvcEvent $event
+     * @param array $params
      */
-    public function onBeginRequest()
+    public function onBootstrap(MvcEvent $event, array $params)
     {
-        
-    }
-
-    /**
-     * 本次请求初始化结束时发生的事件
-     *
-     * @return void
-     */
-    public function onEndRequest()
-    {
-        
-    }
-
-    /**
-     * 执行路由前发生的事件
-     *
-     * @return void
-     */
-    public function onRouterStartup()
-    {
-        $config = (array)$this->_app->properties['view.ui'];
-        if (! $config['enabled'] || ! $config['installer']) 
-        {
+        $config = (array)$this->app->properties['view.ui'];
+        if (!$config['enabled'] || !$config['installer']) {
             return;
         }
         
         $installConfig = (array)$config['installer'];
         $paramName = (string)$installConfig['param_name'] ?: 'ui-install';
-        if (! $this->_app->request->param[$paramName]) 
-        {
+        if (!$this->app->request->param[$paramName]) {
             return;
         }
         
         // 复制前端JS库
         $frontPath = dirname(get_included_files()[0]) . '/' . trim($installConfig['frontend_path']);
-        $this->_copyto(self::UI_FRONTEND_LIBRARY_DIR, $frontPath);
-
-        $this->_app->response->end();
+        $this->copyto(self::UI_FRONTEND_LIBRARY_DIR, $frontPath);
+        $this->app->response->end();
     }
     
     /**
      * 复制文件夹去安装路径
-     * 
+     *
      * @param string $sourcePath 源文件路径
      * @param string $installPath 安装路径
      * @throws UIException
      * @return void|boolean
      */
-    protected function _copyto($sourcePath, $installPath)
+    protected function copyto($sourcePath, $installPath)
     {
-        if (!is_dir($sourcePath))
-        {
+        if (!is_dir($sourcePath)) {
             return FALSE;
         }
-        if (preg_match("/^(|\*|\/|\/(usr|home|root|lib|lib64|etc|var)\/?|)$/i", $installPath))
-        {
+        if (preg_match("/^(|\*|\/|\/(usr|home|root|lib|lib64|etc|var)\/?|)$/i", $installPath)) {
             return;
         }
         
-        if (file_exists($installPath) && !is_dir($installPath))
-        {
+        if (file_exists($installPath) && !is_dir($installPath)) {
             throw new UIException(sprintf('%s is a file!', $installPath));
         }
-        if (!file_exists($installPath))
-        {
+        if (!file_exists($installPath)) {
             mkdir($installPath, 0777, TRUE);
         }
         
         $files = scandir($sourcePath);
-        foreach ($files as $file)
-        {
-            if ($file == '.' || $file == '..')
-            {
+        foreach ($files as $file) {
+            if ($file == '.' || $file == '..') {
                 continue;
             }
             $filename = $sourcePath . '/' . $file;
             $tofilename = $installPath . '/' . $file;
             
-            if (is_dir($filename))
-            {
-                $this->_copyto($filename, $tofilename);
+            if (is_dir($filename)) {
+                $this->copyto($filename, $tofilename);
                 continue;
             }
             // 更新最新文件
-            if (is_file($tofilename) && filemtime($tofilename) >= filemtime($filename))
-            {
+            if (is_file($tofilename) && filemtime($tofilename) >= filemtime($filename)) {
                 return;
             }
             $ret = copy($filename, $tofilename);
-            if (!$ret)
-            {
+            if (!$ret) {
                 throw new UIException(sprintf('copy failed: %s to %s', $filename, $tofilename));
             }
         }
-    }
-    
-    /**
-     * 执行路由后发生的事件
-     *
-     * @return void
-     */
-    public function onRouterShutdown()
-    {
-        
-    }
-
-    /**
-     * 执行分发前发生的动作
-     *
-     * @return void
-     */
-    public function onPreDispatch()
-    {
-        
-    }
-
-    /**
-     * 执行分发后发生的动作
-     *
-     * @return void
-     */
-    public function onPostDispatch()
-    {
-        
     }
 }
 ?>
