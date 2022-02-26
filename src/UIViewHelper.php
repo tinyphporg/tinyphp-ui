@@ -1,12 +1,11 @@
 <?php
 namespace Tiny\MVC\View\UI;
 
-use Tiny\MVC\View\IHelper;
 use Tiny\MVC\View\View;
-use Tiny\MVC\Request\WebRequest;
 use Tiny\MVC\View\UI\Helper\Messagebox;
+use Tiny\MVC\View\ViewHelperInterface;
 
-class UIViewHelper implements IHelper
+class UIViewHelper implements ViewHelperInterface
 {
 
     const HELPER_NAME_LIST = ['ui', 'messagebox'];
