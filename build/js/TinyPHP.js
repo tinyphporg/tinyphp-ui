@@ -6,7 +6,8 @@ import Bootstrap from './Bootstrap.js';
 import Alert from './Alert.js';
 import Cookie from './Cookie.js';
 import Summernote from './Summernote.js';
-import * as AdminLTE from 'admin-lte/build/js/AdminLTE';
+import AdminLTE from './AdminLTE.js';
+import * as Widgets from './widgets/Widgets';
 
 class Tiny {
 
@@ -25,6 +26,8 @@ class Tiny {
     static _postLoadPlugins = [];
 
     static _isPostLoaded = false;
+	
+	static widgets = Widgets;
 
     static merge = Prototype.merge;
 
@@ -37,10 +40,32 @@ class Tiny {
     static _plugins = {
         alert: Alert,
         summernote: Summernote,
-        cookie: Cookie
+        cookie: Cookie,
+		adminlte: AdminLTE
         
     };
-
+	
+	static _config(window) {
+		
+		if (!window.hasOwnProperty('tinyconfig')) {
+			return;
+		}
+		let tconfig = window.tinyconfig;
+		//console.log
+		if (tconfig.hasOwnProperty('plugins')) {
+			let plugins = tconfig.plugins;
+			for (let pname in plugins) {
+				if (Tiny._plugins.hasOwnProperty(pname)) {
+					let plugin = plugins[pname];
+					let tplugin = Tiny._plugins[pname];
+					if (plugin.hasOwnProperty('load')) {
+						Tiny.load(pname);
+					}
+				}
+				
+			}
+		}
+	}
     static _preload() {
         let jqueryExtends = {
             tiny: Tiny
@@ -117,6 +142,7 @@ class Tiny {
     
 }
 
+Tiny._config(window);
 Tiny._preload();
 $(Tiny._postload);
 export default Tiny;

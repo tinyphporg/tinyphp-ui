@@ -10,26 +10,32 @@ module.exports = merge(baseWebpackConfig, {
         new webpack.NoEmitOnErrorsPlugin(),
     ],
     watch: true,  
-    devtool: 'eval-source-map',
-    devServer: {
-        hot: true,
-        inline: false,
-        watchOptions: {
+    watchOptions: {
             poll: 1000, // 每秒询问多少次
             aggregateTimeout: 500,  // 防抖 多少毫秒后再次触发
             ignored: /node_modules/ // 忽略时时监听
-        },
-        open: true, // 自动打开浏览器
-        publicPath: '',
+    },
+	
+    devtool: 'eval-source-map',
+    devServer: {
+        hot: true,
+
+		static: tconfig.dev.staticDirs,
+		
+        open: false, // 自动打开浏览器
         compress: true,
         headers: {
 			'Access-Control-Allow-Origin' : '*',
 		},
         host: tconfig.dev.host, // 0.0.0.0 localhost
         port: tconfig.dev.port,
-        overlay: {
-            warnings: true,
-            errors: true
-        }
+        client: {
+			overlay: {
+            	warnings: true,
+            	errors: true
+        	},
+			reconnect:false
+
+		}
     }
 });

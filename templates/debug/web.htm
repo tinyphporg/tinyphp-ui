@@ -1,3 +1,8 @@
+<html>
+<head>
+</head>
+<body>
+
 <!-- tinyphp debug start -->
 {ui.lib} 
 <style>
@@ -218,23 +223,17 @@
 						<p>
 							<b>INCLUDE FILES</b>
 						</p>
-						{eval $debugIncludeFiles = get_included_files()} 
 						{loop $debugIncludeFiles $key $val}
 						<p>
 							{$key} =  "{$val}"
 						</p>
 						{/loop}
-
-
-
 						<p>
 							<b>INCLUDE PATHS</b>
 						</p>
-						{loop $debugIncludePaths $key $val}
 						<p>
-							INCLUDE_PATH_{$key} = "{$val}"
+							$debugIncludePaths 
 						</p>
-						{/loop}
 					</div>
 				</div>
 			</div>
@@ -375,3 +374,5 @@
 })(window);
 </script>
 <!-- tinyphp debug end -->
+</body>
+</html>

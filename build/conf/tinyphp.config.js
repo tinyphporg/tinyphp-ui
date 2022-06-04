@@ -1,9 +1,8 @@
 const path = require('path');
 const fs = require('fs');
-const { merge } = require('webpack-merge');
+const {merge} = require('webpack-merge');
 
 const pluginsConfig = require('./tinyphp.plugin.js');
-
 
 let rootDir = path.resolve(__dirname, '../../');
 let buildDir = path.resolve(__dirname, '../');
@@ -15,6 +14,7 @@ let scssDir = path.resolve(buildDir, './scss');
 // pages 
 let pageDir = path.resolve(buildDir, './pages');
 let pluginDir = path.resolve(srcDir, './plugins');
+let htmlDir = path.resolve(buildDir, './htmls');
 
 // 编译后的存储路径
 let distDir = path.resolve(rootDir, './dist');
@@ -31,14 +31,13 @@ let devPublicPath = 'http://localhost:8080/';
 let uiConfigFile = path.resolve(srcDir, './TinyPHP.json');
 
 const Config = {
-    entry: {
-        'tinyphp-ui': path.resolve(srcDir, './TinyPHP.js')
-    },
     isProd: (process.env.NODE_ENV === 'prod'),
     copyright: '',
     dev: {
         publicPath: devPublicPath,
-        staticDir: pluginDir,
+		basePath: buildDir,
+		
+        staticDirs: [assetDir, htmlDir],
         apiDomain: '/',
         host: '0.0.0.0',
         port: 8080
@@ -52,7 +51,7 @@ const Config = {
         port: 8888,
     },
     copypaths: [
-        { from: pluginDir, to: 'plugins' }
+        { from: htmlDir, to: 'htmls' }
     ],
     plugins: (() => {
         let ps = []
@@ -94,11 +93,13 @@ const Config = {
             fs.readdirSync(pageDir).forEach((f1) => {
                 let fpath = pageDir + '/' + f1;
                 if (fs.statSync(fpath).isFile()) {
+					let fpname = f1.replace('.html', '');
                     pageList.push({
-                        id: 'tinyphp-ui',
-                        name: f1.replace('.html', ''),
+                        id: fpname,
+                        name: fpname,
                         filename: path.resolve(distDir, './pages/' + f1),
                         template: fpath,
+						entry: path.resolve(srcDir, './' + fpname + '.js')
                     });
                     return;
                 }
@@ -116,10 +117,11 @@ const Config = {
                         return;
                     }
                     pageList.push({
-                        id: 'tinyphp-ui',
+                        id: fpname,
                         name: fpname,
                         filename: path.resolve(pageDistDir, './' + fpname + '.html'),
                         template: fp,
+						entry: path.resolve(srcDir, './' + fpname + '.js')
                     });
                 });
 

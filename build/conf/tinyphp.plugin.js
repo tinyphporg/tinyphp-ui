@@ -9,6 +9,14 @@ const Plugins = [
         javascript: true
     },
     {
+        name: 'adminlte',
+        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](adminlte|admin-lte)/,
+        dest: "后台管理组件",
+        enable: true,
+        css: true,
+        javascript: true
+    },
+    {
         name: 'chartjs',
         test: /node_modules[\\/](chart.js)[\\/]/,
         dest: "开源图表库",

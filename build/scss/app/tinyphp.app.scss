@@ -1,0 +1,92 @@
+
+
+@function theme-color($key: "primary") {
+  @return map-get($theme-colors, $key);
+}
+// Request a theme color level
+@function theme-color-level($color-name: "primary", $level: 0) {
+  $color: theme-color($color-name);
+  $color-base: if($level > 0, $black, $white);
+  $level: abs($level);
+
+  @return mix($color-base, $color, $level * $theme-color-interval);
+}
+
+
+@mixin caret-right() {
+  @include caret-end;
+}
+
+@mixin caret-left() {
+  @include caret-start;
+}
+
+@mixin hover() {
+  &:hover { @content; }
+}
+
+@mixin hover-focus() {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin plain-hover-focus() {
+  &,
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin hover-focus-active() {
+  &:hover,
+  &:focus,
+  &:active {
+    @content;
+  }
+}
+
+
+// Color contrast
+@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) * .001;
+
+  @if ($yiq >= $yiq-contrasted-threshold) {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
+}
+
+
+@import "bootstrap-variables";
+@import "variables";
+@import "variables-alt";
+@import "mixins";
+
+@import "parts/core";
+@import "parts/components";
+@import "parts/extra-components";
+@import "parts/pages";
+@import "parts/plugins";
+@import "parts/miscellaneous";
+
+
+.pagination input.page-link-input{
+	max-width: $font-size-base * 4;
+}
+
+.pagination-lg input.page-link-input{
+	max-width: $font-size-lg * 4;
+}
+
+.pagination-sm input.page-link-input{
+	max-width: $font-size-sm * 4;
+}
+ 

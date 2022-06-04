@@ -1,16 +1,12 @@
-
+import $ from 'jquery'
 
 class Prototype {
-
-    static _Window = window;
     
-    static _String = String;
+	$ = $
+	
+	window = window
     
-    static _Array = Array;
-    
-    static _IS_PROTOTYPE_INITED = false;
-    
-    static _PROTOTYPE_ARRAY = {
+    array = {
         each: function(callback, args) {
             if (typeof callback !== 'function') {
                 return false;
@@ -66,7 +62,7 @@ class Prototype {
         }
     }
     
-    static _PROTOTYPE_STRING = {
+    string = {
         isNum: function() {
             return !isNaN(parseFloat(this)) && isFinite(this);
         },
@@ -428,15 +424,20 @@ class Prototype {
 
     }
     
-    static isArray(arr) {
+    constructor() {
+        this.extend(Array.prototype, this.array);
+        this.extend(String.prototype, this.string);
+    }
+
+    isArray = function(arr) {
         return Array.isArray(arr);
     }
 
-    static isObject(obj) {
+    isObject = function(obj) {
         return Object.prototype.toString.call(obj) === '[object Object]';
     }
 
-    static merge(target, ...arg) {
+    merge = function(target, ...arg) {
         return arg.reduce((acc, cur) => {
 
             return Object.keys(cur).reduce((subAcc, key) => {
@@ -460,29 +461,18 @@ class Prototype {
         }, target)
     }
 
-    static extend(...arg) {
+    extend = function(...arg) {
         if (arg.length <= 1) { return; }
         let destination = arg[0];
         let source = arg[1];
         let property;
         for (property in source) {
-            if (Object.prototype.hasOwnProperty.call(source, property)) {
-                destination[property] = source[property];
-            }
+			if (Object.prototype.hasOwnProperty.call(source, property)) {      
+		   		destination[property] = source[property];
+           }
 
         }
     }
-
-    static _init() {
-        /* 初始化开始 */
-        Prototype.extend(Prototype._Array.prototype, Prototype._PROTOTYPE_ARRAY);
-        Prototype.extend(Prototype._String.prototype, Prototype._PROTOTYPE_STRING);
-    }
-
-
 }
 
-/* String & Array extended by ProtoType */
-Prototype._init();
-
-export default Prototype
+export default Prototype;

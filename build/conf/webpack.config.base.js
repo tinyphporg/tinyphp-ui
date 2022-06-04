@@ -1,17 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 const tconfig = require('./tinyphp.config');
+const TagsPlugin = require('html-webpack-tags-plugin');
 
 let plugins = [];
+let entrys = {};
 let isProd = tconfig.isProd;
 let appPath = tconfig.path;
 let publicPath = isProd ? tconfig.prod.publicPath : tconfig.dev.publicPath;
 
 // multi entry
 tconfig.path.pages.forEach(page => {
-    // entry[page.id] = page.entry;
+    entrys[page.id] = page.entry;
 
     plugins.push(
         new HtmlWebpackPlugin({
@@ -45,9 +46,9 @@ if (isProd) {
     );
 }
 
-
+console.log(entrys);
 module.exports = {
-    entry: tconfig.entry,
+    entry: entrys,
     output: {
         publicPath: publicPath,
         path: tconfig.path.distDir,
@@ -210,9 +211,9 @@ module.exports = {
     },
 
     plugins: [
-        // new CopyPlugin({
-        //     patterns: tconfig.copypaths,
-        // }),
         ...plugins,
+		new TagsPlugin(
+			{ tags: ['a.js', 'b.css'], append: false }
+		),
     ],
 };

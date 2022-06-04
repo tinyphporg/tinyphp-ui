@@ -1,5 +1,5 @@
 {
-    "name": "opensaas/tinyphp-ui",
+    "name": "tinyphp/tinyphp-ui",
     "description": "UI component library of tinyphp framework 2.0",
     "type": "library",
     "version": "2.0.0",
