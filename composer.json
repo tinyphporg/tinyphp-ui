@@ -6,7 +6,7 @@
     "minimum-stability": "stable",    
     "author": {
         "name": "Da.Jin",
-        "email": "da.jin@opensaas.net"
+        "email": "tinycn@qq.com"
     },
     "require": {
         "php": ">7"
