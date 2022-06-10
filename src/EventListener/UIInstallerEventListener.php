@@ -88,8 +88,8 @@ class UIInstallerEventListener implements BootstrapEventListenerInterface
         }
         
         // 复制前端JS库
-        $frontPath = dirname(get_included_files()[0]) . '/' . trim($installConfig['frontend_path']);
-        $this->copyto(self::UI_FRONTEND_LIBRARY_DIR, $frontPath);
+        $installPath = $installConfig['install_path'];
+        $this->copyto(self::UI_FRONTEND_LIBRARY_DIR, $installPath);
         $this->app->response->end();
     }
     
@@ -104,7 +104,7 @@ class UIInstallerEventListener implements BootstrapEventListenerInterface
     protected function copyto($sourcePath, $installPath)
     {
         if (!is_dir($sourcePath)) {
-            return FALSE;
+            return false;
         }
         if (preg_match("/^(|\*|\/|\/(usr|home|root|lib|lib64|etc|var)\/?|)$/i", $installPath)) {
             return;

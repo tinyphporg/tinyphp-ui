@@ -6,10 +6,10 @@
     "minimum-stability": "stable",    
     "author": {
         "name": "Da.Jin",
-        "email": "tinycn@qq.com"
+        "email": "da.jin@tinyphp.org"
     },
     "require": {
-        "php": ">7"
+        "php": ">7.3.0"
     },
     "autoload": {
         "psr-4": {

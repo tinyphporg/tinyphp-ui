@@ -21,7 +21,7 @@ namespace Tiny\MVC\View\UI\Template;
 
 use Tiny\MVC\View\Engine\Template\TemplatePluginInterface;
 use Tiny\MVC\View\UI\UIException;
-use Tiny\MVC\View\Engine\Template\TagParser;
+use Tiny\MVC\View\Engine\Template\TagAttributesParser;
 
 /**
  * 简单分页类
@@ -32,7 +32,7 @@ use Tiny\MVC\View\Engine\Template\TagParser;
  */
 class Pagination implements TemplatePluginInterface
 {
-    use TagParser;
+    use TagAttributesParser;
     
     /**
      * 支持解析的组件

@@ -9,18 +9,15 @@ tinyphp-ui
 
 面向对象
 ----
-  + 熟练掌握bootstrap/jquery/css，
+  + 熟练掌握bootstrap/jquery/css/vue，
   + 熟悉JS语言
-  + PHP全栈工程师 
+  + 的PHP全栈工程师 
   + <b>自定义开发需要熟悉webpack。</b>
  
 适合做什么
 ----
-+  API接口快速开发  
-    +  可不加载tinyphp-ui
-+ 管理后台
-+ 响应式WEB程序
-+ SPA 单页面程序开放(待完善)
++ 管理后台开发/erp/crm/srm/oa
++ 响应式WEB应用
 
 tinyphp中的使用
 ----
@@ -67,7 +64,7 @@ or
 
 前端组件库
 ----
-+ 基础库:
++ 基础组件:
   + webpack5   
   + bootstrap5   
   + JQuery   
