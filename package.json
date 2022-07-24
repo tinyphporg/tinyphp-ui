@@ -1,5 +1,5 @@
 {
-  "name": "tinyphp-bootstrap",
+  "name": "tinyphp-ui",
   "version": "1.0.1",
   "description": "Application development platform integrated bootstrap and tinyphp for PHP frameworks",
   "main": "src/js/tinyphp.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saasjit/tinyphp-bootstrap.git"
+    "url": "git+https://github.com/tinyphporg/tinyphp-ui.git"
   },
-  "author": "tinycn@qq.com",
+  "author": "da.jin@tinyphp.org",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/saasjit/tinyphp-bootstrap/issues"
+    "url": "https://github.com/tinyphporg/tinyphp-ui/issues"
   },
-  "homepage": "https://github.com/saasjit/tinyphp-bootstrap#readme",
+  "homepage": "https://github.com/tinyphporg/tinyphp-ui#readme",
   "devDependencies": {
     "@babel/core": "^7.13.6",
     "@babel/parser": "^7.13.6",
@@ -67,6 +67,8 @@
     "@popperjs/core": "^2.10.2",
     "admin-lte": "^3.1.0",
     "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.8.3",
+    "@fortawesome/fontawesome-free": "^6.1.1",
     "html-webpack-tags-plugin": "^3.0.2"
   },
   "browserslist": [

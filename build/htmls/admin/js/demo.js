@@ -41,16 +41,19 @@
       $color.data('color', color)
 
       if (callback) {
-        $color.on('click', callback)
+        $color.on('click', callback);
       }
     })
 
+	$block.on('change', function(){
+		$(this).find("option:selected").click();
+	});
     return $block
   }
 
-  var $sidebar = $('.control-sidebar')
+  var $sidebar = $('.offcanvas')
   var $container = $('<div />', {
-    class: 'p-3 control-sidebar-content'
+    class: 'p-3 coffcanvas-body'
   })
 
   $sidebar.append($container)
@@ -58,7 +61,7 @@
   // Checkboxes
 
   $container.append(
-    '<h5>Customize AdminLTE</h5><hr class="mb-2"/>'
+    '<h5>整体风格</h5><hr class="mb-2"/>'
   )
 
   var $dark_mode_checkbox = $('<input />', {
@@ -503,7 +506,7 @@
   var navbar_all_colors = navbar_dark_skins.concat(navbar_light_skins)
   var $navbar_variants_colors = createSkinBlock(navbar_all_colors, function () {
     var color = $(this).data('color')
-    var $main_header = $('.main-header')
+	var $main_header = $('.main-header')
     $main_header.removeClass('navbar-dark').removeClass('navbar-light')
     navbar_all_colors.forEach(function (color) {
       $main_header.removeClass(color)

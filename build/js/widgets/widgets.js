@@ -1,6 +1,6 @@
 import CardRefresh from './CardRefresh'
 import CardWidget from './CardWidget'
-import ControlSidebar from './ControlSidebar'
+import Siderbar from './siderbar'
 import DirectChat from './DirectChat'
 import AdminDropdown from './Dropdown'
 import ExpandableTable from './ExpandableTable'
@@ -17,7 +17,7 @@ import Treeview from './Treeview'
 export  {
   CardRefresh,
   CardWidget,
-  ControlSidebar,
+  Siderbar,
   DirectChat,
   AdminDropdown,
   ExpandableTable,

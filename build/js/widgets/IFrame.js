@@ -13,7 +13,7 @@ import $ from 'jquery'
  */
 
 const NAME = 'IFrame'
-const DATA_KEY = 'lte.iframe'
+const DATA_KEY = 'opensaas.iframe'
 const JQUERY_NO_CONFLICT = $.fn[NAME]
 
 const SELECTOR_DATA_TOGGLE = '[data-widget="iframe"]'
@@ -96,7 +96,7 @@ class IFrame {
       navId += `-${Math.floor(Math.random() * 1000)}`
     }
 
-    const newNavItem = `<li class="nav-item" role="presentation"><a href="#" class="btn-iframe-close" data-widget="iframe-close" data-type="only-this"><i class="fas fa-times"></i></a><a class="nav-link" data-toggle="row" id="${navId}" href="#${tabId}" role="tab" aria-controls="${tabId}" aria-selected="false">${title}</a></li>`
+    const newNavItem = `<li class="nav-item" role="presentation"><a class="nav-link" data-toggle="row" id="${navId}" href="#${tabId}" role="tab" aria-controls="${tabId}" aria-selected="false">${title}</a> <a href="javascript:void(0)" class="btn-iframe-close" data-widget="iframe-close" data-type="only-this"><i class="bi bi-x"></i></a></li>`
     $(SELECTOR_TAB_NAVBAR_NAV).append(unescape(escape(newNavItem)))
 
     const newTabItem = `<div class="tab-pane fade" id="${tabId}" role="tabpanel" aria-labelledby="${navId}"><iframe src="${link}"></iframe></div>`

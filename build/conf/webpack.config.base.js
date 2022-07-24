@@ -166,7 +166,7 @@ module.exports = {
             use: [isProd ? ({
                 loader: MiniCssExtractPlugin.loader,
                 options: {
-                    publicPath: '../'
+                   // publicPath: '../'
                 }
             }) : 'style-loader', 'css-loader']
         },
@@ -175,7 +175,7 @@ module.exports = {
             use: [isProd ? ({
                 loader: MiniCssExtractPlugin.loader,
                 options: {
-                    publicPath: '../'
+                //    publicPath: '../'
                 }
             }) : 'style-loader', 'css-loader', {
                 loader: 'postcss-loader',

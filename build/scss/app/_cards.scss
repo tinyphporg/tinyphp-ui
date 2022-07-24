@@ -44,10 +44,6 @@
       overflow: auto;
     }
 
-    [data-card-widgett="collapse"] {
-      display: none;
-    }
-
     .card-header,
     .card-footer {
       @include border-radius(0 !important);

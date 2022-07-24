@@ -4,8 +4,6 @@ import Summernote from './plugins/Summernote.js'
 import Alert from './plugins/Alert.js'
 import Cookie from './plugins/Cookie.js'
 
-
-
 class Tiny extends Prototype
 {
 	data = {}
@@ -13,7 +11,7 @@ class Tiny extends Prototype
 	// 部件 继承bootstrap的部件
 	widgets = Bootstrap
 
-	//插件
+	// 插件
 	plugins = {
 		Summernote,
 		Alert,
@@ -25,7 +23,7 @@ class Tiny extends Prototype
 	
 	jqueryFnExtends = {}
 
-	//
+	// 构造函数
 	constructor(config, window) {
 		super();
 		this.initConfig(config)
@@ -55,20 +53,18 @@ class Tiny extends Prototype
 		if (data.hasOwnProperty('plugins') && this.isObject(data.plugins)) {
 			for (let pname in data.plugins) {
 				if (data.plugins.hasOwnProperty(pname)) {
-					this.plugins[pname] = data.widgets[pname];
+					this.plugins[pname] = data.plugins[pname];
 				}
 			}
 		}
-		
 	}
 	
 	//
 	initData(window) {
-		if (!window.hasOwnProperty('tinyDatalayers')) {
+		if (!window.hasOwnProperty('tinyphp_ui_plugins')) {
 			return;
 		}
-		
-		let tdata = window.tinyDatalayers;		
+		let tdata = window['tinyphp_ui_config'];		
 		if (tdata.hasOwnProperty('plugins')) {
 			for (let pname in tdata.plugins) {
 				if (!this.plugins.hasOwnProperty(pname)) {
@@ -76,6 +72,7 @@ class Tiny extends Prototype
 				}
 				
 				let plugin = tdata.plugins[pname];
+				console.log(plugin)
 			}
 		}
 	}
@@ -90,17 +87,15 @@ class Tiny extends Prototype
             if (!plugin.preload) {
                 continue;
             }
-			
-
-                for (let id in plugin.jqueryExtend) {
-                    if (plugin.jqueryExtend.hasOwnProperty(id)) {
-                        this.jqueryExtends[id] = plugin.jqueryExtend[id];
-                    }
+            
+			for (let id in plugin.jqueryExtend) {
+				if (plugin.jqueryExtend.hasOwnProperty(id)) {
+					this.jqueryExtends[id] = plugin.jqueryExtend[id];
                 }
+            }
 
 			
             $.extend(this.jqueryExtends);
-
 			// fn 
 
                 for (let id in plugin.jqueryFnExtend) {

@@ -19,11 +19,13 @@ let htmlDir = path.resolve(buildDir, './htmls');
 // 编译后的存储路径
 let distDir = path.resolve(rootDir, './dist');
 
+let distTemplateDir = path.resolve(rootDir, './templates');
+
 // page编译后的存储路径
-let pageDistDir = path.resolve(rootDir, './pages');
+let pageDistDir = path.resolve(distDir, './pages');
 
 // prod环境下的publicPath
-let prodPublicPath = '/tinyphp-ui/';
+let prodPublicPath = '/static/tinyphp-ui/';
 
 // dev环境下的publicPath
 let devPublicPath = 'http://localhost:8080/';
@@ -51,7 +53,7 @@ const Config = {
         port: 8888,
     },
     copypaths: [
-        { from: htmlDir, to: 'htmls' }
+        { from: htmlDir, to: pageDistDir }
     ],
     plugins: (() => {
         let ps = []
@@ -97,7 +99,7 @@ const Config = {
                     pageList.push({
                         id: fpname,
                         name: fpname,
-                        filename: path.resolve(distDir, './pages/' + f1),
+                        filename: path.resolve(pageDistDir, './' + f1),
                         template: fpath,
 						entry: path.resolve(srcDir, './' + fpname + '.js')
                     });
@@ -126,7 +128,6 @@ const Config = {
                 });
 
             });
-            console.log(pageList);
             return pageList;
         })(),
         alias: {
@@ -134,6 +135,7 @@ const Config = {
             '~src': srcDir,
             '~scss': scssDir,
             '~plugin': pluginDir,
+			'~bootstrap': path.resolve(rootDir, './node_modules/bootstrap/js'),
             'jQuery': path.resolve(rootDir, './node_modules/jquery/dist/jquery.js')
         }
     }

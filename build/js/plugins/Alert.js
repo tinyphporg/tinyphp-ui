@@ -1,3 +1,4 @@
+
 class Alert {
 
 	id = 'alert';

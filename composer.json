@@ -1,6 +1,6 @@
 {
     "name": "tinyphporg/tinyphp-ui",
-    "description": "UI component library of tinyphp framework 2.0",
+    "description": "面向PHP全栈工程师，继承了Bootstrap5+webpack5+jquery的前端UI库，提供管理后台UI和前端UI，及各种JS组件库。",
     "type": "library",
     "version": "2.0.0",
     "minimum-stability": "stable",    
@@ -13,7 +13,6 @@
     },
     "autoload": {
         "psr-4": {
-            "Tiny\\MVC\\View\\UI\\": "src/"
         }
     }
 }

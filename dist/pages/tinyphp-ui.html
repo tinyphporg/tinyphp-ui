@@ -7,14 +7,17 @@
 
 
 <script>
-window.tinyconfig = {
-	plugins: {
-		adminlte: {load:true}
-	}
-}
+(function(window){
+	var tdatalayers = {
+		widget: [''],
+		plugin: []
+	};
+	window['tdatalayers'] = tdatalayers;
+	
+})(window);
 </script>
 
-<link href="/tinyphp-ui/b.css" rel="stylesheet"><link href="/tinyphp-ui/css/tinyphp-ui.min.css" rel="stylesheet"><script src="/tinyphp-ui/a.js"></script><script src="/tinyphp-ui/js/tinyphp-ui.min.js"></script></head>
+<link href="/static/tinyphp-ui/b.css" rel="stylesheet"><link href="/static/tinyphp-ui/css/tinyphp-ui.min.css" rel="stylesheet"><script src="/static/tinyphp-ui/a.js"></script><script src="/static/tinyphp-ui/js/tinyphp-ui.min.js"></script></head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
