@@ -1,7 +1,7 @@
 {
   "name": "tinyphp-ui",
   "version": "1.0.1",
-  "description": "Application development platform integrated bootstrap and tinyphp for PHP frameworks",
+  "description": "面向PHP全栈工程师，继承了Bootstrap5+webpack5+jquery1.9的前端UI库，提供管理后台UI和前端UI，及各种JS组件库，已整合入tinyphp-framework",
   "main": "src/js/tinyphp.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack serve --config build/conf/webpack.config.dev.js --progress",
