@@ -38,6 +38,7 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
         'ui.lib',
         'ui.admin',
         'ui.jslib',
+        'ui.assets',
         'pagination'  //{splitpage,url="http://demo.tinycn.com/%s", index="1"}
     ];
     
@@ -115,6 +116,12 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
     protected $devAdminPublicPath;
     
     /**
+     * 解析静态资源的公共访问地址
+     * 
+     * @var string
+     */
+    protected $assetsPublicPath;
+    /**
      *
      * @autowired
      * 
@@ -127,6 +134,7 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
         $this->templateConfig = $config;
         if (isset($config['public_path'])) {
             $this->publicPath = (string)$config['public_path'];
+            $this->assetsPublicPath = $this->publicPath . 'assets';
         }
         
         // 兼容开发模式
@@ -197,9 +205,11 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
         }
         switch ($tagName) {
             case 'ui.lib':
-                return $this->parseTagUILibraryTag($extra);
+                return $this->parseUILibraryTag($extra);
             case 'ui.admin':
-                return $this->parseTagUILibraryTag($extra, true);
+                return $this->parseUILibraryTag($extra, true);
+            case 'ui.assets':
+                return $this->parseAssetsTag();
             case 'pagination':
                 return (new Pagination())->OnParseTag($tagName, $tagBody, $extra);
         }
@@ -221,10 +231,18 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
         if (strpos($template, $injectTag) === false) {
             return false;
         }
-        $libraryTag = $this->parseTagUILibraryTag();
+        $libraryTag = $this->parseUILibraryTag();
         $count = 1;
         
         return str_replace($injectTag, $libraryTag . "\n" . $injectTag, $template, $count);
+    }
+    
+    /**
+     * 解析assetstag
+     */
+    protected function parseAssetsTag()
+    {
+        return $this->assetsPublicPath;
     }
     
     /**
@@ -232,7 +250,7 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
      *
      * @return string
      */
-    protected function parseTagUILibraryTag($extra = '', $isAdmin = false)
+    protected function parseUILibraryTag($extra = '', $isAdmin = false)
     {
         if ($extra) {
             $plugins = explode(',', $extra);

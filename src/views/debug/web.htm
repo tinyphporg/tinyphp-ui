@@ -40,8 +40,7 @@
 					</div>
 					{if $debugExceptions} <br /> {loop $debugExceptions $de}
 					<p>
-						<b>{$de['type']}: </b> {$de['handler']} {$de['message']} On
-						{$de['file']} Line {$de['line']}
+						{$de}
 					</p>
 					{/loop} {/if}
 				</div>

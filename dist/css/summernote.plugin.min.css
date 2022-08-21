@@ -16,7 +16,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: auto;
-    src: url(/static/tinyphp-ui/font/summernote.eot?#iefix) format("embedded-opentype"), url(/static/tinyphp-ui/font/summernote.woff2) format("woff2"), url(/static/tinyphp-ui/font/summernote.woff) format("woff"), url(/static/tinyphp-ui/font/summernote.ttf) format("truetype");
+    src: url(./font/summernote/summernote.eot?#iefix) format("embedded-opentype"), url(./font/summernote/summernote.woff2) format("woff2"), url(./font/summernote/summernote.woff) format("woff"), url(./font/summernote/summernote.ttf) format("truetype");
 }
 [class^=note-icon]:before,
 [class*=" note-icon"]:before {

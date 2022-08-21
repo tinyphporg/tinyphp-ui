@@ -21,8 +21,9 @@ use Tiny\MVC\Application\Properties;
 use Tiny\MVC\View\Engine\Template;
 use Tiny\UI\Template\UIViewTemplatePlugin;
 use Tiny\UI\Helper\UIViewHelper;
+use Tiny\MVC\Event\RouteEventListenerInterface;
 
-class UIEventListener implements RequestEventListenerInterface
+class UIEventListener implements RequestEventListenerInterface, RouteEventListenerInterface
 {
     /**
      * 当前应用实例
@@ -67,7 +68,7 @@ class UIEventListener implements RequestEventListenerInterface
        // add templates path
        $path = $this->properties['view.paths'];
        $path = is_array($path) ? $path : [(string)$path];
-       $path[] = $this->module->viewPath;
+       $path[] = $this->module->getViewPath();
        $this->properties['view.paths'] = $path;
 
        // add view engines
@@ -92,6 +93,45 @@ class UIEventListener implements RequestEventListenerInterface
        $this->properties['view.helpers'] = $helpers;
     }
     
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \Tiny\MVC\Event\RouteEventListenerInterface::onRouterStartup()
+     */
+    public function onRouterStartup(MvcEvent $event, array $params)
+    {
+        $uri = $this->app->request->uri;
+        if (!preg_match('/uidemo\/(.*\.html)$/is', $uri, $matchs)) {
+            return;
+        }
+        // 模板路径
+        $templatePath =  $matchs[1];
+        $viewPath = $this->module->getViewPath() . $templatePath;
+        if (!file_exists($viewPath)) {
+            return;
+        }
+        
+        $viewer = $this->app->getView();
+        $viewer->display($templatePath, [], $this->module->name);
+        $this->app->end();
+        
+    }
+    
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \Tiny\MVC\Event\RouteEventListenerInterface::onRouterShutdown()
+     */
+    public function onRouterShutdown(MvcEvent $event, array $params)
+    {
+        
+    }
+    
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \Tiny\MVC\Event\RequestEventListenerInterface::onEndRequest()
+     */
     public function onEndRequest(MvcEvent $event, array $params)
     {
         

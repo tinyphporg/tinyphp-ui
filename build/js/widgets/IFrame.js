@@ -12,11 +12,11 @@ import $ from 'jquery'
  * ====================================================
  */
 
-const NAME = 'IFrame'
-const DATA_KEY = 'opensaas.iframe'
+const NAME = 'iframe'
+const DATA_KEY = 'bs.iframe'
 const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-const SELECTOR_DATA_TOGGLE = '[data-widget="iframe"]'
+const SELECTOR_DATA_TOGGLE = '[data-bs-widget="iframe"]'
 const SELECTOR_DATA_TOGGLE_CLOSE = '[data-widget="iframe-close"]'
 const SELECTOR_DATA_TOGGLE_SCROLL_LEFT = '[data-widget="iframe-scrollleft"]'
 const SELECTOR_DATA_TOGGLE_SCROLL_RIGHT = '[data-widget="iframe-scrollright"]'
@@ -72,7 +72,16 @@ class IFrame {
 
     this._init()
   }
-
+    
+   _isShown = false
+    
+   hide() {
+    
+   }
+   
+   show() {
+    
+   }
   // Public
 
   onTabClick(item) {
@@ -99,9 +108,9 @@ class IFrame {
     const newNavItem = `<li class="nav-item" role="presentation"><a class="nav-link" data-toggle="row" id="${navId}" href="#${tabId}" role="tab" aria-controls="${tabId}" aria-selected="false">${title}</a> <a href="javascript:void(0)" class="btn-iframe-close" data-widget="iframe-close" data-type="only-this"><i class="bi bi-x"></i></a></li>`
     $(SELECTOR_TAB_NAVBAR_NAV).append(unescape(escape(newNavItem)))
 
-    const newTabItem = `<div class="tab-pane fade" id="${tabId}" role="tabpanel" aria-labelledby="${navId}"><iframe src="${link}"></iframe></div>`
+    const newTabItem = `<div class="tab-pane fade" id="${tabId}" role="tabpanel" aria-labelledby="${navId}"><iframe id="iframe-${tabId}" iframe-tab-id="${tabId}" iframe-nav-id="${navId}"  src="${link}#admin-iframe-mode"></iframe></div>`
     $(SELECTOR_TAB_CONTENT).append(unescape(escape(newTabItem)))
-
+    
     if (autoOpen) {
       if (this._config.loadingScreen) {
         const $loadingScreen = $(SELECTOR_TAB_LOADING)
@@ -227,8 +236,9 @@ class IFrame {
   // Private
 
   _init() {
-    if (window.frameElement && this._config.autoIframeMode) {
+    if (window.frameElement  && window.frameElement.hasAttribute('iframe-tab-id') && this._config.autoIframeMode) {
       $('body').addClass(CLASS_NAME_IFRAME_MODE)
+      
     } else if ($(SELECTOR_CONTENT_WRAPPER).hasClass(CLASS_NAME_IFRAME_MODE)) {
       if ($(SELECTOR_TAB_CONTENT).children().length > 2) {
         const $el = $(`${SELECTOR_TAB_PANE}:first-child`)
@@ -240,6 +250,10 @@ class IFrame {
       this._fixHeight(true)
     }
   }
+  
+  _initIframe() {
+    
+}
 
   _navScroll(offset) {
     const leftPos = $(SELECTOR_TAB_NAVBAR_NAV).scrollLeft()
@@ -375,6 +389,9 @@ class IFrame {
   // Static
 
   static _jQueryInterface(operation, ...args) {
+    if (!this.length) {
+        return;
+    }
     let data = $(this).data(DATA_KEY)
     const _options = $.extend({}, Default, $(this).data())
 

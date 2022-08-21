@@ -299,7 +299,7 @@ class ControlSidebar {
  */
 $(document).on('click', SELECTOR_DATA_TOGGLE, function (event) {
   event.preventDefault()
-
+  console.log(event);
   ControlSidebar._jQueryInterface.call($(this), 'toggle')
 })
 

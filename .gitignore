@@ -3,6 +3,7 @@
 *.log
 .git
 .settings
+build/htmls/
 /vendor/
 webpack4-bootstrap4-demo
 /node_modules

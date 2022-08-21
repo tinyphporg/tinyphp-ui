@@ -21,11 +21,26 @@ body.iframe-mode-fullscreen {
   height: 100%;
 
   &.iframe-mode {
+	.nav {
+		border: $nav-tabs-border-width solid transparent;
+		border-color: $nav-tabs-link-hover-border-color;
+	}
+	.nav-tabs {
+		border-bottom: 0px;
+		margin-bottom: 0;
+		.nav-link {
+			padding-right: 1.125rem;
+			padding-left: 1.125rem;
+			 &:hover{
+				background:#999
+			}
+		}
+	}
     .btn-iframe-close {
-      color: $danger;
+      color:$gray-600;
       position: absolute;
-      line-height: 1;
-      right: .125rem;
+      line-height: 2.5rem;
+      right: 0.125rem;
       top: .125rem;
       z-index: 10;
       visibility: hidden;

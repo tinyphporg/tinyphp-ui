@@ -1,2 +1,40 @@
-@import 'base/tinyphp.base.scss';
-@import 'admin/tinyphp.admin.scss';
+@import "functions";
+@import "bootstrap-variables";
+@import "~bootstrap/scss/bootstrap";
+
+@import "bootstrap-extra-variables";
+@import "variables";
+@import "variables-alt";
+@import "./admin/variables";
+@import "mixins";
+
+@import "core";
+
+// components
+@import "components";
+@import "extra-components";
+@import "admin/components";
+
+// pages
+@import 'pages';
+@import "admin/pages";
+
+// plugins
+@import "plugins";
+@import "admin/plugins";
+
+@import "miscellaneous";
+
+
+.pagination input.page-link-input{
+	max-width: $font-size-base * 4;
+}
+
+.pagination-lg input.page-link-input{
+	max-width: $font-size-lg * 4;
+}
+
+.pagination-sm input.page-link-input{
+	max-width: $font-size-sm * 4;
+}
+ 

@@ -3,7 +3,7 @@ const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 //const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
-const tconfig = require('./tinyphp.config');
+const tconfig = require('./tinyphp-ui.config');
 const baseWebpackConfig = require('./webpack.config.base');
 const CopyPlugin = require('copy-webpack-plugin');
 module.exports = merge(baseWebpackConfig, {
@@ -30,8 +30,8 @@ module.exports = merge(baseWebpackConfig, {
             hashDigest: 'hex',
             hashDigestLength: 20,
         }),
-        new CopyPlugin({
-             patterns: tconfig.copypaths
+       new CopyPlugin({
+             patterns: tconfig.prod.copypaths
          }),
         new CleanWebpackPlugin(),
         new webpack.BannerPlugin(tconfig.copyright),

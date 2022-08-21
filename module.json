@@ -27,7 +27,8 @@
 			"route" : "pathinfo",
 			"rule": {
 			    "checkRegex" : "#^/(uidemo)#is",
-				 "values": {}
+				 "values": {}, 
+				 "priority": -1
 	    	}
 		}
 	],
@@ -40,8 +41,12 @@
 		"static": {
 			"web": true,
 			"paths": [
-				{"from": "./dist", "to": "./", "exclude" : ""}
+				{"from": "./dist", "to": "./", "exclude" : "", "replace": [
+				        {"regex": "/\\.(css|js|html|htm)$/", "source" : "../../tinyphp-ui/dist/" , "replace": "{properties.view.static.public_path}/tinyphp-ui/"}
+				    ]
+				}
 			]
+			
 		},
 		"namespaces": {
 		}
