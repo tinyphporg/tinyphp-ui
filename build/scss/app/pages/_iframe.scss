@@ -1,5 +1,5 @@
 body.iframe-mode {
-  .main-sidebar {
+  .admin-sidebar {
     display: none;
   }
   .content-wrapper {
@@ -7,7 +7,7 @@ body.iframe-mode {
     margin-top: 0 !important;
     padding-bottom: 0 !important;
   }
-  .main-header,
+  .admin-header,
   .main-footer {
     display: none;
   }
@@ -131,7 +131,7 @@ body.iframe-mode-fullscreen {
       margin-left: 0 !important;
       height: 100%;
       min-height: 100%;
-      z-index: $zindex-main-sidebar + 10;
+      z-index: $zindex-admin-sidebar + 10;
     }
   }
 }

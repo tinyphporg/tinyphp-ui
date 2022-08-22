@@ -23,7 +23,7 @@ const EVENT_EXPANDED = `expanded${EVENT_KEY}`
 const SELECTOR_CONTROL_SIDEBAR = '.control-sidebar'
 const SELECTOR_CONTROL_SIDEBAR_CONTENT = '.control-sidebar-content'
 const SELECTOR_DATA_TOGGLE = '[data-bs-widget="control-sidebar"]'
-const SELECTOR_HEADER = '.main-header'
+const SELECTOR_HEADER = '.admin-header'
 const SELECTOR_FOOTER = '.main-footer'
 
 const CLASS_NAME_CONTROL_SIDEBAR_ANIMATE = 'control-sidebar-animate'

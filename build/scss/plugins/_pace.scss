@@ -3,14 +3,14 @@
 //
 
 .pace {
-  z-index: $zindex-main-sidebar + 10;
+  z-index: $zindex-admin-sidebar + 10;
 
   .pace-progress {
-    z-index: $zindex-main-sidebar + 11;
+    z-index: $zindex-admin-sidebar + 11;
   }
 
   .pace-activity {
-    z-index: $zindex-main-sidebar + 12;
+    z-index: $zindex-admin-sidebar + 12;
   }
 }
 

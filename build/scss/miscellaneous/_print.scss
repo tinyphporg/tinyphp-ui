@@ -9,8 +9,8 @@
   }
 
   //Elements that we want to hide when printing
-  .main-sidebar,
-  .main-header,
+  .admin-sidebar,
+  .admin-header,
   .content-header {
     @extend .no-print;
   }

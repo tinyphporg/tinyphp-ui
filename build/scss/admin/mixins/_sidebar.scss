@@ -36,7 +36,7 @@
     // Apply the new margins to the main content and footer
     .content-wrapper,
     .main-footer,
-    .main-header {
+    .admin-header {
       margin-left: $sidebar-mini-width !important;
     }
 
@@ -76,7 +76,7 @@
     }
 
     // Modify the sidebar to shrink instead of disappearing
-    .main-sidebar {
+    .admin-sidebar {
       overflow-x: hidden;
 
       &,
@@ -151,7 +151,7 @@
     }
 
     &.layout-fixed {
-      .main-sidebar:hover {
+      .admin-sidebar:hover {
         .brand-link {
           width: $sidebar-width;
         }

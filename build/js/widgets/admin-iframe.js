@@ -75,10 +75,10 @@ const SELECTOR_TAB_CONTENT = `${SELECTOR_DATA_TOGGLE}.iframe-mode .tab-content`
 const SELECTOR_TAB_EMPTY = `${SELECTOR_TAB_CONTENT} .tab-empty`
 const SELECTOR_TAB_LOADING = `${SELECTOR_TAB_CONTENT} .tab-loading`
 const SELECTOR_TAB_PANE = `${SELECTOR_TAB_CONTENT} .tab-pane`
-const SELECTOR_SIDEBAR_MENU_ITEM = '.main-sidebar .nav-item > a.nav-link'
+const SELECTOR_SIDEBAR_MENU_ITEM = '.admin-sidebar .nav-item > a.nav-link'
 const SELECTOR_SIDEBAR_SEARCH_ITEM = '.sidebar-search-results .list-group-item'
-const SELECTOR_HEADER_MENU_ITEM = '.main-header .nav-item a.nav-link'
-const SELECTOR_HEADER_DROPDOWN_ITEM = '.main-header a.dropdown-item'
+const SELECTOR_HEADER_MENU_ITEM = '.admin-header .nav-item a.nav-link'
+const SELECTOR_HEADER_DROPDOWN_ITEM = '.admin-header a.dropdown-item'
 const CLASS_NAME_IFRAME_MODE = 'iframe-mode'
 const CLASS_NAME_FULLSCREEN_MODE = 'iframe-mode-fullscreen'
 

@@ -2,10 +2,10 @@
 // Component: Main Sidebar
 //
 
-.main-sidebar {
+.admin-sidebar {
   height: 100vh;
   overflow-y: hidden;
-  z-index: $zindex-main-sidebar;
+  z-index: $zindex-admin-sidebar;
 
   // Remove Firefox Focusring
   a {
@@ -18,7 +18,7 @@
 }
 
 .sidebar {
-  height: calc(100% - (#{$main-header-height-inner} + #{$main-header-bottom-border-width}));
+  height: calc(100% - (#{$admin-header-height-inner} + #{$admin-header-bottom-border-width}));
   overflow-x: none;
   overflow-y: initial;
   padding-bottom: $sidebar-padding-y;
@@ -213,7 +213,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  z-index: $zindex-main-sidebar - 1;
+  z-index: $zindex-admin-sidebar - 1;
 }
 
 [class*="sidebar-light-"] {
@@ -487,15 +487,15 @@
   }
 }
 
-.sidebar-mini .main-sidebar:not(.sidebar-no-expand),
-.sidebar-mini-md .main-sidebar:not(.sidebar-no-expand),
-.sidebar-mini-xs .main-sidebar:not(.sidebar-no-expand),
-.sidebar-mini .main-sidebar:not(.sidebar-no-expand):hover,
-.sidebar-mini-md .main-sidebar:not(.sidebar-no-expand):hover,
-.sidebar-mini-xs .main-sidebar:not(.sidebar-no-expand):hover,
-.sidebar-mini .main-sidebar.sidebar-focused,
-.sidebar-mini-md .main-sidebar.sidebar-focused,
-.sidebar-mini-xs .main-sidebar.sidebar-focused {
+.sidebar-mini .admin-sidebar:not(.sidebar-no-expand),
+.sidebar-mini-md .admin-sidebar:not(.sidebar-no-expand),
+.sidebar-mini-xs .admin-sidebar:not(.sidebar-no-expand),
+.sidebar-mini .admin-sidebar:not(.sidebar-no-expand):hover,
+.sidebar-mini-md .admin-sidebar:not(.sidebar-no-expand):hover,
+.sidebar-mini-xs .admin-sidebar:not(.sidebar-no-expand):hover,
+.sidebar-mini .admin-sidebar.sidebar-focused,
+.sidebar-mini-md .admin-sidebar.sidebar-focused,
+.sidebar-mini-xs .admin-sidebar.sidebar-focused {
   .nav-compact.nav-sidebar.nav-child-indent:not(.nav-flat) .nav-treeview {
     padding-left: 1rem;
     margin-left: -.5rem;
@@ -601,12 +601,12 @@
     }
   }
 
-  .sidebar-mini .main-sidebar:not(.sidebar-no-expand):hover &,
-  .sidebar-mini-md .main-sidebar:not(.sidebar-no-expand):hover &,
-  .sidebar-mini-xs .main-sidebar:not(.sidebar-no-expand):hover &,
-  .sidebar-mini .main-sidebar.sidebar-focused &,
-  .sidebar-mini-md .main-sidebar.sidebar-focused &,
-  .sidebar-mini-xs .main-sidebar.sidebar-focused & {
+  .sidebar-mini .admin-sidebar:not(.sidebar-no-expand):hover &,
+  .sidebar-mini-md .admin-sidebar:not(.sidebar-no-expand):hover &,
+  .sidebar-mini-xs .admin-sidebar:not(.sidebar-no-expand):hover &,
+  .sidebar-mini .admin-sidebar.sidebar-focused &,
+  .sidebar-mini-md .admin-sidebar.sidebar-focused &,
+  .sidebar-mini-xs .admin-sidebar.sidebar-focused & {
     &.nav-compact.nav-sidebar .nav-treeview {
       .nav-icon {
         margin-left: .4rem;
@@ -726,12 +726,12 @@
     }
   }
 
-  .sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused &.nav-child-indent,
-  .sidebar-mini.sidebar-collapse .main-sidebar:hover &.nav-child-indent,
-  .sidebar-mini-md.sidebar-collapse .main-sidebar.sidebar-focused &.nav-child-indent,
-  .sidebar-mini-md.sidebar-collapse .main-sidebar:hover &.nav-child-indent,
-  .sidebar-mini-xs.sidebar-collapse .main-sidebar.sidebar-focused &.nav-child-indent,
-  .sidebar-mini-xs.sidebar-collapse .main-sidebar:hover &.nav-child-indent {
+  .sidebar-mini.sidebar-collapse .admin-sidebar.sidebar-focused &.nav-child-indent,
+  .sidebar-mini.sidebar-collapse .admin-sidebar:hover &.nav-child-indent,
+  .sidebar-mini-md.sidebar-collapse .admin-sidebar.sidebar-focused &.nav-child-indent,
+  .sidebar-mini-md.sidebar-collapse .admin-sidebar:hover &.nav-child-indent,
+  .sidebar-mini-xs.sidebar-collapse .admin-sidebar.sidebar-focused &.nav-child-indent,
+  .sidebar-mini-xs.sidebar-collapse .admin-sidebar:hover &.nav-child-indent {
     .nav-treeview {
       padding-left: 1rem;
 
@@ -742,12 +742,12 @@
     }
   }
 
-  .sidebar-mini.sidebar-collapse.text-sm .main-sidebar.sidebar-focused &.nav-child-indent,
-  .sidebar-mini.sidebar-collapse.text-sm .main-sidebar:hover &.nav-child-indent,
-  .sidebar-mini-md.sidebar-collapse.text-sm .main-sidebar.sidebar-focused &.nav-child-indent,
-  .sidebar-mini-md.sidebar-collapse.text-sm .main-sidebar:hover &.nav-child-indent,
-  .sidebar-mini-xs.sidebar-collapse.text-sm .main-sidebar.sidebar-focused &.nav-child-indent,
-  .sidebar-mini-xs.sidebar-collapse.text-sm .main-sidebar:hover &.nav-child-indent {
+  .sidebar-mini.sidebar-collapse.text-sm .admin-sidebar.sidebar-focused &.nav-child-indent,
+  .sidebar-mini.sidebar-collapse.text-sm .admin-sidebar:hover &.nav-child-indent,
+  .sidebar-mini-md.sidebar-collapse.text-sm .admin-sidebar.sidebar-focused &.nav-child-indent,
+  .sidebar-mini-md.sidebar-collapse.text-sm .admin-sidebar:hover &.nav-child-indent,
+  .sidebar-mini-xs.sidebar-collapse.text-sm .admin-sidebar.sidebar-focused &.nav-child-indent,
+  .sidebar-mini-xs.sidebar-collapse.text-sm .admin-sidebar:hover &.nav-child-indent {
     .nav-treeview {
       padding-left: .5rem;
 
@@ -863,12 +863,12 @@
     }
   }
 
-  .sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused &,
-  .sidebar-mini.sidebar-collapse .main-sidebar:not(.sidebar-no-expand):hover &,
-  .sidebar-mini-md.sidebar-collapse .main-sidebar.sidebar-focused &,
-  .sidebar-mini-md.sidebar-collapse .main-sidebar:not(.sidebar-no-expand):hover &,
-  .sidebar-mini-xs.sidebar-collapse .main-sidebar.sidebar-focused &,
-  .sidebar-mini-xs.sidebar-collapse .main-sidebar:not(.sidebar-no-expand):hover & {
+  .sidebar-mini.sidebar-collapse .admin-sidebar.sidebar-focused &,
+  .sidebar-mini.sidebar-collapse .admin-sidebar:not(.sidebar-no-expand):hover &,
+  .sidebar-mini-md.sidebar-collapse .admin-sidebar.sidebar-focused &,
+  .sidebar-mini-md.sidebar-collapse .admin-sidebar:not(.sidebar-no-expand):hover &,
+  .sidebar-mini-xs.sidebar-collapse .admin-sidebar.sidebar-focused &,
+  .sidebar-mini-xs.sidebar-collapse .admin-sidebar:not(.sidebar-no-expand):hover & {
     .menu-open > .nav-treeview {
       max-height: min-content;
       animation-name: fadeIn;
@@ -994,11 +994,11 @@
 
 // Sidebar Collapse on Layout Boxed
 .layout-boxed:not(.sidebar-mini):not(.sidebar-mini-md):not(.sidebar-mini-xs) {
-  &.sidebar-collapse .main-sidebar {
+  &.sidebar-collapse .admin-sidebar {
     margin-left: 0;
   }
   .content-wrapper,
-  .main-header,
+  .admin-header,
   .main-footer {
     z-index: 9999;
     position: relative;
@@ -1048,7 +1048,7 @@
   .list-group {
     position: absolute;
     width: 100%;
-    z-index: $zindex-main-sidebar + 1;
+    z-index: $zindex-admin-sidebar + 1;
 
     > .list-group-item {
       padding: $input-padding-y $input-padding-x;
@@ -1104,9 +1104,9 @@
     }
   }
 
-  .main-sidebar-custom {
+  .admin-sidebar-custom {
     .sidebar {
-      height: calc(100% - ((#{$main-header-height-inner} + #{$sidebar-custom-height}) + #{$main-header-bottom-border-width}));
+      height: calc(100% - ((#{$admin-header-height-inner} + #{$sidebar-custom-height}) + #{$admin-header-bottom-border-width}));
     }
 
     .sidebar-custom {
@@ -1115,9 +1115,9 @@
     }
   }
 
-  .main-sidebar-custom-lg {
+  .admin-sidebar-custom-lg {
     .sidebar {
-      height: calc(100% - ((#{$main-header-height-inner} + #{$sidebar-custom-height-lg}) + #{$main-header-bottom-border-width}));
+      height: calc(100% - ((#{$admin-header-height-inner} + #{$sidebar-custom-height-lg}) + #{$admin-header-bottom-border-width}));
     }
 
     .sidebar-custom {
@@ -1125,9 +1125,9 @@
     }
   }
 
-  .main-sidebar-custom-xl {
+  .admin-sidebar-custom-xl {
     .sidebar {
-      height: calc(100% - ((#{$main-header-height-inner} + #{$sidebar-custom-height-xl}) + #{$main-header-bottom-border-width}));
+      height: calc(100% - ((#{$admin-header-height-inner} + #{$sidebar-custom-height-xl}) + #{$admin-header-bottom-border-width}));
     }
 
     .sidebar-custom {
@@ -1135,9 +1135,9 @@
     }
   }
 
-  .main-sidebar-custom,
-  .main-sidebar-custom-lg,
-  .main-sidebar-custom-xl {
+  .admin-sidebar-custom,
+  .admin-sidebar-custom-lg,
+  .admin-sidebar-custom-xl {
     .pos-right {
       position: absolute;
       right: .5rem;

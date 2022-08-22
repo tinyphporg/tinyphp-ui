@@ -7,8 +7,10 @@
 @import "variables-alt";
 @import "./admin/variables";
 @import "mixins";
+@import "admin/mixins";
 
 @import "core";
+@import "admin/core";
 
 // components
 @import "components";

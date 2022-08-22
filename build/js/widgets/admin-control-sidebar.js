@@ -448,8 +448,8 @@ class ControlSidebar extends BaseComponent {
         })
         $body.addClass('accent-' + themeId)
 
-        // main-header
-        const $mainHeader = $('.main-header')
+        // admin-header
+        const $mainHeader = $('.admin-header')
         themeColors.forEach(color => {
             if ($mainHeader.hasClass('navbar-' + color)) {
                 $mainHeader.removeClass('navbar-' + color)
@@ -460,7 +460,7 @@ class ControlSidebar extends BaseComponent {
 
     changeSidebarDarkMode = (isDarkMode = false, isSave = true) => {
         const themeColors = Default.colors
-        const $sidebar = $('.main-sidebar')
+        const $sidebar = $('.admin-sidebar')
         const sidebarDarkMode = isDarkMode  ? 'dark' : 'light'
         this.isSidebarDarkMode = isDarkMode
         if (isSave) {
