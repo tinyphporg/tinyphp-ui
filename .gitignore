@@ -11,4 +11,3 @@ src/js/assets/adminlte/*
 package-lock.json
 *.lock
 build/htmls/
-build/*
