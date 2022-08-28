@@ -2,10 +2,10 @@
 // Component: Main Header
 //
 
-.admin-header {
-  border-bottom: $admin-header-bottom-border;
+.main-header {
+  border-bottom: $main-header-bottom-border;
 
-  z-index: $zindex-admin-header;
+  z-index: $zindex-main-header;
 
   .nav-link {
     height: $nav-link-height;
@@ -59,7 +59,7 @@
 
 // Add this class to images within a nav-link
 .navbar-img {
-  height: $admin-header-height / 2;
+  height: $main-header-height / 2;
   width: auto;
 }
 
@@ -94,25 +94,25 @@
 .navbar-dark {
   .form-control-navbar,
   .btn-navbar {
-    background-color: $admin-header-dark-form-control-bg;
-    border-color: $admin-header-dark-form-control-border-color;
+    background-color: $main-header-dark-form-control-bg;
+    border-color: $main-header-dark-form-control-border-color;
   }
 
   .form-control-navbar {
     &::placeholder {
-      color: $admin-header-dark-placeholder-color;
+      color: $main-header-dark-placeholder-color;
     }
 
     + .input-group-append > .btn-navbar {
-      color: $admin-header-dark-placeholder-color;
+      color: $main-header-dark-placeholder-color;
     }
 
     &:focus {
       &,
       + .input-group-append .btn-navbar {
-        background-color: $admin-header-dark-form-control-focused-bg;
-        border-color: $admin-header-dark-form-control-focused-border-color !important;
-        color: $admin-header-dark-form-control-focused-color;
+        background-color: $main-header-dark-form-control-focused-bg;
+        border-color: $main-header-dark-form-control-focused-border-color !important;
+        color: $main-header-dark-form-control-focused-color;
       }
     }
   }
@@ -121,25 +121,25 @@
 .navbar-light {
   .form-control-navbar,
   .btn-navbar {
-    background-color: $admin-header-light-form-control-bg;
-    border-color: $admin-header-light-form-control-border-color;
+    background-color: $main-header-light-form-control-bg;
+    border-color: $main-header-light-form-control-border-color;
   }
 
   .form-control-navbar {
     &::placeholder {
-      color: $admin-header-light-placeholder-color;
+      color: $main-header-light-placeholder-color;
     }
 
     + .input-group-append > .btn-navbar {
-      color: $admin-header-light-placeholder-color;
+      color: $main-header-light-placeholder-color;
     }
 
     &:focus {
       &,
       + .input-group-append .btn-navbar {
-        background-color: $admin-header-light-form-control-focused-bg;
-        border-color: $admin-header-light-form-control-focused-border-color !important;
-        color: $admin-header-light-form-control-focused-color;
+        background-color: $main-header-light-form-control-focused-bg;
+        border-color: $main-header-light-form-control-focused-border-color !important;
+        color: $main-header-light-form-control-focused-color;
       }
     }
   }
@@ -149,7 +149,7 @@
  //     &:focus {
  //       &,
  //       + .input-group-append .btn-navbar {
- //         color: $admin-header-light-placeholder-color;
+ //         color: $main-header-light-placeholder-color;
  //       }
  //     }
 //    }

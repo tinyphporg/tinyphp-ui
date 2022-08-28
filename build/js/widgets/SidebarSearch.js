@@ -24,7 +24,7 @@ const CLASS_NAME_SEARCH_RESULTS = 'sidebar-search-results'
 const CLASS_NAME_LIST_GROUP = 'list-group'
 
 const SELECTOR_DATA_WIDGET = '[data-widget="sidebar-search"]'
-const SELECTOR_SIDEBAR = '.admin-sidebar .nav-sidebar'
+const SELECTOR_SIDEBAR = '.main-sidebar .nav-sidebar'
 const SELECTOR_NAV_LINK = '.nav-link'
 const SELECTOR_NAV_TREEVIEW = '.nav-treeview'
 const SELECTOR_SEARCH_INPUT = `${SELECTOR_DATA_WIDGET} .form-control`

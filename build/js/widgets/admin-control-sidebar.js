@@ -244,7 +244,6 @@ class ControlSidebar extends BaseComponent {
   }    
     
     _getOrOffcanvas = () => {
-        console.log('aaaa')
         const target = this._createOffcanvasTarget()
         return Offcanvas.getOrCreateInstance(target)
     }
@@ -400,7 +399,6 @@ class ControlSidebar extends BaseComponent {
         $(`#${targetIds['fixed']} input[type="checkbox"]`).on('click', () => {
             $(`#${targetIds['fixed']} input[type="checkbox"]`).each((index, element) => {
                 let className = $(element).attr('data-bs-fixed')
-                console.log(className)
                 if (!className) {
                 return
                 }
@@ -409,7 +407,6 @@ class ControlSidebar extends BaseComponent {
         })
         
         // fixed
-        console.log(targetIds['multipages'])
         $(`#${targetIds['multipages']}`).on('click', function(){
            changeIFrame($(this).is(':checked'))
         })
@@ -449,8 +446,8 @@ class ControlSidebar extends BaseComponent {
         })
         $body.addClass('accent-' + themeId)
 
-        // admin-header
-        const $mainHeader = $('.admin-header')
+        // main-header
+        const $mainHeader = $('.main-header')
         themeColors.forEach(color => {
             if ($mainHeader.hasClass('navbar-' + color)) {
                 $mainHeader.removeClass('navbar-' + color)
@@ -461,7 +458,7 @@ class ControlSidebar extends BaseComponent {
 
     changeSidebarDarkMode = (isDarkMode = false, isSave = true) => {
         const themeColors = Default.colors
-        const $sidebar = $('.admin-sidebar')
+        const $sidebar = $('.main-sidebar')
         const sidebarDarkMode = isDarkMode  ? 'dark' : 'light'
         this.isSidebarDarkMode = isDarkMode
         if (isSave) {

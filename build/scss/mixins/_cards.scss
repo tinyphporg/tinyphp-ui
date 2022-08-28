@@ -10,11 +10,11 @@
 
         &,
         a {
-          color: color-yiq($color);
+          color: color-contrast($color);
         }
 
         a.active {
-          color: color-yiq($white);
+          color: color-contrast($white);
         }
       }
     }
@@ -43,10 +43,10 @@
   .card-#{$name}:not(.card-outline) {
     > .card-header {
       .btn-tool {
-        color: rgba(color-yiq($color), .8);
+        color: rgba(color-contrast($color), .8);
 
         &:hover {
-          color: color-yiq($color);
+          color: color-contrast($color);
         }
       }
     }
@@ -66,17 +66,17 @@
       table td.minute:hover,
       table td.second:hover {
         background-color: darken($color, 8%);
-        color: color-yiq($color);
+        color: color-contrast($color);
       }
 
       table td.today::before {
-        border-bottom-color: color-yiq($color);
+        border-bottom-color: color-contrast($color);
       }
 
       table td.active,
       table td.active:hover {
         background-color: lighten($color, 10%);
-        color: color-yiq($color);
+        color: color-contrast($color);
       }
     }
   }

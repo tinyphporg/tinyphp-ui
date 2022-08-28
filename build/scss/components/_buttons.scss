@@ -15,8 +15,7 @@
   }
 
   @each $color, $value in $theme-colors {
-    .btn-outline-#{$color} {
-    @debug $color,$value;  
+    .btn-outline-#{$color} { 
     @include button-outline-variant($value);
     }
   }
@@ -162,7 +161,6 @@
 
   @each $color, $value in $theme-colors-alt {
     .btn-outline-#{$color} {
-    @debug $color,$value;  
 	@include button-outline-variant($value);
     }
   }

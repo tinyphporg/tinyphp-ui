@@ -81,6 +81,7 @@ module.exports = {
         basePath: BUILD_DIR,
         htmlDir: BUILD_HTML_DIR,
         staticDirs: [BUILD_HTML_DIR],
+        writedisk: /(admin|app)\//,
         apiDomain: '/',
         host: '0.0.0.0',
         port: 8080,

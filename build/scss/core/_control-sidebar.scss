@@ -9,7 +9,7 @@ html.control-sidebar-animate {
 .control-sidebar {
   bottom: $main-footer-height;
   position: absolute;
-  top: $admin-header-height;
+  top: $main-header-height;
   z-index: $zindex-control-sidebar;
 
   &,
@@ -33,12 +33,12 @@ html.control-sidebar-animate {
 body.text-sm {
   .control-sidebar {
     bottom: $main-footer-height-sm;
-    top: $admin-header-height-sm;
+    top: $main-header-height-sm;
   }
 }
 
-.admin-header.text-sm ~ .control-sidebar {
-  top: $admin-header-height-sm;
+.main-header.text-sm ~ .control-sidebar {
+  top: $main-header-height-sm;
 }
 
 .main-footer.text-sm ~ .control-sidebar {
@@ -169,5 +169,5 @@ body.text-sm {
 
   //  Background
   background-color: $sidebar-light-bg;
-  border-left: $admin-header-bottom-border;
+  border-left: $main-header-bottom-border;
 }

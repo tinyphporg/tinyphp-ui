@@ -9,7 +9,6 @@ class Storager {
     }
     
     static set = (key, value) => {
-        console.log({key, value})
         storager.setItem(key, JSON.stringify(value))
     }
     

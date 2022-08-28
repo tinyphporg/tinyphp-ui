@@ -247,8 +247,8 @@ class ControlSidebar extends BaseComponent {
         })
         $body.addClass('accent-' + themeId)
 
-        // admin-header
-        const $mainHeader = $('.admin-header')
+        // main-header
+        const $mainHeader = $('.main-header')
         themeColors.forEach(color => {
             if ($mainHeader.hasClass('navbar-' + color)) {
                 $mainHeader.removeClass('navbar-' + color)
@@ -262,7 +262,7 @@ class ControlSidebar extends BaseComponent {
 
     changeSidebar = () => {
         const themeColors = Default.colors
-        const $sidebar = $('.admin-sidebar')
+        const $sidebar = $('.main-sidebar')
         themeColors.forEach(color => {
             if ($sidebar.hasClass('sidebar-light-' + color)) {
                 $sidebar.removeClass('sidebar-light-' + color)

@@ -113,10 +113,9 @@ class Tiny extends Prototype {
         // meta config
         const content = $("meta[name='tinyphp-ui']").attr('content')
         if (content === undefined) {
-            return
+            return data
         }
         content.split(';').forEach((nodeContent) => {
-            console.log(nodeContent)
             let node = nodeContent.split('=')
             if (node.length !== 2) {
                 return

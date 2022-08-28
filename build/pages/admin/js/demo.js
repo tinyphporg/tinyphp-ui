@@ -98,13 +98,13 @@
   var $dropdown_legacy_offset_checkbox = $('<input />', {
     type: 'checkbox',
     value: 1,
-    checked: $('.admin-header').hasClass('dropdown-legacy'),
+    checked: $('.main-header').hasClass('dropdown-legacy'),
     class: 'mr-1'
   }).on('click', function () {
     if ($(this).is(':checked')) {
-      $('.admin-header').addClass('dropdown-legacy')
+      $('.main-header').addClass('dropdown-legacy')
     } else {
-      $('.admin-header').removeClass('dropdown-legacy')
+      $('.main-header').removeClass('dropdown-legacy')
     }
   })
   var $dropdown_legacy_offset_container = $('<div />', { class: 'mb-1' }).append($dropdown_legacy_offset_checkbox).append('<span>Dropdown Legacy Offset</span>')
@@ -113,13 +113,13 @@
   var $no_border_checkbox = $('<input />', {
     type: 'checkbox',
     value: 1,
-    checked: $('.admin-header').hasClass('border-bottom-0'),
+    checked: $('.main-header').hasClass('border-bottom-0'),
     class: 'mr-1'
   }).on('click', function () {
     if ($(this).is(':checked')) {
-      $('.admin-header').addClass('border-bottom-0')
+      $('.main-header').addClass('border-bottom-0')
     } else {
-      $('.admin-header').removeClass('border-bottom-0')
+      $('.main-header').removeClass('border-bottom-0')
     }
   })
   var $no_border_container = $('<div />', { class: 'mb-4' }).append($no_border_checkbox).append('<span>No border</span>')
@@ -291,13 +291,13 @@
   var $no_expand_sidebar_checkbox = $('<input />', {
     type: 'checkbox',
     value: 1,
-    checked: $('.admin-sidebar').hasClass('sidebar-no-expand'),
+    checked: $('.main-sidebar').hasClass('sidebar-no-expand'),
     class: 'mr-1'
   }).on('click', function () {
     if ($(this).is(':checked')) {
-      $('.admin-sidebar').addClass('sidebar-no-expand')
+      $('.main-sidebar').addClass('sidebar-no-expand')
     } else {
-      $('.admin-sidebar').removeClass('sidebar-no-expand')
+      $('.main-sidebar').removeClass('sidebar-no-expand')
     }
   })
   var $no_expand_sidebar_container = $('<div />', { class: 'mb-4' }).append($no_expand_sidebar_checkbox).append('<span>Disable Hover/Focus Auto-Expand</span>')
@@ -339,13 +339,13 @@
   var $text_sm_header_checkbox = $('<input />', {
     type: 'checkbox',
     value: 1,
-    checked: $('.admin-header').hasClass('text-sm'),
+    checked: $('.main-header').hasClass('text-sm'),
     class: 'mr-1'
   }).on('click', function () {
     if ($(this).is(':checked')) {
-      $('.admin-header').addClass('text-sm')
+      $('.main-header').addClass('text-sm')
     } else {
-      $('.admin-header').removeClass('text-sm')
+      $('.main-header').removeClass('text-sm')
     }
   })
   var $text_sm_header_container = $('<div />', { class: 'mb-1' }).append($text_sm_header_checkbox).append('<span>Navbar</span>')
@@ -506,7 +506,7 @@
   var navbar_all_colors = navbar_dark_skins.concat(navbar_light_skins)
   var $navbar_variants_colors = createSkinBlock(navbar_all_colors, function () {
     var color = $(this).data('color')
-	var $main_header = $('.admin-header')
+	var $main_header = $('.main-header')
     $main_header.removeClass('navbar-dark').removeClass('navbar-light')
     navbar_all_colors.forEach(function (color) {
       $main_header.removeClass(color)
@@ -526,7 +526,7 @@
   })
 
   var active_navbar_color = null
-  $('.admin-header')[0].classList.forEach(function (className) {
+  $('.main-header')[0].classList.forEach(function (className) {
     if (navbar_all_colors.indexOf(className) > -1 && active_navbar_color === null) {
       active_navbar_color = className.replace('navbar-', 'bg-')
     }
@@ -575,7 +575,7 @@
   var $sidebar_dark_variants = createSkinBlock(sidebar_colors, function () {
     var color = $(this).data('color')
     var sidebar_class = 'sidebar-dark-' + color.replace('bg-', '')
-    var $sidebar = $('.admin-sidebar')
+    var $sidebar = $('.main-sidebar')
     sidebar_skins.forEach(function (skin) {
       $sidebar.removeClass(skin)
       $sidebar_light_variants.removeClass(skin.replace('sidebar-dark-', 'bg-')).removeClass('text-light')
@@ -590,7 +590,7 @@
   $container.append($sidebar_dark_variants)
 
   var active_sidebar_dark_color = null
-  $('.admin-sidebar')[0].classList.forEach(function (className) {
+  $('.main-sidebar')[0].classList.forEach(function (className) {
     var color = className.replace('sidebar-dark-', 'bg-')
     if (sidebar_colors.indexOf(color) > -1 && active_sidebar_dark_color === null) {
       active_sidebar_dark_color = color
@@ -608,7 +608,7 @@
   var $sidebar_light_variants = createSkinBlock(sidebar_colors, function () {
     var color = $(this).data('color')
     var sidebar_class = 'sidebar-light-' + color.replace('bg-', '')
-    var $sidebar = $('.admin-sidebar')
+    var $sidebar = $('.main-sidebar')
     sidebar_skins.forEach(function (skin) {
       $sidebar.removeClass(skin)
       $sidebar_dark_variants.removeClass(skin.replace('sidebar-light-', 'bg-')).removeClass('text-light')
@@ -623,7 +623,7 @@
   $container.append($sidebar_light_variants)
 
   var active_sidebar_light_color = null
-  $('.admin-sidebar')[0].classList.forEach(function (className) {
+  $('.main-sidebar')[0].classList.forEach(function (className) {
     var color = className.replace('sidebar-light-', 'bg-')
     if (sidebar_colors.indexOf(color) > -1 && active_sidebar_light_color === null) {
       active_sidebar_light_color = color

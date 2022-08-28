@@ -16,9 +16,9 @@ const NAME = 'Layout'
 const DATA_KEY = 'lte.layout'
 const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-const SELECTOR_HEADER = '.admin-header'
-const SELECTOR_MAIN_SIDEBAR = '.admin-sidebar'
-const SELECTOR_SIDEBAR = '.admin-sidebar .sidebar'
+const SELECTOR_HEADER = '.main-header'
+const SELECTOR_MAIN_SIDEBAR = '.main-sidebar'
+const SELECTOR_SIDEBAR = '.main-sidebar .sidebar'
 const SELECTOR_CONTENT = '.content-wrapper'
 const SELECTOR_CONTROL_SIDEBAR_CONTENT = '.control-sidebar-content'
 const SELECTOR_CONTROL_SIDEBAR_BTN = '[data-widget="control-sidebar"]'

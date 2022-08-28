@@ -15,7 +15,7 @@
     .nav-tabs .nav-link {
       color: $link-color;
 
-      @include hover () {
+      &:hover{
         color: $link-hover-color;
       }
     }
@@ -24,7 +24,7 @@
       &:active,
       &.active {
         background-color: $color;
-        color: color-yiq($color);
+        color: color-contrast($color);
       }
     }
 
@@ -35,7 +35,7 @@
       }
 
       &::after {
-        $new-color: color-yiq($color);
+        $new-color: color-contrast($color);
         background-image: str-replace($custom-checkbox-indicator-icon-checked, str-replace(#{$custom-control-indicator-checked-color}, "#", "%23"), str-replace(#{$new-color}, "#", "%23"));
       }
     }
@@ -72,7 +72,7 @@
         a:not(.dropdown-item):not(.btn-app):not(.nav-link):not(.brand-link) {
           color: $sidebar-dark-color;
 
-          @include hover () {
+          &:hover{
             color: $sidebar-dark-hover-color;
           }
         }
@@ -84,7 +84,7 @@
         a:not(.dropdown-item):not(.btn-app):not(.nav-link):not(.brand-link) {
           color: $sidebar-light-color;
 
-          @include hover () {
+          &:hover {
             color: $sidebar-light-hover-color;
           }
         }

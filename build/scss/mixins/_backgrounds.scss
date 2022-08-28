@@ -9,13 +9,13 @@
 
     &,
     > a {
-      color: color-yiq($color) !important;
+      color: color-contrast($color) !important;
     }
 
     &.btn {
       &:hover {
         border-color: darken($color, 10%);
-        color: darken(color-yiq($color), 7.5%);
+        color: darken(color-contrast($color), 7.5%);
       }
 
       &:not(:disabled):not(.disabled):active,
@@ -24,7 +24,7 @@
       &.active {
         background-color: darken($color, 10%) !important;
         border-color: darken($color, 12.5%);
-        color: color-yiq(darken($color, 10%));
+        color: color-contrast(darken($color, 10%));
       }
     }
   }
@@ -34,7 +34,7 @@
 @mixin background-gradient-variant($name, $color) {
   .bg-gradient-#{$name} {
     background: $color linear-gradient(180deg, mix($body-bg, $color, 15%), $color) repeat-x !important;
-    color: color-yiq($color);
+    color: color-contrast($color);
 
     &.btn {
       &.disabled,
@@ -48,7 +48,7 @@
       &:hover {
         background: $color linear-gradient(180deg, mix($body-bg, darken($color, 7.5%), 15%), darken($color, 7.5%)) repeat-x !important;
         border-color: darken($color, 10%);
-        color: darken(color-yiq($color), 7.5%);
+        color: darken(color-contrast($color), 7.5%);
       }
 
       &:not(:disabled):not(.disabled):active,
@@ -57,7 +57,7 @@
       &.active {
         background: $color linear-gradient(180deg, mix($body-bg, darken($color, 10%), 15%), darken($color, 10%)) repeat-x !important;
         border-color: darken($color, 12.5%);
-        color: color-yiq(darken($color, 10%));
+        color: color-contrast(darken($color, 10%));
       }
     }
   }

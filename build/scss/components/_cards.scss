@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 //
 // Component: Cards
 //
@@ -213,7 +215,7 @@ html.maximized-card {
 .card-header {
   //background-color: transparent;
   border-bottom: 1px solid $card-border-color;
-  padding: (($card-spacer-y / 2) * 2) $card-spacer-x;
+  padding: (math.div($card-spacer-y, 2) * 2) $card-spacer-x;
   position: relative;
 
   @if $enable-rounded {
@@ -226,13 +228,13 @@ html.maximized-card {
 
   > .card-tools {
     float: right;
-    margin-right: -$card-spacer-x / 2;
+    margin-right: math.div(-$card-spacer-x, 2);
 
     .input-group,
     .nav,
     .pagination {
-      margin-bottom: -$card-spacer-y / 2.5;
-      margin-top: -$card-spacer-y / 2.5;
+      margin-bottom: math.div(-$card-spacer-y, 2.5);
+      margin-top: math.div(-$card-spacer-y, 2.5);
     }
 
     [data-toggle="tooltip"] {
@@ -258,14 +260,14 @@ html.maximized-card {
   background-color: transparent;
   color: $gray-500;
   font-size: $font-size-sm;
-  margin: -(($card-spacer-y / 2) * 2) 0;
+  margin: -(math.div($card-spacer-y, 2) * 2) 0;
   padding: .25rem .5rem;
 
   .btn-group.show &,
   &:hover {
     color: $gray-700;
   }
-
+ 
   .show &,
   &:focus {
     box-shadow: none !important;
@@ -407,7 +409,7 @@ html.maximized-card {
 
     // Tools and options box
     .tools {
-      color: theme-color("danger");
+      color: map-get($theme-colors, "danger");
       display: none;
       float: right;
 

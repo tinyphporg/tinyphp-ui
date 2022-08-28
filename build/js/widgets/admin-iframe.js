@@ -75,10 +75,10 @@ const SELECTOR_TAB_CONTENT = `${SELECTOR_DATA_TOGGLE}.iframe-mode .tab-content`
 const SELECTOR_TAB_EMPTY = `${SELECTOR_TAB_CONTENT} .tab-empty`
 const SELECTOR_TAB_LOADING = `${SELECTOR_TAB_CONTENT} .tab-loading`
 const SELECTOR_TAB_PANE = `${SELECTOR_TAB_CONTENT} .tab-pane`
-const SELECTOR_SIDEBAR_MENU_ITEM = '.admin-sidebar .nav-item > a.nav-link'
+const SELECTOR_SIDEBAR_MENU_ITEM = '.main-sidebar .nav-item > a.nav-link'
 const SELECTOR_SIDEBAR_SEARCH_ITEM = '.sidebar-search-results .list-group-item'
-const SELECTOR_HEADER_MENU_ITEM = '.admin-header .nav-item a.nav-link'
-const SELECTOR_HEADER_DROPDOWN_ITEM = '.admin-header a.dropdown-item'
+const SELECTOR_HEADER_MENU_ITEM = '.main-header .nav-item a.nav-link'
+const SELECTOR_HEADER_DROPDOWN_ITEM = '.main-header a.dropdown-item'
 const CLASS_NAME_IFRAME_MODE = 'iframe-mode'
 const CLASS_NAME_FULLSCREEN_MODE = 'iframe-mode-fullscreen'
 
@@ -224,7 +224,7 @@ class IFrame extends BaseComponent {
       navId += `-${Math.floor(Math.random() * 1000)}`
     }
 
-    const newNavItem = `<li class="nav-item" role="presentation"><a class="nav-link" data-toggle="row" id="${navId}" href="#${tabId}" role="tab" aria-controls="${tabId}" aria-selected="false">${title}</a> <a href="javascript:void(0)" class="btn-iframe-close" data-widget="iframe-close" data-type="only-this"><i class="bi bi-x"></i></a></li>`
+    const newNavItem = `<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="row" id="${navId}" href="#${tabId}" role="tab" aria-controls="${tabId}" aria-selected="false">${title}</a> <a href="javascript:void(0)" class="btn-iframe-close" data-widget="iframe-close" data-type="only-this"><i class="bi bi-x"></i></a></li>`
     $(SELECTOR_TAB_NAVBAR_NAV).append(unescape(escape(newNavItem)))
 
     const newTabItem = `<div class="tab-pane fade" id="${tabId}" role="tabpanel" aria-labelledby="${navId}"><iframe id="iframe-${tabId}" iframe-tab-id="${tabId}" iframe-nav-id="${navId}"  src="${link}#admin-iframe-mode"></iframe></div>`

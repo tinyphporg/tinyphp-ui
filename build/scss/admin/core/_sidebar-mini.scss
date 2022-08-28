@@ -45,7 +45,7 @@
   }
 }
 @include media-breakpoint-down(md) {
-  .sidebar-mini.sidebar-collapse .admin-sidebar {
+  .sidebar-mini.sidebar-collapse .main-sidebar {
     box-shadow: none !important;
   }
 }
@@ -56,7 +56,7 @@
   }
 }
 @include media-breakpoint-down(sm) {
-  .sidebar-mini-md.sidebar-collapse .admin-sidebar {
+  .sidebar-mini-md.sidebar-collapse .main-sidebar {
     box-shadow: none !important;
   }
 }
@@ -70,7 +70,7 @@
 .sidebar-mini,
 .sidebar-mini-md,
 .sidebar-mini-xs {
-  .admin-sidebar {
+  .main-sidebar {
     .nav-child-indent .nav-treeview {
       .nav-link {
         width: calc(#{$sidebar-width} - #{$sidebar-padding-x} * 2 - 1rem);
@@ -246,7 +246,7 @@
   &.sidebar-mini,
   &.sidebar-mini-md,
   &.sidebar-mini-xs {
-    .admin-sidebar {
+    .main-sidebar {
       .nav-sidebar {
         .nav-link {
           width: $sidebar-mini-width - $sidebar-padding-x * 2;
@@ -405,8 +405,8 @@
       }
     }
 
-    .sidebar-no-expand.admin-sidebar.sidebar-focused,
-    .sidebar-no-expand.admin-sidebar:hover {
+    .sidebar-no-expand.main-sidebar.sidebar-focused,
+    .sidebar-no-expand.main-sidebar:hover {
       width: $sidebar-mini-width;
 
       .nav-header {
@@ -483,9 +483,9 @@
 }
 
 .sidebar .nav-link p,
-.admin-sidebar .brand-text,
-.admin-sidebar .logo-xs,
-.admin-sidebar .logo-xl,
+.main-sidebar .brand-text,
+.main-sidebar .logo-xs,
+.main-sidebar .logo-xl,
 .sidebar .user-panel .info {
   @include transition(margin-left $transition-speed linear, opacity $transition-speed ease, visibility $transition-speed ease);
 }

@@ -1,4 +1,6 @@
 @use "sass:map";
+@use 'sass:math';
+  
 //
 // Core: Variables
 //
@@ -65,32 +67,32 @@ $img-size-push: .625rem !default;
 
 // MAIN HEADER
 // --------------------------------------------------------
-$admin-header-bottom-border-width: $border-width !default;
-$admin-header-bottom-border-color: $gray-300 !default;
-$admin-header-bottom-border: $admin-header-bottom-border-width solid $admin-header-bottom-border-color !default;
-$admin-header-link-padding-y: $navbar-padding-y !default;
-$admin-header-height-inner: ($nav-link-height + ($admin-header-link-padding-y * 2)) !default;
-$admin-header-height: calc(#{$admin-header-height-inner} + #{$admin-header-bottom-border-width}) !default;
+$main-header-bottom-border-width: $border-width !default;
+$main-header-bottom-border-color: $gray-300 !default;
+$main-header-bottom-border: $main-header-bottom-border-width solid $main-header-bottom-border-color !default;
+$main-header-link-padding-y: $navbar-padding-y !default;
+$main-header-height-inner: ($nav-link-height + ($main-header-link-padding-y * 2)) !default;
+$main-header-height: calc(#{$main-header-height-inner} + #{$main-header-bottom-border-width}) !default;
 $nav-link-sm-padding-y: .35rem !default;
 $nav-link-sm-height: ($font-size-sm * $line-height-sm + $nav-link-sm-padding-y * 1.785) !default;
-$admin-header-height-sm-inner: ($nav-link-sm-height + ($admin-header-link-padding-y * 2)) !default;
-$admin-header-height-sm: calc(#{$admin-header-height-sm-inner} + #{$admin-header-bottom-border-width}) !default;
+$main-header-height-sm-inner: ($nav-link-sm-height + ($main-header-link-padding-y * 2)) !default;
+$main-header-height-sm: calc(#{$main-header-height-sm-inner} + #{$main-header-bottom-border-width}) !default;
 
 
 // Main header skins
-$admin-header-dark-form-control-bg: $gray-800 !default;
-$admin-header-dark-form-control-focused-bg: $gray-700 !default;
-$admin-header-dark-form-control-focused-color: $gray-400 !default;
-$admin-header-dark-form-control-border-color: $gray-600 !default;
-$admin-header-dark-form-control-focused-border-color: $gray-600 !default;
-$admin-header-dark-placeholder-color: rgba($white, .6) !default;
+$main-header-dark-form-control-bg: $gray-800 !default;
+$main-header-dark-form-control-focused-bg: $gray-700 !default;
+$main-header-dark-form-control-focused-color: $gray-400 !default;
+$main-header-dark-form-control-border-color: $gray-600 !default;
+$main-header-dark-form-control-focused-border-color: $gray-600 !default;
+$main-header-dark-placeholder-color: rgba($white, .6) !default;
 
-$admin-header-light-form-control-bg: darken($gray-200, 5%) !default;
-$admin-header-light-form-control-focused-bg: darken($gray-200, 7.5%) !default;
-$admin-header-light-form-control-focused-color: $gray-400 !default;
-$admin-header-light-form-control-border-color: $gray-400 !default;
-$admin-header-light-form-control-focused-border-color: darken($gray-400, 2.5%) !default;
-$admin-header-light-placeholder-color: rgba(0, 0, 0, .6) !default;
+$main-header-light-form-control-bg: darken($gray-200, 5%) !default;
+$main-header-light-form-control-focused-bg: darken($gray-200, 7.5%) !default;
+$main-header-light-form-control-focused-color: $gray-400 !default;
+$main-header-light-form-control-border-color: $gray-400 !default;
+$main-header-light-form-control-focused-border-color: darken($gray-400, 2.5%) !default;
+$main-header-light-placeholder-color: rgba(0, 0, 0, .6) !default;
 
 // MAIN FOOTER
 // --------------------------------------------------------
@@ -138,7 +140,7 @@ $sidebar-light-submenu-active-bg: $sidebar-light-submenu-hover-bg !default;
 // --------------------------------------------------------
 $sidebar-mini-width: ($nav-link-padding-x + $sidebar-padding-x + .8rem) * 2 !default;
 $sidebar-nav-icon-width: $sidebar-mini-width - (($sidebar-padding-x + $nav-link-padding-x) * 2) !default;
-$sidebar-user-image-width: $sidebar-nav-icon-width + ($nav-link-padding-x / 2) !default;
+$sidebar-user-image-width: $sidebar-nav-icon-width + math.div($nav-link-padding-x, 2) !default;
 
 // CONTROL SIDEBAR
 // --------------------------------------------------------
@@ -168,11 +170,11 @@ $direct-chat-default-msg-border-color: $gray-x-light !default;
 
 // Z-INDEX
 // --------------------------------------------------------
-$zindex-admin-header: $zindex-fixed + 4 !default;
-$zindex-admin-sidebar: $zindex-fixed + 8 !default;
+$zindex-main-header: $zindex-fixed + 4 !default;
+$zindex-main-sidebar: $zindex-fixed + 8 !default;
 $zindex-main-footer: $zindex-fixed + 2 !default;
 $zindex-control-sidebar: $zindex-fixed + 1 !default;
-$zindex-toasts: $zindex-admin-sidebar + 2 !default;
+$zindex-toasts: $zindex-main-sidebar + 2 !default;
 $zindex-preloader: 9999 !default;
 
 // TRANSITIONS SETTINGS
