@@ -28,7 +28,7 @@ const DEV_PUBLIC_PATH = 'http://localhost:8080/'
 
 // replace tag
 const replaceTag = (sourceText) => {
-    let replaceText = sourceText.replaceAll(/{ui\.(admin|lib|assets)}/g, (matchText) => {
+    let replaceText = sourceText.replace(/{ui\.(admin|lib|assets)}/g, (matchText) => {
         switch (matchText) {
             case '{ui.admin}':
                 return `<script src="${DEV_PUBLIC_PATH}js/tinyphp-ui.admin.js"></script>`
@@ -39,7 +39,7 @@ const replaceTag = (sourceText) => {
         }
         return ''
     })
-    return replaceText.replaceAll(/\{template\s+(.*?)\s*\}/g, (_, mpath) => {
+    return replaceText.replace(/\{template\s+(.*?)\s*\}/g, (_, mpath) => {
         let fpath = path.resolve(BUILD_PAGE_DIR, mpath)
         if (!fs.existsSync(fpath)) {
             return ''
