@@ -3,12 +3,12 @@
 *.log
 .git
 .settings
-build/htmls/
 /vendor/
-webpack4-bootstrap4-demo
 /node_modules
 .DS_Store
 *.phar
 src/js/assets/adminlte/*
 package-lock.json
 *.lock
+build/htmls/
+build/*

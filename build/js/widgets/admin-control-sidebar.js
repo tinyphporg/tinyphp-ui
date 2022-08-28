@@ -54,6 +54,7 @@ const Default = {
         'white',
         'orange'
     ],
+    'dark': ['primary'],
     layouts : [
         'layout-navbar-fixed',
         'layout-fixed',
@@ -212,7 +213,7 @@ class ControlSidebar extends BaseComponent {
         })
         
         // multi pages
-        this.changeIFrame(options['multipages'] === true)
+       // this.changeIFrame(options['multipages'] === true)
 
     }
     
@@ -490,6 +491,7 @@ class ControlSidebar extends BaseComponent {
     }
     
     changeIFrame = (isMultiPages = false, isSave = true) => {
+        
         this.isMultiPages = isMultiPages
         if (isSave) {
             this.saveOptions('multipages', isMultiPages)
