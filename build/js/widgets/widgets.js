@@ -13,7 +13,9 @@ import NavbarSearch from './NavbarSearch'
 import Toasts from './Toasts'
 import TodoList from './TodoList'
 import Treeview from './Treeview'
+import HighLight from './highlight'
 // import ControlSidebar from './ControlSidebar'
+
 export  {
   CardRefresh,
 //  ControlSidebar,
@@ -30,5 +32,6 @@ export  {
   NavbarSearch,
   Toasts,
   TodoList,
-  Treeview
+  Treeview,
+  HighLight
 }

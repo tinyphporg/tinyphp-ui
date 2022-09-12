@@ -9,13 +9,15 @@
 @import "./app/variables";
 @import "mixins";
 
-@import "core";
-@import "app/core";
+
 
 // components
 @import "components";
 @import "extra-components";
 @import "app/components";
+
+@import "core";
+@import "app/core";
 
 // pages
 @import "pages";

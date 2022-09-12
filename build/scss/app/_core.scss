@@ -1,3 +1,6 @@
-@import "core/main-header";
-@import "core/main-sidebar";
+@import "core/ui-header";
+@import 'core/layout';
+@import "core/ui-sidebar";
+@import "core/ui-main";
+@import "core/ui-footer";
 @import "core/docs.scss";

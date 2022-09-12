@@ -26,7 +26,7 @@ module.exports = merge(webpackBaseConfig, {
     watchOptions: {
         poll: 1500, // 每秒询问多少次
         aggregateTimeout: 2000,  // 防抖 多少毫秒后再次触发
-        ignored: /(node_modules|build\/htmls)/ // 忽略时时监听
+        ignored: /(build\/htmls)/ // 忽略时时监听
     },
     devtool: 'eval-source-map',
     devServer: {

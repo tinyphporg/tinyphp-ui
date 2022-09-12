@@ -39,7 +39,7 @@ const replaceTag = (sourceText) => {
         }
         return ''
     })
-    return replaceText.replace(/\{template\s+(.*?)\s*\}/g, (_, mpath) => {
+    return replaceText.replace(/\{template\s+(.*?)(\|tinyphp-ui)?\s*\}/g, (_, mpath) => {
         let fpath = path.resolve(BUILD_PAGE_DIR, mpath)
         if (!fs.existsSync(fpath)) {
             return ''

@@ -15,8 +15,9 @@ $lime: #01ff70 !default;
 $fuchsia: #f012be !default;
 $purple: #605ca8 !default;
 $maroon: #d81b60 !default;
-
+$bootstrap:#7952b3 !default;
 $gray-x-light: #d2d6de !default;
+$gold: #ffe484;
 
 $colors: map-merge(
   (
@@ -26,6 +27,8 @@ $colors: map-merge(
     "lime": $lime,
     "fuchsia": $fuchsia,
     "maroon": $maroon,
+    'bootstrap': $bootstrap,
+    "gold": $gold
   ),
   $colors
 );

@@ -10,9 +10,9 @@ module.exports = [
         javascript: true
     },
     {
-        name: 'adminlte',
-        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](adminlte|admin-lte)/,
-        dest: "后台管理组件",
+        name: 'codemirror',
+        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](codemirror|@codemirror|@lezer|crelt|style-mod|w3c-keyname)/,
+        dest: "代码编辑器",
         enable: true,
         css: true,
         javascript: true

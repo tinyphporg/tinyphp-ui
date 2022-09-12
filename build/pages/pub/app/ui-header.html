@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tinyphp 集成了bootstrap jquery等前端库，用于构建响应式、移动设备优先的网站。">
+{ui.lib}
+<title>tinyphp-ui|tinyphp.org</title>
+</head>
+<body class="ui-has-sidebar">
+<header class="navbar navbar-expand-md navbar-dark ui-header">
+<nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
+
+<!-- mobile navbar button -->
+<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#uiMainNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+<i class="fa fa-align-justify"></i>
+</button>
+
+<!-- logo -->
+<a class="navbar-brand p-0 me-2" href="" aria-label="logo">
+<img class="ui-header-logo" src="{ui.assets}/img/tinyphp-logo.png" /> 
+<img class="ui-header-mini-logo" src="{ui.assets}/img/tinyphp-icon.png" />
+</a>
+<!-- end logo -->
+
+<!-- sidebar  button on mobile-->
+<button class="navbar-toggler ui-sidebar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#uiMainSidebar" aria-controls="uiMainSidebar" aria-expanded="false" aria-label="Toggle  sidebar">
+<i class="bi bi-arrows-expand"></i> <i class="bi bi-arrows-collapse"></i>
+</button>
+<!-- sidebar button on mobile -->
+
+<div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="uiMainNavbar" aria-labelledby="uiNavbarOffcanvasLabel">
+<div class="offcanvas-header pb-0">
+<h5 class="offcanvas-title text-white" id="uiNavbarOffcanvasLabel">tinyphp</h5>
+<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+
+<div class="offcanvas-body pt-0">
+<hr class="d-md-none text-white-50">
+<ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">
+    
+              <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="#">Home</a>
+         </li>
+        
+    
+         <li class="nav-item col-6 col-md-auto dropdown">
+    <a class="nav-link p-2 dropdown-toggle" href="#" data-bs-toggle="dropdown">中文文档</a>
+        
+        <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">使用手册</a></li>
+                    <li><a class="dropdown-item" href="#">ui库参考</a></li>
+                    <li><a class="dropdown-item" href="#">标准库</a></li>
+                    <li><a class="dropdown-item" href="#">编码规范</a></li>
+                  </ul>
+          </li>
+          
+    
+              <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="/admin/index.html">Admin protal</a>
+         </li>
+        
+    
+              <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="/admin/icons.html">Icons</a>
+         </li>
+        
+    
+              <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="http://tinyphp.org/">tinyphp.org</a>
+         </li>
+        
+</ul>
+
+<hr class="d-md-none text-white-50">
+<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+<li class="nav-item col-6 col-md-auto">
+<a class="nav-link p-2" href="https://github.com/tinyphporg" target="_blank" rel="noopener"> 
+<i class="bi bi-github" title="tinyphp"> </i><span class="d-md-none mx-1">tinyphp</span>
+</a>
+</li>
+<li class="nav-item col-6 col-md-auto">
+<a class="nav-link p-2" href="https://v5.bootcss.com/docs/5.1/getting-started/introduction/" target="_blank" rel="noopener"> 
+<i class="bi bi-bootstrap" title="bootstrap"> </i><span class="d-md-none mx-1">bootstrap</span>
+</a>
+</li>
+<li class="nav-item col-6 col-md-auto">
+<a class="nav-link p-2" href="#" target="_blank" rel="noopener"> 
+<i class="fi fi-cn" title="cn"> </i><span class="d-md-none mx-1">cn</span>
+</a>
+</li>
+</ul>
+
+<hr class="d-md-none text-white-50">
+<a class="btn btn-bd-download d-lg-inline-block my-2 my-md-0 ms-md-3" href="https://github.com/tinyphporg/tinyphp-ui">View on GitHub</a></div>
+</div>
+</nav>
+</header>
+<div class="container-xxl my-md-4 ui-main-wrapper">
+{template pub/app/ui-sidebar.html|tinyphp-ui}
+<main class="ui-main ui-has-menu order-1">

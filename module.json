@@ -16,6 +16,7 @@
 			"public_path": "http://127.0.0.1:8080/js/tinyphp-ui.js",
 			"admin_public_path": "http://127.0.0.1:8080/js/tinyphp-ui.admin.js"
 		},
+		"assigns": ["ui"],
 		"installer": {
 			"param_name": "ui-install",
 			"install_path": "tinyphp-ui/",

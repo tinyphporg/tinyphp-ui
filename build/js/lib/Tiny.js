@@ -3,7 +3,7 @@ import * as BootstrapWidgets from '../widgets/bootstrap'
 import Summernote from '../plugins/summernote'
 import Alert from '../plugins/alert.js'
 import Cookie from '../plugins/cookie.js'
-
+import CodeMirror from '../plugins/codemirror'
 
 class Tiny extends Prototype {
     constructor(config) {
@@ -13,12 +13,18 @@ class Tiny extends Prototype {
     }
 
     // async load plugins
-    load(config) {
+    load(...config) {
+        if (!config.length) {
+            return
+        }
+        if (config.length == 1) {
+            config = config[0]
+        }
+        
         let loads = []
-        console.log(this)
         // string
         if (typeof config === 'string' && this.plugins.hasOwnProperty(config)) {
-            return Promise.all([this.plugins[config].load()])
+            return this.plugins[config].load()
         }
         // array
         if (Array.isArray(config)) {
@@ -54,7 +60,8 @@ class Tiny extends Prototype {
         this.plugins = {
             summernote: new Summernote(),
             alert: new Alert(),
-            cookie: new Cookie()
+            cookie: new Cookie(),
+            codemirror: new CodeMirror()
         }
 
         // config
