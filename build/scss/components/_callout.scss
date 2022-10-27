@@ -1,27 +1,16 @@
 //
 // Component: Callout
 //
-
 // Base styles (regardless of theme)
 .callout {
-  @if $enable-rounded {
-    @include border-radius($border-radius);
-  }
-
-  @if $enable-shadows {
-    box-shadow: map-get($elevations, 1);
-  } @else {
-    border: 1px solid $gray-300;
-  }
-
-  background-color: $white;
-  border-left: 5px solid $gray-200;
-  margin-bottom: map-get($spacers, 3);
   padding: 1rem;
+  margin-bottom: map-get($spacers, 3);
+  border-left: 5px solid $gray-200;
+  background-color: $white;
 
   a {
-    color: $gray-700;
     text-decoration: underline;
+    color: $gray-700;
 
     &:hover {
       color: $gray-200;
@@ -34,7 +23,7 @@
 
   // Themes for different contexts
   &.callout-danger {
-    border-left-color: darken(map-get($theme-colors,"danger"), 10%);
+    border-left-color: darken(map-get($theme-colors, "danger"), 10%);
   }
 
   &.callout-warning {
@@ -47,6 +36,18 @@
 
   &.callout-success {
     border-left-color: darken(map-get($theme-colors, "success"), 10%);
+  }
+
+  @if $enable-rounded {
+    @include border-radius($border-radius);
+  }
+
+  @if $enable-shadows {
+    box-shadow: map-get($elevations, 1);
+  }
+
+  @else {
+    border: 1px solid $gray-300;
   }
 }
 

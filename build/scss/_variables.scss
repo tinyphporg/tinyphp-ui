@@ -1,59 +1,121 @@
 @use "sass:map";
 @use 'sass:math';
-  
-//
-// Core: Variables
-//
 
-// COLORS
-// --------------------------------------------------------
+// for color-contast
+$color-contrast-extra: (
+  $green: $color-contrast-light,
+  $cyan: $color-contrast-light,
+  #31a76a: $color-contrast-light,
+  #1391d9: $color-contrast-light,
+  #2e9d64: $color-contrast-light,
+  #1288cc: $color-contrast-light,
+  #3498db: $color-contrast-light,
+  #00bc8c: $color-contrast-light,
+  #e74c3c: $color-contrast-light
+) !default;
 
-$lightblue: #3c8dbc !default;
-$navy: #001f3f !default;
-$olive: #3d9970 !default;
-$lime: #01ff70 !default;
-$fuchsia: #f012be !default;
-$purple: #605ca8 !default;
-$maroon: #d81b60 !default;
-$bootstrap:#7952b3 !default;
-$gray-x-light: #d2d6de !default;
-$gold: #ffe484;
+// extra theme-colors
+$theme-colors: map-merge($theme-colors, (
+  "alternate": $alternate,
+  "focus": $focus,
+  "light": $light,
+  "dark": $dark
+));
 
-$colors: map-merge(
-  (
-    "lightblue": $lightblue,
-    "navy": $navy,
-    "olive": $olive,
-    "lime": $lime,
-    "fuchsia": $fuchsia,
-    "maroon": $maroon,
-    'bootstrap': $bootstrap,
-    "gold": $gold
-  ),
-  $colors
+
+// extar bg gradients
+$bg-gradients: (
+  "vicious-stance": "linear-gradient(60deg,#29323c,#485563) !important",
+  "midnight-bloom": "linear-gradient(-20deg,#2b5876,#4e4376)!important",
+  "night-sky":      "linear-gradient(0deg,#1e3c72 0,#1e3c72 1%,#2a5298)!important",
+  "slick-carbon":   "linear-gradient(180deg,#323232 0,#3f3f3f 40%,#1c1c1c 150%),linear-gradient(0deg,hsla(0,0%,100%,.4) 0,rgba(0,0,0,.25) 200%)!important;background-blend-mode: multiply;",
+  "asteroid":       "linear-gradient(90deg,#0f2027,#203a43,#2c5364)!important",
+  "royal":          "linear-gradient(90deg,#141e30,#243b55)!important",
+  "warm-flame":     "linear-gradient(45deg,#ff9a9e,#fad0c4 99%,#fad0c4)!important",
+  "night-fade":     "linear-gradient(0deg,#a18cd1 0,#fbc2eb)!important",
+  "sunny-morning":  "linear-gradient(120deg,#f6d365,#fda085)!important",
+  "tempting-azure": "linear-gradient(120deg,#84fab0,#8fd3f4)!important", 
+  "amy-crisp":      "linear-gradient(120deg,#a6c0fe,#f68084)!important",
+  "heavy-rain":     "linear-gradient(0deg,#cfd9df 0,#e2ebf0)!important", 
+  "mean-fruit":     "linear-gradient(120deg,#fccb90,#d57eeb)!important", 
+  "malibu-beach":   "linear-gradient(90deg,#4facfe 0,#00f2fe)!important", 
+  "deep-blue":      "linear-gradient(120deg,#e0c3fc,#8ec5fc)!important",
+  "ripe-malin":     "linear-gradient(120deg,#f093fb,#f5576c)!important",
+  "arielle-smile":  "radial-gradient(circle 248px at center,#16d9e3 0,#30c7ec 47%,#46aef7 100%)!important", 
+  "plum-plate":     "linear-gradient(135deg,#667eea,#764ba2)!important",
+  "happy-fisher":   "linear-gradient(120deg,#89f7fe,#66a6ff)!important",
+  "happy-itmeo":    "linear-gradient(180deg,#2af598,#009efd)!important",
+  "mixed-hopes":    "linear-gradient(0deg,#c471f5 0,#fa71cd)!important", 
+  "strong-bliss":   "linear-gradient(90deg,#f78ca0 0,#f9748f 19%,#fd868c 60%,#fe9a8b)!important", 
+  "grow-early":     "linear-gradient(0deg,#0ba360 0,#3cba92)!important",
+  "love-kiss":      "linear-gradient(0deg,#ff0844 0,#ffb199)!important",
+  "premium-dark":   "linear-gradient(90deg,#434343 0,#000)!important", 
+  "happy-green":    "linear-gradient(180deg,#00b09b,#96c93d)!important"
+) !default;
+
+
+
+// Table of background color mapping text colors
+$bg-color-text-light: $white;
+$bg-color-text-dark:$dark;
+$bg-dark-colors:(
+  "light":          1,
+  "warning":        1,  
+  "warm-flame":     1,
+  "night-fade":     1, 
+  "sunny-morning":  1,
+  "tempting-azure": 1, 
+  "amy-crisp":      1,
+  "heavy-rain":     1, 
+  "mean-fruit":     1,     
+  "deep-blue":      1,  
+  "happy-fisher":   1,     
 );
+
+$bg-text-colors: () !default;
+@each $name,$value in $theme-colors {
+    $text-color:$bg-color-text-light;
+    @if map-has-key($bg-dark-colors, $name) {
+        $text-color:$bg-color-text-dark;  
+    }
+    $bg-text-colors: map-merge($bg-text-colors, ($name: $text-color)); 
+}
+
+@each $name,$value in $bg-gradients {
+    $text-color:$bg-color-text-light;
+    @if map-has-key($bg-dark-colors, $name) {
+        $text-color:$bg-color-text-dark;  
+    }
+    $bg-text-colors: map-merge($bg-text-colors, ($name: $text-color)); 
+}
+
+
+// theme colors
+// default
+$theme-default-link-color: $gray-700;
+$theme-default-link-hover: $blue !default;
+$theme-default-text-color: $blue !default;
+$theme-defaule-link-bg: #e0f3ff;
+
+// white
+$theme-white-link-color: rgba(255, 255, 255, 0.7);
+$theme-white-link-hover: $white;
+$theme-white-link-bg: rgba(255, 255, 255, 0.1);
+$theme-white-text-color:rgba(255, 255, 255, 0.6);
+
+//dark
+$theme-dark-link-color: rgba(0, 0, 0, 0.7);
+$theme-dark-link-hover: $white;
+$theme-dark-link-bg: rgba(0, 0, 0, 0.1);
+$theme-dark-text-color:rgba(0, 0, 0, 0.6);
 
 
 // LAYOUT
 // --------------------------------------------------------
 
-$font-size-root: 1rem !default;
-
-// Sidebar
-$sidebar-width: 250px !default;
-$sidebar-padding-x: .5rem !default;
-$sidebar-padding-y: 0 !default;
-$sidebar-custom-height: 4rem !default;
-$sidebar-custom-height-lg: 6rem !default;
-$sidebar-custom-height-xl: 8rem !default;
-$sidebar-custom-padding-x: .85rem !default;
-$sidebar-custom-padding-y: .5rem !default;
-
-// Boxed layout maximum width
-$boxed-layout-max-width: 1250px !default;
 
 // Body background (Affects main content background only)
-$main-bg: #f4f6f9 !default;
+$main-bg: #f1f4f6 !default;
 
 $dark-main-bg: lighten($dark, 7.5%) !important;
 
@@ -68,95 +130,74 @@ $img-size-md: 3.75rem !default;
 $img-size-lg: 6.25rem !default;
 $img-size-push: .625rem !default;
 
-// MAIN HEADER
-// --------------------------------------------------------
-$main-header-bottom-border-width: $border-width !default;
-$main-header-bottom-border-color: $gray-300 !default;
-$main-header-bottom-border: $main-header-bottom-border-width solid $main-header-bottom-border-color !default;
-$main-header-link-padding-y: $navbar-padding-y !default;
-$main-header-height-inner: ($nav-link-height + ($main-header-link-padding-y * 2)) !default;
-$main-header-height: calc(#{$main-header-height-inner} + #{$main-header-bottom-border-width}) !default;
-$nav-link-sm-padding-y: .35rem !default;
-$nav-link-sm-height: ($font-size-sm * $line-height-sm + $nav-link-sm-padding-y * 1.785) !default;
-$main-header-height-sm-inner: ($nav-link-sm-height + ($main-header-link-padding-y * 2)) !default;
-$main-header-height-sm: calc(#{$main-header-height-sm-inner} + #{$main-header-bottom-border-width}) !default;
+
+// theme colors
+// default
+$theme-default-link-color: $gray-700;
+$theme-default-link-hover: $blue !default;
+$theme-default-text-color: $blue !default;
+$theme-defaule-link-bg: #e0f3ff;
 
 
-// Main header skins
-$main-header-dark-form-control-bg: $gray-800 !default;
-$main-header-dark-form-control-focused-bg: $gray-700 !default;
-$main-header-dark-form-control-focused-color: $gray-400 !default;
-$main-header-dark-form-control-border-color: $gray-600 !default;
-$main-header-dark-form-control-focused-border-color: $gray-600 !default;
-$main-header-dark-placeholder-color: rgba($white, .6) !default;
+// white
+$theme-white-link-color: rgba(255, 255, 255, 0.7);
+$theme-white-link-hover: $white;
+$theme-white-link-bg: rgba(255, 255, 255, 0.1);
+$theme-white-text-color:rgba(255, 255, 255, 0.6);
 
-$main-header-light-form-control-bg: darken($gray-200, 5%) !default;
-$main-header-light-form-control-focused-bg: darken($gray-200, 7.5%) !default;
-$main-header-light-form-control-focused-color: $gray-400 !default;
-$main-header-light-form-control-border-color: $gray-400 !default;
-$main-header-light-form-control-focused-border-color: darken($gray-400, 2.5%) !default;
-$main-header-light-placeholder-color: rgba(0, 0, 0, .6) !default;
+//dark
+$theme-dark-link-color: rgba(0, 0, 0, 0.7);
+$theme-dark-link-hover: $white;
+$theme-dark-link-bg: rgba(0, 0, 0, 0.1);
+$theme-dark-text-color:rgba(0, 0, 0, 0.6);
 
-// MAIN FOOTER
-// --------------------------------------------------------
-$main-footer-padding: 1rem !default;
-$main-footer-padding-sm: $main-footer-padding * .812 !default;
-$main-footer-border-top-width: 1px !default;
-$main-footer-border-top-color: $gray-300 !default;
-$main-footer-border-top: $main-footer-border-top-width solid $main-footer-border-top-color !default;
-$main-footer-height-inner: (($font-size-root * $line-height-base) + ($main-footer-padding * 2)) !default;
-$main-footer-height: calc(#{$main-footer-height-inner} + #{$main-footer-border-top-width}) !default;
-$main-footer-height-sm-inner: (($font-size-sm * $line-height-base) + ($main-footer-padding-sm * 2)) !default;
-$main-footer-height-sm: calc(#{$main-footer-height-sm-inner} + #{$main-footer-border-top-width}) !default;
-$main-footer-bg: $white !default;
+$theme-color-indexs: (
+  "light": '1',
+  "dark": '0',
+  "primary":  '0',
+  "secondary":  '0',
+  "success":  '0',
+  "info":   '0',
+  "warning":  '1',
+  "danger":   '0',  
+"vicious-stance": '0',
+"midnight-bloom": '0',
+"night-sky": '0',
+"slick-carbon": '0',
+"asteroid": '0',
+"royal": '0',
+"warm-flame": '1',
+"night-fade": '1',
+"sunny-morning": '1',
+"tempting-azure": '1', 
+"amy-crisp": '1',
+"heavy-rain": '1', 
+"mean-fruit": '1', 
+"malibu-beach": '0', 
+"deep-blue": '1',
+"ripe-malin": '0', 
+"arielle-smile": '0', 
+"plum-plate": '0',
+"happy-fisher": '1',
+"happy-itmeo": '0',
+"mixed-hopes": '0', 
+"strong-bliss": '0', 
+"grow-early": '0',
+"love-kiss": '0',
+"premium-dark": '0', 
+"happy-green": '0'
+) !default;
 
-// SIDEBAR SKINS
-// --------------------------------------------------------
-
-// Dark sidebar
-$sidebar-dark-bg: $dark !default;
-$sidebar-dark-hover-bg: rgba(255, 255, 255, .1) !default;
-$sidebar-dark-color: #c2c7d0 !default;
-$sidebar-dark-hover-color: $white !default;
-$sidebar-dark-active-color: $white !default;
-$sidebar-dark-submenu-bg: transparent !default;
-$sidebar-dark-submenu-color: #c2c7d0 !default;
-$sidebar-dark-submenu-hover-color: $white !default;
-$sidebar-dark-submenu-hover-bg: $sidebar-dark-hover-bg !default;
-$sidebar-dark-submenu-active-color: $sidebar-dark-bg !default;
-$sidebar-dark-submenu-active-bg: rgba(255, 255, 255, .9) !default;
-
-// Light sidebar
-$sidebar-light-bg: $white !default;
-$sidebar-light-hover-bg: rgba($black, .1) !default;
-$sidebar-light-color: $gray-800 !default;
-$sidebar-light-hover-color: $gray-900 !default;
-$sidebar-light-active-color: $black !default;
-$sidebar-light-submenu-bg: transparent !default;
-$sidebar-light-submenu-color: #777 !default;
-$sidebar-light-submenu-hover-color: $black !default;
-$sidebar-light-submenu-hover-bg: $sidebar-light-hover-bg !default;
-$sidebar-light-submenu-active-color: $sidebar-light-hover-color !default;
-$sidebar-light-submenu-active-bg: $sidebar-light-submenu-hover-bg !default;
-
-// SIDEBAR MINI
-// --------------------------------------------------------
-$sidebar-mini-width: ($nav-link-padding-x + $sidebar-padding-x + .8rem) * 2 !default;
-$sidebar-nav-icon-width: $sidebar-mini-width - (($sidebar-padding-x + $nav-link-padding-x) * 2) !default;
-$sidebar-user-image-width: $sidebar-nav-icon-width + math.div($nav-link-padding-x, 2) !default;
-
-// CONTROL SIDEBAR
-// --------------------------------------------------------
-$control-sidebar-width: $sidebar-width !default;
 
 // Cards
 // --------------------------------------------------------
+// CARD
+
 $card-border-color: $gray-100 !default;
 $card-dark-border-color: lighten($gray-900, 10%) !default;
 $card-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2) !default;
-$card-title-font-size: 1.1rem !default;
-$card-title-font-size-sm: 1rem !default;
-$card-title-font-weight: $font-weight-normal !default;
+$card-title-font-size: $font-size-base !default;
+$card-title-font-weight: $font-weight-bold !default;
 $card-nav-link-padding-sm-y: .4rem !default;
 $card-nav-link-padding-sm-x: .8rem !default;
 $card-img-size: $img-size-sm !default;
@@ -195,6 +236,9 @@ $font-size-xl: ($font-size-base * 2) !default;
 
 // BUTTON
 // --------------------------------------------------------
+$btn-font-size:                 $input-btn-font-size-sm + 0.03rem;
+$btn-font-size-lg:              $input-btn-font-size;
+
 $button-default-background-color: $gray-100 !default;
 $button-default-color: #444 !default;
 $button-default-border-color: #ddd !default;
@@ -206,17 +250,158 @@ $button-font-size-xs: ($font-size-base * .75) !default;
 $button-border-radius-xs: .15rem !default;
 
 
+
 // ELEVATION
 // --------------------------------------------------------
 $elevations: ();
 $elevations: map-merge(
   (
-    1: unquote("0 1px 3px " + rgba($black, .12) + ", 0 1px 2px " + rgba($black, .24)),
-    2: unquote("0 3px 6px " + rgba($black, .16) + ", 0 3px 6px " + rgba($black, .23)),
-    3: unquote("0 10px 20px " + rgba($black, .19) + ", 0 6px 6px " + rgba($black, .23)),
-    4: unquote("0 14px 28px " + rgba($black, .25) + ", 0 10px 10px " + rgba($black, .22)),
-    5: unquote("0 19px 38px " + rgba($black, .3) + ", 0 15px 12px " + rgba($black, .22)),
+  1: unquote("0 1px 3px " + rgba($black, .12) + ", 0 1px 2px " + rgba($black, .24)),
+  2: unquote("0 3px 6px " + rgba($black, .16) + ", 0 3px 6px " + rgba($black, .23)),
+  3: unquote("0 10px 20px " + rgba($black, .19) + ", 0 6px 6px " + rgba($black, .23)),
+  4: unquote("0 14px 28px " + rgba($black, .25) + ", 0 10px 10px " + rgba($black, .22)),
+  5: unquote("0 19px 38px " + rgba($black, .3) + ", 0 15px 12px " + rgba($black, .22)),
   ),
   $elevations
 );
+
+
+//
+// Core: Variables for Dark Mode
+//
+
+// COLORS
+// --------------------------------------------------------
+
+// stylelint-disable
+// Gray color will be default in dark mode
+$white-alt:  $white !default;
+$gray-100-alt: $gray-100 !default;
+$gray-200-alt: $gray-200 !default;
+$gray-300-alt: $gray-300 !default;
+$gray-400-alt: $gray-400 !default;
+$gray-500-alt: $gray-500 !default;
+$gray-600-alt: $gray-600 !default;
+$gray-700-alt: $gray-700 !default;
+$gray-800-alt: $gray-800 !default;
+$gray-900-alt: $gray-900 !default;
+$black-alt:  $black !default;
+
+$grays-alt: () !default;
+$grays-alt: map-merge((
+  "100": $gray-100-alt,
+  "200": $gray-200-alt,
+  "300": $gray-300-alt,
+  "400": $gray-400-alt,
+  "500": $gray-500-alt,
+  "600": $gray-600-alt,
+  "700": $gray-700-alt,
+  "800": $gray-800-alt,
+  "900": $gray-900-alt
+), $grays-alt);
+
+// Below colors from bootwatch darkly
+$blue-alt:  #3f6791 !default;
+$indigo-alt:  #6610f2 !default;
+$purple-alt:  #6f42c1 !default;
+$pink-alt:  #e83e8c !default;
+$red-alt:   #e74c3c !default;
+$orange-alt:  #fd7e14 !default;
+$yellow-alt:  #f39c12 !default;
+$green-alt:   #00bc8c !default;
+$teal-alt:  #20c997 !default;
+$cyan-alt:  #3498db !default;
+
+
+// by darken function
+$lightblue-alt: lighten(#3c8dbc, 20%) !default;
+$navy-alt: lighten(#001f3f, 5%) !default;
+$olive-alt: lighten(#3d9970, 20%) !default;
+$lime-alt: lighten(#01ff70, 20%) !default;
+$fuchsia-alt: lighten(#f012be, 20%) !default;
+$maroon-alt: lighten(#d81b60, 20%) !default;
+$gray-x-light-alt: lighten(#d2d6de, 20%) !default;
+  
+$colors-alt: () !default;
+$colors-alt: map-merge((
+  "blue":   $blue-alt,
+  "indigo":   $indigo-alt,
+  "purple":   $purple-alt,
+  "pink":   $pink-alt,
+  "red":  $red-alt,
+  "orange":   $orange-alt,
+  "yellow":   $yellow-alt,
+  "green":  $green-alt,
+  "teal":   $teal-alt,
+  "cyan":   $cyan-alt,
+  "white":  $white-alt,
+  "gray":   $gray-600-alt,
+  "gray-dark":  $gray-800-alt
+), $colors-alt);
+
+$primary-alt:   $blue-alt !default;
+$secondary-alt:   $gray-600-alt !default;
+$success-alt:   $green-alt !default;
+$info-alt:    $cyan-alt !default;
+$warning-alt:   $yellow-alt !default;
+$danger-alt:  $red-alt !default;
+$light-alt:   $gray-100-alt !default;
+$dark-alt:    $gray-800-alt !default;
+
+$theme-colors-alt: () !default;
+$theme-colors-alt: map-merge((
+  "primary":  $primary-alt,
+  "secondary":  $secondary-alt,
+  "success":  $success-alt,
+  "info":   $info-alt,
+  "warning":  $warning-alt,
+  "danger":   $danger-alt,
+  "light":  $light-alt,
+  "dark":   $dark-alt
+), $theme-colors-alt);
+
+$colors-alt: map-merge(
+  (
+  "lightblue": $lightblue-alt,
+  "navy": $navy-alt,
+  "olive": $olive-alt,
+  "lime": $lime-alt,
+  "fuchsia": $fuchsia-alt,
+  "maroon": $maroon-alt,
+  ),
+  $colors-alt
+);
+// stylelint-enable
+
+//
+
+
+//
+// Core: Variables
+//
+
+// COLORS
+// --------------------------------------------------------
+
+
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+
+
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+$table-cell-padding:    .75rem !default;
+$table-cell-padding-sm:   .3rem !default;
+
+
+$table-dark-bg:     $gray-900 !default;
+$table-dark-border-color:   lighten($gray-900, 10%) !default;
+
+
 

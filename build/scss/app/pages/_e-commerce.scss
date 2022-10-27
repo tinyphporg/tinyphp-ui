@@ -1,40 +1,41 @@
 //
 // Pages: E-commerce
 //
-
 // product image
 .product-image {
-  @include img-fluid ();
   width: 100%;
+
+  @include img-fluid ();
 }
 
 // product image thumbnails list
 .product-image-thumbs {
-  align-items: stretch;
   display: flex;
+  align-items: stretch;
   margin-top: 2rem;
 }
 
 // product image thumbnail
 .product-image-thumb {
-  @include box-shadow($thumbnail-box-shadow);
-  @include border-radius($thumbnail-border-radius);
-
-  background-color: $thumbnail-bg;
-  border: $thumbnail-border-width solid $thumbnail-border-color;
   display: flex;
-  margin-right: 1rem;
   max-width: 6.5rem + ($thumbnail-padding * 2);
   padding: $thumbnail-padding * 2;
+  margin-right: 1rem;
+  border: $thumbnail-border-width solid $thumbnail-border-color;
+  background-color: $thumbnail-bg;
 
   img {
-    @include img-fluid ();
     align-self: center;
+
+    @include img-fluid ();
   }
 
   &:hover {
     opacity: .5;
   }
+
+  @include box-shadow($thumbnail-box-shadow);
+  @include border-radius($thumbnail-border-radius);
 }
 
 // product share

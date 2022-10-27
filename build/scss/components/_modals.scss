@@ -1,26 +1,25 @@
 //
 // Component: Modals
 //
-
 // Overlay
 .modal-dialog {
   .overlay {
-    display: flex;
     position: absolute;
-    left: 0;
+    z-index: ($zindex-modal + 2);
     top: 0;
     bottom: 0;
+    left: 0;
     right: 0;
-    margin: -$modal-content-border-width;
-    z-index: ($zindex-modal + 2);
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba($black, .7);
+    margin: -$modal-content-border-width;
     color: darken($gray-600, 2.5%);
+    background-color: rgba($black, .7);
+
     @include border-radius($modal-content-border-radius);
   }
 }
-
 
 // BG Color Variations Fixes
 .modal-content {
@@ -37,8 +36,8 @@
   &.bg-danger,
   &.bg-success, {
     .close {
-      color: $white;
       text-shadow: 0 1px 0 $black;
+      color: $white;
     }
   }
 }
@@ -48,6 +47,7 @@
   .modal-footer {
     border-color: $gray-600;
   }
+
   .modal-content {
     background-color: $dark;
 
@@ -56,9 +56,10 @@
       .modal-footer {
         border-color: $gray-600;
       }
+
       .close {
-        color: $dark !important;
         text-shadow: 0 1px 0 $gray-700 !important;
+        color: $dark !important;
       }
     }
 

@@ -33,7 +33,7 @@
       }
 
       .pace-activity {
-        background-image: linear-gradient(45deg, rgba(color-contrast($color), 0.2) 25%, transparent 25%, transparent 50%, rgba(color-contrast($color), 0.2) 50%, rgba(color-contrast($color), 0.2) 75%, transparent 75%, transparent);
+        background-image: linear-gradient(45deg, rgba(color-contrast($color), .2) 25%, transparent 25%, transparent 50%, rgba(color-contrast($color), .2) 50%, rgba(color-contrast($color), .2) 75%, transparent 75%, transparent);
       }
     }
   }
@@ -56,15 +56,15 @@
 
   .pace-center-atom-#{$name} {
     .pace-progress {
-      height: 100px;
       width: 80px;
+      height: 100px;
 
       &::before {
-        background: $color;
-        color: color-contrast($color);
+        padding-top: 17%;
         font-size: .8rem;
         line-height: .7rem;
-        padding-top: 17%;
+        color: color-contrast($color);
+        background: $color;
       }
     }
 
@@ -81,8 +81,8 @@
   .pace-center-circle-#{$name} {
     .pace {
       .pace-progress {
-        background: rgba($color, .8);
         color: color-contrast($color);
+        background: rgba($color, .8);
       }
     }
   }
@@ -101,8 +101,8 @@
 
   .pace-center-simple-#{$name} {
     .pace {
-      background: color-contrast($color);
       border-color: $color;
+      background: color-contrast($color);
 
       .pace-progress {
         background: $color;
@@ -127,15 +127,14 @@
         border: 5px solid color-contrast($color);
       }
 
-
       .pace-activity::before {
-          border-right-color: rgba($color, .2);
-          border-left-color: rgba($color, .2);
+        border-right-color: rgba($color, .2);
+        border-left-color: rgba($color, .2);
       }
 
       .pace-activity::after {
-          border-top-color: rgba($color, .2);
-          border-bottom-color: rgba($color, .2);
+        border-top-color: rgba($color, .2);
+        border-bottom-color: rgba($color, .2);
       }
     }
   }
@@ -143,7 +142,7 @@
   .pace-fill-left-#{$name} {
     .pace {
       .pace-progress {
-        background-color: rgba($color, 0.19999999999999996);
+        background-color: rgba($color, .19999999999999996);
       }
     }
   }
@@ -168,8 +167,8 @@
   .pace-loading-bar-#{$name} {
     .pace {
       .pace-progress {
-        background: $color;
         color: $color;
+        background: $color;
         box-shadow: 120px 0 color-contrast($color), 240px 0 color-contrast($color);
       }
 
@@ -183,12 +182,12 @@
     .pace {
       .pace-progress {
         background-color: $color;
-        box-shadow: inset -1px 0 $color, inset 0 -1px $color, inset 0 2px rgba(color-contrast($color), 0.5), inset 0 6px rgba(color-contrast($color), .3);
+        box-shadow: inset -1px 0 $color, inset 0 -1px $color, inset 0 2px rgba(color-contrast($color), .5), inset 0 6px rgba(color-contrast($color), .3);
       }
 
       .pace-activity {
-        background-image: radial-gradient(rgba(color-contrast($color), .65) 0%, rgba(color-contrast($color), .15) 100%);
         height: 12px;
+        background-image: radial-gradient(rgba(color-contrast($color), .65) 0%, rgba(color-contrast($color), .15) 100%);
       }
     }
   }
@@ -200,7 +199,6 @@
   }
 }
 
-
 @each $name, $color in $theme-colors {
   @include pace-variant($name, $color);
 }
@@ -208,4 +206,3 @@
 @each $name, $color in $colors {
   @include pace-variant($name, $color);
 }
-

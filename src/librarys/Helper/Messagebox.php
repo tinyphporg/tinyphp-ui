@@ -17,20 +17,23 @@ use Tiny\MVC\View\Helper\ViewHelperInterface;
 use Tiny\Tiny;
 
 /**
-* 提示窗
-* 
-* @package Tiny.MVC.View.UI.Helper
-* @since 2022年3月5日上午10:13:24 
-* @final 2022年3月5日上午10:13:24 
-*/
+ * 提示窗
+ *
+ * @package Tiny.MVC.View.UI.Helper
+ * @since 2022年3月5日上午10:13:24
+ * @final 2022年3月5日上午10:13:24
+ */
 class Messagebox implements ViewHelperInterface
 {
+    
     /**
      * 可匹配的助手ID
-     * 
+     *
      * @var array
      */
-    const HELPER_NAME_LIST = ['messagebox'];
+    const HELPER_NAME_LIST = [
+        'messagebox'
+    ];
     
     /**
      * View 当前view实例
@@ -55,7 +58,7 @@ class Messagebox implements ViewHelperInterface
     
     /**
      * 超时跳转时间
-     * 
+     *
      * @var integer
      */
     protected $timeout = 15;
@@ -91,7 +94,7 @@ class Messagebox implements ViewHelperInterface
     
     /**
      * 显示一个弹窗提示
-     * 
+     *
      * @param string $message 消息体
      * @param string $toUrl 跳转URL
      * @param string $subject 标题
@@ -111,9 +114,9 @@ class Messagebox implements ViewHelperInterface
             'message' => $message,
             'timeout' => $timeout
         ];
-        $this->view->display('helper/messagebox.htm', ['messagebox' => $messageBox]);
+        $this->view->display('helper/messagebox.htm', [
+            'messagebox' => $messageBox
+        ]);
     }
-    
-    
 }
 ?>

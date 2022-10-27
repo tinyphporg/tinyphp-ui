@@ -6,7 +6,7 @@
   .card-#{$name} {
     &:not(.card-outline) {
       > .card-header {
-        background-color: $color;
+        //  background-color: $color;
 
         &,
         a {
@@ -20,7 +20,7 @@
     }
 
     &.card-outline {
-      border-top: 3px solid $color;
+      //  border-top: 3px solid $color;
     }
 
     &.card-outline-tabs {
@@ -65,8 +65,8 @@
       table td.hour:hover,
       table td.minute:hover,
       table td.second:hover {
-        background-color: darken($color, 8%);
         color: color-contrast($color);
+        background-color: darken($color, 8%);
       }
 
       table td.today::before {
@@ -75,10 +75,9 @@
 
       table td.active,
       table td.active:hover {
-        background-color: lighten($color, 10%);
         color: color-contrast($color);
+        background-color: lighten($color, 10%);
       }
     }
   }
 }
-

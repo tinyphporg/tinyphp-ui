@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 
 //
 // Component: Cards
@@ -14,29 +14,30 @@
 }
 
 .card {
-  @include box-shadow($card-shadow);
   //margin-bottom: map-get($spacers, 3);
 
-  &.bg-dark {
-    .card-header {
-      border-color: $card-dark-border-color;
+  &.main-card {
+    .card-header,.card-footer {
+      background-color: transparent;
     }
-
-    &,
     .card-body {
-      color: $white;
+        padding:.75rem
     }
+    border:0;
+    //box-shadow:map-get($elevations, 2)
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
   }
 
+
   &.maximized-card {
-    height: 100% !important;
-    left: 0;
-    max-height: 100% !important;
-    max-width: 100% !important;
     position: fixed;
-    top: 0;
-    width: 100% !important;
     z-index: $zindex-modal-backdrop;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
 
     &.was-collapsed .card-body {
       display: block !important;
@@ -66,8 +67,8 @@
 
   .nav.flex-column {
     > li {
-      border-bottom: 1px solid $card-border-color;
       margin: 0;
+      border-bottom: 1px solid $card-border-color;
 
       &:last-of-type {
         border-bottom: 0;
@@ -109,8 +110,8 @@
         border-bottom: 0;
 
         &:first-child .nav-link {
-          border-left: 0;
           margin-left: 0;
+          border-left: 0;
         }
       }
     }
@@ -150,8 +151,8 @@
     .card-header {
       .nav-item {
         &:first-child .nav-link {
-          border-left: 0;
           margin-left: 0;
+          border-left: 0;
         }
       }
 
@@ -197,6 +198,7 @@
     }
   }
 
+  @include box-shadow($card-shadow);
 }
 
 // Maximized Card Body Scroll fix
@@ -213,76 +215,68 @@ html.maximized-card {
 
 // Box header
 .card-header {
-  //background-color: transparent;
-  border-bottom: 1px solid $card-border-color;
-  padding: (math.div($card-spacer-y, 2) * 2) $card-spacer-x;
   position: relative;
-
-  @if $enable-rounded {
-    @include border-top-radius($border-radius);
-  }
-
+  display:flex;
+//  justify-content:space-between;
+  padding: (math.div($card-spacer-y, 2) * 2) $card-spacer-x;
+  background-color: transparent;
+  border-bottom: 1px solid $card-border-color;
+  align-items:center;
+  
   .collapsed-card & {
     border-bottom: 0;
   }
 
   > .card-tools {
-    float: right;
+    margin-left:auto;
     margin-right: math.div(-$card-spacer-x, 2);
 
     .input-group,
     .nav,
     .pagination {
-      margin-bottom: math.div(-$card-spacer-y, 2.5);
       margin-top: math.div(-$card-spacer-y, 2.5);
+      margin-bottom: math.div(-$card-spacer-y, 2.5);
     }
 
     [data-toggle="tooltip"] {
       position: relative;
     }
   }
+
+  @if $enable-rounded {
+    @include border-top-radius($border-radius);
+  }
 }
 
 .card-title {
-  float: left;
-  font-size: $card-title-font-size;
-  font-weight: $card-title-font-weight;
   margin: 0;
+  font-weight: $card-title-font-weight;
+  font-size: $card-title-font-size;
 }
 
 .card-text {
   clear: both;
 }
 
-
 // Box Tools Buttons
 .btn-tool {
-  background-color: transparent;
-  color: $gray-500;
-  font-size: $font-size-sm;
-  margin: -(math.div($card-spacer-y, 2) * 2) 0;
   padding: .25rem .5rem;
+  margin: -(math.div($card-spacer-y, 2) * 2) 0;
+  font-size: $font-size-sm;
+  color: $gray-500;
+  background-color: transparent;
 
   .btn-group.show &,
   &:hover {
     color: $gray-700;
   }
- 
+
   .show &,
   &:focus {
     box-shadow: none !important;
   }
 }
 
-.text-sm {
-  .card-title {
-    font-size: $card-title-font-size-sm;
-  }
-
-  .nav-link {
-    padding: $card-nav-link-padding-sm-y $card-nav-link-padding-sm-x;
-  }
-}
 
 // Box Body
 .card-body {
@@ -316,7 +310,6 @@ html.maximized-card {
 }
 
 .chart-legend {
-  @include list-unstyled ();
   margin: 10px 0;
 
   > li {
@@ -325,6 +318,8 @@ html.maximized-card {
       margin-right: 10px;
     }
   }
+
+  @include list-unstyled ();
 }
 
 // Comment Box
@@ -332,9 +327,8 @@ html.maximized-card {
   background-color: $gray-100;
 
   .card-comment {
-    @include clearfix ();
-    border-bottom: 1px solid $gray-200;
     padding: 8px 0;
+    border-bottom: 1px solid $gray-200;
 
     &:last-of-type {
       border-bottom: 0;
@@ -345,26 +339,28 @@ html.maximized-card {
     }
 
     img {
-      height: $card-img-size;
-      width: $card-img-size;
       float: left;
+      width: $card-img-size;
+      height: $card-img-size;
     }
+
+    @include clearfix ();
   }
 
   .comment-text {
-    color: lighten($gray-700, 20%);
     margin-left: 40px;
+    color: lighten($gray-700, 20%);
   }
 
   .username {
-    color: $gray-700;
     display: block;
     font-weight: 600;
+    color: $gray-700;
   }
 
   .text-muted {
-    font-size: 12px;
     font-weight: 400;
+    font-size: 12px;
   }
 }
 
@@ -374,18 +370,17 @@ html.maximized-card {
 // Widget: TODO LIST
 .todo-list {
   list-style: none;
+  padding: 0;
   margin: 0;
   overflow: auto;
-  padding: 0;
 
   // Todo list element
   > li {
-    @include border-radius(2px);
-    background-color: $gray-100;
+    padding: 10px;
+    margin-bottom: 2px;
     border-left: 2px solid $gray-200;
     color: $gray-700;
-    margin-bottom: 2px;
-    padding: 10px;
+    background-color: $gray-100;
 
     &:last-of-type {
       margin-bottom: 0;
@@ -397,21 +392,21 @@ html.maximized-card {
 
     .text {
       display: inline-block;
-      font-weight: 600;
       margin-left: 5px;
+      font-weight: 600;
     }
 
     // Time labels
     .badge {
-      font-size: .7rem;
       margin-left: 10px;
+      font-size: .7rem;
     }
 
     // Tools and options box
     .tools {
-      color: map-get($theme-colors, "danger");
-      display: none;
       float: right;
+      display: none;
+      color: map-get($theme-colors, "danger");
 
       // icons
       > .fa,
@@ -422,8 +417,8 @@ html.maximized-card {
       > .fad,
       > .svg-inline--fa,
       > .ion {
-        cursor: pointer;
         margin-right: 5px;
+        cursor: pointer;
       }
     }
 
@@ -443,6 +438,14 @@ html.maximized-card {
         background-color: $gray-500 !important;
       }
     }
+
+    @include border-radius(2px);
+  }
+
+  .handle {
+    display: inline-block;
+    margin: 0 5px;
+    cursor: move;
   }
 
   // Color variants
@@ -456,12 +459,6 @@ html.maximized-card {
     .#{$name} {
       border-left-color: $color;
     }
-  }
-
-  .handle {
-    cursor: move;
-    display: inline-block;
-    margin: 0 5px;
   }
 }
 
@@ -482,34 +479,28 @@ html.maximized-card {
 }
 
 .dark-mode {
-
-  // Color variants
-  @each $name, $color in $theme-colors-alt {
-    @include cards-variant($name, $color);
-  }
-
-  @each $name, $color in $colors-alt {
-    @include cards-variant($name, $color);
-  }
-
   .card {
-    background-color: $dark;
     color: $white;
+    background-color: $dark;
 
     .card {
-      background-color: lighten($dark, 5%);
       color: $white;
+      background-color: lighten($dark, 5%);
     }
+
     .nav.flex-column > li {
       border-bottom-color: $gray-600;
     }
+
     .card-footer {
       background-color: rgba($black, .1);
     }
+
     &.card-outline-tabs .card-header a:hover {
       border-color: $gray-600;
       border-bottom-color: transparent;
     }
+
     &:not(.card-outline) > .card-header a.active {
       color: $white;
     }
@@ -517,18 +508,20 @@ html.maximized-card {
 
   .card-comments {
     background-color: lighten($dark, 1.25%);
+
     .username {
       color: $gray-400;
     }
+
     .card-comment {
       border-bottom-color: lighten($dark, 7.5%);
     }
   }
 
   .todo-list > li {
-    background-color: lighten($dark, 5%);
     border-color: lighten($dark, 7.5%);
     color: $white;
+    background-color: lighten($dark, 5%);
   }
 
   .todo-list {
@@ -543,5 +536,14 @@ html.maximized-card {
         border-left-color: $color;
       }
     }
+  }
+
+  // Color variants
+  @each $name, $color in $theme-colors-alt {
+    @include cards-variant($name, $color);
+  }
+
+  @each $name, $color in $colors-alt {
+    @include cards-variant($name, $color);
   }
 }

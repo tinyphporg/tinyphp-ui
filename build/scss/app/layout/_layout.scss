@@ -1,0 +1,38 @@
+body:not(.ui-has-sidebar) {
+  .ui-sidebar {
+    display: none;
+  }
+
+  .ui-sidebar-toggler {
+    display: none;
+  }
+}
+
+.ui-has-sidebar {
+  @include media-breakpoint-down(md) {
+    .ui-sidebar {
+      margin: 0 -1.25rem 1rem;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .ui-main-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      grid-template-areas: "sidebar main";
+      gap: 1.5rem;
+
+      .ui-sidebar {
+        grid-area: sidebar;
+      }
+
+      .ui-main {
+        grid-area: main;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .ui-main-wrapper { grid-template-columns: 1fr 5fr; }
+  }
+}

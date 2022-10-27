@@ -3,40 +3,35 @@
 //
 
 // iCheck colors (theme colors)
-@each $name, $color in $theme-colors {
-  .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):hover + label::before,
-  .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
-    border-color: #{$color};
-  }
+@import "icheck-bootstrap/icheck-bootstrap.css";
 
-  .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):focus + label::before,
-  .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):focus + input[type="hidden"] + label::before {
-    border-color: #{$color};
-  }
+@each $name, $value in $colors {
+  .icheck-#{$name} {
+    & > input:first-child:not(:checked):not(:disabled):hover + label::before,
+    & > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+        border-color: shift-color($value, 10%);
+     }
 
-  .icheck-#{$name} > input:first-child:checked + label::before,
-  .icheck-#{$name} > input:first-child:checked + input[type="hidden"] + label::before {
-    background-color: #{$color};
-    border-color: #{$color};
+    & > input:first-child:checked + label::before,
+    & > input:first-child:checked + input[type="hidden"] + label::before {
+      background-color: $value;
+      border-color: shift-color($value, 10%);
+    }
   }
 }
 
-// iCheck colors (colors)
-@each $name, $color in $colors {
-  .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):hover + label::before,
-  .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
-    border-color: #{$color};
-  }
+@each $name, $value in $theme-colors {
+  .icheck-#{$name} {
+    & > input:first-child:not(:checked):not(:disabled):hover + label::before,
+    & > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+        border-color: shift-color($value, 10%);
+     }
 
-  .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):focus + label::before,
-  .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):focus + input[type="hidden"] + label::before {
-    border-color: #{$color};
-  }
-
-  .icheck-#{$name} > input:first-child:checked + label::before,
-  .icheck-#{$name} > input:first-child:checked + input[type="hidden"] + label::before {
-    background-color: #{$color};
-    border-color: #{$color};
+    & > input:first-child:checked + label::before,
+    & > input:first-child:checked + input[type="hidden"] + label::before {
+      background-color: $value;
+      border-color: shift-color($value, 10%);
+    }
   }
 }
 
@@ -61,8 +56,8 @@
 
     .icheck-#{$name} > input:first-child:checked + label::before,
     .icheck-#{$name} > input:first-child:checked + input[type="hidden"] + label::before {
-      background-color: #{$color};
       border-color: #{$color};
+      background-color: #{$color};
     }
   }
 
@@ -80,8 +75,8 @@
 
     .icheck-#{$name} > input:first-child:checked + label::before,
     .icheck-#{$name} > input:first-child:checked + input[type="hidden"] + label::before {
-      background-color: #{$color};
       border-color: #{$color};
+      background-color: #{$color};
     }
   }
 }

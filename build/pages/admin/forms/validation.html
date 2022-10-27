@@ -1,0 +1,169 @@
+{template pub/admin/main-header.html} {template pub/admin/main-sidebar.html}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+	<!-- .content-header -->
+	<section class="content-header">
+		<div class="content-title">
+			<div class="content-title-heading">
+				<div class="content-title-icon">
+					<i class="bi bi-input-cursor icon-gradient bg-happy-green"></i>
+				</div>
+				<div class="">
+					表单验证
+					<div class="content-title-subheading">文本提示，颜色标注，提交检测，自定义表单检测规则</div>
+				</div>
+			</div>
+			<div class="content-title-actions">
+				<a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://v5.bootcss.com/docs/forms/validation/"> <i class="bi bi-bootstrap"></i> View on Bootstrap
+				</a>
+			</div>
+		</div>
+	</section>
+	<!-- /.content-header -->
+
+	<!-- Main content -->
+	<section class="main-content">
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs content-tabs" id="myTab" role="tablist">
+			<li class="nav-item" role="presentation">
+				<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">JQuery</button>
+			</li>
+			<li class="nav-item" role="presentation"><a class="nav-link" href="https://v5.bootcss.com/docs/forms/validation/" target="_blank">Bootstrap</a></li>
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+				<!-- jquery validation -->
+				<div class="card main-card row elevation-2 border-0 m-2">
+
+					<div class="card-header">
+						<h3 class="card-title">jQuery Validation</h3>
+					</div>
+					<!-- /.card-header -->
+
+					<div class="card-body row">
+						<!-- form start -->
+						<form id="validationForm" class="validate">
+							<div class="col-sm-12 col-md-6">
+								<div class="form-group my-3">
+									<input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+								</div>
+								<div class="form-group  mb-3">
+									<input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+								</div>
+							
+							       <div class="form-group mb-3">
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" name="sex" value="0" checked class="form-check-input" id="exampleCheck11"> 
+                                        <label class="form-check-label" for="exampleCheck11">男</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+
+                                        <input type="radio" name="sex" value="1" class="form-check-input" id="exampleCheck111"> 
+                                        <label class="form-check-label" for="exampleCheck111">女</label>
+                                    </div>
+                                </div>
+								
+								<div class="form-group mb-3">
+									<div class="form-check">
+										<input type="checkbox" name="terms" value="50" class="form-check-input" id="exampleCheck1"> <label class="form-check-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.
+										</label>
+									</div>
+								</div>
+								<div class="form-group mb-3">
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+							</div>
+						</form>
+						<hr class="mx-2 my-4">
+						<h6 class="card-title my-2">Javascript code:</h6>
+						<div class="mb-3">
+							<textarea class="language-javascript" data-text-target="#codesource"></textarea>
+						</div>
+					</div>
+
+					<!-- /.card-body -->
+
+
+					<!-- /.card -->
+
+					<!-- right column -->
+
+				</div>
+			</div>
+	</section>
+	<!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Page specific script -->
+<script type="text/javascript" id="codesource">
+
+// 惰性加载 jquery-validation 模块
+$.tiny('validation').then(function() {
+	// 设置默认值
+	$.validator.setDefaults({
+		validClass : "is-valid",     // 验证成功的样式
+		errorClass : "is-invalid",   // 验证失败的样式
+		submitHandler : function() { // 提交后的回调函数
+			  $.alert("表单提交成功!");
+		}
+	});
+    
+	// 实例化
+	$('#validationForm').validate({
+		rules : {
+			email : {
+				required : true,
+				email : true,
+	    	},
+	    	password : {
+	    		required : true,
+	    		minlength : 5
+	    	},
+	    	terms : {
+	    		required : true,
+	    		checked : true,
+	    	},
+	    	sex : {
+	    		required : true
+	    	}
+	    },
+	    messages : {
+	    	email : {
+	    		required : "请输入一个邮件地址",
+	    		email : "请输入正确的邮件地址"
+	    	},
+	    	password : {
+	    		required : "请输入一个密码",
+	    		minlength : "您的密码至少需要5个字节"
+	    	},
+	    	terms : "请同意该服务协议",
+	    	sex : {
+	    		required : "必须选择一个性别"
+	    	}
+	    },
+	    onclick : function(element) {
+	    	if (!$(element).is(':checked')) {
+	    		$(element).addClass('is-invalid').removeClass('is-valid');
+	    	} else {
+	    			$(element).removeClass('is-invalid').addClass('is-valid');
+	    	}
+		},
+		errorElement : 'span',
+			errorPlacement : function(error, element) {
+				error.addClass('invalid-feedback');
+				element.closest('.form-group').append(error);
+			},
+			highlight : function(element, errorClass, validClass) {
+				$(element).addClass(errorClass).removeClass(validClass);
+			},
+			unhighlight : function(element, errorClass, validClass) {
+				$(element).removeClass(errorClass).addClass(validClass);
+			}
+		});
+	});
+</script>

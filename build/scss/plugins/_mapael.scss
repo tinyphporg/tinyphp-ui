@@ -1,63 +1,62 @@
 //
 // Plugins: jQuery Mapael
 //
-
 .mapael {
   .map {
     position: relative;
   }
 
   .mapTooltip {
-    @include reset-text();
-    @include border-radius($tooltip-border-radius);
-    @include font-size($tooltip-font-size);
-    background-color: $tooltip-bg;
-    color: $tooltip-color;
+    position: absolute;
+    z-index: $zindex-tooltip;
     display: block;
     max-width: $tooltip-max-width;
     padding: $tooltip-padding-y $tooltip-padding-x;
-    position: absolute;
     text-align: center;
     word-wrap: break-word;
-    z-index: $zindex-tooltip;
+    color: $tooltip-color;
+    background-color: $tooltip-bg;
+
+    @include reset-text();
+    @include border-radius($tooltip-border-radius);
+    @include font-size($tooltip-font-size);
   }
 
   .myLegend {
-    background-color: $gray-100;
-    border: 1px solid $gray-500;
-    padding: 10px;
     width: 600px;
+    padding: 10px;
+    border: 1px solid $gray-500;
+    background-color: $gray-100;
   }
 
   .zoomButton {
-    background-color: $button-default-background-color;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 16px;
+    height: 16px;
+    padding-left: 1px;
     border: 1px solid $button-default-border-color;
     border-radius: $btn-border-radius;
-    color: $button-default-color;
-    cursor: pointer;
     font-weight: 700;
-    height: 16px;
-    left: 10px;
     line-height: 14px;
-    padding-left: 1px;
-    position: absolute;
     text-align: center;
-    top: 0;
-
+    color: $button-default-color;
+    background-color: $button-default-background-color;
+    cursor: pointer;
     user-select: none;
-    width: 16px;
 
     &:hover,
     &:active,
     &.hover {
-      background-color: darken($button-default-background-color, 5%);
       color: darken($button-default-color, 10%);
+      background-color: darken($button-default-background-color, 5%);
     }
   }
 
   .zoomReset {
-    line-height: 12px;
     top: 10px;
+    line-height: 12px;
   }
 
   .zoomIn {

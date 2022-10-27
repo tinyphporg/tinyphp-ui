@@ -209,8 +209,8 @@ class UIEventListener implements RequestEventListenerInterface, RouteEventListen
         
         // controller & action
         $matchs = [];
-        if (preg_match('/^([^\/]+)\/(.*)\.html$/', $docPath, $matchs)) {
-            $controllName = $matchs[1];
+        if (preg_match('/^((?:[^\/]+\/)+)(.*)\.html$/', $docPath, $matchs)) {
+            $controllName = rtrim($matchs[1], '/');
             $actionName = $matchs[2];
             $this->app->request->setControllerName($controllName);
             $this->app->request->setActionName($actionName);

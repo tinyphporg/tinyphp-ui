@@ -1,21 +1,93 @@
-import HighLight  from'../plugins/codemirror'
+import {
+    defineJQueryPlugin,
+    typeCheckConfig
+} from '~bootstrap/src/util/index'
+
+import BaseComponent from '~bootstrap/src/base-component'
+import SelectorEngine from '~bootstrap/src/dom/selector-engine'
+import Manipulator from '~bootstrap/src/dom/manipulator'
 import EventHandler from '~bootstrap/src/dom/event-handler'
-const DATA_KEY = 'bs.highlight'
+import Codemirror from '../plugins/codemirror'
+
+const NAME = 'highlight'
+const DATA_KEY = 'ui.highlight'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 const EVENT_LOAD_DATA_API = `load${EVENT_KEY}${DATA_API_KEY}`
 
-const SELECTOR_DATA_TOGGLE = '[data-bs-widget="highlight"], code[class^="language-"]'
 
-// load
-EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
-    const $element = $(SELECTOR_DATA_TOGGLE)
-    if ($element.length < 1) {
-        return
+const Default = {
+    language: "javascript",
+    readonly: true,
+    callback: function() { }
+}
+
+
+const DefaultType = {
+    language: 'string',
+    readonly: 'boolean',
+    callback: "function"
+}
+
+// SELECTOR
+const SELECTOR_DATA_TOGGLE = '[data-widget="highlight"], code[class^="language-"], textarea[class^="language-"]'
+
+class Highlight extends BaseComponent {
+    constructor(element, config) {
+        super(element)
+        this._config = this._getConfig(config)
     }
-    $.load('codemirror').then(()=>{
-         $(SELECTOR_DATA_TOGGLE).highlight()
-    })
+
+    // Getters
+
+    static get NAME() {
+        return NAME
+    }
+
+    static get Default() {
+        return Default
+    }
+
+    // public
+    toggle(relatedTarget) {
+        return (new Codemirror).codemirrorx.call(relatedTarget, this._config);
+    }
+
+    // Private    
+    _getConfig(config) {
+        config = {
+            ...Default,
+            ...Manipulator.getDataAttributes(this._element),
+            ...(typeof config === 'object' ? config : {})
+        }
+        typeCheckConfig(NAME, config, DefaultType)
+        return config
+    }
+
+    // Static
+    static jQueryInterface(config) {
+        if (typeof config === 'function') {
+            config = {
+                callback: config
+            }
+        }
+
+        return this.each(function() {
+            const data = Highlight.getOrCreateInstance(this, config)
+            data.toggle(this)
+        })
+    }
+}
+
+
+EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
+    SelectorEngine.find(SELECTOR_DATA_TOGGLE).forEach(el => Highlight.getOrCreateInstance(el).toggle(el))
 })
 
-export default HighLight
+/**
+ * ------------------------------------------------------------------------
+ * jQuery
+ * ------------------------------------------------------------------------
+ */
+defineJQueryPlugin(Highlight)
+export default Highlight

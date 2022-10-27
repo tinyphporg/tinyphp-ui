@@ -1,0 +1,292 @@
+{template pub/app/ui-header.html|tinyphp-ui}
+<div class="ui-main-header ps-lg-4">
+	<div class="d-md-flex flex-md-row-reverse align-items-center justify-content-between">
+		<a class="btn btn-sm mb-2 mb-md-0" href="https://github.com/twbs/bootstrap/blob/main/site/content/docs/5.1/getting-started/introduction.md" title="View and edit this file on GitHub" target="_blank" rel="noopener">View on GitHub</a>
+		<h1 class="bd-title" id="content">Select2</h1>
+	</div>
+	<p class="bd-lead">选择菜单工具</p>
+</div>
+<div class="ui-main-menu mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted fs-7">
+	<strong class="d-block h6 my-2 pb-2 border-bottom">索引</strong>
+	<nav id="TableOfContents">
+		<ul>
+			<li class="ms-1"><a href="#ui-menu-0">TinyPHP Framework for PHP</a></li>
+			<li class="ms-2"><a href="#ui-menu-1">tinyphp v2.0.0</a></li>
+			<li class="ms-2"><a href="#ui-menu-2">快速开始</a></li>
+			<li class="ms-1"><a href="#ui-menu-3">核心组件</a></li>
+			<li class="ms-3"><a href="#ui-menu-4">tinyphp-framework v2.0</a></li>
+			<li class="ms-3"><a href="#ui-menu-5">tinyphp-docs</a></li>
+			<li class="ms-3"><a href="#ui-menu-6">tinyphp-ui</a></li>
+			<li class="ms-3"><a href="#ui-menu-7">lnmp-utils</a></li>
+			<li class="ms-2"><a href="#ui-menu-8">快速构建运行环境</a></li>
+			<li class="ms-3"><a href="#ui-menu-9">CentOS X64 7.4+</a></li>
+			<li class="ms-3"><a href="#ui-menu-10">docker</a></li>
+		</ul>
+	</nav>
+</div>
+<div class="ui-main-content ps-lg-4">
+
+	<div class="">
+		<h1 id="ui-menu-0">Select2</h1>
+		<select class="form-control" id="id_select2_demo1" data-bs-widget="select2">
+			<option value="">-----单选-----</option>
+			<option value="1">OPS-COFFEE-A</option>
+			<option value="2">OPS-COFFEE-B</option>
+			<option value="3">OPS-COFFEE-C</option>
+			<option value="4">OPS-COFFEE-D</option>
+			<option value="5">OPS-COFFEE-E</option>
+			<option value="6">OPS-COFFEE-F</option>
+			<option value="7">OPS-COFFEE-G</option>
+		</select>
+
+		<h1 id="ui-menu-0">Validator</h1>
+		<form id="quickForm">
+			<div class="card-body">
+				<div class="form-group mb-1">
+					<label for="exampleInputEmail1">Email address</label> <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+				</div>
+				<div class="form-group mb-1">
+					<label for="exampleInputPassword1">Password</label> <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				</div>
+				<div class="form-group mb-1">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1"> <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="card-footer">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+
+		<h1 id="ui-menu-0">Select2</h1>
+
+
+
+		<div class="form-group">
+			<label>Date range:</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text"> <i class="far fa-calendar-alt"></i>
+					</span>
+				</div>
+				<input type="text" class="form-control float-right" id="reservation">
+			</div>
+
+		</div>
+
+
+		<div class="form-group">
+			<label>Date and time range:</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text"><i class="far fa-clock"></i></span>
+				</div>
+				<input type="text" class="form-control float-right" id="reservationtime">
+			</div>
+
+		</div>
+
+
+		<div class="form-group">
+			<label>Date range button:</label>
+			<div class="input-group">
+				<button type="button" class="btn btn-default float-right" id="daterange-btn">
+					<i class="far fa-calendar-alt"></i> Date range picker <i class="fas fa-caret-down"></i>
+				</button>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>Color picker:</label> <input type="text" class="form-control my-colorpicker1 colorpicker-element" data-colorpicker-id="1" data-original-title="" title="" aria-describedby="popover285592">
+		</div>
+
+		<div class="form-group">
+			<label>Color picker with addon:</label>
+			<div class="input-group my-colorpicker2 colorpicker-element" data-colorpicker-id="2">
+				<input type="text" class="form-control" data-original-title="" title="">
+				<div class="input-group-append">
+					<span class="input-group-text"><i class="fas fa-square"></i></span>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="card card-danger">
+			<div class="card-header">
+				<h3 class="card-title">Input masks</h3>
+			</div>
+			<div class="card-body">
+
+				<div class="form-group">
+					<label>Date masks:</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+						</div>
+						<input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" inputmode="numeric">
+					</div>
+
+				</div>
+
+
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+						</div>
+						<input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="mm/dd/yyyy" data-mask="" inputmode="numeric">
+					</div>
+
+				</div>
+
+
+				<div class="form-group">
+					<label>US phone mask:</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-phone"></i></span>
+						</div>
+						<input type="text" class="form-control" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" inputmode="text">
+					</div>
+
+				</div>
+
+
+				<div class="form-group">
+					<label>Intl US phone mask:</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-phone"></i></span>
+						</div>
+						<input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask="" inputmode="text">
+					</div>
+
+				</div>
+
+
+				<div class="form-group">
+					<label>IP mask:</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-laptop"></i></span>
+						</div>
+						<input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask="" inputmode="decimal">
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<script>
+
+$.load(['validation', 'daterangepicker', 'colorpicker', 'inputmask']).then(function () {
+  $.validator.setDefaults({
+    submitHandler: function () {
+      $.alert( "Form successful submitted!" );
+    }
+  });
+  $('#quickForm').validate({
+    rules: {
+      email: {
+        required: true,
+        email: true,
+      },
+      password: {
+        required: true,
+        minlength: 5
+      },
+      terms: {
+        required: true
+      },
+    },
+    messages: {
+      email: {
+        required: "Please enter a email address",
+        email: "Please enter a valid email address"
+      },
+      password: {
+        required: "Please provide a password",
+        minlength: "Your password must be at least 5 characters long"
+      },
+      terms: "Please accept our terms"
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+
+var moment = $.tiny.moment
+
+//Date picker
+//$('#reservationdate').datetimepicker({
+//    format: 'L'
+//});
+
+//Date and time picker
+//$('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+
+//Date range picker
+$('#reservation').daterangepicker()
+//Date range picker with time picker
+$('#reservationtime').daterangepicker({
+  timePicker: true,
+  timePickerIncrement: 30,
+  locale: {
+    format: 'MM/DD/YYYY hh:mm A'
+  }
+})
+
+//Date range as a button
+$('#daterange-btn').daterangepicker(
+  {
+    ranges   : {
+      'Today'       : [moment(), moment()],
+      'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+      'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+      'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+      'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+      'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    },
+    startDate: moment().subtract(29, 'days'),
+    endDate  : moment()
+  },
+  function (start, end) {
+    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+  }
+)
+console.log(moment)
+//Timepicker
+//$('#timepicker').datetimepicker({
+//  format: 'LT'
+//})
+
+
+    //Colorpicker
+    $('.my-colorpicker1').colorpicker({popover: true})
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker({popover:true})
+
+    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+    })
+
+
+}); 
+</script>
+	</div>
+</div>
+
+{template pub/app/ui-footer.html|tinyphp-ui}

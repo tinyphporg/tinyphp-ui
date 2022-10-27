@@ -13,6 +13,7 @@ const DEV_HTML_DIR = tconfig.dev.htmlDir
 const DEV_HOST = tconfig.dev.host
 const DEV_PORT = tconfig.dev.port
 const DEV_WRITE_DISK = tconfig.dev.writedisk
+
 module.exports = merge(webpackBaseConfig, {
     mode: 'development',
     plugins: [
@@ -24,9 +25,9 @@ module.exports = merge(webpackBaseConfig, {
         
     ],
     watchOptions: {
-        poll: 1500, // 每秒询问多少次
-        aggregateTimeout: 2000,  // 防抖 多少毫秒后再次触发
-        ignored: /(build\/htmls)/ // 忽略时时监听
+        poll: 2000, 
+        aggregateTimeout: 2500,  
+        ignored: /(build\/htmls)/ 
     },
     devtool: 'eval-source-map',
     devServer: {
@@ -43,7 +44,7 @@ module.exports = merge(webpackBaseConfig, {
             },
         },
         static: DEV_STATIC_DIRS,
-        open: false, // 自动打开浏览器
+        open: false, 
         compress: true,
         headers: {
             'Access-Control-Allow-Origin': '*',

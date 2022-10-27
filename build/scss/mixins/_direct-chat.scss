@@ -1,13 +1,12 @@
 //
 // Mixins: Direct Chat
 //
-
 // Direct Chat Variant
 @mixin direct-chat-variant($bg-color, $color: $white) {
   .right > .direct-chat-text {
-    background-color: $bg-color;
     border-color: $bg-color;
     color: color-contrast($bg-color);
+    background-color: $bg-color;
 
     &::after,
     &::before {

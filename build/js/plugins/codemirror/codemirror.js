@@ -8,7 +8,6 @@ import * as state from '@codemirror/state'
 import * as view from '@codemirror/view' 
 import * as languageData from '@codemirror/language-data'
 
-
 const Codemirror = {}
 
 $.extend(Codemirror, codemirror)
@@ -20,4 +19,5 @@ $.extend(Codemirror, search)
 $.extend(Codemirror, state)
 $.extend(Codemirror, view)
 $.extend(Codemirror, languageData)
+$.extend($.tiny, {codemirror: Codemirror})
 export default Codemirror

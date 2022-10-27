@@ -39,7 +39,9 @@ class Pagination implements TemplatePluginInterface
      *
      * @var array
      */
-    const PARSE_TAG_LIST = ['pagination'];
+    const PARSE_TAG_LIST = [
+        'pagination'
+    ];
     
     /**
      * 解析并输出结果
@@ -161,9 +163,7 @@ class Pagination implements TemplatePluginInterface
         // echo $start, $end;
         for ($i = $start; $i <= $end; $i++) {
             $currenturl = sprintf($url, $i);
-            $lines[] = ($i == $index) 
-            ? sprintf('<li class="page-item active" aria-current="page" ><span class="page-link" >%d</span></li>', $i) 
-            : sprintf('<li class="page-item"><a class="page-link" href="%s" >%d</a></li>', $currenturl, $i);
+            $lines[] = ($i == $index) ? sprintf('<li class="page-item active" aria-current="page" ><span class="page-link" >%d</span></li>', $i) : sprintf('<li class="page-item"><a class="page-link" href="%s" >%d</a></li>', $currenturl, $i);
         }
         
         if ($index < $total) {

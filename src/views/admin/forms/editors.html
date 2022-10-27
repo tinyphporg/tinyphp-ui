@@ -1,0 +1,92 @@
+{template pub/admin/main-header.html} {template pub/admin/main-sidebar.html}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+	<!-- .content-header -->
+	<section class="content-header">
+		<div class="content-title">
+			<div class="content-title-heading">
+				<div class="content-title-icon">
+					<i class="bi bi-menu-button icon-gradient bg-mean-fruit"></i>
+				</div>
+				<div class="">
+					Editor 编辑器
+					<div class="content-title-subheading">Summernote Codemirror</div>
+				</div>
+			</div>
+			<div class="content-title-actions">
+				<a class="btn btn-dark btn-icon btn-shadow me-2" target="_blank" href="https://itsjavi.com/bootstrap-colorpicker/"> <i class="bi bi-filetype-doc"></i> Docs
+				</a> <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://github.com/itsjavi/bootstrap-colorpicker"> <i class="bi bi-github"></i> View on Github
+				</a>
+
+			</div>
+		</div>
+	</setion>
+	<!-- /.content-header -->
+
+	<!-- Main content -->
+	<section class="main-content">
+		<div class="card main-card">
+			<div class="card-header">
+				<h3 class="card-title">Summernote 文本编辑器</h3>
+			</div>
+			<!-- /.card-header -->
+			<div class="card-body">
+				<textarea id="summernote" style="min-height: 200px">
+                Place <em>some</em> <u>text</u> <strong>here</strong>
+              </textarea>
+			</div>
+			<hr>
+			<div class=" m-3">
+				<h5 class="card-title">Source code</h5>
+				<code class="language-javascript"> $.load('summernote').then(() => { $('#summernote').summernote({height: 200}) }) </code>
+			</div>
+		</div>
+
+		<div class="card  main-card mt-3">
+			<div class="card-header">
+				<h3 class="card-title">CodeMirror 代码编辑器</h3>
+			</div>
+			<!-- /.card-header -->
+			<div class="card-body p-3">
+				<textarea id="codemirrorDemo" class="language-javascript p-3" readonly="false">
+<div class="info-box bg-gradient-info">
+  <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+  <div class="info-box-content">
+    <span class="info-box-text">Bookmarks</span>
+    <span class="info-box-number">41,410</span>
+    <div class="progress">
+      <div class="progress-bar" style="width: 70%"></div>
+    </div>
+    <span class="progress-description">
+      70% Increase in 30 Days
+    </span>
+  </div>
+</div>
+              </textarea>
+			</div>
+			<hr>
+			<div class=" m-3">
+				<h5 class="card-title">Source code</h5>
+				<code  class="language-javascript" data-language="javascript" data-readonly="true" data-text-target="#codesource1">  </code>
+			</div>
+		</div>
+</div>
+<!-- /.col-->
+</div>
+<!-- ./row -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Page specific script -->
+<script id="codesource">
+
+$.load('summernote').then(()=>{
+	$('#summernote').summernote({height: 200})
+})
+</script>
+<script id="codesource1">
+$('#codemirrorDemo').codemirrorx();
+</script>

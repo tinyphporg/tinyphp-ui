@@ -5,7 +5,7 @@ class Alert extends BasePlugin {
     constructor() {
         super()
         this.id = 'alert'
-        this.jqueryExtend = { alert: this.alert}
+        this.jqueryExtend = {alert: this.alert}
     }
 
     /* webpackChunkName: sweetalert2 */
@@ -17,6 +17,6 @@ class Alert extends BasePlugin {
     alert = async (...arg) => {
         const swal = await this.load()
         return swal.fire(...arg);
-    }    
+    }
 }
 export default Alert;

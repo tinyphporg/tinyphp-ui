@@ -1,30 +1,28 @@
 //
 // Component: Products
 //
-
 .products-list {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 
   > .item {
+    padding: 10px 0;
+    background-color: $white;
+
     @include clearfix ();
 
     @if $enable-rounded {
       @include border-radius($border-radius);
     }
-
-    background-color: $white;
-    padding: 10px 0;
-
   }
 
   .product-img {
     float: left;
 
     img {
-      height: 50px;
       width: 50px;
+      height: 50px;
     }
   }
 
@@ -37,29 +35,29 @@
   }
 
   .product-description {
-    color: $gray-600;
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: $gray-600;
   }
 }
 
 .product-list-in-card > .item {
-  @include border-radius(0);
   border-bottom: 1px solid $card-border-color;
 
   &:last-of-type {
     border-bottom-width: 0;
   }
-}
 
+  @include border-radius(0);
+}
 
 .dark-mode {
   .products-list > .item {
-    background-color: $dark;
-    color: $white;
     border-bottom-color: $gray-600;
+    color: $white;
+    background-color: $dark;
   }
 
   .product-description {

@@ -1,20 +1,18 @@
 //
 // Component: Users List
 //
-
 .users-list {
-  @include list-unstyled ();
-
   > li {
     float: left;
+    width: 25%;
     padding: 10px;
     text-align: center;
-    width: 25%;
 
     img {
-      @include border-radius(50%);
-      height: auto;
       max-width: 100%;
+      height: auto;
+
+      @include border-radius(50%);
     }
 
     > a:hover {
@@ -24,6 +22,8 @@
       }
     }
   }
+
+  @include list-unstyled ();
 }
 
 .users-list-name,
@@ -32,22 +32,23 @@
 }
 
 .users-list-name {
-  color: $gray-700;
-  font-size: $font-size-sm;
   overflow: hidden;
+  font-size: $font-size-sm;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: $gray-700;
 }
 
 .users-list-date {
-  color: darken($gray-500, 20%);
   font-size: 12px;
+  color: darken($gray-500, 20%);
 }
 
 .dark-mode {
   .users-list-name {
     color: $gray-400;
   }
+
   .users-list-date {
     color: $gray-500;
   }

@@ -39,7 +39,7 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
         'ui.admin',
         'ui.jslib',
         'ui.assets',
-        'pagination'  //{splitpage,url="http://demo.tinycn.com/%s", index="1"}
+        'pagination' // {splitpage,url="http://demo.tinycn.com/%s", index="1"}
     ];
     
     /**
@@ -110,21 +110,22 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
     
     /**
      * 开发模式下的公共后台地址
-     * 
+     *
      * @var string
      */
     protected $devAdminPublicPath;
     
     /**
      * 解析静态资源的公共访问地址
-     * 
+     *
      * @var string
      */
     protected $assetsPublicPath;
+    
     /**
      *
      * @autowired
-     * 
+     *
      * {@inheritdoc}
      * @see \Tiny\MVC\View\Engine\Template\TemplatePluginInterface::setTemplateConfig()
      */
@@ -161,7 +162,7 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
      */
     public function onParseTemplatePath($tpath, bool $isAbsolute = false, array $variables = [])
     {
-        return false;    
+        return false;
     }
     
     /**
@@ -254,7 +255,7 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
     {
         if ($extra) {
             $plugins = explode(',', $extra);
-            array_walk($plugins, function($value){
+            array_walk($plugins, function ($value) {
                 return trim($value);
             });
             $pluginStr = '"' . join('","', $plugins) . '"';
@@ -267,7 +268,7 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
             EOT;
         }
         if ($this->isDev) {
-            $lib = sprintf('<script src="%s"></script>', $isAdmin ?  $this->devAdminPublicPath : $this->devPublicPath);
+            $lib = sprintf('<script src="%s"></script>', $isAdmin ? $this->devAdminPublicPath : $this->devPublicPath);
         } else {
             $libName = $isAdmin ? 'admin.' : '';
             $lib = sprintf('<link href="%scss/tinyphp-ui.%smin.css" rel="stylesheet"/><script src="%sjs/tinyphp-ui.%smin.js"></script>', $this->publicPath, $libName, $this->publicPath, $libName);

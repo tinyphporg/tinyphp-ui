@@ -1,4 +1,6 @@
+import Swal from 'sweetalert2';
 import './sweetalert2.scss';
-import swal2 from 'sweetalert2';
-window.swal2 = swal2
-export default swal2;
+
+// swal
+$.extend($.tiny, {swal: Swal})
+export default Swal;

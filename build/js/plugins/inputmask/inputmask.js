@@ -1,0 +1,1 @@
+import 'inputmask/dist/jquery.inputmask'

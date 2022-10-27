@@ -12,6 +12,7 @@
   &.slider-vertical {
     height: 100%;
   }
+
   &.slider-horizontal {
     width: 100%;
   }
@@ -36,8 +37,8 @@
 
 .dark-mode {
   .slider-track {
-    background-color: lighten($dark, 10%);
     background-image: none;
+    background-color: lighten($dark, 10%);
   }
 
   @each $name, $color in $theme-colors-alt {

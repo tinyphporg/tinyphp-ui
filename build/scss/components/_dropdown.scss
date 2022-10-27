@@ -12,19 +12,9 @@
 //  }
 //}
 
-.text-sm {
-  .dropdown-menu {
-    font-size: $font-size-sm !important;
-  }
-
-  .dropdown-toggle::after {
-    vertical-align: .2rem;
-  }
-}
-
 .dropdown-item-title {
-  font-size: $font-size-base;
   margin: 0;
+  font-size: $font-size-base;
 }
 
 .dropdown-icon {
@@ -35,8 +25,8 @@
 
 // Dropdown Sizes
 .dropdown-menu-lg {
-  max-width: 300px;
   min-width: 280px;
+  max-width: 300px;
   padding: 0;
 
   .dropdown-divider {
@@ -58,17 +48,18 @@
   position: relative;
 
   > a::after {
-    @include caret-end();
     float: right;
-    margin-left: .5rem;
     margin-top: .5rem;
+    margin-left: .5rem;
+
+    @include caret-end();
   }
 
   > .dropdown-menu {
-    left: 100%;
-    margin-left: 0;
-    margin-top: 0;
     top: 0;
+    left: 100%;
+    margin-top: 0;
+    margin-left: 0;
   }
 }
 
@@ -84,11 +75,10 @@
   }
 }
 
-
 // Dropdown Sizes
 .dropdown-menu-xl {
-  max-width: 420px;
   min-width: 360px;
+  max-width: 420px;
   padding: 0;
 
   .dropdown-divider {
@@ -109,146 +99,41 @@
 .dropdown-footer,
 .dropdown-header {
   display: block;
-  font-size: $font-size-sm;
   padding: .5rem $dropdown-item-padding-x;
-  text-align: center;
+  font-size: $font-size-sm;
+  &.dropdown-user {
+    text-align: center;
+    .user-img 
+    {
+        box-shadow: map-get($elevations, 2);
+        border-radius:50%;    
+    }
+}
 }
 
+.dropdown-body {
+    padding:.5rem $dropdown-item-padding-x;
+}
+
+.dropdown-footer {
+    background-color: rgba(0, 0, 0, 0.03);
+}
 // Add fade animation to dropdown menus by appending
 // the class .animated-dropdown-menu to the .dropdown-menu ul (or ol)
 .open:not(.dropup) > .animated-dropdown-menu {
-  @include animation(flipInX .7s both);
   backface-visibility: visible !important;
+
+  @include animation(flipInX .7s both);
 }
 
-// Fix dropdown menu in navbars
-.navbar-custom-menu > .navbar-nav {
-  > li {
-    position: relative;
-    > .dropdown-menu {
-      position: absolute;
-      right: 0;
-      left: auto;
-    }
-  }
-}
 
-@include media-breakpoint-down(sm) {
-  .navbar-custom-menu > .navbar-nav {
-    float: right;
-    > li {
-      position: static;
-      > .dropdown-menu {
-        position: absolute;
-        right: 5%;
-        left: auto;
-        border: 1px solid #ddd;
-        background-color: $white;
-      }
-    }
-  }
-}
-
-// User Menu
-.navbar-nav > .user-menu {
-  > .nav-link::after {
-    content: none;
-  }
-
-  > .dropdown-menu {
-    @include border-top-radius(0);
-    padding: 0;
-    width: 280px;
-
-  //  &,
-   // > .user-body {
-  //    @include border-bottom-radius(4px);
-   // }
-
-    // Header menu
-    > li.user-header {
-      height: 175px;
-      padding: 10px;
-      text-align: center;
-
-      // User image
-      > img {
-        z-index: 5;
-        height: 90px;
-        width: 90px;
-        border: 3px solid;
-        border-color: transparent;
-        border-color: rgba(255, 255, 255, .2);
-      }
-
-      > p {
-        z-index: 5;
-        font-size: 17px;
-        //text-shadow: 2px 2px 3px #333333;
-        margin-top: 10px;
-
-        > small {
-          display: block;
-          font-size: 12px;
-        }
-      }
-    }
-
-    // Menu Body
-    > .user-body {
-      @include clearfix ();
-    //  border-bottom: 1px solid $gray-700;
-     // border-top: 1px solid $gray-300;
-      padding: 15px;
-
-      a {
-        @include media-breakpoint-up(sm) {
-          background-color: $white !important;
-          color: $gray-700 !important;
-        }
-      }
-    }
-
-    // Menu Footer
-    > .user-footer {
-      @include clearfix ();
-      background-color: $gray-100;
-      padding: 10px;
-
-      .btn-default {
-        color: $gray-600;
-
-        &:hover {
-          @include media-breakpoint-up(sm) {
-            background-color: $gray-100;
-          }
-        }
-      }
-    }
-  }
-
-  .user-image {
-    @include media-breakpoint-up(sm) {
-      float: none;
-      line-height: 10px;
-      margin-right: .4rem;
-      margin-top: -8px;
-    }
-
-    border-radius: 50%;
-    float: left;
-    height: $sidebar-user-image-width;
-    margin-right: 10px;
-    margin-top: -2px;
-    width: $sidebar-user-image-width;
-  }
-}
 
 .dark-mode {
   .dropdown-menu {
-    background-color: $dark;
     color: $white;
+    background-color: $dark;
   }
+
   .dropdown-item {
     color: $white;
 
@@ -257,39 +142,9 @@
       background-color: lighten($dark, 5%);
     }
   }
+
   .dropdown-divider {
     border-color: $gray-600;
   }
 
-  .navbar-nav > .user-menu > .dropdown-menu {
-    > .user-footer {
-      background-color: lighten($dark, 2.5%);
-      color: $white;
-
-      .btn-default {
-        color: $white;
-
-        &:hover,
-        &:focus {
-          background-color: lighten($dark, 5%);
-          color: $gray-300;
-        }
-        &:focus {
-          background-color: lighten($dark, 7.5%);
-        }
-      }
-    }
-    > .user-body {
-      border-color: $gray-600;
-    }
-    > .user-body a {
-      background-color: transparent !important;
-      color: $white !important;
-
-      &:hover,
-      &:focus {
-        color: $gray-400 !important;
-      }
-    }
-  }
 }

@@ -1,0 +1,135 @@
+@mixin header-theme-color($text-color) {
+      a.nav-link{
+        color: rgba($text-color, .6);
+      }
+
+      .icon, .icon::before {
+        color: rgba($text-color, .6) !important;
+        background-color: rgba($text-color, .1) !important;
+      }
+
+      .icon:hover, .icon:hover::before{
+        color: rgba($text-color, .7) !important;
+        background-color: rgba($text-color, .2) !important;
+      }
+
+      a.nav-link:hover,
+      a.nav-link.active{
+        color: rgba($text-color, .7);
+      }
+      
+      .nav-item {
+        &.user-desc {
+          .user-heading {
+            color: rgba($text-color, .8);
+          }
+  
+          .user-subheading {
+            color: rgba($text-color, .5);
+          } 
+        }
+        &.header-right-border::before {
+          background: rgba($text-color, .2);
+        }
+      }
+      
+      .header-md-content {
+        color: rgba($text-color, .6);
+
+        i {
+          color: rgba($text-color, .6);
+        }
+
+        .btn { border: 0;
+          box-shadow: none; }
+      }
+
+      .header-md-content:hover {
+        color: rgba($text-color, .7);
+      }  
+}
+
+@mixin header-breakpoint {
+  .main-header {
+    .header-content {
+      position: absolute;
+      z-index: 8;
+      top: 0;
+      left: 5%;
+      display: none;
+      width: 90%;
+      padding: 0 10px !important;
+      border-radius: 50px;
+      //visibility: hidden;
+      //opacity: 0;
+      box-shadow: 0 .46875rem 2.1875rem rgb(4 9 20 / 3%), 0 .9375rem 1.40625rem rgb(4 9 20 / 3%), 0 .25rem .53125rem rgb(4 9 20 / 5%), 0 .125rem .1875rem rgb(4 9 20 / 3%);
+      .header-right{
+        padding-right:0
+    }
+    .header-left {
+        padding-left:0;
+    }
+    }
+
+    .header-content-expand {
+      top: 80px;
+      display: flex;
+      animation: header-content-move .5s 1;
+    }
+
+    .header-md-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .user-setting,.user-desc {
+        display:none;
+    }
+
+    @each $name, $text-color in $bg-text-colors {
+      $text-color-alt: $bg-color-text-dark;
+      
+      @if $text-color == $bg-color-text-dark {
+        $text-color-alt: $bg-color-text-light;
+      }
+      
+      &.bg-#{$name} {
+        .header-content {
+          background: $text-color-alt;
+          
+          .user-heading {
+          color:rgba($text-color, 0.8)  
+         }
+         .user-subheading {
+            color:rgba($text-color, 0.5)
+        }
+          .header-right-border::before {
+            background:rgba($text-color, 0.1);
+          }         
+        }
+        
+
+        a.nav-link,
+        .icon {
+          color: rgba($text-color, .6);
+        }
+
+        .icon::before {
+          color: rgba($text-color, .6) !important;
+          background-color: rgba($text-color, .1) !important;
+        }
+
+        .icon:hover::before {
+          background-color: rgba($text-color, .05) !important;
+        }
+
+        a.nav-link:hover,
+        a.nav-link.active,
+        .icon:hover,
+        .icon:hover::before {
+          color: rgba($text-color, .7);
+        }
+      }
+    }
+  }
+}

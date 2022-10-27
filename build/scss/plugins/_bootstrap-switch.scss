@@ -11,26 +11,25 @@ $bootstrap-switch-border-radius: $btn-border-radius;
 $bootstrap-switch-handle-border-radius: .1rem;
 
 .bootstrap-switch {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
   border: $input-border-width solid $input-border-color;
   border-radius: $bootstrap-switch-border-radius;
-  cursor: pointer;
-  direction: ltr;
-  display: inline-block;
-  line-height: .5rem;
   overflow: hidden;
-  position: relative;
+  line-height: .5rem;
   text-align: left;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  user-select: none;
   vertical-align: middle;
-  z-index: 0;
+  direction: ltr;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  cursor: pointer;
+  user-select: none;
 
   .bootstrap-switch-container {
-    border-radius: $bootstrap-switch-border-radius;
-    display: inline-block;
     top: 0;
+    display: inline-block;
+    border-radius: $bootstrap-switch-border-radius;
     transform: translate3d(0, 0, 0);
-
   }
 
   &:focus-within {
@@ -40,37 +39,37 @@ $bootstrap-switch-handle-border-radius: .1rem;
   .bootstrap-switch-handle-on,
   .bootstrap-switch-handle-off,
   .bootstrap-switch-label {
-    box-sizing: border-box;
-    cursor: pointer;
     display: table-cell;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.2rem;
+    box-sizing: border-box;
     padding: .25rem .5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.2rem;
     vertical-align: middle;
+    cursor: pointer;
   }
 
   .bootstrap-switch-handle-on,
   .bootstrap-switch-handle-off {
-    text-align: center;
     z-index: 1;
+    text-align: center;
 
     &.bootstrap-switch-default {
-      background: $gray-200;
       color: color-contrast($gray-200);
+      background: $gray-200;
     }
 
     @each $name, $color in $theme-colors {
       &.bootstrap-switch-#{$name} {
-        background: $color;
         color: color-contrast($color);
+        background: $color;
       }
     }
 
     @each $name, $color in $colors {
       &.bootstrap-switch-#{$name} {
-        background: $color;
         color: color-contrast($color);
+        background: $color;
       }
     }
   }
@@ -81,29 +80,29 @@ $bootstrap-switch-handle-border-radius: .1rem;
   }
 
   .bootstrap-switch-handle-off {
-    border-bottom-right-radius: $bootstrap-switch-handle-border-radius;
     border-top-right-radius: $bootstrap-switch-handle-border-radius;
+    border-bottom-right-radius: $bootstrap-switch-handle-border-radius;
   }
 
-  input[type='radio'],
-  input[type='checkbox'] {
-    filter: alpha(opacity=0);
+  input[type="radio"],
+  input[type="checkbox"] {
+    position: absolute;
+    z-index: -1;
+    top: 0;
     left: 0;
     margin: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
     visibility: hidden;
-    z-index: -1;
+    filter: alpha(opacity=0);
+    opacity: 0;
   }
 
   &.bootstrap-switch-mini {
     .bootstrap-switch-handle-on,
     .bootstrap-switch-handle-off,
     .bootstrap-switch-label {
+      padding: .1rem .3rem;
       font-size: .875rem;
       line-height: 1.5;
-      padding: .1rem .3rem;
     }
   }
 
@@ -111,9 +110,9 @@ $bootstrap-switch-handle-border-radius: .1rem;
     .bootstrap-switch-handle-on,
     .bootstrap-switch-handle-off,
     .bootstrap-switch-label {
+      padding: .2rem .4rem;
       font-size: .875rem;
       line-height: 1.5;
-      padding: .2rem .4rem;
     }
   }
 
@@ -121,9 +120,9 @@ $bootstrap-switch-handle-border-radius: .1rem;
     .bootstrap-switch-handle-on,
     .bootstrap-switch-handle-off,
     .bootstrap-switch-label {
+      padding: .3rem .5rem;
       font-size: 1.25rem;
       line-height: 1.3333333rem;
-      padding: .3rem .5rem;
     }
   }
 
@@ -135,9 +134,9 @@ $bootstrap-switch-handle-border-radius: .1rem;
     .bootstrap-switch-handle-on,
     .bootstrap-switch-handle-off,
     .bootstrap-switch-label {
-      cursor: default;
       filter: alpha(opacity=50);
       opacity: .5;
+      cursor: default;
     }
   }
 
@@ -163,8 +162,8 @@ $bootstrap-switch-handle-border-radius: .1rem;
 
   &.bootstrap-switch-on .bootstrap-switch-label,
   &.bootstrap-switch-inverse.bootstrap-switch-off .bootstrap-switch-label {
-    border-bottom-right-radius: $bootstrap-switch-handle-border-radius;
     border-top-right-radius: $bootstrap-switch-handle-border-radius;
+    border-bottom-right-radius: $bootstrap-switch-handle-border-radius;
   }
 
   &.bootstrap-switch-off .bootstrap-switch-label,
@@ -180,23 +179,24 @@ $bootstrap-switch-handle-border-radius: .1rem;
 
     .bootstrap-switch-handle-off.bootstrap-switch-default,
     .bootstrap-switch-handle-on.bootstrap-switch-default {
-      background-color: lighten($dark, 2.5%);
-      color: $white;
       border-color: lighten($dark, 7.5%);
+      color: $white;
+      background-color: lighten($dark, 2.5%);
     }
+
     .bootstrap-switch-handle-on,
     .bootstrap-switch-handle-off {
       @each $name, $color in $theme-colors-alt {
         &.bootstrap-switch-#{$name} {
-          background: $color;
           color: color-contrast($color);
+          background: $color;
         }
       }
 
       @each $name, $color in $colors-alt {
         &.bootstrap-switch-#{$name} {
-          background: $color;
           color: color-contrast($color);
+          background: $color;
         }
       }
     }

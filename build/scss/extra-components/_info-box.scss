@@ -3,21 +3,18 @@
 //
 
 .info-box {
-  @include box-shadow($card-shadow);
-  @include border-radius($border-radius);
-
-  background-color: $white;
+  position: relative;
   display: flex;
-  margin-bottom: map-get($spacers, 3);
+  width: 100%;
   min-height: 80px;
   padding: .5rem;
-  position: relative;
-  width: 100%;
+  margin-bottom: map-get($spacers, 3);
+  background-color: $white;
 
   .progress {
-    background-color: rgba($black, .125);
     height: 2px;
     margin: 5px 0;
+    background-color: rgba($black, .125);
 
     .progress-bar {
       background-color: $white;
@@ -25,29 +22,29 @@
   }
 
   .info-box-icon {
-    @if $enable-rounded {
-      border-radius: $border-radius;
-    }
-
-    align-items: center;
     display: flex;
-    font-size: 1.875rem;
     justify-content: center;
-    text-align: center;
+    align-items: center;
     width: 70px;
+    font-size: 1.875rem;
+    text-align: center;
 
     > img {
       max-width: 100%;
+    }
+
+    @if $enable-rounded {
+      border-radius: $border-radius;
     }
   }
 
   .info-box-content {
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: center;
-    line-height: 1.8;
-    flex: 1;
     padding: 0 10px;
+    line-height: 1.8;
   }
 
   .info-box-number {
@@ -64,6 +61,17 @@
     white-space: nowrap;
   }
 
+  .info-box-more {
+    display: block;
+  }
+
+  .progress-description {
+    margin: 0;
+  }
+
+  @include box-shadow($card-shadow);
+  @include border-radius($border-radius);
+
   @each $name, $color in $theme-colors {
     .info-box {
       .bg-#{$name},
@@ -75,15 +83,6 @@
         }
       }
     }
-  }
-
-  .info-box-more {
-    display: block;
-  }
-
-  .progress-description {
-    margin: 0;
-
   }
 
   @include media-breakpoint-up(md) {
@@ -109,8 +108,9 @@
     .col-lg-2 &,
     .col-md-2 & {
       .progress-description {
-        @include font-size(.75rem);
         display: block;
+
+        @include font-size(.75rem);
       }
     }
 
@@ -118,8 +118,9 @@
     .col-lg-3 &,
     .col-md-3 & {
       .progress-description {
-        @include font-size(.75rem);
         display: block;
+
+        @include font-size(.75rem);
       }
     }
   }
@@ -129,8 +130,9 @@
     .col-lg-2 &,
     .col-md-2 & {
       .progress-description {
-        @include font-size(1rem);
         display: block;
+
+        @include font-size(1rem);
       }
     }
 
@@ -138,8 +140,9 @@
     .col-lg-3 &,
     .col-md-3 & {
       .progress-description {
-        @include font-size(1rem);
         display: block;
+
+        @include font-size(1rem);
       }
     }
   }
@@ -147,8 +150,9 @@
 
 .dark-mode {
   .info-box {
-    background-color: $dark;
     color: $white;
+    background-color: $dark;
+
     @each $name, $color in $theme-colors-alt {
       .info-box {
         .bg-#{$name},

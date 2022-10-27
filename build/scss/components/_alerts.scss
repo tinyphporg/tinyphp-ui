@@ -17,8 +17,8 @@
   }
 
   a {
-    color: $white;
     text-decoration: underline;
+    color: $white;
   }
 }
 
@@ -27,23 +27,23 @@
   $alert-background: shift-color($value, $alert-bg-scale);
   $alert-border: shift-color($value, $alert-border-scale);
   $alert-color: shift-color($value, $alert-color-scale);
-  
+
   .alert-dark-#{$color} {
+    border-color: darken($value, 5%);
     color: color-contrast($value);
     background-color: $value;
-    border-color: darken($value, 5%);
   }
 }
 
 .dark-mode {
   @each $color, $value in $theme-colors-alt {
-  $alert-background: shift-color($value, $alert-bg-scale);
-  $alert-border: shift-color($value, $alert-border-scale);
-  $alert-color: shift-color($value, $alert-color-scale);    
+    $alert-background: shift-color($value, $alert-bg-scale);
+    $alert-border: shift-color($value, $alert-border-scale);
+    $alert-color: shift-color($value, $alert-color-scale);
     .alert-dark-#{$color} {
+      border-color: darken($value, 5%);
       color: color-contrast($value);
       background-color: $value;
-      border-color: darken($value, 5%);
     }
   }
 }

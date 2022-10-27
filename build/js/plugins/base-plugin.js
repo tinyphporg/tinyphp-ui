@@ -2,17 +2,19 @@ import $ from 'jQuery'
 
 // base plugin
 class BasePlugin {
+    
+    static _instances = {}
+    
     constructor() {
-        this._$ = $
-        this.id = 'cookie'
-        this.preload = true
+        this.preload = false
         this.jqueryFnExtend = {}
         this.jqueryExtend = {}
     }
-    
+
     async load(){
             return this
     }
+    
 }
 
 export default BasePlugin

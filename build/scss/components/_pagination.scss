@@ -1,18 +1,18 @@
 //
 // Component: Pagination
 //
-
 .pagination-month {
   .page-item {
     justify-self: stretch;
 
     .page-link {
       display: flex;
-      align-items: center;
-      justify-content: center;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       box-shadow: none;
     }
+
     &:first-child,
     &:last-child {
       .page-link {
@@ -20,11 +20,13 @@
         font-size: $font-size-lg;
       }
     }
+
     .page-month {
       margin-bottom: 0;
-      font-size: $font-size-lg;
       font-weight: $font-weight-bold;
+      font-size: $font-size-lg;
     }
+
     .page-year {
       margin-bottom: 0;
     }
@@ -35,6 +37,7 @@
       font-size: ($font-size-lg * 1.25);
     }
   }
+
   &.pagination-sm {
     .page-month {
       font-size: ($font-size-base);
@@ -46,9 +49,9 @@
   .page-item {
     &.disabled a,
     &.disabled .page-link {
-      background-color: lighten($dark, 2.5%) !important;
       border-color: $gray-600 !important;
       color: $gray-600;
+      background-color: lighten($dark, 2.5%) !important;
     }
 
     .page-link {
@@ -57,8 +60,8 @@
 
     &.active {
       .page-link {
-        background-color: $primary-alt;
         color: $white;
+        background-color: $primary-alt;
 
         &:hover,
         &:focus {
@@ -66,10 +69,11 @@
         }
       }
     }
+
     &:not(.active) {
       .page-link {
-        background-color: $dark;
         border-color: $gray-600;
+        background-color: $dark;
 
         &:hover,
         &:focus {

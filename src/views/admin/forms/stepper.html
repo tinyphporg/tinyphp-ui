@@ -1,0 +1,115 @@
+{template pub/admin/main-header.html}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+	<!-- .content-header -->
+	<section class="content-header">
+		<div class="content-title">
+			<div class="content-title-heading">
+				<div class="content-title-icon">
+					<i class="bi bi-menu-button icon-gradient bg-mean-fruit"></i>
+				</div>
+				<div class="">
+					Stepper 步进器
+					<div class="content-title-subheading">页面步进切换</div>
+				</div>
+			</div>
+			<div class="content-title-actions">
+				<a class="btn btn-dark btn-icon btn-shadow me-2" target="_blank" href="https://itsjavi.com/bootstrap-colorpicker/"> <i class="bi bi-filetype-doc"></i> Docs
+				</a> <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://github.com/itsjavi/bootstrap-colorpicker"> <i class="bi bi-github"></i> View on Github
+				</a>
+
+			</div>
+		</div>
+	</section>
+	<!-- /.content-header -->
+
+	<!-- Main content -->
+	<section class="content">
+		<div class="card main-card">
+			<div class="card-body">
+
+				<div class="bs-stepper">
+					<div class="bs-stepper-header" role="tablist">
+
+						<div class="step" data-target="#logins-part">
+							<button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
+								<span class="bs-stepper-circle">1</span> <span class="bs-stepper-label">Logins</span>
+							</button>
+						</div>
+						<div class="line"></div>
+						<div class="step" data-target="#information-part">
+							<button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+								<span class="bs-stepper-circle">2</span> <span class="bs-stepper-label">Various information</span>
+							</button>
+						</div>
+					</div>
+					<div class="bs-stepper-content">
+
+						<div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
+							<div class="form-group mb-2">
+								<label for="exampleInputEmail1">Email address</label> <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+							</div>
+							<div class="form-group mb-2">
+								<label for="exampleInputPassword1">Password</label> <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+							</div>
+							<div class="form-group mb-2">
+								<button class="btn btn-primary stepper-next">Next</button>
+							</div>
+						</div>
+						<div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+						<div class="form-group mb-2">
+							<div class="input-group">
+								<input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+								<button class="btn btn-secondary" type="button" id="inputGroupFileAddon04">上传</button>
+							</div>
+							</div>
+							<div class="form-group mb-2">
+								<button class="btn btn-primary stepper-previous">Previous</button>
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+				<hr>
+				<label>source code:</label>
+				<code class="language-javascript" data-text-target="#codesource"> </code>
+
+
+
+			</div>
+			<!-- /.card -->
+		</div>
+
+
+
+
+
+
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<script id="codesource">
+	$('.bs-stepper').stepperx(function(settper){
+		
+		  this.addEventListener('show.bs-stepper', function(event){
+			  
+			    console.log(event);
+			  }) 
+		  
+		   $('.stepper-next', this).click(() => {
+			   settper.next();	
+		   })
+           $('.stepper-previous', this).click(() => {
+               settper.previous();  
+           })	
+	})
+	
+
+</script>
+{template pub/admin/main-footer.html}

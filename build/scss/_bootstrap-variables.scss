@@ -1,4 +1,27 @@
-// Links
+// 颜色重设
+$blue:  #3f6ad8 !default;
+$red: #d92550 !default;
+$yellow: #f7b924 !default;
+$cyan:  #16aaff !default;
+$green:  #3ac47d !default;
+
 //
-// Style anchor elements.
-$link-decoration:                         none !default;
+$alternate: #794c8a !default;
+$focus: #444054 !default;
+$light: #eee !default;
+$dark: #343a40 !default;
+
+$link-decoration: none !default;
+//$font-size-root: .88rem !default;
+$font-size-base:.88rem !default;
+// 重设按钮
+
+
+
+//$btn-font-size: .78rem !default;
+//$btn-font-size-sm:  $btn-font-size * .875 !default;
+//$btn-font-size-lg:  $btn-font-size * 1.25 !default;
+// $min-contrast-ratio: 4.5 !default;
+
+// 指定字体的色值组
+$gray-x-light: #d2d6de !default;

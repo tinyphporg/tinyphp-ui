@@ -1,0 +1,69 @@
+{template pub/admin/main-header.html}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" data-bs-firstpage="#firstpage">
+
+	<!-- .content-header -->
+	<section class="content-header">
+		<div class="content-title">
+			<div class="content-title-heading">
+				<div class="content-title-icon">
+					<i class="bi bi-water icon-gradient bg-mean-fruit"></i>
+				</div>
+				<div class="">
+					ColorPicker 颜色选择器
+					<div class="content-title-subheading">通过Javscript方式和widget方式选择颜色</div>
+				</div>
+			</div>
+			<div class="content-title-actions">
+				<a class="btn btn-dark btn-icon btn-shadow me-2" target="_blank" href="https://itsjavi.com/bootstrap-colorpicker/"> <i class="bi bi-filetype-doc"></i> Docs
+				</a> <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://github.com/itsjavi/bootstrap-colorpicker"> <i class="bi bi-github"></i> View on Github
+				</a>
+
+			</div>
+		</div>
+	</section>
+	<!-- /.content-header -->
+
+
+
+	<!-- Main content -->
+	<section class="main-content">
+
+		<div class="card main-card">
+			<div class="card-header">
+				<h3 class="card-title">颜色选择器</h3>
+			</div>
+			<div class="card-body">
+				<div class="form-group m-3 row">
+
+					<div class="col-sm-2" data-target-input="nearest">
+						<label class="col-form-label col-form-label">颜色</label> <input type="text" class="form-control" id="colorpicker" />
+					</div>
+				</div>
+				<hr>
+				<label>javascript code:</label>
+				<code class="language-javascript" data-text-target="#codesource"> </code>
+
+
+			</div>
+		</div>
+		<!-- /.card -->
+
+
+
+
+
+
+
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<script id="codesource">
+	// 颜色选择器
+	$('#colorpicker').colorpickerx({
+
+	});
+</script>
+{template pub/admin/main-footer.html}

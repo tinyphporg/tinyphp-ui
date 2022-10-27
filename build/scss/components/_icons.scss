@@ -1,0 +1,57 @@
+.icon {
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+
+  // extra bgs
+  $bg-colors:map-merge($colors, $theme-colors);
+
+  &::before {
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  &.icon-circle,
+  &.icon-circle::before {
+    border-radius: 50%;
+  }
+
+  @each $name, $color in $bg-colors {
+    &.bg-#{$name} {
+      color: rgba($color, .9);
+      background-color: rgba($color, .1) !important;
+    }
+
+    &.bg-#{$name}:hover {
+      color: $color;
+      background-color: rgba($color, .2) !important;
+    }
+
+    &.bg-#{$name}::before {
+      // color:rgba($color, 0.9);
+      @if $name == "slick-carbon" {
+        background-blend-mode: multiply;
+      }
+      //background-color:rgba($color, 0.2) !important;
+    }
+
+    &.bg-#{$name}:hover::before {
+      //color:$color;
+      @if $name == "slick-carbon" {
+        background-blend-mode: multiply;
+      }
+      //background-color:rgba($color, 0.3) !important;
+    }
+  }
+}
+
+.icon-gradient {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}

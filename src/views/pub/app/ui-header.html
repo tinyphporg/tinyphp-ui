@@ -9,87 +9,60 @@
 </head>
 
 <body {if $ui['sidebar']}class="ui-has-sidebar{/if}">
-<header class="navbar navbar-expand-md bg-dark ui-header">
-<nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
+	<header class="navbar navbar-expand-md bg-dark ui-header">
+		<nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
 
-<!-- mobile navbar button -->
-<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#uiMainNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
-<i class="fa fa-align-justify"></i>
-</button>
+			<!-- mobile navbar button -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#uiMainNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fa fa-align-justify"></i>
+			</button>
 
-<!-- logo -->
-<a class="navbar-brand p-0 me-2" href="{$ui['logo']['url']}" aria-label="logo">
-{if $ui['logo']['img']}
-<img class="ui-header-logo" src="{$ui['logo']['img']}" /> 
-{else}
-<img class="ui-header-logo" src="{ui.assets}/img/tinyphp-logo.png" /> 
-{/if}
-{if $ui['logo']['miniImg']}
-<img class="ui-header-logo" src="{$ui['logo']['miniImg']}" /> 
-{else}
-<img class="ui-header-mini-logo" src="{ui.assets}/img/tinyphp-icon.png" />
-{/if}
-</a>
-<!-- end logo -->
+			<!-- logo -->
+			<a class="navbar-brand p-0 me-2" href="{$ui['logo']['url']}" aria-label="logo"> {if $ui['logo']['img']} <img class="ui-header-logo" src="{$ui['logo']['img']}" /> {else} <img class="ui-header-logo" src="{ui.assets}/img/tinyphp-logo.png" /> {/if} {if $ui['logo']['miniImg']} <img class="ui-header-logo" src="{$ui['logo']['miniImg']}" /> {else} <img class="ui-header-mini-logo" src="{ui.assets}/img/tinyphp-icon.png" /> {/if}
+			</a>
+			<!-- end logo -->
 
-<!-- sidebar  button on mobile-->
-{if $ui['sidebar']}
-<button class="navbar-toggler ui-sidebar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#uiMainSidebar" aria-controls="uiMainSidebar" aria-expanded="false" aria-label="Toggle  sidebar">
-<i class="bi bi-arrows-expand"></i> <i class="bi bi-arrows-collapse"></i>
-</button>
-{/if}
-<!-- sidebar button on mobile -->
+			<!-- sidebar  button on mobile-->
+			{if $ui['sidebar']}
+			<button class="navbar-toggler ui-sidebar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#uiMainSidebar" aria-controls="uiMainSidebar" aria-expanded="false" aria-label="Toggle  sidebar">
+				<i class="bi bi-arrows-expand"></i> <i class="bi bi-arrows-collapse"></i>
+			</button>
+			{/if}
+			<!-- sidebar button on mobile -->
 
 
 
-<div class="offcanvas offcanvas-start" tabindex="-1" id="uiMainNavbar" aria-labelledby="uiNavbarOffcanvasLabel">
-<div class="offcanvas-header pb-0">
-<h5 class="offcanvas-title text-white" id="uiNavbarOffcanvasLabel">{$ui['name']}</h5>
-<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-</div>
+			<div class="offcanvas offcanvas-start" tabindex="-1" id="uiMainNavbar" aria-labelledby="uiNavbarOffcanvasLabel">
+				<div class="offcanvas-header pb-0">
+					<h5 class="offcanvas-title text-white" id="uiNavbarOffcanvasLabel">{$ui['name']}</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
 
-<div class="offcanvas-body pt-0">
-<hr class="d-md-none text-white-50">
-<ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">
-{loop $ui['nav'] $navIndex $navItem}
-    
-    {if is_array($navItem['children']) && $navItem['children']}
-     <li class="nav-item col-6 col-md-auto dropdown">
-    <a class="nav-link p-2 dropdown-toggle" href="#" data-bs-toggle="dropdown">{$navItem['name']}</a>
-        
-        <ul class="dropdown-menu">
-        {loop $navItem['children']  $navChild}
-            <li><a class="dropdown-item" href="{$navChild['href']}">{$navChild['name']}</a></li>
-        {/loop}
-          </ul>
-          </li>
-          {else}
-          <li class="nav-item col-6 col-md-auto">
-          <a class="nav-link p-2" href="{$navItem['href']}">{$navItem['name']}</a>
-         </li>
-        {/if}
+				<div class="offcanvas-body pt-0">
+					<hr class="d-md-none text-white-50">
+					<ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">
+						{loop $ui['nav'] $navIndex $navItem} {if is_array($navItem['children']) && $navItem['children']}
+						<li class="nav-item col-6 col-md-auto dropdown"><a class="nav-link p-2 dropdown-toggle" href="#" data-bs-toggle="dropdown">{$navItem['name']}</a>
 
-{/loop}
-</ul>
+							<ul class="dropdown-menu">
+								{loop $navItem['children'] $navChild}
+								<li><a class="dropdown-item" href="{$navChild['href']}">{$navChild['name']}</a></li> {/loop}
+							</ul></li> {else}
+						<li class="nav-item col-6 col-md-auto"><a class="nav-link p-2" href="{$navItem['href']}">{$navItem['name']}</a></li> {/if} {/loop}
+					</ul>
 
-{if is_array($ui['navIcon']) && $ui['navIcon']}
-<hr class="d-md-none text-white-50">
-<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
-{loop $ui['navIcon'] $navIcon}
-<li class="nav-item col-6 col-md-auto">
-<a class="nav-link p-2" href="{$navIcon['href']}" target="_blank" rel="noopener"> 
-<i class="{$navIcon['class']}" title="{$navIcon['name']}"> </i><span class="d-md-none mx-1">{$navIcon['name']}</span>
-</a>
-</li>
-{/loop}
-</ul>
-{/if}
-
-{$ui['navExtra']}
-</div>
-</div>
-</nav>
-</header>
-<div class="container-xxl my-md-4 ui-main-wrapper">
-{if $ui['sidebar']} {template pub/app/ui-sidebar.html} {/if}
-<main class="ui-main {if $ui['menu']}ui-has-menu{/if} order-1">
+					{if is_array($ui['navIcon']) && $ui['navIcon']}
+					<hr class="d-md-none text-white-50">
+					<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+						{loop $ui['navIcon'] $navIcon}
+						<li class="nav-item col-6 col-md-auto"><a class="nav-link p-2" href="{$navIcon['href']}" target="_blank" rel="noopener"> <i class="{$navIcon['class']}" title="{$navIcon['name']}"> </i><span class="d-md-none mx-1">{$navIcon['name']}</span>
+						</a></li> {/loop}
+					</ul>
+					{/if} {$ui['navExtra']}
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container-xxl my-md-4 ui-main-wrapper">
+		{if $ui['sidebar']} {template pub/app/ui-sidebar.html} {/if}
+		<main class="ui-main {if $ui['menu']}ui-has-menu{/if} order-1">

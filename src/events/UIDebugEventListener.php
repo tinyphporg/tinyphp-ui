@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * UI调试监听事件
  * 
@@ -15,13 +15,11 @@
  */
 namespace Tiny\MVC\View\UI\EventListener;
 
-
 use Tiny\Config\Configuration;
 use Tiny\MVC\Application\ApplicationBase;
 use Tiny\MVC\Event\MvcEvent;
 use Tiny\MVC\View\UI\UIException;
 use Tiny\MVC\Event\RouteEventListenerInterface;
-
 
 /**
  * 模板库的绝对路径
@@ -31,16 +29,17 @@ use Tiny\MVC\Event\RouteEventListenerInterface;
 define('TINY_UI_VIEW_TEMPLATE_DIR', dirname(dirname(__DIR__)) . '/templates');
 
 /**
-* UI库调试插件
-* 
-* @package Tiny.MVC.View.UI
-* @since 2022年2月16日上午9:53:10 
-* @final 2022年2月16日上午9:53:10 
-*/
+ * UI库调试插件
+ *
+ * @package Tiny.MVC.View.UI
+ * @since 2022年2月16日上午9:53:10
+ * @final 2022年2月16日上午9:53:10
+ */
 class UIDebugEventListener implements RouteEventListenerInterface
-{   
+{
+    
     /**
-     *  UI 视图模板库的安装路径
+     * UI 视图模板库的安装路径
      *
      * @var string
      */
@@ -48,7 +47,7 @@ class UIDebugEventListener implements RouteEventListenerInterface
     
     /**
      * 配置路径
-     * 
+     *
      * @var string
      */
     const UI_VIEW_TEMPLATE_CONFIG = TINY_UI_VIEW_TEMPLATE_DIR . '/conf/';
@@ -63,8 +62,7 @@ class UIDebugEventListener implements RouteEventListenerInterface
     /**
      * 初始化
      *
-     * @param $app ApplicationBase
-     *            当前应用实例
+     * @param $app ApplicationBase 当前应用实例
      * @return void
      */
     public function __construct(ApplicationBase $app)
@@ -80,17 +78,14 @@ class UIDebugEventListener implements RouteEventListenerInterface
      */
     public function onRouterStartup(MvcEvent $event, array $params)
     {
-        
         $routePath = $this->app->request->uri;
-        if (!preg_match('/^\\/pages\/([^\?]*)?/is', $routePath))
-        {
+        if (!preg_match('/^\\/pages\/([^\?]*)?/is', $routePath)) {
             return;
         }
         
         $extname = strpos($routePath, '.html') ? '' : '.html';
         $fpath = self::UI_VIEW_TEMPLATE_DIR . $routePath . $extname;
-        if (!is_file($fpath))
-        {
+        if (!is_file($fpath)) {
             throw new UIException(sprintf("UITemplateEventLister to faild:%s is not exists", $fpath));
         }
         
@@ -99,14 +94,15 @@ class UIDebugEventListener implements RouteEventListenerInterface
         
         // 预加载模板变量
         $configDir = self::UI_VIEW_TEMPLATE_CONFIG;
-        if (is_dir($configDir))
-        {
+        if (is_dir($configDir)) {
             $tconfigInstance = new Configuration($configDir);
             $tAssigns = $tconfigInstance->get();
         }
         // config
         $config = $this->app->getConfig();
-        $pagesAssign = ($config && $config['pages']) ? ['pages'  => $config['pages']]: [];
+        $pagesAssign = ($config && $config['pages']) ? [
+            'pages' => $config['pages']
+        ] : [];
         $pagesAssign = array_merge($tAssigns, $pagesAssign);
         
         // parse
@@ -114,9 +110,7 @@ class UIDebugEventListener implements RouteEventListenerInterface
         $this->app->response->appendBody($body);
         $this->app->properties['debug.console'] = TRUE;
         $this->app->end();
-        
     }
-
     
     /**
      * 执行路由后发生的事件
@@ -125,7 +119,6 @@ class UIDebugEventListener implements RouteEventListenerInterface
      */
     public function onRouterShutdown(MvcEvent $event, array $params)
     {
-        
     }
 }
 ?>

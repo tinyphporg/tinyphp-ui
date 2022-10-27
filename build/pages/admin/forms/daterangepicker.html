@@ -1,0 +1,132 @@
+{template pub/admin/main-header.html}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" data-bs-firstpage="#firstpage">
+
+	<!-- .content-header -->
+	<section class="content-header">
+		<div class="content-title">
+			<div class="content-title-heading">
+				<div class="content-title-icon">
+					<i class="bi bi-calculator-fill icon-gradient bg-mean-fruit"></i>
+				</div>
+				<div class="">
+					DateRangePicker 日期区间选择器
+					<div class="content-title-subheading">日期区间选择器，日期选择器</div>
+				</div>
+			</div>
+			<div class="content-title-actions">
+				<a class="btn btn-dark btn-icon btn-shadow me-2" target="_blank" href="https://itsjavi.com/bootstrap-colorpicker/"> <i class="bi bi-filetype-doc"></i> Docs
+				</a> <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://github.com/itsjavi/bootstrap-colorpicker"> <i class="bi bi-github"></i> View on Github
+				</a>
+
+			</div>
+		</div>
+	</section>
+	<!-- /.content-header -->
+
+	<!-- Main content -->
+	<section class="main-content">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card main-card">
+					<div class="card-header">
+						<h3 class="card-title">DateRangePicker 日期区间选择器</h3>
+					</div>
+					<div class="card-body">
+
+
+
+						<div class="form-group m-3">
+							<label>日期</label>
+							<div class="input-group date" data-target-input="nearest">
+								<input type="text" class="form-control datetimepicker-input" id="reservationdate" data-target="#reservationdate" />
+								<div class="input-group-text" data-target="#reservationdate" data-toggle="datetimepicker">
+									<i class="fa fa-calendar"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group m-3">
+							<label>日期和时间:</label>
+							<div class="input-group date" data-target-input="nearest">
+								<input type="text" class="form-control datetimepicker-input" id="reservationdatetime" data-target="#reservationdatetime" />
+								<div class="input-group-text" data-target="#reservationdatetime" data-toggle="datetimepicker">
+									<i class="fa fa-calendar"></i>
+								</div>
+							</div>
+						</div>
+
+
+
+						<hr>
+						<p>source code:</p>
+						<code class="language-javascript" data-text-target="#codesource1"></code>
+					</div>
+					<!-- /.card -->
+				</div>
+			</div>
+			<!-- /.col -->
+			<div class="col-md-6">
+				<div class="card main-card">
+					<div class="card-header">
+						<h3 class="card-title">DatePicker 日期选择器</h3>
+					</div>
+					<div class="card-body">
+						<div class="form-group m-3">
+							<label>日期:</label>
+							<div class="input-group date" data-target-input="nearest">
+								<input type="text" class="form-control" id="reservationdate1" data-target="#reservationdate" />
+								<div class="input-group-text" data-target="#reservationdate" data-toggle="datetimepicker">
+									<i class="fa fa-calendar"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group m-3">
+							<label>日期和时间:</label>
+							<div class="input-group date" data-target-input="nearest">
+								<input type="text" class="form-control" id="reservationdatetime1" />
+								<div class="input-group-text">
+									<i class="fa fa-calendar"></i>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<label>source code:</label>
+						<code class="language-javascript" data-text-target="#codesource2"></code>
+					</div>
+					<!-- /.card -->
+				</div>
+			</div>
+			<!-- /.col -->
+
+		</div>
+		<!-- ./row -->
+
+
+
+
+
+
+
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<script id="codesource1">
+	$('#reservationdate').daterangepickerx();
+	$('#reservationdatetime').daterangepickerx({
+		timePicker : true,
+	});
+</script>
+<script id="codesource2">
+	$('#reservationdate1').daterangepickerx({
+		singleDatePicker : true
+	});
+	$('#reservationdatetime1').daterangepickerx({
+		singleDatePicker : true,
+		timePicker : true,
+	});
+</script>
+{template pub/admin/main-footer.html}

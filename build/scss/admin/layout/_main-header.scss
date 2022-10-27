@@ -1,0 +1,220 @@
+//
+// Component: Main Header
+//
+
+/* Standard syntax */
+@keyframes header-content-move {
+  0% { top: 0; }
+  100% { top: 80px; }
+}
+
+.main-header {
+  z-index: $zindex-main-header;
+  height: $header-height;
+  background: $white;
+  box-shadow: map-get($elevations, 2) !important;
+   
+  // header layout
+  // header-content
+  .header-content {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background: inherit;
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      height: inherit;
+      padding-left: 1.5rem;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      height:inherit;
+      padding-right: 1.5rem;
+      margin-left: auto;      
+    }
+  }
+
+  // md size
+  .header-md-content {
+    display: none;
+    align-items: center;
+    height: 60px;
+    background: inherit;
+    
+    .btn {
+        font-size: 1.5rem;
+    }
+    .header-left {
+      align-items: center;
+    }
+
+    .header-center {
+      align-items: center;
+      margin: auto;
+    }
+
+    .header-right {
+      align-items: center;
+    }
+  }
+  
+  // Theme
+  
+  a.nav-link{
+    color: rgba($theme-default-link-color, .7);
+  }
+
+  a.nav-link:hover,
+  a.nav-link.active {
+    color: $theme-default-link-color;
+  } 
+  
+  .navbar,
+  .nav,
+  .nav-link {
+    height:inherit;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+    
+  .nav-link {
+    position: relative;
+    // height: $nav-link-height;
+    height: 100%;
+    padding: 0 1rem;
+  }
+
+  .navbar-nav {
+    .nav-item {
+      margin: 0;
+    }
+
+    &[class*="-right"] {
+      .dropdown-menu {
+        left: auto;
+        right: 0;
+        margin-top: -3px;
+
+        @media (max-width: breakpoint-max(xs)) {
+          left: 0;
+          right: auto;
+        }
+      }
+    }
+  }
+
+  &.dropdown-legacy .dropdown-menu {
+    top: $nav-link-height + $navbar-padding-y;
+    margin-top: 0;
+  }
+  
+  // icon  
+  .icon,
+  .icon::before {
+    font-size:1rem;
+    width: calc($nav-link-height + 0.5rem);
+    height: calc($nav-link-height + 0.5rem);
+    line-height: calc($nav-link-height + 0.5rem);
+  }
+  
+  .icon, .icon::before {
+    background-color:transparent;
+  }
+  
+  .icon-search {
+    color: $primary;
+    background-color:rgba($theme-default-link-color, 0.1) !important;
+  }
+  
+  .header-content-expand {
+    //background: $white;
+  }
+  
+  // user
+  .nav-item {
+    &.user-desc {
+      .user-heading {
+        color: rgba($theme-default-link-color, .8);
+        font-weight: 700; 
+      }
+  
+      .user-subheading {
+        color: rgba($theme-default-link-color, .5);
+        font-size: $font-size-sm;
+      }
+    } 
+    &.user-setting {
+      position:relative;
+      & .nav-link {
+        padding-left:0;
+        padding-right:0;
+        font-size:$font-size-lg * 1.5;}
+      }
+    &.header-right-border {
+      padding-left:1.5rem !important;
+      margin-left:1.5rem !important; 
+    }
+   
+     &.header-right-border::before {
+      position: absolute;
+      left: -1px;
+      top: 50%;
+      background: #dee2e6;
+      width: 1px;
+      height: 30px;
+      margin-top: -15px;
+      content: '';
+    }
+  }   
+
+  .main-header-shadow {
+    box-shadow: 0 .46875rem 2.1875rem rgb(4 9 20 / 3%), 0 .9375rem 1.40625rem rgb(4 9 20 / 3%), 0 .25rem .53125rem rgb(4 9 20 / 5%), 0 .125rem .1875rem rgb(4 9 20 / 3%);
+  }
+  
+  @each $name, $text-color in $bg-text-colors {
+    &.bg-#{$name} {
+        @include header-theme-color($text-color)
+    }
+  }
+}
+
+// Navbar badge
+.navbar-badge {
+  position: absolute;
+  top: 9px;
+  right: 5px;
+  padding: 2px 4px;
+  font-weight: 300;
+  font-size: .6rem;
+}
+
+.btn-navbar {
+  border-left-width: 0;
+  background-color: transparent;
+}
+
+body:not(.sidebar-mini-xs, .sidebar-mini-md) {
+  @include media-breakpoint-down(lg) {
+    @include header-breakpoint();
+  }
+}
+
+body.sidebar-mini-md {
+  @include media-breakpoint-down(md) {
+    @include header-breakpoint();
+  }
+}
+
+
+.dark-mode {
+    .main-header {
+        background:$dark;
+        @include header-theme-color($white)
+    }
+}

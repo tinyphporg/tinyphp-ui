@@ -130,7 +130,8 @@ module.exports = {
                     {
                         globalName: 'jQuery',
                         override: true,
-                    }]
+                    },
+                    ]
                 }
             },
             {

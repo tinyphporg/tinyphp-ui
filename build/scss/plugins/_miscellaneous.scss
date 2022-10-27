@@ -2,12 +2,11 @@
 // Plugins: Miscellaneous
 // Old plugin codes
 //
-
 // _fix for sparkline tooltip
 .jqstooltip {
+  width: auto !important;
   height: auto !important;
   padding: 5px !important;
-  width: auto !important;
 }
 
 // jQueryUI
@@ -16,49 +15,53 @@
 }
 
 .ui-helper-hidden-accessible {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
   position: absolute;
   width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
 }
 
 .sort-highlight {
-  background: $gray-100;
-  border: 1px dashed $gray-300;
   margin-bottom: 10px;
+  border: 1px dashed $gray-300;
+  background: $gray-100;
 }
 
 // Charts
 .chart {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
-
 
 .dark-mode {
   .irs--flat .irs-line {
     background-color: lighten($dark, 10%);
   }
+
   .jsgrid-edit-row > .jsgrid-cell,
   .jsgrid-filter-row > .jsgrid-cell,
-  .jsgrid-grid-body, .jsgrid-grid-header,
+  .jsgrid-grid-body,
+  .jsgrid-grid-header,
   .jsgrid-header-row > .jsgrid-header-cell,
   .jsgrid-insert-row > .jsgrid-cell,
   .jsgrid-row > .jsgrid-cell,
   .jsgrid-alt-row > .jsgrid-cell {
     border-color: $gray-600;
   }
+
   .jsgrid-header-row > .jsgrid-header-cell,
   .jsgrid-row > .jsgrid-cell {
     background-color: $dark;
   }
+
   .jsgrid-alt-row > .jsgrid-cell {
     background-color: lighten($dark, 2.5%);
   }
+
   .jsgrid-selected-row > .jsgrid-cell {
     background-color: lighten($dark, 5%);
   }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  *
  * @copyright (C), 2013-, King.
@@ -13,11 +13,12 @@
 namespace Tiny\UI;
 
 /**
-* UI异常 
-* @package namespace
-* @since 2022年3月5日上午10:36:59
-* @final 2022年3月5日上午10:36:59
-*/
+ * UI异常
+ *
+ * @package namespace
+ * @since 2022年3月5日上午10:36:59
+ * @final 2022年3月5日上午10:36:59
+ */
 class UIException extends \Exception
 {
 }

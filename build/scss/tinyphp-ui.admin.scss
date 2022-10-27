@@ -1,42 +1,24 @@
-@import "functions";
-@import "bootstrap-variables";
-@import "~bootstrap/scss/bootstrap";
+// Bootstrap configuration
+@import "./bootstrap-configuraction";
 
-@import "bootstrap-extra-variables";
-@import "variables";
-@import "variables-alt";
+// Custom configuration
+@import "./admin/functions";
 @import "./admin/variables";
-@import "mixins";
-@import "admin/mixins";
+@import "./admin/mixins";
 
-@import "core";
-@import "admin/core";
+// Custom layouts
+@import "./admin/plugins";
+@import "./admin/layouts";
+@import "./admin/pages";
 
-// components
-@import "components";
-@import "extra-components";
-@import "admin/components";
-
-// pages
-@import 'pages';
-@import "admin/pages";
-
-// plugins
-@import "plugins";
-@import "admin/plugins";
-
-@import "miscellaneous";
-
-
-.pagination input.page-link-input{
-	max-width: $font-size-base * 4;
+.pagination input.page-link-input {
+  max-width: $font-size-base * 4;
 }
 
-.pagination-lg input.page-link-input{
-	max-width: $font-size-lg * 4;
+.pagination-lg input.page-link-input {
+  max-width: $font-size-lg * 4;
 }
 
-.pagination-sm input.page-link-input{
-	max-width: $font-size-sm * 4;
+.pagination-sm input.page-link-input {
+  max-width: $font-size-sm * 4;
 }
- 
