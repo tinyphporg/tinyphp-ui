@@ -14,7 +14,16 @@
   background: $white;
   box-shadow: map-get($elevations, 2) !important;
    
+   
   // header layout
+  .layout-navbar-fixed &, .layout-header-fixed & {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1037;
+  } 
+  
   // header-content
   .header-content {
     display: flex;
@@ -89,7 +98,14 @@
     height: 100%;
     padding: 0 1rem;
   }
-
+    
+  .nav-link-icon {
+    width:30px;
+    color:$theme-default-link-hover;
+    font-size:1.1rem;
+    text-align: center;
+    margin-left:-0.5rem;
+    }
   .navbar-nav {
     .nav-item {
       margin: 0;
@@ -157,8 +173,8 @@
         font-size:$font-size-lg * 1.5;}
       }
     &.header-right-border {
-      padding-left:1.5rem !important;
-      margin-left:1.5rem !important; 
+      padding-left:1.5rem;
+      margin-left:1.5rem; 
     }
    
      &.header-right-border::before {

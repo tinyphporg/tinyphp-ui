@@ -126,7 +126,7 @@ class Codemirror extends BasePlugin {
             let textTarget = $element.data(DATA_TEXT_TARGET)
             let text = ''
             if (textTarget && $(textTarget).length) {
-                text = $(textTarget).text()
+                text = $(textTarget).html()
             }
             let callback = option.callback
             if (!language) {

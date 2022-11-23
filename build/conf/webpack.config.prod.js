@@ -6,6 +6,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const tconfig = require('./tinyphp-ui.config');
 const baseWebpackConfig = require('./webpack.config.base');
 const CopyPlugin = require('copy-webpack-plugin');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 module.exports = merge(baseWebpackConfig, {
     mode: 'production',
     optimization: {
@@ -30,6 +31,13 @@ module.exports = merge(baseWebpackConfig, {
             hashDigest: 'hex',
             hashDigestLength: 20,
         }),
+       //new MomentLocalesPlugin({
+       //     localesToKeep: ['es-us', 'zh-cn'],
+       // }),
+        new webpack.IgnorePlugin({
+  resourceRegExp: /^\.\/locale$/,
+  contextRegExp: /moment$/,
+}),
        new CopyPlugin({
              patterns: tconfig.prod.copypaths
          }),

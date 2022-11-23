@@ -9,8 +9,15 @@ module.exports = [
         javascript: true
     },
     {
+        name: 'moment',
+        test: /node_modules[\\/](moment)[\\/]/,
+        enable: true,
+        css: true,
+        javascript: true
+    },   
+    {
         name: 'colorpicker',
-        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](bootstrap4-colorpicker)[\\/]/,
+        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](bootstrap-colorpicker)[\\/]/,
         enable: true,
         css: true,
         javascript: true
@@ -37,15 +44,15 @@ module.exports = [
         javascript: true
     },     
     {
-        name: 'datarangepicker',
-        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](datarangepicker)[\\/]/,
+        name: 'daterangepicker',
+        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](daterangepicker)[\\/]/,
         enable: true,
         css: true,
         javascript: true
     },
     {
         name: 'dropzone',
-        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](dropzone)[\\/]/,
+        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](dropzone|just-extend|@swc)[\\/]/,
         enable: true,
         css: true,
         javascript: true
@@ -80,7 +87,7 @@ module.exports = [
     },     
     {
         name: 'knob',
-        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](knob)[\\/]/,
+        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](knob|jquery-knob-chif)[\\/]/,
         enable: true,
         css: true,
         javascript: true
@@ -102,7 +109,7 @@ module.exports = [
     },    
     {
         name: 'tempusdominus-bootstrap-4',
-        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](tempusdominus-bootstrap-4)[\\/]/,
+        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](tempusdominus-bootstrap-4|tempusdominus-core)[\\/]/,
         enable: true,
         css: true,
         javascript: true
@@ -125,7 +132,7 @@ module.exports = [
     },    
     {
         name: 'chartjs',
-        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](chart[\.|]js)[\\/]/,
+        test: /(node_modules|build[\\/]js[\\/]plugins)[\\/](chart[\\.]?js)[\\/]/,
         dest: "开源图表库",
         enable: true,
         css: true,

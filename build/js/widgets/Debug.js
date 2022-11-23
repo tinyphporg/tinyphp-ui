@@ -16,8 +16,6 @@ class Debug {
 
 
     output() {
-        
-        console.log(window.hasOwnProperty('__tinyphp_debuginfo'))
         if (!window.hasOwnProperty('__tinyphp_debuginfo'))
         {
             return;

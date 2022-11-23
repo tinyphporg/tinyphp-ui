@@ -13,7 +13,7 @@ import $ from 'jquery'
  */
 
 const NAME = 'Layout'
-const DATA_KEY = 'lte.layout'
+const DATA_KEY = 'ui.layout'
 const JQUERY_NO_CONFLICT = $.fn[NAME]
 
 const SELECTOR_HEADER = '.main-header'
@@ -68,7 +68,6 @@ class Layout {
         }
 
         const max = this._max(heights)
-        console.log([max, heights])
         let offset = this._config.panelAutoHeight
 
         if (offset === true) {
@@ -219,7 +218,7 @@ class Layout {
         return this.each(function() {
             let data = $(this).data(DATA_KEY)
             const _options = $.extend({}, Default, $(this).data())
-
+            
             if (!data) {
                 data = new Layout($(this), _options)
                 $(this).data(DATA_KEY, data)

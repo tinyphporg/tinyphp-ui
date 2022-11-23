@@ -20,7 +20,7 @@ import Knob from "../plugins/knob"
 import Sparkline from "../plugins/sparklines"
 import Uplot from "../plugins/uplot"
 import Echarts from "../plugins/echarts"
-
+import Slider from '../plugins/slider'
 export {
     Tiny,
     Summernote,
@@ -43,5 +43,6 @@ export {
     Knob,
     Sparkline,
     Uplot,
-    Echarts
+    Echarts,
+    Slider
 }

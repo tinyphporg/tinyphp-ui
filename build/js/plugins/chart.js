@@ -12,7 +12,6 @@ class Chart extends BasePlugin {
     /* webpackChunkName: "select2" */
     async load() {
         const module = await import('./chartjs/chartjs.js')
-        console.log(module.default)
         return module.default
     }
     

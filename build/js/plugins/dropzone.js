@@ -18,7 +18,6 @@ class Dropzone extends BasePlugin {
     /* rewrite $.fn.select2 */
     async switchx(...option) {
         const dropzone = await Dropzone._currentInstance.load()
-        console.log(option)
         //return $(this).bootstrapSwitch(...option)
     }
 }

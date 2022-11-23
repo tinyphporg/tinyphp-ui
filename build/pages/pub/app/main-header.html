@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="TinyPHP Frameworks, 高性能的响应式敏捷开发框架">
+<title>TinyPHP frameworks|tinyphp.org</title>
+<!-- ui.lib -->
+{ui.lib}
+<!-- ./ui.lib -->
+</head>
+<body class="page-docs">
+
+	<!-- .main-header 头部 -->
+	<header class="main-header navbar navbar-expand-md">
+
+		<!-- flex容器 -->
+		<nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
+
+            <!-- sidebar  button on mobile-->
+            <button class="navbar-toggler  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#uiMainSidebar" aria-controls="uiMainSidebar" aria-expanded="false" aria-label="Toggle  sidebar">
+            <i class="bi bi-list icon-pushmenu"></i>
+            </button>
+            <!-- sidebar button on mobile -->
+
+
+			<!-- logo -->
+			<a class="navbar-brand p-0 me-2" href="" aria-label="logo">
+				<img class="header-logo" src="{ui.assets}/img/tinyphp-logo.png" />
+				<img class="header-mini-logo" src="{ui.assets}/img/tinyphp-icon.png" />
+			</a>
+			<!-- end logo -->
+
+            <!-- mobile navbar button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#uiMainNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-three-dots-vertical"></i>
+            </button>
+
+			<div class="offcanvas offcanvas-start" tabindex="-1" id="uiMainNavbar" aria-labelledby="uiNavbarOffcanvasLabel">
+				<div class="offcanvas-header pb-0">
+					<h5 class="offcanvas-title text-white" id="uiNavbarOffcanvasLabel">tinyphp</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
+
+				<div class="offcanvas-body pt-0">
+					<hr class="d-md-none text-white-50">
+					<ul class="navbar-nav flex-row flex-wrap">
+						<li class="nav-item col-6 col-md-auto px-2">
+							<a class="nav-link" href="/app/index.html">首页</a>
+						</li>
+
+                        <li class="nav-item col-6 col-md-auto px-2">
+                            <a class="nav-link" href="/admin/index.html">UI 组件</a>
+                        </li>
+                        <li class="nav-item col-6 col-md-auto px-2">
+                            <a class="nav-link" href="http://tinyphp.org/docs/readme.html" data-bs-toggle="dropdown">中文文档</a>
+                        </li>                               
+                        <li class="nav-item col-6 col-md-auto px-2">
+                            <a class="nav-link" href="http://tinyphp.org/index.html">关于tinyphp</a>
+                        </li>				
+					</ul>
+
+					<hr class="d-md-none text-white-50">
+					<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+						<li class="nav-item col-6 col-md-auto">
+							<a class="nav-link p-2" href="https://github.com/tinyphporg" target="_blank" rel="noopener">
+								<i class="bi bi-github" title="tinyphp"> </i>
+								<span class="d-md-none mx-1">tinyphp</span>
+							</a>
+						</li>
+						<li class="nav-item col-6 col-md-auto">
+							<a class="nav-link p-2" href="https://v5.bootcss.com/docs/5.1/getting-started/introduction/" target="_blank" rel="noopener">
+								<i class="bi bi-bootstrap" title="bootstrap"> </i>
+								<span class="d-md-none mx-1">bootstrap</span>
+							</a>
+						</li>
+						<li class="nav-item col-6 col-md-auto">
+							<a class="nav-link p-2" href="#" target="_blank" rel="noopener">
+								<i class="fi fi-cn" title="cn"> </i>
+								<span class="d-md-none mx-1">cn</span>
+							</a>
+						</li>
+					</ul>
+
+					<hr class="d-md-none text-white-50">
+					<a class="btn btn-lg btn-outline-gold btn-shadow" href="https://github.com/tinyphporg/tinyphp-ui">View on GitHub</a>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- .main-wrapper 主体布局 -->
+<!-- .main-has-sidebar 是否显示左侧菜单栏 -->
+<div class="main-wrapper main-has-sidebar">
+    <!-- .main-sidebar  -->
+    {template pub/app/main-sidebar.html|tinyphp-ui}
+
+<!-- .main-content 主体部分开始 -->
+<!-- .content-has-menu 控制是否左右布局 -->
+<main class="main-content content-has-menu">

@@ -51,13 +51,7 @@
 					"from": "./dist",
 					"to": "./",
 					"exclude": "",
-					"replace": [
-						{
-							"regex": "/\\.(css|js|html|htm)$/",
-							"source": "../../tinyphp-ui/dist/",
-							"replace": "{properties.view.static.public_path}/tinyphp-ui/"
-						}
-					]
+					"replace": []
 				}
 			]
 		},

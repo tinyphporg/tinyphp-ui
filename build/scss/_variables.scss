@@ -16,6 +16,7 @@ $color-contrast-extra: (
 
 // extra theme-colors
 $theme-colors: map-merge($theme-colors, (
+  "gold": $gold,
   "alternate": $alternate,
   "focus": $focus,
   "light": $light,

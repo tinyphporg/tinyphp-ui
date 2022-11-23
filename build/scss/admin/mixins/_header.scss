@@ -2,7 +2,9 @@
       a.nav-link{
         color: rgba($text-color, .6);
       }
-
+      .nav-link-icon {
+        color: rgba($text-color, .4);
+      }
       .icon, .icon::before {
         color: rgba($text-color, .6) !important;
         background-color: rgba($text-color, .1) !important;
@@ -29,7 +31,7 @@
           } 
         }
         &.header-right-border::before {
-          background: rgba($text-color, .2);
+          background: rgba($text-color, .2);    
         }
       }
       
@@ -51,6 +53,12 @@
 
 @mixin header-breakpoint {
   .main-header {
+    .nav-item {
+      &.header-right-border::before {
+        padding-left:0 !important;
+        margin-left:0 !important;   
+      }  
+    }
     .header-content {
       position: absolute;
       z-index: 8;
@@ -103,7 +111,7 @@
          .user-subheading {
             color:rgba($text-color, 0.5)
         }
-          .header-right-border::before {
+        .header-right-border::before {
             background:rgba($text-color, 0.1);
           }         
         }
@@ -113,7 +121,11 @@
         .icon {
           color: rgba($text-color, .6);
         }
-
+        
+        .nav-link-icon{
+            color: rgba($text-color, .4);
+        }
+        
         .icon::before {
           color: rgba($text-color, .6) !important;
           background-color: rgba($text-color, .1) !important;

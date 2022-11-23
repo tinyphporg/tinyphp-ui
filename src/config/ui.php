@@ -1,285 +1,200 @@
 <?php
 return [
-    'title' => 'tinyphp-ui|tinyphp.org',
-    'name' => 'Tinyphp-UI',
+    'title' => 'TinyPHP Frameworks|tinyphp.org',
+    'name' => 'TinyPHP',
     'logo' => [
         'img' => '',
         'miniImg' => '',
         'url' => ''
     ],
-    'description' => 'Tinyphp 集成了bootstrap jquery等前端库，用于构建响应式、移动设备优先的网站。',
+    'description' => 'TinyPHP Frameworks, 高性能的响应式敏捷开发框架',
+    'bodyClass' => 'page-docs',
     'nav' => [
         [
-            'name' => 'Home',
+            'name' => '首页',
             'href' => '/uidemo/app/index.html',
-            'class' => 'fa fa-success',
             'children' => []
         ],
         [
             'name' => '中文文档',
-            'href' => '#',
-            'class' => 'fa fa-success',
-            'children' => [
-                [
-                    'name' => '使用手册',
-                    'href' => '/uidemo/docs/manual/readme.html',
-                    'class' => 'fa fa-success'
-                ],
-                [
-                    'name' => 'ui库参考',
-                    'href' => '/uidemo/docs/ui/readme.html',
-                    'class' => 'fa fa-success'
-                ],
-                [
-                    'name' => '标准库',
-                    'href' => '/uidemo/docs/lib/readme.html',
-                    'class' => 'fa fa-success'
-                ],
-                [
-                    'name' => '编码规范',
-                    'href' => '/uidemo/docs/standard/readme.html',
-                    'class' => 'fa fa-success'
-                ],
-            ]
+            'href' => '/uidemo/docs/readme.html',
+            'children' => [ ]
         ],
         [
-            'name' => 'Admin protal',
+            'name' => 'UI 组件',
             'href' => '/uidemo/admin/index.html',
-            'class' => 'fa fa-success',
-            'children' => []
-        ],
-        [
-            'name' => 'Icons',
-            'href' => '/uidemo/docs/ui/icons.html',
-            'class' => 'fa fa-success',
             'children' => []
         ],
         [
             'name' => 'tinyphp.org',
-            'href' => 'http://tinyphp.org/',
-            'class' => 'fa fa-success',
+            'href' => 'https://tinyphp.org/',
             'children' => []
         ],
     ],
     'sidebar' => [
         [
-            'name' => '快速入门',
-            'action' => 'main',
-            'href' => '/uidemo/docs/readme.html',
-            'class' => 'fa fa-success',
+            'name' => 'TINYPHP DOCUMENTS',
+            'isHeading' => true
+        ],
+        [
+            'name' => '快速开始',
+            'href' => '#',
             'children' => [ // level1
                 [
-                    'name' => 'index.php入口文件',
-                    'action' => 'index',
+                    'name' => '简介',
+                    'href' => '/uidemo/app/index.html',
+                ],
+                [
+                    'name' => 'index.php 入口文件',
                     'href' => '/uidemo/docs/readme.html',
                     'class' => 'fa fa-success'
-                ],
-                [
-                    'name' => 'profile.php配置文件',
-                    'action' => 'profile',
-                    'href' => '/uidemo/docs/manual/profile.html',
-                    'class' => 'fa fa-success'
-                ],
+                ]
             ]
         ],
         [
-            'name' => '使用规范',
+            'name' => '代码规范',
             'href' => '#',
-            'controller' => 'standard',
-            'class' => 'fa fa-success',
             'children' => [ // level1
                 [
-                    'name' => '编码规范',
-                    'action' => 'coding',
+                    'name' => 'PHP语言编码',
                     'href' => '/uidemo/docs/standard/coding.html',
-                    'class' => 'fa fa-success'
                 ],
                 [
-                    'name' => '数据库操作规范',
-                    'action' => 'db',
+                    'name' => 'MYSQL操作',
                     'href' => '/uidemo/docs/standard/db.html',
-                    'class' => 'fa fa-success'
                 ],
                 [
-                    'name' => '团队协作规范',
-                    'action' => 'team',
-                    'href' => '/uidemo/docs/standard/team.html',
-                    'class' => 'fa fa-success'
+                    'name' => '团队协作',
+                    'href' => '/uidemo/docs/standard/team.html'
                 ],
             ]
         ],
         [
-            'name' => 'Application',
-            'controller' => 'manual',
+            'name' => '应用配置',
             'href' => '#',
-            'class' => 'fa fa-success',
             'children' => [ // level1
                 [
                     'href' => '/uidemo/docs/manual/application.html',
-                    'action' => 'application',
-                    'name' => 'Application/应用程序',
-                    'class' => 'fa fa-success'
+                    'name' => 'Application 应用程序'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/profile.html',
-                    'action' => 'profile',
-                    'name' => 'Proptrites/配置文件',
-                    'class' => 'fa fa-success'
+                    'name' => 'profile.php 配置文件'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/debug.html',
-                    'action' => 'debug',
-                    'name' => 'Debug/调试模式配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Debug 调试模式'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/bootstrap.html',
-                    'action' => 'bootstrap',
-                    'name' => 'Bootstrap/引导程序配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Bootstrap 引导'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/lang.html',
-                    'action' => 'lang',
-                    'name' => 'Lang/语言包配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Lang 语言包'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/data.html',
-                    'action' => 'data',
-                    'name' => 'Data/数据源配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Data 数据源'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/cache.html',
-                    'action' => 'cache',
-                    'name' => 'Cache/缓存配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Cache 缓存'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/logger.html',
-                    'action' => 'logger',
-                    'name' => 'Logger/日志收集配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Logger 日志'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/configuration.html',
-                    'action' => 'configuration',
-                    'name' => 'Configuration/配置类',
-                    'class' => 'fa fa-success'
+                    'name' => 'Configuration 配置',
                 ],
                 [
                     'href' => '/uidemo/docs/manual/builder.html',
-                    'action' => 'builder',
-                    'name' => 'Builder/打包单文件配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Builder 单文件打包'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/daemon.html',
-                    'action' => 'daemon',
-                    'name' => 'Daemon/守护进程配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Daemon 守护进程'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/filter.html',
-                    'action' => 'filter',
-                    'name' => 'Filter/过滤器配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Filter 过滤器'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/mvc_event.html',
-                    'action' => 'mvc_event',
-                    'name' => 'Event/事件配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Event 事件'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/mvc_controller.html',
-                    'action' => 'mvc_controller',
-                    'name' => 'Controller/控制器配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Controller 控制器'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/mvc_model.html',
-                    'action' => 'mvc_model',
-                    'name' => 'Model/模型配置/',
-                    'class' => 'fa fa-success'
+                    'name' => 'Model 模型'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/mvc_viewer.html',
-                    'action' => 'mvc_viewer',
-                    'name' => 'Viewer/视图配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Viewer 视图'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/mvc_router.html',
-                    'action' => 'mvc_router',
-                    'name' => 'Router/路由器配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Router 路由'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/mvc_dispatcher.html',
-                    'action' => 'mvc_dispatcher',
-                    'name' => 'Dispatcher/派发器配置',
-                    'class' => 'fa fa-success'
+                    'name' => 'Dispatcher 派发'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/mvc_request.html',
-                    'action' => 'mvc_request',
-                    'name' => 'Request/请求',
-                    'class' => 'fa fa-success'
+                    'name' => 'Request 请求'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/mvc_response.html',
-                    'action' => 'mvc_response',
-                    'name' => 'Response/响应',
-                    'class' => 'fa fa-success'
+                    'name' => 'Response 响应'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/mvc_cookie.html',
-                    'action' => 'mvc_cookie',
-                    'name' => 'HttpCookie',
-                    'class' => 'fa fa-success'
+                    'name' => 'HttpCookie'
                 ],
                 [
                     'href' => '/uidemo/docs/manual/mvc_session.html',
-                    'action' => 'mvc_session',
-                    'name' => 'HttpSession',
-                    'class' => 'fa fa-success'
+                    'name' => 'HttpSession'
                 ],
             ]
         ],
         [
-            'name' => 'Runtime',
+            'name' => '运行时环境',
             'href' => '#',
             'controller' => 'manual',
             'class' => 'fa fa-success',
             'children' => [ // level1
                 [
-                    'name' => '环境参数',
+                    'name' => 'Environment 环境参数',
                     'action' => 'runtime_env',
                     'href' => '/uidemo/docs/manual/runtime_env.html',
                     'class' => 'fa fa-success'
                 ],
                 [
-                    'name' => '异常处理',
+                    'name' => 'Exception 异常处理',
                     'action' => 'runtime_exception',
                     'href' => '/uidemo/docs/manual/runtime_exception.html',
                     'class' => 'fa fa-success'
                 ],
                 [
-                    'name' => '自动加载',
+                    'name' => 'Autoloader 自动加载',
                     'action' => 'runtime_autoloader',
                     'href' => '/uidemo/docs/manual/runtime_autoloader.html',
                     'class' => 'fa fa-success'
                 ],
                 [
-                    'name' => '依赖注入',
+                    'name' => 'DI 依赖注入',
                     'action' => 'runtime_container',
                     'href' => '/uidemo/docs/manual/runtime_container.html',
                     'class' => 'fa fa-success'
                 ],
                 [
-                    'name' => '事件驱动管理',
+                    'name' => 'Event 事件驱动',
                     'action' => 'runtime_event',
                     'href' => '/uidemo/docs/manual/runtime_event.html',
                     'class' => 'fa fa-success'
@@ -289,193 +204,262 @@ return [
         [
             'name' => '标准库参考',
             'href' => '#',
-            'controller' => 'lib',
-            'class' => 'fa fa-success',
             'children' => [ // level1
                 [
-                    'href' => ' ',
-                    'name' => ' ',
-                    'class' => 'fa fa-success',
-                    'children' => []
-                ],
-                [
                     'href' => '/uidemo/docs/lib/tiny.html',
-                    'action' => 'tiny',
-                    'name' => 'Tiny：工具包',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny',
                 ],
                 [
                     'href' => '/uidemo/docs/lib/runtime.html',
-                    'action' => 'runtime',
-                    'name' => 'Tiny\Runtime：运行时',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\Runtime 运行时环境',
                 ],
                 [
                     'href' => '/uidemo/docs/lib/build.html',
-                    'action' => 'build',
-                    'name' => 'Tiny\Build：打包',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\Build 打包'
                 ],
                 [
                     'href' => '"/uidemo/docs/lib/cache.html',
-                    'action' => 'cache',
-                    'name' => 'Tiny\Cache：缓存',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\Cache 缓存',
                 ],
                 [
                     'href' => '/uidemo/docs/lib/config.html',
-                    'action' => 'config',
-                    'name' => 'Tiny\Config：配置',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\Config 配置',
                 ],
                 [
                     'href' => '/uidemo/docs/lib/console.html',
-                    'action' => 'console',
-                    'name' => 'Tiny\Console：命令行',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\Console 命令行',
                 ],
                 [
                     'href' => '/uidemo/docs/lib/data.html',
-                    'action' => 'data',
-                    'name' => 'Tiny\Data：数据层',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\Data 数据源',
                 ],
                 [
                     'href' => '/uidemo/docs/lib/di.html',
-                    'action' => 'di',
-                    'name' => 'Tiny\DI：依赖注入',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\DI 依赖注入'
                 ],
                 [
                     'href' => '/uidemo/docs/lib/event.html',
-                    'action' => 'event',
-                    'name' => 'Tiny\Event：事件',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\Event 事件管理'
                 ],
                 [
                     'href' => '/uidemo/docs/lib/filter.html',
-                    'action' => 'filter',
-                    'name' => 'Tiny\Filter：过滤器',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\Filter 过滤器'
                 ],
                 [
                     'href' => '/uidemo/docs/lib/image.html',
-                    'action' => 'image',
-                    'name' => 'Tiny\Image：图片处理',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\Image 图片处理'
                 ],
                 [
                     'href' => '"/uidemo/docs/lib/lang.html',
-                    'action' => 'lang',
-                    'name' => 'Tiny\Lang：语言包',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\Lang 语言包'
                 ],
                 [
                     'href' => '/uidemo/docs/lib/log.html',
-                    'action' => 'log',
-                    'name' => 'Tiny\Log：日志处理',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\Log 日志'
                 ],
                 [
                     'href' => '/uidemo/docs/lib/mvc.html',
-                    'action' => 'mvc',
-                    'name' => 'Tiny\MVC：MVC',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\MVC MVC'
                 ],
                 [
                     'href' => '/uidemo/docs/lib/net.html',
-                    'action' => 'net',
-                    'name' => 'Tiny\Net：网络',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\Net 网络'
                 ],
                 [
                     'href' => '/uidemo/docs/lib/string.html',
-                    'action' => 'string',
-                    'name' => 'Tiny\String：字符处理',
-                    'class' => 'fa fa-success',
-                    'children' => []
+                    'name' => 'Tiny\String 字符处理'
                 ],
             ]
         ],
         [
-            'name' => 'UI基础库',
-            'href' => '#',
-            'controller' => 'ui',
-            'class' => 'fa fa-success',
+            'name' => 'TINYPHP-UI COMPONENTS',
+            'isHeading' => true
+        ],
+       
+        [
+            'name' => 'Elements 元件',
+            'href' => '',
+            'icon' => 'bi bi-box2',
             'children' => [ // level1
                 [
-                    'name' => 'webpack5',
-                    'action' => 'webpack',
-                    'href' => '/uidemo/docs/ui/webpack.html',
-                    'class' => 'fa fa-success'
+                    'name' => 'Accordion 折叠卡片',
+                    'href' => '/uidemo/admin/elements/accordion.html'
                 ],
                 [
-                    'name' => 'bootstrap5',
-                    'action' => 'bootstrap',
-                    'href' => '/uidemo/docs/ui/bootstrap.html',
-                    'class' => 'fa fa-success'
+                    'name' => 'Alert 警告框',
+                    'href' => '/uidemo/admin/elements/alert.html'
                 ],
                 [
-                    'name' => 'jquery',
-                    'action' => 'jquery',
-                    'href' => '/uidemo/docs/ui/jquery.html',
-                    'class' => 'fa fa-success'
+                    'name' => 'Buttons 按钮',
+                    'href' => '/uidemo/admin/elements/buttons.html'
                 ],
                 [
-                    'name' => '图标/icons',
-                    'action' => 'icons',
-                    'href' => '/uidemo/docs/ui/icons.html',
-                    'class' => 'fa fa-success'
+                    'name' => 'Button Group 按钮组',
+                    'href' => '/uidemo/admin/elements/button-group.html'
+                ],
+                [
+                    'name' => 'Card 卡片',
+                    'href' => '/admin/elements/card.html'
+                ],
+                [
+                    'name' => 'Carousel 幻灯片',
+                    'href' => '/uidemo/admin/elements/carousel.html'
+                ],
+                [
+                    'name' => 'Icons 图标',
+                    'href' => '/uidemo/admin/elements/icons.html'
+                ],
+                [
+                    'name' => 'Progress Bar 进度条',
+                    'href' => '/uidemo/admin/elements/progressbar.html'
+                ],
+                [
+                    'name' => 'Modals 拟态框',
+                    'href' => '/uidemo/admin/elements/modals.html'
+                ],
+                [
+                    'name' => 'Navbar 导航条',
+                    'href' => '/uidemo/admin/elements/navbar.html'
+                ]
+            ]
+        ],
+        [
+            'name' => 'Forms 表单',
+            'href' => '#',
+            'icon' => 'bi bi-card-heading',
+            'children' => [ // level1
+                [
+                    'name' => 'General 基础',
+                    'href' => '/uidemo/admin/forms/general.html'
+                ],
+                [
+                    'name' => '验证',
+                    'href' => '/uidemo/admin/forms/validation.html'
+                ],
+                [
+                    'name' => '颜色选择器',
+                    'href' => '/uidemo/admin/forms/colorpicker.html'
+                ],
+                [
+                    'name' => '日期选择器',
+                    'href' => '/uidemo/admin/forms/daterangepicker.html'
+                ],
+                [
+                    'name' => '时间选择器',
+                    'href' => '/uidemo/admin/forms/datetimepicker.html'
+                ],
+                [
+                    'name' => '输入格式验证',
+                    'href' => '/uidemo/admin/forms/inputmask.html'
+                ],
+                [
+                    'name' => '双向选择菜单',
+                    'href' => '/uidemo/admin/forms/duallistbox.html'
+                ],
+                [
+                    'name' => '选择菜单',
+                    'href' => '/uidemo/admin/forms/select2.html'
+                ],
+                [
+                    'name' => '编辑器',
+                    'href' => '/uidemo/admin/forms/editors.html'
+                ],
+                [
+                    'name' => '表单验证',
+                    'href' => '/uidemo/admin/forms/validation.html'
+                ],
+                [
+                    'name' => '多选框美化',
+                    'href' => '/uidemo/admin/forms/icheck.html'
+                ],
+                [
+                    'name' => '滑块',
+                    'href' => '/uidemo/admin/forms/switch.html'
+                ],
+                [
+                    'name' => '步进器',
+                    'href' => '/uidemo/admin/forms/stepper.html'
+                ],
+                [
+                    'name' => '文件上传',
+                    'href' => '/uidemo/admin/forms/dropzone.html'
+                ],
+                [
+                    'name' => '滑动条',
+                    'href' => '/uidemo/admin/forms/sliders.html'
+                ]
+            ]
+        ],
+        [
+            'name' => 'Tables 表格',
+            'href' => '#',
+            'icon' => 'bi bi-table',
+            'children' => [ // level1
+                [
+                    'name' => 'Simple Tables',
+                    'href' => '/uidemo/admin/tables/simple.html'
+                ],
+                [
+                    'name' => 'DataTables',
+                    'href' => '/uidemo/admin/tables/datatables.html'
                 ],
             ]
         ],
         [
-            'name' => 'UI组件库',
+            'name' => 'Charts 图表',
             'href' => '#',
-            'controller' => 'ui/components',
-            'class' => 'fa fa-success',
+            'icon' => 'bi bi-bar-chart',
             'children' => [ // level1
                 [
-                    'name' => 'codemirror',
-                    'action' => 'codemirror',
-                    'href' => '/uidemo/docs/ui/components/codemirror.html',
-                    'class' => 'fa fa-success'
+                    'name' => 'Chart.js',
+                    'href' => '/uidemo/admin/charts/chartjs.html'
                 ],
                 [
-                    'name' => 'summernote',
-                    'action' => 'summernote',
-                    'href' => '/uidemo/docs/ui/components/summernote.html',
-                    'class' => 'fa fa-success'
+                    'name' => 'Echarts',
+                    'href' => '/uidemo/admin/charts/echarts.html'
                 ],
                 [
-                    'name' => 'sweetalert2',
-                    'action' => 'alert',
-                    'href' => '/uidemo/docs/ui/components/alert.html',
-                    'class' => 'fa fa-success'
+                    'name' => 'Flot',
+                    'href' => '/uidemo/admin/charts/flot.html'
                 ],
                 [
-                    'name' => 'select2',
-                    'action' => 'select2',
-                    'href' => '/uidemo/docs/ui/components/select2.html',
-                    'class' => 'fa fa-success'
+                    'name' => 'Knob 旋钮',
+                    'href' => '/uidemo/admin/charts/knob.html'
+                ],
+                [
+                    'name' => 'Sparklines',
+                    'href' => '/uidemo/admin/charts/sparkline.html'
+                ],
+                [
+                    'name' => 'Uplot',
+                    'href' => '/uidemo/admin/charts/uplot.html'
                 ],
             ]
         ],
+        [
+            'name' => 'Widgets 部件',
+            'href' => '/uidemo/admin/widgets/widgets.html',
+            'icon' => 'bi bi-columns-gap',
+            'children' => []
+        ],
+        [
+            'name' => 'TINYPHP-UI PAGES',
+            'isHeading' => true
+        ],
+        [
+            'name' => '管理后台',
+            'href' => '#',
+            'children' => [ // level1
+                [
+                    'name' => '首页',
+                    'href' => '/uidemo/admin/index.html'
+                ],
+                [
+                    'name' => 'Login',
+                    'href' => '/uidemo/admin/pages/login.html'
+                ]
+            ]
+        ]
     ],
     'sidebarExtra' => <<<EOT
     
@@ -499,16 +483,16 @@ return [
     ],
     'navExtra' => <<<EOT
     <hr class="d-md-none text-white-50">
-    <a class="btn btn-bd-download d-lg-inline-block my-2 my-md-0 ms-md-3" href="https://github.com/tinyphporg/tinyphp-ui">View on GitHub</a>
+    <a class="btn btn-lg btn-outline-gold btn-shadow ms-2" href="https://github.com/tinyphporg/tinyphp-ui">View on GitHub</a>
     EOT,
     'menu' => [],
     'headerExtra' => <<<EOT
-        <div class="d-md-flex flex-md-row-reverse align-items-center justify-content-between">
-        <a class="btn btn-sm mb-2 mb-md-0" href="https://github.com/twbs/bootstrap/blob/main/site/content/docs/5.1/getting-started/introduction.md" title="View and edit this file on GitHub" target="_blank" rel="noopener">View on GitHub</a>
-        <h1 class="bd-title" id="content">Tinyphp-framework</h1>
-        </div>
-        
-        <p class="bd-lead">Tinyphp-ui 是一款面向PHP全栈工程师的前端UI组件库，后端基于tinyphp framework 2.0， 前端基于webpack5整合了bootstrap5 + jquery。</p>
+    <div class="docs-content-header my-5">
+    <h1 class=docs-content-title" id="content">Tinyphp</h1>
+    <div class="docs-content-lead">
+    <p>Tinyphp frameworks 是基于敏捷开发理念的PHP MVC框架，具备高性能高开发效率特征。</p>
+    </div>
+    </div>
     EOT,
     'footerExtra' => <<<EOT
         <div class="row">

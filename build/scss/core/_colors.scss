@@ -22,35 +22,6 @@ body {
   }
 }
 
-.bg-gray {
-  color: color-contrast($gray-500);
-  background-color: $gray-500;
-}
-
-.bg-gray-light {
-  color: color-contrast(lighten($gray-200, 3%)) !important;
-  background-color: lighten($gray-200, 3%);
-}
-
-.bg-black {
-  color: color-contrast($black) !important;
-  background-color: $black;
-}
-
-.bg-white {
-  color: color-contrast($white) !important;
-  background-color: $white;
-}
-
-// Gradient Background colors (theme colors)
-@each $name, $color in $theme-colors {
-  @include background-gradient-variant($name, $color);
-}
-
-// Gradient Background colors (colors)
-@each $name, $color in $colors {
-  @include background-gradient-variant($name, $color);
-}
 
 // Backgrund Color Disabled
 [class^="bg-"].disabled {

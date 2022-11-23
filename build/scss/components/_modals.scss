@@ -34,10 +34,13 @@
   &.bg-secondary,
   &.bg-info,
   &.bg-danger,
-  &.bg-success, {
-    .close {
+  &.bg-success{
+    .btn-close {
       text-shadow: 0 1px 0 $black;
-      color: $white;
+      color: $white !important;
+    }
+    .btn-close { 
+        filter: $btn-close-white-filter;
     }
   }
 }
@@ -57,7 +60,7 @@
         border-color: $gray-600;
       }
 
-      .close {
+      .btn-close {
         text-shadow: 0 1px 0 $gray-700 !important;
         color: $dark !important;
       }

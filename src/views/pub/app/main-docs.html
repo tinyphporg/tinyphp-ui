@@ -1,0 +1,13 @@
+{template pub/app/main-header.html}
+
+<div class="content-header">
+
+{if $ui['headerExtra']}{$ui['headerExtra']}{/if}
+
+</div>
+
+{if $ui['menu']} {template pub/app/main-content-menu.html} {/if}
+
+<div class="content-body">{$doccontent}</div>
+
+{template pub/app/main-footer.html}

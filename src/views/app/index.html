@@ -1,73 +1,66 @@
-{template pub/app/ui-header.html|tinyphp-ui}
-<div class="ui-main-header ps-lg-4">
-	<div class="d-md-flex flex-md-row-reverse align-items-center justify-content-between">
-		<a class="btn btn-sm mb-2 mb-md-0" href="https://github.com/twbs/bootstrap/blob/main/site/content/docs/5.1/getting-started/introduction.md" title="View and edit this file on GitHub" target="_blank" rel="noopener">View on GitHub</a>
-		<h1 class="bd-title" id="content">Tinyphp-framework</h1>
-	</div>
-	<p class="bd-lead">Tinyphp-ui 是一款面向PHP全栈工程师的前端UI组件库，后端基于tinyphp framework 2.0， 前端基于webpack5整合了bootstrap5 + jquery。</p>
-</div>
-<div class="ui-main-menu mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted fs-7">
-	<strong class="d-block h6 my-2 pb-2 border-bottom">索引</strong>
-	<nav id="TableOfContents">
-		<ul>
-			<li class="ms-1"><a href="#ui-menu-0">TinyPHP Framework for PHP</a></li>
-			<li class="ms-2"><a href="#ui-menu-1">tinyphp v2.0.0</a></li>
-			<li class="ms-2"><a href="#ui-menu-2">快速开始</a></li>
-			<li class="ms-1"><a href="#ui-menu-3">核心组件</a></li>
-			<li class="ms-3"><a href="#ui-menu-4">tinyphp-framework v2.0</a></li>
-			<li class="ms-3"><a href="#ui-menu-5">tinyphp-docs</a></li>
-			<li class="ms-3"><a href="#ui-menu-6">tinyphp-ui</a></li>
-			<li class="ms-3"><a href="#ui-menu-7">lnmp-utils</a></li>
-			<li class="ms-2"><a href="#ui-menu-8">快速构建运行环境</a></li>
-			<li class="ms-3"><a href="#ui-menu-9">CentOS X64 7.4+</a></li>
-			<li class="ms-3"><a href="#ui-menu-10">docker</a></li>
-		</ul>
-	</nav>    
-</div>
-<div class="ui-main-content ps-lg-4">
+{template pub/app/main-header.html|tinyphp-ui}
+<div class="content-header">
 
-	<div class="markdown-body">
-		<h1 id="ui-menu-0">TinyPHP Framework for PHP</h1>
-		<h2 id="ui-menu-1">tinyphp v2.0.0</h2>
-		<ul>
-			<li>基于tinyphp framework v2.0.0 <a href="https://github.com/tinyphporg/tinyphp-framework">https://github.com/tinyphporg/tinyphp-framework</a></li>
-		</ul>
-		<blockquote>
-			<p>
-				经过日PV十亿级别生产环境检验；<br /> 应用于高并发高性能的生产环境； 支持分布式的RPC微服务处理；<br /> 适用于 Web/Console/RPC等运行环境，包括单一命令行文件打包，多任务的服务端守护进等。
-			</p>
-		</blockquote>
-		<p>tinyphp-framework的适用场景与理念</p>
-		<hr />
-		<ul>
-			<li>
-				<p>客户端应用(IOS/Android/H5/小程序)的API接口开发：</p>
-				<ul>
-					<li>高性能，大并发。</li>
-					<li>快速开发。</li>
-					<li>支持分布式RPC微服务架构。</li>
-				</ul>
-			</li>
-			<li>
-				<p>Web管理后台：</p>
-				<ul>
-					<li>适用于PHP全栈工程师，及不具备UI设计师和前端工程师的研发团队。</li>
-					<li>集成了tinyphp-ui前端框架，只需少量的JS前端代码。</li>
-				</ul>
-			</li>
-			<li>
-				<p>大规模团队协作：</p>
-				<ul>
-					<li>10-100+人以上的研发团队。</li>
-					<li>创业团队，产品快速成型，可在较少的研发人力成本下进行高效的敏捷开发。</li>
-					<li>适用于具备在大规模的高性能应用场景下，通过PHP解决大多数复杂业务的架构。</li>
-					<li>可将大规模复杂应用的后端语言有效控制为PHP一种后端开发语言，有效降低项目维护成本和团队管理难度。</li>
-				</ul>
-			</li>
-		</ul>
-		<h2 id="ui-menu-2">快速开始</h2>
-		<pre>
-			<code class="language-shell">composer create-project tinyphporg/tinyphp
+<div class="docs-content-header my-5">
+<h1 class=docs-content-title" id="content">TinyPHP</h1>
+<div class="docs-content-lead">
+
+<p>Tinyphp是基于 TinyPHP Framework 的脚手架。</p>
+
+</div>
+</div>
+</div>
+
+ <div class="content-menu">
+        <ul class="docs-menu p-1">
+          <li class="docs-menu-header">索引</li>
+                        <li class="ms-1"><a href="#ui-menu-0">TinyPHP</a></li>          <li class="ms-3"><a href="#ui-menu-1">TinyPHP Framework</a></li>            <li class="ms-2"><a href="#ui-menu-2">适用场景</a></li>             <li class="ms-2"><a href="#ui-menu-3">快速开始</a></li>             <li class="ms-2"><a href="#ui-menu-4">核心组件</a></li>             <li class="ms-2"><a href="#ui-menu-5">运行环境</a></li>             <li class="ms-3"><a href="#ui-menu-6">CentOS X64 7.4+</a></li>          <li class="ms-3"><a href="#ui-menu-7">docker</a></li>           <li class="ms-2"><a href="#ui-menu-8">中文手册</a></li>         </ul>
+</div> 
+<div class="content-body"><div class="markdown-body docs-content-body"><h3 id="ui-menu-1" >TinyPHP Framework</h3>
+<p>项目地址: <a href="https://github.com/tinyphporg/tinyphp-framework">https://github.com/tinyphporg/tinyphp-framework</a>     </p>
+<ul>
+<li>基于敏捷开发理念的PHP MVC框架;   </li>
+<li>可应用高并发高性能的生产环境，经过10亿PV级别的生产实践检验;   </li>
+<li>可基于TinyPHP-UI 快速开发响应式的H5/PC Web应用;   </li>
+<li>支持分布式的RPC和微服务处理；      </li>
+<li>支持Web/Console/RPC等运行环境，包括单一命令行文件打包，多任务的服务端守护进等。     </li>
+</ul>
+<h2 id="ui-menu-2" >适用场景</h2>
+<ul>
+<li>
+<p>客户端应用(IOS/Android/小程序的API接口开发：</p>
+<ul>
+<li>高性能，大并发。</li>
+<li>敏捷开发。</li>
+<li>支持分布式RPC微服务架构。   </li>
+</ul>
+</li>
+<li>
+<p>H5/Web应用:</p>
+<ul>
+<li>响应式设计，提供各种成熟的UI组件和页面，极大减少UI和设计的人力投入。</li>
+<li>适用于PHP全栈工程师，及不具备UI设计师和前端工程师的研发团队。</li>
+<li>集成了tinyphp-ui前端框架，只需少量的JS前端代码。   </li>
+</ul>
+</li>
+<li>
+<p>10人以下创业团队敏捷开发:</p>
+<ul>
+<li>敏捷开发</li>
+<li>UI复用</li>
+<li>产品快速成型。   </li>
+</ul>
+</li>
+<li>
+<p>100+人研发团队协作:</p>
+<ul>
+<li>支持RPC和微服务部署，适用于大规模的高性能高并发应用场景</li>
+<li>可将大型架构的多种后端语言需求有效控制为PHP一种后端开发语言，有效降低项目的人力维护成本和团队管理难度。    </li>
+</ul>
+</li>
+</ul>
+<h2 id="ui-menu-3" >快速开始</h2>
+<pre><code class="language-shell">composer create-project tinyphporg/tinyphp
 
 #console 运行
 php public/index.php
@@ -80,49 +73,49 @@ php public/index.php -d  //开启
 php public/index.php --daemon=stop  //关闭
 
 #配置文件 
-application/config/profile.php</code>
-		</pre>
-		<h1 id="ui-menu-3">核心组件</h1>
-		<h3 id="ui-menu-4">tinyphp-framework v2.0</h3>
-		<ul>
-			<li>框架地址： <a href="https://github.com/tinyphporg/tinyphp-framework">https://github.com/tinyphporg/tinyphp-framework</a>
-			</li>
-		</ul>
-		<h3 id="ui-menu-5">tinyphp-docs</h3>
-		<ul>
-			<li>中文文档: 使用手册、标准库。</li>
-			<li>项目地址: <a href="https://github.com/tinyphporg/tinyphp-docs">https://github.com//tinyphp-docs</a>
-			</li>
-		</ul>
-		<h3 id="ui-menu-6">tinyphp-ui</h3>
-		<ul>
-			<li>前端UI组件库: webpack5+bootstrap5+jquery...</li>
-			<li>项目地址： : <a href="https://github.com/tinyphporg/tinyphp-ui">https://github.com/tinyphporg/tinyphp-ui</a>
-			</li>
-		</ul>
-		<h3 id="ui-menu-7">lnmp-utils</h3>
-		<ul>
-			<li>Linux(CentOS7X_64) +openresty(nginx)+Mysql+PHP+Redis一键安装包, 适用于生产环境。</li>
-			<li>项目地址: <a href="https://github.com/tinyphporg/lnmp-utils">https://github.com/tinyphporg/lnmp-utils</a></li>
-		</ul>
-		<h2 id="ui-menu-8">快速构建运行环境</h2>
-		<h3 id="ui-menu-9">CentOS X64 7.4+</h3>
-		<blockquote>
-			<p>
-				适应于生产环境，依赖于lnmp-utils。<br /> lnmp-utils: Linux(CentOS7X_64) +openresty(nginx)+Mysql+PHP+Redis一键安装包。<br /> 项目地址: <a href="https://github.com/tinyphporg/lnmp-utils">https://github.com/tinyphporg/lnmp-utils</a>
-			</p>
-		</blockquote>
-		<pre>
-			<code class="language-shell">git clone https://github.com/tinyphporg/lnmp-utils.git
+application/config/profile.php</code></pre>
+<h2 id="ui-menu-4" >核心组件</h2>
+<ul>
+<li>
+<p>TinyPHP Framework v2.0 </p>
+<ul>
+<li>框架地址：   <a href="https://github.com/tinyphporg/tinyphp-framework">https://github.com/tinyphporg/tinyphp-framework</a>    </li>
+</ul>
+</li>
+<li>
+<p>tinyphp-docs</p>
+<ul>
+<li>中文文档: 使用手册、标准库。  </li>
+<li>项目地址: <a href="https://github.com/tinyphporg/tinyphp-docs">https://github.com//tinyphp-docs</a>   </li>
+</ul>
+</li>
+<li>
+<p>tinyphp-ui  </p>
+<ul>
+<li>前端UI组件库: webpack5+bootstrap5+jquery...     </li>
+<li>项目地址： : <a href="https://github.com/tinyphporg/tinyphp-ui">https://github.com/tinyphporg/tinyphp-ui</a>  </li>
+</ul>
+</li>
+<li>
+<p>lnmp-utils   </p>
+<ul>
+<li>Linux(CentOS7X_64) +openresty(nginx)+Mysql+PHP+Redis一键安装包, 适用于生产环境。    </li>
+<li>项目地址: <a href="https://github.com/tinyphporg/lnmp-utils">https://github.com/tinyphporg/lnmp-utils</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="ui-menu-5" >运行环境</h2>
+<hr />
+<h3 id="ui-menu-6" >CentOS X64 7.4+</h3>
+<p>适应于生产环境，依赖于lnmp-utils。<br />
+lnmp-utils: Linux(CentOS7X_64) +openresty(nginx)+Mysql+PHP+Redis一键安装包。<br />
+项目地址: <a href="https://github.com/tinyphporg/lnmp-utils">https://github.com/tinyphporg/lnmp-utils</a>    </p>
+<pre><code class="language-shell">git clone https://github.com/tinyphporg/lnmp-utils.git
 cd ./lnmp-utils
-./install.sh -m tinyphp</code>
-		</pre>
-		<h3 id="ui-menu-10">docker</h3>
-		<blockquote>
-			<p>适应于开发环境</p>
-		</blockquote>
-		<pre>
-			<code class="language-shell">#可更改/data/workspace/tinyphp为自定义IDE工作目录
+./install.sh -m tinyphp</code></pre>
+<h3 id="ui-menu-7" >docker</h3>
+<p>适应于开发环境</p>
+<pre><code class="language-shell">#可更改/data/workspace/tinyphp为自定义IDE工作目录
 workspace=/data/workspace/
 
 docker pull centos:7
@@ -144,117 +137,84 @@ cd ./lnmp-utils
 
 cd /data/web/tinyphporg/tinyphp
 php public/index.php
-</code>
-		</pre>
-		<p>中文手册</p>
-		<hr />
-		<blockquote>
-			<p>本框架的编码规范遵守PSR规范标准，仅少数细节做灵活调整。</p>
-		</blockquote>
-		<ul>
-			<li>
-				<p>
-					<a href="http://github.com/tinyphporg/lnmp-utils.git">环境搭建/lnmp-utils: http://github.com/tinyphporg/lnmp-utils.git</a>
-				</p>
-			</li>
-			<li>
-				<p>
-					<a href="http://github.com/tinyphporg/tinyphp.git">Demo/tinyphp: http://github.com/tinyphporg/tinyphp.git</a>
-				</p>
-			</li>
-			<li>
-				<p>编码规范</p>
-				<ul>
-					<li><a href="/uidemo/docs/standard/coding_file.html">文件结构</a></li>
-					<li><a href="/uidemo/docs/standard/coding_program_typesetting.html">程序的排版</a></li>
-					<li><a href="/uidemo/docs/standard/coding_rules.html">命名规则</a></li>
-					<li><a href="/uidemo/docs/standard/coding_expression.html">表达式和基本语句</a></li>
-					<li><a href="/uidemo/docs/standard/coding/constant.html">常量</a></li>
-					<li><a href="/uidemo/docs/standard/coding/function.html">函数设计</a></li>
-					<li><a href="/uidemo/docs/standard/coding_ide.html">IDE的选择</a></li>
-					<li><a href="/uidemo/docs/standard/coding_example.html">编码规范的一些示例</a></li>
-				</ul>
-			</li>
-			<li>
-				<p>数据库查询/设计/操作规范</p>
-				<ul>
-					<li><a href="/uidemo/docs/standard/db_select.html">查询规范</a></li>
-					<li><a href="/uidemo/docs/standard/db_dbtable.html">库和表的规范</a></li>
-					<li><a href="/uidemo/docs/standard/db_design.html">数据库设计原则</a></li>
-					<li><a href="/uidemo/docs/standard/db_optimization.html">数据库的配置优化</a></li>
-				</ul>
-			</li>
-			<li>
-				<p>
-					<a href="/uidemo/docs/standard/team.html">团队协作规范</a>
-				</p>
-			</li>
-			<li>
-				<p>框架使用手册</p>
-				<ul>
-					<li><a href="/uidemo/docs/manual/index.html">Index/入口文件: public/index.php</a></li>
-					<li><a href="/uidemo/docs/manual/runtime.html">Runtime/运行时环境: runtime/</a>
-						<ul>
-							<li><a href="/uidemo/docs/manual/runtime_env.html">Environment/运行时环境参数</a></li>
-							<li><a href="/uidemo/docs/manual/runtime_exception.html">ExceptionHandler/异常处理</a></li>
-							<li><a href="/uidemo/docs/manual/runtime_autoloader.html">Autoloader/自动加载</a></li>
-							<li><a href="/uidemo/docs/manual/runtime_container.html">Container/容器</a></li>
-							<li><a href="/uidemo/docs/manual/runtime_event.html">EventManager/事件管理</a></li>
-						</ul></li>
-					<li><a href="/uidemo/docs/manual/application.html">Application/应用程序: application/</a>
-						<ul>
-							<li><a href="/uidemo/docs/manual/profile.html">Proptrites/Application配置文件:application/config/profile.php</a></li>
-							<li><a href="/uidemo/docs/manual/debug.html">Debug/调试模式配置</a></li>
-							<li><a href="/uidemo/docs/manual/bootstrap.html">Bootstrap/引导程序配置:application/events/Bootstrap.php</a></li>
-							<li><a href="/uidemo/docs/manual/lang.html">Lang/语言包配置:application/lang</a></li>
-							<li><a href="/uidemo/docs/manual/data.html">Data/数据源配置:/application/data</a></li>
-							<li><a href="/uidemo/docs/manual/cache.html">Cache/缓存配置:runtime/cache</a></li>
-							<li><a href="/uidemo/docs/manual/logger.html">Logger/日志收集配置:runtime/log</a></li>
-							<li><a href="/uidemo/docs/manual/configuration.html">Configuration/配置类配置</a></li>
-							<li><a href="/uidemo/docs/manual/builder.html">Builder/打包单文件的配置</a></li>
-							<li><a href="/uidemo/docs/manual/daemon.html">Daemon/守护进程配置</a></li>
-							<li><a href="/uidemo/docs/manual/filter.html">Filter/过滤器配置</a></li>
-							<li><a href="/uidemo/docs/manual/mvc_event.html">MVC/Event/事件配置</a></li>
-							<li><a href="/uidemo/docs/manual/mvc_controller.html">MVC/Controller/控制器配置:application/controllers/</a></li>
-							<li><a href="/uidemo/docs/manual/mvc_model.html">MVC/Model/模型配置:application/models/</a></li>
-							<li><a href="/uidemo/docs/manual/mvc_viewer.html">MVC/Viewer/视图配置:application/views/</a></li>
-							<li><a href="/uidemo/docs/manual/mvc_router.html">MVC/Router/路由器配置</a></li>
-							<li><a href="/uidemo/docs/manual/mvc_dispatcher.html">MVC/Controller/Dispatcher/派发器配置</a></li>
-							<li><a href="/uidemo/docs/manual/mvc_request.html">MVC/Request/请求</a></li>
-							<li><a href="/uidemo/docs/manual/mvc_response.html">MVC/Response/响应</a></li>
-							<li><a href="/uidemo/docs/manual/mvc_cookie.html">MVC/Web/HttpCookie</a></li>
-							<li><a href="/uidemo/docs/manual/mvc_session.html">Mvc/Web/HttpSession</a></li>
-						</ul></li>
-				</ul>
-			</li>
-			<li>
-				<p>框架标准库参考</p>
-				<ul>
-					<li><a href="/uidemo/docs/lib/tiny.html">Tiny：工具包</a></li>
-					<li><a href="/uidemo/docs/lib/runtime.html">Tiny\Runtime：运行时</a></li>
-					<li><a href="/uidemo/docs/lib/build.html">Tiny\Build：打包</a></li>
-					<li><a href="/uidemo/docs/lib/cache.html">Tiny\Cache：缓存</a></li>
-					<li><a href="/uidemo/docs/lib/config.html">Tiny\Config：配置</a></li>
-					<li><a href="/uidemo/docs/lib/console.html">Tiny\Console：命令行</a></li>
-					<li><a href="/uidemo/docs/lib/data.html">Tiny\Data：数据层</a></li>
-					<li><a href="/uidemo/docs/lib/di.html">Tiny\DI：依赖注入</a></li>
-					<li><a href="/uidemo/docs/lib/event.html">Tiny\Event：事件</a></li>
-					<li><a href="/uidemo/docs/lib/filter.html">Tiny\Filter：过滤器</a></li>
-					<li><a href="/uidemo/docs/lib/image.html">Tiny\Image：图片处理</a></li>
-					<li><a href="/uidemo/docs/lib/lang.html">Tiny\Lang：语言包</a></li>
-					<li><a href="/uidemo/docs/lib/log.html">Tiny\Log：日志处理</a></li>
-					<li><a href="/uidemo/docs/lib/mvc.html">Tiny\MVC：MVC</a></li>
-					<li><a href="/uidemo/docs/lib/net.html">Tiny\Net：网络</a></li>
-					<li><a href="/uidemo/docs/lib/string.html">Tiny\String：字符处理</a></li>
-				</ul>
-			</li>
-			<li>
-				<p>
-					<a href="https://github.com/tinyphporg/tinyphp-docs/blob/master/docs/ui/">UI库参考</a>
-				</p>
-			</li>
-		</ul>
-	</div>
-</div>
+</code></pre>
+<h2 id="ui-menu-8" >中文手册</h2>
+<p>本框架的编码规范遵守PSR规范标准，仅少数细节做灵活调整。       </p>
+<ul>
+<li>
+<p>快速开始</p>
+<ul>
+<li><a href="http://github.com/tinyphporg/lnmp-utils.git">环境搭建/lnmp-utils: http://github.com/tinyphporg/lnmp-utils.git</a></li>
+<li><a href="http://github.com/tinyphporg/tinyphp.git">Demo/tinyphp: http://github.com/tinyphporg/tinyphp.git</a></li>
+</ul>
+</li>
+<li>
+<p>代码规范</p>
+<ul>
+<li><a href="/uidemo/docs/standard/coding.html">编码规范</a>   </li>
+<li><a href="/uidemo/docs/standard/db.html">数据库操作规范</a></li>
+<li><a href="/uidemo/docs/standard/team.html">团队协作规范</a></li>
+</ul>
+</li>
+<li>
+<p>使用手册</p>
+<ul>
+<li><a href="/uidemo/docs/manual/index.html">Index/入口文件:    public/index.php</a>      </li>
+<li><a href="/uidemo/docs/manual/runtime.html">Runtime/运行时环境: runtime/</a>    
+<ul>
+<li><a href="/uidemo/docs/manual/runtime_env.html">Environment/运行时环境参数</a>  </li>
+<li><a href="/uidemo/docs/manual/runtime_exception.html">ExceptionHandler/异常处理</a>   </li>
+<li><a href="/uidemo/docs/manual/runtime_autoloader.html">Autoloader/自动加载</a>   </li>
+<li><a href="/uidemo/docs/manual/runtime_container.html">Container/容器</a>   </li>
+<li><a href="/uidemo/docs/manual/runtime_event.html">EventManager/事件管理</a>  </li>
+</ul></li>
+<li><a href="/uidemo/docs/manual/application.html">Application/应用程序: application/</a>   
+<ul>
+<li><a href="/uidemo/docs/manual/profile.html">Proptrites/Application配置文件:application/config/profile.php</a></li>
+<li><a href="/uidemo/docs/manual/debug.html">Debug/调试模式配置</a></li>
+<li><a href="/uidemo/docs/manual/bootstrap.html">Bootstrap/引导程序配置:application/events/Bootstrap.php</a></li>
+<li><a href="/uidemo/docs/manual/lang.html">Lang/语言包配置:application/lang</a></li>
+<li><a href="/uidemo/docs/manual/data.html">Data/数据源配置:/application/data</a></li>
+<li><a href="/uidemo/docs/manual/cache.html">Cache/缓存配置:runtime/cache</a></li>
+<li><a href="/uidemo/docs/manual/logger.html">Logger/日志收集配置:runtime/log</a></li>
+<li><a href="/uidemo/docs/manual/configuration.html">Configuration/配置类配置</a></li>
+<li><a href="/uidemo/docs/manual/builder.html">Builder/打包单文件的配置</a></li>
+<li><a href="/uidemo/docs/manual/daemon.html">Daemon/守护进程配置</a></li>
+<li><a href="/uidemo/docs/manual/filter.html">Filter/过滤器配置</a></li>
+<li><a href="/uidemo/docs/manual/mvc_event.html">MVC/Event/事件配置</a></li>
+<li><a href="/uidemo/docs/manual/mvc_controller.html">MVC/Controller/控制器配置:application/controllers/</a></li>
+<li><a href="/uidemo/docs/manual/mvc_model.html">MVC/Model/模型配置:application/models/</a></li>
+<li><a href="/uidemo/docs/manual/mvc_viewer.html">MVC/Viewer/视图配置:application/views/</a></li>
+<li><a href="/uidemo/docs/manual/mvc_router.html">MVC/Router/路由器配置</a></li>
+<li><a href="/uidemo/docs/manual/mvc_dispatcher.html">MVC/Controller/Dispatcher/派发器配置</a></li>
+<li><a href="/uidemo/docs/manual/mvc_request.html">MVC/Request/请求</a></li>
+<li><a href="/uidemo/docs/manual/mvc_response.html">MVC/Response/响应</a></li>
+<li><a href="/uidemo/docs/manual/mvc_cookie.html">MVC/Web/HttpCookie</a></li>
+<li><a href="/uidemo/docs/manual/mvc_session.html">Mvc/Web/HttpSession</a>            </li>
+</ul></li>
+</ul>
+</li>
+<li>
+<p>框架标准库参考</p>
+<ul>
+<li><a href="/uidemo/docs/lib/tiny.html">Tiny：工具包</a></li>
+<li><a href="/uidemo/docs/lib/runtime.html">Tiny\Runtime：运行时</a></li>
+<li><a href="/uidemo/docs/lib/build.html">Tiny\Build：打包</a></li>
+<li><a href="/uidemo/docs/lib/cache.html">Tiny\Cache：缓存</a></li>
+<li><a href="/uidemo/docs/lib/config.html">Tiny\Config：配置</a></li>
+<li><a href="/uidemo/docs/lib/console.html">Tiny\Console：命令行</a></li>
+<li><a href="/uidemo/docs/lib/data.html">Tiny\Data：数据层</a></li>
+<li><a href="/uidemo/docs/lib/di.html">Tiny\DI：依赖注入</a></li>
+<li><a href="/uidemo/docs/lib/event.html">Tiny\Event：事件</a></li>
+<li><a href="/uidemo/docs/lib/filter.html">Tiny\Filter：过滤器</a>   </li>
+<li><a href="/uidemo/docs/lib/image.html">Tiny\Image：图片处理</a></li>
+<li><a href="/uidemo/docs/lib/lang.html">Tiny\Lang：语言包</a></li>
+<li><a href="/uidemo/docs/lib/log.html">Tiny\Log：日志处理</a></li>
+<li><a href="/uidemo/docs/lib/mvc.html">Tiny\MVC：MVC</a></li>
+<li><a href="/uidemo/docs/lib/net.html">Tiny\Net：网络</a></li>
+<li><a href="/uidemo/docs/lib/string.html">Tiny\String：字符处理</a> </li>
+</ul>
+</li>
+</ul></div></div>
 
-{template pub/app/ui-footer.html|tinyphp-ui}
+{template pub/app/main-footer.html|tinyphp-ui}

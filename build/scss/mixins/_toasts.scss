@@ -13,9 +13,11 @@
     }
 
     @if (color-contrast($color) == $white) {
-      .close {
+      .btn-close {
         text-shadow: 0 1px 0 $black;
         color: color-contrast($color);
+        filter: $btn-close-white-filter;
+        
       }
     }
   }

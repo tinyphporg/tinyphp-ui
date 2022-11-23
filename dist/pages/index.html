@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Tinyphp 集成了bootstrap jquery等前端库，用于构建响应式、移动设备优先的网站。">
+<title>tinyphp-ui|tinyphp.org</title>
+<link href="../css/tinyphp-ui.min.css" rel="stylesheet"><script src="../js/tinyphp-ui.min.js"></script></head>
+<body class="ui-has-sidebar">
+    <header class="navbar navbar-expand-md bg-primary ui-header">
+        <nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#uiMainNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-align-justify"></i>
+            </button>
+
+            
+            <a class="navbar-brand p-0 me-2" href="" aria-label="logo"> <img class="ui-header-logo" src="http://localhost:8080/assets//img/tinyphp-logo.png"/> <img class="ui-header-mini-logo" src="http://localhost:8080/assets//img/tinyphp-icon.png"/>
+            </a>
+            
+
+            
+            <button class="navbar-toggler ui-sidebar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#uiMainSidebar" aria-controls="uiMainSidebar" aria-expanded="false" aria-label="Toggle  sidebar">
+                <i class="bi bi-arrows-expand"></i> <i class="bi bi-arrows-collapse"></i>
+            </button>
+            
+
+            <div class="offcanvas offcanvas-start bg-primary" tabindex="-1" id="uiMainNavbar" aria-labelledby="uiNavbarOffcanvasLabel">
+                <div class="offcanvas-header pb-0">
+                    <h5 class="offcanvas-title text-white" id="uiNavbarOffcanvasLabel">tinyphp</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body pt-0">
+                    <hr class="d-md-none text-white-50">
+                    <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">
+
+                        <li class="nav-item col-6 col-md-auto"><a class="nav-link p-2" href="#">Home</a></li>
+
+
+                        <li class="nav-item col-6 col-md-auto dropdown"><a class="nav-link p-2 dropdown-toggle" href="#" data-bs-toggle="dropdown">中文文档</a>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">使用手册</a></li>
+                                <li><a class="dropdown-item" href="#">ui库参考</a></li>
+                                <li><a class="dropdown-item" href="#">标准库</a></li>
+                                <li><a class="dropdown-item" href="#">编码规范</a></li>
+                            </ul></li>
+
+
+                        <li class="nav-item col-6 col-md-auto"><a class="nav-link p-2" href="/admin/index.html">Admin protal</a></li>
+
+
+                        <li class="nav-item col-6 col-md-auto"><a class="nav-link p-2" href="/admin/icons.html">Icons</a></li>
+
+
+                        <li class="nav-item col-6 col-md-auto"><a class="nav-link p-2" href="http://tinyphp.org/">tinyphp.org</a></li>
+
+                    </ul>
+
+                    <hr class="d-md-none text-white-50">
+                    <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+                        <li class="nav-item col-6 col-md-auto"><a class="nav-link p-2" href="https://github.com/tinyphporg" target="_blank" rel="noopener"> <i class="bi bi-github" title="tinyphp"> </i><span class="d-md-none mx-1">tinyphp</span>
+                        </a></li>
+                        <li class="nav-item col-6 col-md-auto"><a class="nav-link p-2" href="https://v5.bootcss.com/docs/5.1/getting-started/introduction/" target="_blank" rel="noopener"> <i class="bi bi-bootstrap" title="bootstrap"> </i><span class="d-md-none mx-1">bootstrap</span>
+                        </a></li>
+                        <li class="nav-item col-6 col-md-auto"><a class="nav-link p-2" href="#" target="_blank" rel="noopener"> <i class="fi fi-cn" title="cn"> </i><span class="d-md-none mx-1">cn</span>
+                        </a></li>
+                    </ul>
+
+                    <hr class="d-md-none text-white-50">
+                    <a class="btn btn-outline-success btn-shadow d-lg-inline-block my-2 my-md-0 ms-md-3" href="https://github.com/tinyphporg/tinyphp-ui">View on GitHub</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-xxl my-md-4 ui-main-wrapper">
+        <aside class="ui-sidebar">
+    <nav class="collapse ui-sidebar-links" id="uiMainSidebar" aria-label="Docs navigation">
+        <ul class="list-unstyled mb-0 py-3 pt-md-1">
+            <li class="mb-1"><a href="/uidemo/docs/readme.html" class="btn d-inline-flex align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse-0" aria-expanded="true" aria-current="true"><i class="bi bi-chevron-right"></i><i class="bi bi-chevron-down"></i> 快速入门 </a>
+                <div class="collapse" id="sidebar-collapse-0">
+                    <ul class="list-unstyled fw-normal pb-1 small">
+                        <li><a href="/uidemo/docs/readme.html" class="d-inline-flex align-items-center rounded" aria-current="page">index.php入口文件</a></li>
+                        <li><a href="/uidemo/docs/manual/profile.html" class="d-inline-flex align-items-center rounded" aria-current="page">profile.php配置文件</a></li>
+                    </ul>
+                </div></li>
+            <li class="mb-1"><a href="#" class="btn d-inline-flex align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse-1" aria-expanded="true" aria-current="true"><i class="bi bi-chevron-right"></i><i class="bi bi-chevron-down"></i> 使用规范 </a>
+                <div class="collapse" id="sidebar-collapse-1">
+                    <ul class="list-unstyled fw-normal pb-1 small">
+                        <li><a href="/uidemo/docs/standard/coding.html" class="d-inline-flex align-items-center rounded" aria-current="page">编码规范</a></li>
+                        <li><a href="/uidemo/docs/standard/db.html" class="d-inline-flex align-items-center rounded" aria-current="page">数据库操作规范</a></li>
+                        <li><a href="/uidemo/docs/standard/team.html" class="d-inline-flex align-items-center rounded" aria-current="page">团队协作规范</a></li>
+                    </ul>
+                </div></li>
+            <li class="mb-1"><a href="#" class="btn d-inline-flex align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse-2" aria-expanded="true" aria-current="true"><i class="bi bi-chevron-right"></i><i class="bi bi-chevron-down"></i> Application </a>
+                <div class="collapse" id="sidebar-collapse-2">
+                    <ul class="list-unstyled fw-normal pb-1 small">
+                        <li><a href="/uidemo/docs/manual/application.html" class="d-inline-flex align-items-center rounded" aria-current="page">Application/应用程序</a></li>
+                        <li><a href="/uidemo/docs/manual/profile.html" class="d-inline-flex align-items-center rounded" aria-current="page">Proptrites/配置文件</a></li>
+                        <li><a href="/uidemo/docs/manual/debug.html" class="d-inline-flex align-items-center rounded" aria-current="page">Debug/调试模式配置</a></li>
+                        <li><a href="/uidemo/docs/manual/bootstrap.html" class="d-inline-flex align-items-center rounded" aria-current="page">Bootstrap/引导程序配置</a></li>
+                        <li><a href="/uidemo/docs/manual/lang.html" class="d-inline-flex align-items-center rounded" aria-current="page">Lang/语言包配置</a></li>
+                        <li><a href="/uidemo/docs/manual/data.html" class="d-inline-flex align-items-center rounded" aria-current="page">Data/数据源配置</a></li>
+                        <li><a href="/uidemo/docs/manual/cache.html" class="d-inline-flex align-items-center rounded" aria-current="page">Cache/缓存配置</a></li>
+                        <li><a href="/uidemo/docs/manual/logger.html" class="d-inline-flex align-items-center rounded" aria-current="page">Logger/日志收集配置</a></li>
+                        <li><a href="/uidemo/docs/manual/configuration.html" class="d-inline-flex align-items-center rounded" aria-current="page">Configuration/配置类</a></li>
+                        <li><a href="/uidemo/docs/manual/builder.html" class="d-inline-flex align-items-center rounded" aria-current="page">Builder/打包单文件配置</a></li>
+                        <li><a href="/uidemo/docs/manual/daemon.html" class="d-inline-flex align-items-center rounded" aria-current="page">Daemon/守护进程配置</a></li>
+                        <li><a href="/uidemo/docs/manual/filter.html" class="d-inline-flex align-items-center rounded" aria-current="page">Filter/过滤器配置</a></li>
+                        <li><a href="/uidemo/docs/manual/mvc_event.html" class="d-inline-flex align-items-center rounded" aria-current="page">Event/事件配置</a></li>
+                        <li><a href="/uidemo/docs/manual/mvc_controller.html" class="d-inline-flex align-items-center rounded" aria-current="page">Controller/控制器配置</a></li>
+                        <li><a href="/uidemo/docs/manual/mvc_model.html" class="d-inline-flex align-items-center rounded" aria-current="page">Model/模型配置/</a></li>
+                        <li><a href="/uidemo/docs/manual/mvc_viewer.html" class="d-inline-flex align-items-center rounded" aria-current="page">Viewer/视图配置</a></li>
+                        <li><a href="/uidemo/docs/manual/mvc_router.html" class="d-inline-flex align-items-center rounded" aria-current="page">Router/路由器配置</a></li>
+                        <li><a href="/uidemo/docs/manual/mvc_dispatcher.html" class="d-inline-flex align-items-center rounded" aria-current="page">Dispatcher/派发器配置</a></li>
+                        <li><a href="/uidemo/docs/manual/mvc_request.html" class="d-inline-flex align-items-center rounded" aria-current="page">Request/请求</a></li>
+                        <li><a href="/uidemo/docs/manual/mvc_response.html" class="d-inline-flex align-items-center rounded" aria-current="page">Response/响应</a></li>
+                        <li><a href="/uidemo/docs/manual/mvc_cookie.html" class="d-inline-flex align-items-center rounded" aria-current="page">HttpCookie</a></li>
+                        <li><a href="/uidemo/docs/manual/mvc_session.html" class="d-inline-flex align-items-center rounded" aria-current="page">HttpSession</a></li>
+                    </ul>
+                </div></li>
+            <li class="mb-1"><a href="#" class="btn d-inline-flex align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse-3" aria-expanded="true" aria-current="true"><i class="bi bi-chevron-right"></i><i class="bi bi-chevron-down"></i> Runtime </a>
+                <div class="collapse" id="sidebar-collapse-3">
+                    <ul class="list-unstyled fw-normal pb-1 small">
+                        <li><a href="/uidemo/docs/manual/runtime_env.html" class="d-inline-flex align-items-center rounded" aria-current="page">环境参数</a></li>
+                        <li><a href="/uidemo/docs/manual/runtime_exception.html" class="d-inline-flex align-items-center rounded" aria-current="page">异常处理</a></li>
+                        <li><a href="/uidemo/docs/manual/runtime_autoloader.html" class="d-inline-flex align-items-center rounded" aria-current="page">自动加载</a></li>
+                        <li><a href="/uidemo/docs/manual/runtime_container.html" class="d-inline-flex align-items-center rounded" aria-current="page">依赖注入</a></li>
+                        <li><a href="/uidemo/docs/manual/runtime_event.html" class="d-inline-flex align-items-center rounded" aria-current="page">事件驱动管理</a></li>
+                    </ul>
+                </div></li>
+            <li class="mb-1"><a href="#" class="btn d-inline-flex align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse-4" aria-expanded="true" aria-current="true"><i class="bi bi-chevron-right"></i><i class="bi bi-chevron-down"></i> 标准库参考 </a>
+                <div class="collapse" id="sidebar-collapse-4">
+                    <ul class="list-unstyled fw-normal pb-1 small">
+                        <li><a href="" class="d-inline-flex align-items-center rounded" aria-current="page"> </a></li>
+                        <li><a href="/uidemo/docs/lib/tiny.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny：工具包</a></li>
+                        <li><a href="/uidemo/docs/lib/runtime.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\Runtime：运行时</a></li>
+                        <li><a href="/uidemo/docs/lib/build.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\Build：打包</a></li>
+                        <li><a href="/uidemo/docs/lib/cache.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\Cache：缓存</a></li>
+                        <li><a href="/uidemo/docs/lib/config.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\Config：配置</a></li>
+                        <li><a href="/uidemo/docs/lib/console.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\Console：命令行</a></li>
+                        <li><a href="/uidemo/docs/lib/data.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\Data：数据层</a></li>
+                        <li><a href="/uidemo/docs/lib/di.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\DI：依赖注入</a></li>
+                        <li><a href="/uidemo/docs/lib/event.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\Event：事件</a></li>
+                        <li><a href="/uidemo/docs/lib/filter.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\Filter：过滤器</a></li>
+                        <li><a href="/uidemo/docs/lib/image.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\Image：图片处理</a></li>
+                        <li><a href="/uidemo/docs/lib/lang.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\Lang：语言包</a></li>
+                        <li><a href="/uidemo/docs/lib/log.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\Log：日志处理</a></li>
+                        <li><a href="/uidemo/docs/lib/mvc.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\MVC：MVC</a></li>
+                        <li><a href="/uidemo/docs/lib/net.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\Net：网络</a></li>
+                        <li><a href="/uidemo/docs/lib/string.html" class="d-inline-flex align-items-center rounded" aria-current="page">Tiny\String：字符处理</a></li>
+                    </ul>
+                </div></li>
+            <li class="mb-1"><a href="#" class="btn d-inline-flex align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse-5" aria-expanded="true" aria-current="true"><i class="bi bi-chevron-right"></i><i class="bi bi-chevron-down"></i> UI库参考 </a>
+                <div class="collapse" id="sidebar-collapse-5">
+                    <ul class="list-unstyled fw-normal pb-1 small">
+                        <li><a href="/uidemo/docs/ui/webpack.html" class="d-inline-flex align-items-center rounded" aria-current="page">webpack5</a></li>
+                        <li><a href="/uidemo/docs/ui/bootstrap.html" class="d-inline-flex align-items-center rounded" aria-current="page">bootstrap5</a></li>
+                        <li><a href="/uidemo/docs/ui/jquery.html" class="d-inline-flex align-items-center rounded" aria-current="page">jquery</a></li>
+                        <li><a href="/uidemo/docs/ui/component.html" class="d-inline-flex align-items-center rounded" aria-current="page">组件/component</a></li>
+                        <li><a href="/uidemo/docs/ui/icons.html" class="d-inline-flex align-items-center rounded" aria-current="page">图标/icons</a></li>
+                    </ul>
+                </div></li>
+        </ul>
+    </nav>
+</aside>
+        <main class="ui-main ui-has-menu order-1">
+<div class="ui-main-header ps-lg-4">
+    <div class="d-md-flex flex-md-row-reverse align-items-center justify-content-between">
+        <a class="btn btn-sm mb-2 mb-md-0" href="https://github.com/twbs/bootstrap/blob/main/site/content/docs/5.1/getting-started/introduction.md" title="View and edit this file on GitHub" target="_blank" rel="noopener">View on GitHub</a>
+        <h1 class="bd-title" id="content">Tinyphp-framework</h1>
+    </div>
+    <p class="bd-lead">Tinyphp-ui 是一款面向PHP全栈工程师的前端UI组件库，后端基于tinyphp framework 2.0， 前端基于webpack5整合了bootstrap5 + jquery。</p>
+</div>
+<div class="ui-main-menu mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted fs-7">
+    <strong class="d-block h6 my-2 pb-2 border-bottom">索引</strong>
+    <nav id="TableOfContents">
+        <ul>
+            <li class="ms-1"><a href="#ui-menu-0">TinyPHP Framework for PHP</a></li>
+            <li class="ms-2"><a href="#ui-menu-1">tinyphp v2.0.0</a></li>
+            <li class="ms-2"><a href="#ui-menu-2">快速开始</a></li>
+            <li class="ms-1"><a href="#ui-menu-3">核心组件</a></li>
+            <li class="ms-3"><a href="#ui-menu-4">tinyphp-framework v2.0</a></li>
+            <li class="ms-3"><a href="#ui-menu-5">tinyphp-docs</a></li>
+            <li class="ms-3"><a href="#ui-menu-6">tinyphp-ui</a></li>
+            <li class="ms-3"><a href="#ui-menu-7">lnmp-utils</a></li>
+            <li class="ms-2"><a href="#ui-menu-8">快速构建运行环境</a></li>
+            <li class="ms-3"><a href="#ui-menu-9">CentOS X64 7.4+</a></li>
+            <li class="ms-3"><a href="#ui-menu-10">docker</a></li>
+        </ul>
+    </nav>    
+</div>
+<div class="ui-main-content ps-lg-4">
+
+    <div class="markdown-body">
+        <h1 id="ui-menu-0">TinyPHP Framework for PHP</h1>
+        <h2 id="ui-menu-1">tinyphp v2.0.0</h2>
+        <ul>
+            <li>基于tinyphp framework v2.0.0 <a href="https://github.com/tinyphporg/tinyphp-framework">https://github.com/tinyphporg/tinyphp-framework</a></li>
+        </ul>
+        <blockquote>
+            <p>
+                经过日PV十亿级别生产环境检验；<br/> 应用于高并发高性能的生产环境； 支持分布式的RPC微服务处理；<br/> 适用于 Web/Console/RPC等运行环境，包括单一命令行文件打包，多任务的服务端守护进等。
+            </p>
+        </blockquote>
+        <p>tinyphp-framework的适用场景与理念</p>
+        <hr/>
+        <ul>
+            <li>
+                <p>客户端应用(IOS/Android/H5/小程序)的API接口开发：</p>
+                <ul>
+                    <li>高性能，大并发。</li>
+                    <li>快速开发。</li>
+                    <li>支持分布式RPC微服务架构。</li>
+                </ul>
+            </li>
+            <li>
+                <p>Web管理后台：</p>
+                <ul>
+                    <li>适用于PHP全栈工程师，及不具备UI设计师和前端工程师的研发团队。</li>
+                    <li>集成了tinyphp-ui前端框架，只需少量的JS前端代码。</li>
+                </ul>
+            </li>
+            <li>
+                <p>大规模团队协作：</p>
+                <ul>
+                    <li>10-100+人以上的研发团队。</li>
+                    <li>创业团队，产品快速成型，可在较少的研发人力成本下进行高效的敏捷开发。</li>
+                    <li>适用于具备在大规模的高性能应用场景下，通过PHP解决大多数复杂业务的架构。</li>
+                    <li>可将大规模复杂应用的后端语言有效控制为PHP一种后端开发语言，有效降低项目维护成本和团队管理难度。</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="ui-menu-2">快速开始</h2>
+        <pre>
+            <code class="language-shell">composer create-project tinyphporg/tinyphp
+
+#console 运行
+php public/index.php
+
+#编译单文件
+php public/index.php --build
+
+#服务端守护进程
+php public/index.php -d  //开启
+php public/index.php --daemon=stop  //关闭
+
+#配置文件 
+application/config/profile.php</code>
+        </pre>
+        <h1 id="ui-menu-3">核心组件</h1>
+        <h3 id="ui-menu-4">tinyphp-framework v2.0</h3>
+        <ul>
+            <li>框架地址： <a href="https://github.com/tinyphporg/tinyphp-framework">https://github.com/tinyphporg/tinyphp-framework</a>
+            </li>
+        </ul>
+        <h3 id="ui-menu-5">tinyphp-docs</h3>
+        <ul>
+            <li>中文文档: 使用手册、标准库。</li>
+            <li>项目地址: <a href="https://github.com/tinyphporg/tinyphp-docs">https://github.com//tinyphp-docs</a>
+            </li>
+        </ul>
+        <h3 id="ui-menu-6">tinyphp-ui</h3>
+        <ul>
+            <li>前端UI组件库: webpack5+bootstrap5+jquery...</li>
+            <li>项目地址： : <a href="https://github.com/tinyphporg/tinyphp-ui">https://github.com/tinyphporg/tinyphp-ui</a>
+            </li>
+        </ul>
+        <h3 id="ui-menu-7">lnmp-utils</h3>
+        <ul>
+            <li>Linux(CentOS7X_64) +openresty(nginx)+Mysql+PHP+Redis一键安装包, 适用于生产环境。</li>
+            <li>项目地址: <a href="https://github.com/tinyphporg/lnmp-utils">https://github.com/tinyphporg/lnmp-utils</a></li>
+        </ul>
+        <h2 id="ui-menu-8">快速构建运行环境</h2>
+        <h3 id="ui-menu-9">CentOS X64 7.4+</h3>
+        <blockquote>
+            <p>
+                适应于生产环境，依赖于lnmp-utils。<br/> lnmp-utils: Linux(CentOS7X_64) +openresty(nginx)+Mysql+PHP+Redis一键安装包。<br/> 项目地址: <a href="https://github.com/tinyphporg/lnmp-utils">https://github.com/tinyphporg/lnmp-utils</a>
+            </p>
+        </blockquote>
+        <pre>
+            <code class="language-shell">git clone https://github.com/tinyphporg/lnmp-utils.git
+cd ./lnmp-utils
+./install.sh -m tinyphp</code>
+        </pre>
+        <h3 id="ui-menu-10">docker</h3>
+        <blockquote>
+            <p>适应于开发环境</p>
+        </blockquote>
+        <pre>
+            <code class="language-shell">#可更改/data/workspace/tinyphp为自定义IDE工作目录
+workspace=/data/workspace/
+
+docker pull centos:7
+docker run -d -p 80:80 -p 3306:3306 -p 8080:8080 -p 8989:8989 -p 10022:22 -v $workspace:/data/web  --name="tinyphp" --hostname="tinyphp" --restart=always -w /data/worksapce/ centos:7 /sbin/init
+
+#port 8080 
+#   用于tinyphporg/tinyphp-ui调试
+# npm run dev
+
+#port 8989 
+#    用于tinyphporg/tinyphp-ui打包详情查看
+# npm run build
+
+docker exec -it tinyphp /bin/bash
+
+git clone https://github.com/tinyphporg/lnmp-utils.git
+cd ./lnmp-utils
+./install.sh 
+
+cd /data/web/tinyphporg/tinyphp
+php public/index.php
+</code>
+        </pre>
+        <p>中文手册</p>
+        <hr/>
+        <blockquote>
+            <p>本框架的编码规范遵守PSR规范标准，仅少数细节做灵活调整。</p>
+        </blockquote>
+        <ul>
+            <li>
+                <p>
+                    <a href="http://github.com/tinyphporg/lnmp-utils.git">环境搭建/lnmp-utils: http://github.com/tinyphporg/lnmp-utils.git</a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="http://github.com/tinyphporg/tinyphp.git">Demo/tinyphp: http://github.com/tinyphporg/tinyphp.git</a>
+                </p>
+            </li>
+            <li>
+                <p>编码规范</p>
+                <ul>
+                    <li><a href="/uidemo/docs/standard/coding_file.html">文件结构</a></li>
+                    <li><a href="/uidemo/docs/standard/coding_program_typesetting.html">程序的排版</a></li>
+                    <li><a href="/uidemo/docs/standard/coding_rules.html">命名规则</a></li>
+                    <li><a href="/uidemo/docs/standard/coding_expression.html">表达式和基本语句</a></li>
+                    <li><a href="/uidemo/docs/standard/coding/constant.html">常量</a></li>
+                    <li><a href="/uidemo/docs/standard/coding/function.html">函数设计</a></li>
+                    <li><a href="/uidemo/docs/standard/coding_ide.html">IDE的选择</a></li>
+                    <li><a href="/uidemo/docs/standard/coding_example.html">编码规范的一些示例</a></li>
+                </ul>
+            </li>
+            <li>
+                <p>数据库查询/设计/操作规范</p>
+                <ul>
+                    <li><a href="/uidemo/docs/standard/db_select.html">查询规范</a></li>
+                    <li><a href="/uidemo/docs/standard/db_dbtable.html">库和表的规范</a></li>
+                    <li><a href="/uidemo/docs/standard/db_design.html">数据库设计原则</a></li>
+                    <li><a href="/uidemo/docs/standard/db_optimization.html">数据库的配置优化</a></li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    <a href="/uidemo/docs/standard/team.html">团队协作规范</a>
+                </p>
+            </li>
+            <li>
+                <p>框架使用手册</p>
+                <ul>
+                    <li><a href="/uidemo/docs/manual/index.html">Index/入口文件: public/index.php</a></li>
+                    <li><a href="/uidemo/docs/manual/runtime.html">Runtime/运行时环境: runtime/</a>
+                        <ul>
+                            <li><a href="/uidemo/docs/manual/runtime_env.html">Environment/运行时环境参数</a></li>
+                            <li><a href="/uidemo/docs/manual/runtime_exception.html">ExceptionHandler/异常处理</a></li>
+                            <li><a href="/uidemo/docs/manual/runtime_autoloader.html">Autoloader/自动加载</a></li>
+                            <li><a href="/uidemo/docs/manual/runtime_container.html">Container/容器</a></li>
+                            <li><a href="/uidemo/docs/manual/runtime_event.html">EventManager/事件管理</a></li>
+                        </ul></li>
+                    <li><a href="/uidemo/docs/manual/application.html">Application/应用程序: application/</a>
+                        <ul>
+                            <li><a href="/uidemo/docs/manual/profile.html">Proptrites/Application配置文件:application/config/profile.php</a></li>
+                            <li><a href="/uidemo/docs/manual/debug.html">Debug/调试模式配置</a></li>
+                            <li><a href="/uidemo/docs/manual/bootstrap.html">Bootstrap/引导程序配置:application/events/Bootstrap.php</a></li>
+                            <li><a href="/uidemo/docs/manual/lang.html">Lang/语言包配置:application/lang</a></li>
+                            <li><a href="/uidemo/docs/manual/data.html">Data/数据源配置:/application/data</a></li>
+                            <li><a href="/uidemo/docs/manual/cache.html">Cache/缓存配置:runtime/cache</a></li>
+                            <li><a href="/uidemo/docs/manual/logger.html">Logger/日志收集配置:runtime/log</a></li>
+                            <li><a href="/uidemo/docs/manual/configuration.html">Configuration/配置类配置</a></li>
+                            <li><a href="/uidemo/docs/manual/builder.html">Builder/打包单文件的配置</a></li>
+                            <li><a href="/uidemo/docs/manual/daemon.html">Daemon/守护进程配置</a></li>
+                            <li><a href="/uidemo/docs/manual/filter.html">Filter/过滤器配置</a></li>
+                            <li><a href="/uidemo/docs/manual/mvc_event.html">MVC/Event/事件配置</a></li>
+                            <li><a href="/uidemo/docs/manual/mvc_controller.html">MVC/Controller/控制器配置:application/controllers/</a></li>
+                            <li><a href="/uidemo/docs/manual/mvc_model.html">MVC/Model/模型配置:application/models/</a></li>
+                            <li><a href="/uidemo/docs/manual/mvc_viewer.html">MVC/Viewer/视图配置:application/views/</a></li>
+                            <li><a href="/uidemo/docs/manual/mvc_router.html">MVC/Router/路由器配置</a></li>
+                            <li><a href="/uidemo/docs/manual/mvc_dispatcher.html">MVC/Controller/Dispatcher/派发器配置</a></li>
+                            <li><a href="/uidemo/docs/manual/mvc_request.html">MVC/Request/请求</a></li>
+                            <li><a href="/uidemo/docs/manual/mvc_response.html">MVC/Response/响应</a></li>
+                            <li><a href="/uidemo/docs/manual/mvc_cookie.html">MVC/Web/HttpCookie</a></li>
+                            <li><a href="/uidemo/docs/manual/mvc_session.html">Mvc/Web/HttpSession</a></li>
+                        </ul></li>
+                </ul>
+            </li>
+            <li>
+                <p>框架标准库参考</p>
+                <ul>
+                    <li><a href="/uidemo/docs/lib/tiny.html">Tiny：工具包</a></li>
+                    <li><a href="/uidemo/docs/lib/runtime.html">Tiny\Runtime：运行时</a></li>
+                    <li><a href="/uidemo/docs/lib/build.html">Tiny\Build：打包</a></li>
+                    <li><a href="/uidemo/docs/lib/cache.html">Tiny\Cache：缓存</a></li>
+                    <li><a href="/uidemo/docs/lib/config.html">Tiny\Config：配置</a></li>
+                    <li><a href="/uidemo/docs/lib/console.html">Tiny\Console：命令行</a></li>
+                    <li><a href="/uidemo/docs/lib/data.html">Tiny\Data：数据层</a></li>
+                    <li><a href="/uidemo/docs/lib/di.html">Tiny\DI：依赖注入</a></li>
+                    <li><a href="/uidemo/docs/lib/event.html">Tiny\Event：事件</a></li>
+                    <li><a href="/uidemo/docs/lib/filter.html">Tiny\Filter：过滤器</a></li>
+                    <li><a href="/uidemo/docs/lib/image.html">Tiny\Image：图片处理</a></li>
+                    <li><a href="/uidemo/docs/lib/lang.html">Tiny\Lang：语言包</a></li>
+                    <li><a href="/uidemo/docs/lib/log.html">Tiny\Log：日志处理</a></li>
+                    <li><a href="/uidemo/docs/lib/mvc.html">Tiny\MVC：MVC</a></li>
+                    <li><a href="/uidemo/docs/lib/net.html">Tiny\Net：网络</a></li>
+                    <li><a href="/uidemo/docs/lib/string.html">Tiny\String：字符处理</a></li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    <a href="https://github.com/tinyphporg/tinyphp-docs/blob/master/docs/ui/">UI库参考</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+</main>
+</div>
+
+<footer class="ui-footer py-5 mt-5 bg-light">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-3 mb-3">
+                <ul class="list-unstyled small text-muted">
+                    <li class="mb-2">tinyphp-ui:可以设计响应式的前端web应用和管理后台应用，如ERP，OA系统等</li>
+                    <li class="mb-2">主要组件: tinyphp + webpack5 + bootstrap5 + jquery</li>
+                    <li class="mb-2">当前版本:2.0.0</li>
+                </ul>
+            </div>
+            <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+                <h5>导航</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="/uidemo/app/index.html">Home</a></li>
+                    <li class="mb-2"><a href="/uidemo/docs/readme.html">Docs</a></li>
+                    <li class="mb-2"><a href="https://tinyphp.org/">Blog</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-lg-2 mb-3">
+                <h5>Guides</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="/uidemo/docs/readme.html">快速开始</a></li>
+                    <li class="mb-2"><a href="/uidemo/docs/theme.html">主题</a></li>
+                    <li class="mb-2"><a href="/uidemo/docs/component.html">JS组件</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-lg-4 mb-3">
+                <h5>框架组件</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="https://github.com/tinyphporg/tinyphp">tinyphp</a></li>
+                    <li class="mb-2"><a href="https://github.com/tinyphporg/tinyphp-ui">tinyphp-ui</a></li>
+                    <li class="mb-2"><a href="https://github.com/tinyphporg/tinyphp-docs">tinyphp-docs</a></li>
+                    <li class="mb-2"><a href="https://github.com/tinyphporg/tinyphp-framework">tinyphp-framework</a></li>
+                    <li class="mb-2"><a href="https://github.com/tinyphporg/lnmp-utils">lnmp-utils</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

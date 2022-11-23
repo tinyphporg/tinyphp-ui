@@ -121,6 +121,9 @@ body:not(.sidebar-mini-md, .sidebar-mini-xs) {
 }
      
 .content-wrapper {
+    .layout-footer-fixed & {
+        margin-bottom: $main-footer-height;
+    }
   > .content {
     padding: $content-padding-y $content-padding-x;
   }
@@ -147,6 +150,7 @@ body:not(.sidebar-mini-md, .sidebar-mini-xs) {
     &::before {
       margin-left: -$sidebar-width;
     }
+    
   }
 
   @include media-breakpoint-down(sm) {
@@ -170,11 +174,13 @@ body:not(.sidebar-mini-md, .sidebar-mini-xs) {
   border-top: $main-footer-border-top;
   color: lighten($gray-700, 25%);
   background-color: $main-footer-bg;
-
-  .text-sm &,
-  &.text-sm {
-    padding: $main-footer-padding-sm;
-  }
+  .layout-footer-fixed & {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 1032;
+    }
 }
 
 .content-header {

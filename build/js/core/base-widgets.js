@@ -22,12 +22,13 @@ import AdminDropdown from '../widgets/Dropdown'
 import ExpandableTable from '../widgets/ExpandableTable'
 import Fullscreen from '../widgets/Fullscreen'
 
-import Toasts from '../widgets/Toasts'
+import Toasts from '../widgets/toasts'
 import TodoList from '../widgets/TodoList'
 
 import HighLight from '../widgets/highlight'
 import Select2 from '../widgets/select2'
 import Pageination from '../widgets/Pagination'
+import Treeview from '../widgets/treeview'
 
 // bootstrap widgets
 const bootstrapWidgets = {
@@ -63,7 +64,7 @@ const baseWidgets = {
 //  NavbarSearch,
   Toasts,
   TodoList,
-//  Treeview,
+Treeview,
   HighLight,
   Select2    
 }

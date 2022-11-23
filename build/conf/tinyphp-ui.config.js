@@ -20,22 +20,26 @@ DIST_PAGE_DIR = path.resolve(ROOT_DIR, './src/views')
 DIST_HTML_DIR = path.resolve(ROOT_DIR, './htmls')
 
 // prod环境下的publicPath
-const PROD_PUBLIC_PATH = '../../tinyphp-ui/dist/'
+const PROD_PUBLIC_PATH = '../'
 
 // dev环境下的publicPath
 const DEV_PUBLIC_PATH = 'http://localhost:8080/'
 
+const IS_PROD = (process.env.NODE_ENV === 'prod')
+const PUBLIC_PATH = IS_PROD ? PROD_PUBLIC_PATH : DEV_PUBLIC_PATH
 
 // replace tag
 const replaceTag = (sourceText) => {
-    let replaceText = sourceText.replace(/{ui\.(admin|lib|assets)}/g, (matchText) => {
+    let replaceText = sourceText.replace(/{ui\.(admin|lib|assets|publicpath)}/g, (matchText) => {
         switch (matchText) {
             case '{ui.admin}':
-                return `<script src="${DEV_PUBLIC_PATH}js/tinyphp-ui.admin.js"></script>`
+                return `<script data-ui-public-path="${DEV_PUBLIC_PATH}" src="${DEV_PUBLIC_PATH}js/tinyphp-ui.admin.js"></script>`
             case '{ui.lib}':
-                return `<script src="${DEV_PUBLIC_PATH}js/tinyphp-ui.js"></script>`
+                return `<script data-ui-public-path="${DEV_PUBLIC_PATH}" src="${DEV_PUBLIC_PATH}js/tinyphp-ui.js"></script>`
             case '{ui.assets}':
-                return '/assets/'
+                return  PUBLIC_PATH + 'assets/'
+            case '{ui.publicpath}':
+                return PUBLIC_PATH
         }
         return ''
     })
@@ -50,7 +54,7 @@ const replaceTag = (sourceText) => {
 
 //module
 module.exports = {
-    isProd: (process.env.NODE_ENV === 'prod'),
+    isProd: IS_PROD,
     copyright: '',
     eslints:[
        //  BUILD_JS_DIR
@@ -68,7 +72,7 @@ module.exports = {
                 entrys.push({
                     id: tfname ,
                     name: tfname,
-                    filename: path.resolve(DIST_DIR, `./${tname}`),
+                    filename: path.resolve(DIST_DIR, `./pages/${tname}`),
                     template: tpath,
                     entry: path.resolve(BUILD_JS_DIR, `./${tpname}.js`)
                 })

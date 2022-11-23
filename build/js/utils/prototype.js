@@ -428,9 +428,14 @@ const isObject = function(obj) {
 
 // object extend
 const extend = function(...arg) {
-    if (arg.length <= 1) { return; }
+    if (arg.length < 1) { return; }
+    
     let destination = arg[0];
-    let source = arg[1];
+    let source = arg[1]    
+    if (arg.length == 1) {
+        destination = this
+        source = arg[0]    
+    }
     let property;
     for (property in source) {
         if (Object.prototype.hasOwnProperty.call(source, property)) {

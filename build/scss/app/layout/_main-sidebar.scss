@@ -1,0 +1,216 @@
+@keyframes pushmenu-hover {
+  0%,
+  90%,
+  100% { transform: rotate(0) scale(1); }
+  20%,
+  40% { transform: rotate(-45deg) scale(1.2); }
+  30%,
+  50% { transform: rotate(45deg) scale(1.2); }
+}
+
+.main-sidebar {
+}
+
+
+.sidebar-menu {
+  margin-left: .25rem;
+    margin-right: .25rem;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    overflow-y: auto;
+    width:auto;
+    .sidebar-heading {
+      padding: $nav-link-padding-y ($nav-link-padding-y * 1.5);
+      font-weight: 700;
+      font-size: .9rem;
+      color: $dark;
+    }
+      
+    .nav-item {
+        list-style:none;
+      > .nav-link {
+        i,
+        .right {
+          color: shift-color($theme-default-link-color, -20%);
+
+          @include transition(transform $transition-fn $transition-speed);
+        }
+      }
+    }
+
+    // First Level
+    > .nav-item {
+      margin-bottom: 0;
+
+      .float-right {
+        margin-top: 3px;
+      }
+    }
+    
+
+
+        
+    // Tree view menu
+    .nav-treeview {
+      position: relative;
+      display: none;
+      list-style: none;
+      height: auto;
+      padding: 0;
+
+      & .nav-treeview::before {
+        left: 1rem;
+      }
+
+      > .nav-item {
+        > .nav-link {
+          transition: margin $transition-speed $transition-fn;
+        }
+      }
+    }
+    
+    .nav-treeview {
+      .nav-item {
+       // width: calc(#{$sidebar-width} - #{$sidebar-padding-x} * 2 - #{$sidebar-nav-icon-width});
+        height: auto;
+       // padding-left: 1rem;
+          margin-left: .5rem;
+          margin-right: .5rem;       
+      //  margin-left: calc(.75rem + $sidebar-nav-icon-width / 2);
+      }
+
+      .nav-treeview {
+        .nav-item {
+       //   width: calc(#{$sidebar-width} - #{$sidebar-padding-x} * 2 - #{$sidebar-nav-icon-width} * 2);
+          margin-left: .5rem;
+          margin-right: .5rem;
+        }
+
+        .nav-treeview {
+          .nav-item {
+         //   width: calc(#{$sidebar-width} - #{$sidebar-padding-x} * 2 - #{$sidebar-nav-icon-width} * 3);
+          }
+
+          .nav-treeview {
+            .nav-item {
+          //    width: calc(#{$sidebar-width} - #{$sidebar-padding-x} * 2 - #{$sidebar-nav-icon-width} * 4);
+            }
+
+            .nav-treeview {
+              .nav-item {
+              //  width: calc(#{$sidebar-width} - #{$sidebar-padding-x} * 2 - #{$sidebar-nav-icon-width} * 5);
+              }
+            }
+          }
+        }
+      }
+    }    
+        
+    
+    .nav-link > .right,
+    .nav-link > p > .right {
+      position: absolute;
+      top: .7rem;
+      right: 1rem;
+
+      i,
+      span {
+        margin-left: .5rem;
+      }
+
+      &:nth-child(2) {
+        right: 2.2rem;
+      }
+    }
+
+    .nav-link:hover,.nav-link.active {
+      color: $theme-default-link-hover;
+      background-color: $theme-defaule-link-bg;
+    }
+    a,a.nav-link{
+    color: $theme-default-link-color;
+  }
+
+  a:hover,
+  a.active{
+    color: $theme-default-link-hover;
+  }
+  
+    .menu-open {
+      > .nav-treeview {
+        display: block;
+      }
+    }
+
+    .menu-open,
+    .menu-is-opening {
+      > .nav-link {
+        i.right {
+          @include rotate(-180deg);
+        }
+      }
+    }
+      
+          .nav-link p {
+      display: inline;
+      margin: 0;
+      white-space: normal;
+    }
+
+
+  // Remove Firefox Focusring
+  a {
+    &:-moz-focusring {
+      border: 0;
+      outline: none;
+    }
+  }
+}
+
+  // Sidebar navigation menu
+
+
+
+
+
+
+
+
+
+
+.sidebar-menu {
+  position: relative;
+
+  &:hover {
+    overflow: visible;
+  }
+}
+
+.sidebar-form,
+.sidebar-menu > .sidebar-heading {
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.sidebar-menu .nav-item > .nav-link {
+  position: relative;
+
+  > .float-right {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -7px;
+  }
+}
+@include media-breakpoint-up(md) {
+  .sidebar-body {
+      display: block !important;
+  }   
+}
+@include media-breakpoint-down(md) {
+ 
+.sidebar-menu {
+        padding-left: .5rem;
+    padding-right: .5rem;
+}    
+}

@@ -130,7 +130,6 @@ class Pagination {
 		return this.each(function() {
 			let data = $(this).data(DATA_KEY)
 			const _options = $.extend({}, Default, $(this).data())
-			console.log(_options)
 			if (!data) {
 
 				data = new Pagination($(this), _options)

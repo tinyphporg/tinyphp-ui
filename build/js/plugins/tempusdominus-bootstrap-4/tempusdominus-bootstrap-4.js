@@ -1,9 +1,11 @@
 import './tempusdominus-bootstrap-4.scss'
 
-import moment from 'moment/dist/moment'
+import moment from 'moment'
+import 'moment/locale/zh-cn'
+import 'moment/locale/es-us'
 moment.locale('zh-cn')
 window.moment = moment
-moment.locale('zh-cn')
+
 import DateTimePicker from 'tempusdominus-core/src/js/tempusdominus-core.js'
 window.DateTimePicker = DateTimePicker
 

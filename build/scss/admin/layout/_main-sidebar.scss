@@ -44,6 +44,9 @@
     .brand-pushmenu > i::before {
       content: "\F659";
     }
+    a.nav-link:hover,a.nav-link.active {
+      background:transparent !important;
+    }    
   }
 
   .sidebar-header {

@@ -5,12 +5,13 @@ import {
     isObject
 } from '../utils/prototype'
 import BasePlugin from './base-plugin'
-
 // summernote 编辑器
 class Tiny extends BasePlugin {
     constructor(loader) {
         super()
         this.id = 'tiny'
+        
+        const loadPlugins = {}
         
         const load = function(...config) {
             return loader.load(...config)
@@ -21,7 +22,7 @@ class Tiny extends BasePlugin {
             extend,
             merge,
             isArray,
-            isObject,            
+            isObject,         
         })
 
         this.jqueryExtend = {

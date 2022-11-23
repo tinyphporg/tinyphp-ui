@@ -135,7 +135,7 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
         $this->templateConfig = $config;
         if (isset($config['public_path'])) {
             $this->publicPath = (string)$config['public_path'];
-            $this->assetsPublicPath = $this->publicPath . 'assets';
+            $this->assetsPublicPath = $this->publicPath . 'assets/';
         }
         
         // 兼容开发模式

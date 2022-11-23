@@ -232,15 +232,35 @@ class UIEventListener implements RequestEventListenerInterface, RouteEventListen
             }, $content);
             if ($titles) {
                 $ui['menu'] = $titles;
-                $this->app->getView()->assign('ui', $ui);
             }
         }
+        
         //
         $content = preg_replace_callback("/href=\"(?:https\:\/\/github.com\/tinyphporg\/tinyphp-docs\/(?:blob|edit|tree)\/master\/docs\/(.+?)\.md)\"/i", function ($matchs) {
             return 'href="/uidemo/docs/' . $matchs[1] . '.html' . '"';
         }, $content);
-        $content = '<div class="markdown-body">' . $content . '</div>';
-        $this->app->getView()->display('pub/app/ui-docs.html', [
+        
+        $ui['headerExtra'] = '';
+        if (preg_match("/(<h1[^>]*>(.*?)<\/h1>(.*?))<h[2-7][^>]*>/s", $content, $matchs)) {
+            $title =  $matchs[2];
+            $lead = $matchs[3];
+            $contentHeader = <<<EOT
+            <div class="docs-content-header my-5">
+            <h1 class=docs-content-title" id="content">{$title}</h1>
+            <div class="docs-content-lead">
+            $lead
+            </div>
+            </div>
+            EOT;
+            $content = str_replace($matchs[1], '', $content);
+            $ui['headerExtra'] = $contentHeader;
+        }
+       
+        if ($ui) {
+            $this->app->getView()->assign('ui', $ui);
+        }
+        $content = '<div class="markdown-body docs-content-body">' . $content . '</div>';
+        $this->app->getView()->display('pub/app/main-docs.html', [
             'module' => $this->module,
             'doccontent' => $content
         ], $this->module->name);

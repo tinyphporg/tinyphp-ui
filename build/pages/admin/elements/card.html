@@ -1,0 +1,902 @@
+{template pub/admin/main-header.html} 
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- .content-header -->
+    <section class="content-header">
+        <div class="content-title">
+            <div class="content-title-heading">
+                <div class="content-title-icon">
+                    <i class="bi bi-card-text icon-gradient bg-mean-fruit"></i>
+                </div>
+                <div class="">
+                    卡片
+                    <div class="content-title-subheading">卡片可以更改尺寸，背景，阴影，添加功能按钮等，管理后台的通用卡片样式: <code>.card .main-card</code></div>
+                </div>
+            </div>
+            <div class="content-title-actions">
+                <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://v5.bootcss.com/docs/components/card/">
+                <i class="bi bi-bootstrap"></i>
+                More on Bootstrap</a>
+            </div>
+        </div>
+    </section>
+    <!-- /.content-header -->
+
+	<!-- Main content -->
+	<section class="main-content">
+	
+
+			<div class="row">
+				<div class="col-12">
+					<!-- Custom Tabs -->
+					<div class="card main-card mb-2">
+						<div class="card-header d-flex p-0">
+							<h3 class="card-title p-3">Tabs</h3>
+							<ul class="nav nav-pills ml-auto p-2">
+								<li class="nav-item"><a class="nav-link active" href="#tab_1" data-bs-toggle="tab">Tab 1</a></li>
+								<li class="nav-item"><a class="nav-link" href="#tab_2" data-bs-toggle="tab">Tab 2</a></li>
+								<li class="nav-item"><a class="nav-link" href="#tab_3" data-bs-toggle="tab">Tab 3</a></li>
+								<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"> Dropdown <span class="caret"></span>
+								</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" tabindex="-1" href="#">Action</a> <a class="dropdown-item" tabindex="-1" href="#">Another action</a> <a class="dropdown-item" tabindex="-1" href="#">Something else here</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" tabindex="-1" href="#">Separated link</a>
+									</div></li>
+							</ul>
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body">
+							<div class="tab-content">
+								<div class="tab-pane active" id="tab_1">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</div>
+								<!-- /.tab-pane -->
+								<div class="tab-pane" id="tab_2">The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages.</div>
+								<!-- /.tab-pane -->
+								<div class="tab-pane" id="tab_3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+								<!-- /.tab-pane -->
+							</div>
+							<!-- /.tab-content -->
+						</div>
+						<!-- /.card-body -->
+					</div>
+					<!-- ./card -->
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.row -->
+			<!-- END CUSTOM TABS -->
+            <h5 class="fs-6 mt-2 mb-2">功能按钮</h5>
+            <div class="row mb-2">
+                <div class="col-md-3">
+                    <div class="card main-card mb-2 collapsed-card">
+                        <div class="card-header">
+                            <h3 class="card-title">展开</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">折叠</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">移除</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">最大化</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="maximize">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row mb-2">
+                <div class="col-md-3">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">刷新</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="card.html" data-source-selector="#card-refresh-content">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <div class="d-none" id="card-refresh-content">The body of the card after card refresh</div>
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2 bg-success">
+                        <div class="card-header">
+                            <h3 class="card-title">All together</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="card.html" data-source-selector="#card-refresh-content" data-load-on-init="false">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="maximize">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">加载状态</h3>
+                        </div>
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                        <!-- Loading (remove the following to stop the loading)-->
+                        <div class="overlay">
+                            <i class="fas fa-2x fa-sync-alt"></i>
+                        </div>
+                        <!-- end loading -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">加载状态 (dark)</h3>
+                        </div>
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                        <!-- Loading (remove the following to stop the loading)-->
+                        <div class="overlay dark">
+                            <i class="fas fa-2x fa-sync-alt"></i>
+                        </div>
+                        <!-- end loading -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+            <!-- =========================================================== -->
+            <h5 class="fs-6 mt-2 mb-2">阴影</h5>
+            <div class="row mb-3">
+                <div class="col-md-6 col-lg-3 mb-2">
+                    <div class="card main-card mb-2 shadow-none">
+                        <div class="card-header">
+                            <h3 class="card-title">.shadow-none</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-6 col-lg-3 mb-2">
+                    <div class="card main-card mb-2 shadow-sm">
+                        <div class="card-header">
+                            <h3 class="card-title">.shadow-sm</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-6 col-lg-3 mb-2">
+                    <div class="card main-card mb-2 shadow">
+                        <div class="card-header">
+                            <h3 class="card-title">.shadow</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-6 col-lg-3 mb-2">
+                    <div class="card main-card mb-2 shadow-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">.shadow-lg</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="maximize">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+            <!-- =========================================================== -->
+            <h5 class="fs-6 mt-2 mb-2">颜色</h5>
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <div class="card main-card mb-2">
+                        <div class="card-header bg-primary">
+                            <h3 class="card-title">.bg-primary</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2">
+                        <div class="card-header bg-success">
+                            <h3 class="card-title">.bg-success</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2">
+                        <div class="card-header bg-warning">
+                            <h3 class="card-title">.bg-warning</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2">
+                        <div class="card-header bg-danger">
+                            <h3 class="card-title">.bg-danger</h3>
+                        </div>
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+         
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <div class="card main-card mb-2 bg-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Primary</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2 bg-success">
+                        <div class="card-header">
+                            <h3 class="card-title">Success</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2 bg-warning">
+                        <div class="card-header">
+                            <h3 class="card-title">Warning</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2 bg-danger">
+                        <div class="card-header">
+                            <h3 class="card-title">Danger</h3>
+                        </div>
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <div class="card main-card mb-2 bg-royal">
+                        <div class="card-header">
+                            <h3 class="card-title">.bg-royal</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card main-card mb-2 bg-happy-fisher">
+                        <div class="card-header">
+                            <h3 class="card-title">.bg-happy-fisher</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card bg-sunny-morning">
+                        <div class="card-header">
+                            <h3 class="card-title">.bg-sunny-morning</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                    <div class="card bg-ripe-malin">
+                        <div class="card-header">
+                            <h3 class="card-title">.bg-ripe-malin</h3>
+                        </div>
+                        <div class="card-body">The body of the card</div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+            <!-- START TYPOGRAPHY -->
+
+            <div class="row mb-2 mt-2">
+                <div class="col-md-6">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                              标题
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <h1>h1. Bootstrap heading</h1>
+
+                            <h2>h2. Bootstrap heading</h2>
+
+                            <h3>h3. Bootstrap heading</h3>
+                            <h4>h4. Bootstrap heading</h4>
+                            <h5>h5. Bootstrap heading</h5>
+                            <h6>h6. Bootstrap heading</h6>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- ./col -->
+                <div class="col-md-6">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                               文字
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <p class="lead">Lead to emphasize importance</p>
+
+                            <p class="text-success">Text green to emphasize success</p>
+
+                            <p class="text-info">Text aqua to emphasize info</p>
+
+                            <p class="text-primary">Text light blue to emphasize info (2)</p>
+
+                            <p class="text-danger">Text red to emphasize danger</p>
+
+                            <p class="text-warning">Text yellow to emphasize warning</p>
+
+                            <p class="text-muted">Text muted to emphasize general</p>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row my-2">
+                <div class="col-md-6">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                 Primary 块状引用 
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <blockquote>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                            </blockquote>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- ./col -->
+                <div class="col-md-6">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                Secondary 块状引用
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body clearfix">
+                            <blockquote class="quote-secondary">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                            </blockquote>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row mb-2">
+                <div class="col-md-4">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                               无序列表
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <ul>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Consectetur adipiscing elit</li>
+                                <li>Integer molestie lorem at massa</li>
+                                <li>Facilisis in pretium nisl aliquet</li>
+                                <li>Nulla volutpat aliquam velit
+                                    <ul>
+                                        <li>Phasellus iaculis neque</li>
+                                        <li>Purus sodales ultricies</li>
+                                        <li>Vestibulum laoreet porttitor sem</li>
+                                        <li>Ac tristique libero volutpat at</li>
+                                    </ul>
+                                </li>
+                                <li>Faucibus porta lacus fringilla vel</li>
+                                <li>Aenean sit amet erat nunc</li>
+                                <li>Eget porttitor lorem</li>
+                            </ul>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- ./col -->
+                <div class="col-md-4">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                              有序列表
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <ol>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Consectetur adipiscing elit</li>
+                                <li>Integer molestie lorem at massa</li>
+                                <li>Facilisis in pretium nisl aliquet</li>
+                                <li>Nulla volutpat aliquam velit
+                                    <ol>
+                                        <li>Phasellus iaculis neque</li>
+                                        <li>Purus sodales ultricies</li>
+                                        <li>Vestibulum laoreet porttitor sem</li>
+                                        <li>Ac tristique libero volutpat at</li>
+                                    </ol>
+                                </li>
+                                <li>Faucibus porta lacus fringilla vel</li>
+                                <li>Aenean sit amet erat nunc</li>
+                                <li>Eget porttitor lorem</li>
+                            </ol>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- ./col -->
+                <div class="col-md-4">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                无符号列表
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Consectetur adipiscing elit</li>
+                                <li>Integer molestie lorem at massa</li>
+                                <li>Facilisis in pretium nisl aliquet</li>
+                                <li>Nulla volutpat aliquam velit
+                                    <ul>
+                                        <li>Phasellus iaculis neque</li>
+                                        <li>Purus sodales ultricies</li>
+                                        <li>Vestibulum laoreet porttitor sem</li>
+                                        <li>Ac tristique libero volutpat at</li>
+                                    </ul>
+                                </li>
+                                <li>Faucibus porta lacus fringilla vel</li>
+                                <li>Aenean sit amet erat nunc</li>
+                                <li>Eget porttitor lorem</li>
+                            </ul>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                描述
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <dl>
+                                <dt>Description lists</dt>
+                                <dd>A description list is perfect for defining terms.</dd>
+                                <dt>Euismod</dt>
+                                <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+                                <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+                                <dt>Malesuada porta</dt>
+                                <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+                            </dl>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- ./col -->
+                <div class="col-md-6">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                描述对齐
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <dl class="row">
+                                <dt class="col-sm-4">Description lists</dt>
+                                <dd class="col-sm-8">A description list is perfect for defining terms.</dd>
+                                <dt class="col-sm-4">Euismod</dt>
+                                <dd class="col-sm-8">Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+                                <dd class="col-sm-8 offset-sm-4">Donec id elit non mi porta gravida at eget metus.</dd>
+                                <dt class="col-sm-4">Malesuada porta</dt>
+                                <dd class="col-sm-8">Etiam porta sem malesuada magna mollis euismod.</dd>
+                                <dt class="col-sm-4">Felis euismod semper eget lacinia</dt>
+                                <dd class="col-sm-8">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+                            </dl>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+            <div class="row mb-2">
+                <div class="col-12">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">分页</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="pagination pagination-month justify-content-center">
+                                <li class="page-item"><a class="page-link" href="#">«</a></li>
+                                <li class="page-item"><a class="page-link" href="#">
+                                        <p class="page-month">Jan</p>
+                                        <p class="page-year">2021</p>
+                                </a></li>
+                                <li class="page-item active"><a class="page-link" href="#">
+                                        <p class="page-month">Feb</p>
+                                        <p class="page-year">2021</p>
+                                </a></li>
+                                <li class="page-item"><a class="page-link" href="#">
+                                        <p class="page-month">Mar</p>
+                                        <p class="page-year">2021</p>
+                                </a></li>
+                                <li class="page-item"><a class="page-link" href="#">
+                                        <p class="page-month">Apr</p>
+                                        <p class="page-year">2021</p>
+                                </a></li>
+                                <li class="page-item"><a class="page-link" href="#">
+                                        <p class="page-month">May</p>
+                                        <p class="page-year">2021</p>
+                                </a></li>
+                                <li class="page-item"><a class="page-link" href="#">
+                                        <p class="page-month">Jun</p>
+                                        <p class="page-year">2021</p>
+                                </a></li>
+                                <li class="page-item"><a class="page-link" href="#">
+                                        <p class="page-month">Jul</p>
+                                        <p class="page-year">2021</p>
+                                </a></li>
+                                <li class="page-item"><a class="page-link" href="#">
+                                        <p class="page-month">Aug</p>
+                                        <p class="page-year">2021</p>
+                                </a></li>
+                                <li class="page-item"><a class="page-link" href="#">
+                                        <p class="page-month">Sep</p>
+                                        <p class="page-year">2021</p>
+                                </a></li>
+                                <li class="page-item"><a class="page-link" href="#">
+                                        <p class="page-month">Oct</p>
+                                        <p class="page-year">2021</p>
+                                </a></li>
+                                <li class="page-item"><a class="page-link" href="#">
+                                        <p class="page-month">Nov</p>
+                                        <p class="page-year">2021</p>
+                                </a></li>
+                                <li class="page-item"><a class="page-link" href="#">
+                                        <p class="page-month">Dec</p>
+                                        <p class="page-year">2021</p>
+                                </a></li>
+                                <li class="page-item"><a class="page-link" href="#">»</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!-- END TYPOGRAPHY -->
+                        <h5 class="mb-2 fs-6 mt-2">图片填充</h5>
+            <div class="card main-card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6 col-xl-4">
+                            <div class="card mb-2 bg-gradient-dark">
+                                <img class="card-img-top" src="{ui.assets}img/photo1.png" alt="Dist Photo 1">
+                                <div class="card-img-overlay d-flex flex-column justify-content-end">
+                                    <h5 class="card-title text-primary text-white">Card Title</h5>
+                                    <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
+                                    <a href="#" class="text-white">Last update 2 mins ago</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6 col-xl-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="{ui.assets}img/photo2.png" alt="Dist Photo 2">
+                                <div class="card-img-overlay d-flex flex-column justify-content-center">
+                                    <h5 class="card-title text-white mt-5 pt-2">Card Title</h5>
+                                    <p class="card-text pb-2 pt-1 text-white">
+                                        Lorem ipsum dolor sit amet, <br> consectetur adipisicing elit <br> sed do eiusmod tempor.
+                                    </p>
+                                    <a href="#" class="text-white">Last update 15 hours ago</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6 col-xl-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="{ui.assets}img/photo3.jpg" alt="Dist Photo 3">
+                                <div class="card-img-overlay">
+                                    <h5 class="card-title text-primary">Card Title</h5>
+                                    <p class="card-text pb-1 pt-1 text-white">
+                                        Lorem ipsum dolor <br> sit amet, consectetur <br> adipisicing elit sed <br> do eiusmod tempor.
+                                    </p>
+                                    <a href="#" class="text-primary">Last update 3 days ago</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+{template pub/admin/main-footer.html}

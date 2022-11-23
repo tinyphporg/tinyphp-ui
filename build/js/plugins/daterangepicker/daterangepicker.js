@@ -1,6 +1,9 @@
 import './daterangepicker.scss'
-import * as Daterangepicker from 'daterangepicker/daterangepicker.js'
-import * as moment from 'moment/moment'
+import Daterangepicker from  'daterangepicker'
+import moment from 'moment'
+
+import 'moment/locale/zh-cn'
+import 'moment/locale/es-us'
 
 // moment
 moment.locale('zh-cn')

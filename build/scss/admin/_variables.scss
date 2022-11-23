@@ -38,7 +38,7 @@ $header-light-placeholder-color: rgb(0 0 0 / 60%) !default;
 $main-footer-padding: 1rem !default;
 $main-footer-padding-sm: $main-footer-padding * .812 !default;
 $main-footer-border-top-width: 1px !default;
-$main-footer-border-top-color: $gray-300 !default;
+$main-footer-border-top-color: rgba($gray-300, 0.4) !default;
 $main-footer-border-top: $main-footer-border-top-width solid $main-footer-border-top-color !default;
 $main-footer-height-inner: (($font-size-base * $line-height-base) + ($main-footer-padding * 2)) !default;
 $main-footer-height: calc(#{$main-footer-height-inner} + #{$main-footer-border-top-width}) !default;

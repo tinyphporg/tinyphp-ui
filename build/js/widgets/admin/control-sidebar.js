@@ -67,12 +67,12 @@ const Default = {
     ],
     layouts: [
         'layout-navbar-fixed',
-        'layout-fixed',
+//        'layout-fixed',
         'layout-footer-fixed',
     ],
     layoutTexts: {
         'layout-navbar-fixed': '顶部导航栏',
-        'layout-fixed': '侧边导航栏',
+//        'layout-fixed': '侧边导航栏',
         'layout-footer-fixed': '底部导航栏',
     }
 }
