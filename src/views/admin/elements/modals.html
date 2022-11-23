@@ -1,0 +1,580 @@
+{template pub/admin/main-header.html}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- .content-header -->
+    <section class="content-header">
+        <div class="content-title">
+            <div class="content-title-heading">
+                <div class="content-title-icon">
+                    <i class="bi bi-square icon-gradient bg-mean-fruit"></i>
+                </div>
+                <div class="">
+                    Modals
+                    <div class="content-title-subheading"> 拟态框，消息浮动弹窗</div>
+                </div>
+            </div>
+            <div class="content-title-actions">
+                <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://v5.bootcss.com/docs/components/modal/">
+                <i class="bi bi-bootstrap"></i>
+                More on Bootstrap</a>
+            </div>
+        </div>
+    </section>
+    <!-- /.content-header -->
+
+	<!-- Main content -->
+	<section class="main-content">
+
+
+					<div class="card main-card mb-2">
+						<div class="card-header">
+							<h3 class="card-title">
+								Bootstrap Modal 
+							</h3>
+						</div> 
+						<div class="card-body">
+						<p><code>.bg-*</code></p>
+							<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-default">默认样式</button>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-primary">Primary Modal</button>
+							<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-secondary">Secondary Modal</button>
+							<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal-info">Info Modal</button>
+							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-danger">Danger Modal</button>
+							<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal-warning">Warning Modal</button>
+							<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-success">Success Modal</button>
+							<br /> <br />
+							<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-sm">Launch Small Modal</button>
+							<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-lg">Launch Large Modal</button>
+							<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-xl">Launch Extra Large Modal</button>
+							<br /> <br />
+							<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-overlay">Launch Modal with Overlay</button>
+						</div>
+						<!-- /.card -->
+					</div>
+
+					<div class="card main-card mb-2">
+						<div class="card-header">
+							<h3 class="card-title">
+								<i class="fas fa-edit"></i> Toasts 消息弹窗</small>
+							</h3>
+						</div>
+						<div class="card-body">
+							<button type="button" class="btn btn-light btn-shadow toastsDefaultDefault">Launch Default Toast</button>
+							<button type="button" class="btn btn-light btn-shadow toastsDefaultFull">Launch Full Toast (with icon)</button>
+							<button type="button" class="btn btn-light btn-shadow toastsDefaultFullImage">Launch Full Toast (with image)</button>
+							<button type="button" class="btn btn-light btn-shadow toastsDefaultAutohide">Launch Default Toasts with autohide</button>
+							<button type="button" class="btn btn-light btn-shadow toastsDefaultNotFixed">Launch Default Toasts with not fixed</button>
+							<br /> <br />
+							<button type="button" class="btn btn-light btn-shadow toastsDefaultTopLeft">Launch Default Toast (topLeft)</button>
+							<button type="button" class="btn  btn-light btn-shadow toastsDefaultBottomRight">Launch Default Toast (bottomRight)</button>
+							<button type="button" class="btn  btn-light btn-shadow toastsDefaultBottomLeft">Launch Default Toast (bottomLeft)</button>
+							<br /> <br />
+							<button type="button" class="btn btn-success toastsDefaultSuccess">Launch Success Toast</button>
+							<button type="button" class="btn btn-info toastsDefaultInfo">Launch Info Toast</button>
+							<button type="button" class="btn btn-warning toastsDefaultWarning">Launch Warning Toast</button>
+							<button type="button" class="btn btn-danger toastsDefaultDanger">Launch Danger Toast</button>
+							<button type="button" class="btn btn-default bg-maroon toastsDefaultMaroon">Launch Maroon Toast</button>
+                            <hr>
+                            <div class="text-muted mt-3">
+                                <code class="language-javscript" data-text-target="#codesource1"></code>
+                            </div>
+						</div>
+					</div>
+
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-edit"></i> SweetAlert2 Modals
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-success swalDefaultSuccess1">Success Modal</button>
+                            <button type="button" class="btn btn-info swalDefaultInfo1">Info Modal</button>
+                            <button type="button" class="btn btn-danger swalDefaultError1">Error Modal</button>
+                            <button type="button" class="btn btn-warning swalDefaultWarning1">Warning Modal</button>
+                            <button type="button" class="btn btn-default swalDefaultQuestion1">Question Modal</button>
+                            <div class="text-muted mt-3">
+                                <code class="language-javscript" data-text-target="#codesource"></code>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+
+					<div class="card main-card mb-2">
+						<div class="card-header">
+							<h3 class="card-title">
+								<i class="fas fa-edit"></i> SweetAlert2 Toasts
+							</h3>
+						</div>
+						<div class="card-body">					
+							<button type="button" class="btn btn-success swalDefaultSuccess">Success Toast</button>
+							<button type="button" class="btn btn-info swalDefaultInfo">Info Toast</button>
+							<button type="button" class="btn btn-danger swalDefaultError">Error Toast</button>
+							<button type="button" class="btn btn-warning swalDefaultWarning">Warning Toast</button>
+							<button type="button" class="btn btn-default swalDefaultQuestion">Question Toast</button>
+							<div class="text-muted mt-3">
+								<code class="language-javscript" data-text-target="#codesource2"></code>
+							</div>
+						</div>
+						<!-- /.card -->
+					</div>
+
+					<div class="card card-warning card-outline">
+						<div class="card-header">
+							<h3 class="card-title">
+								<i class="fas fa-edit"></i> Toastr Examples
+							</h3>
+						</div>
+						<div class="card-body">
+							<button type="button" class="btn btn-success toastrDefaultSuccess">Launch Success Toast</button>
+							<button type="button" class="btn btn-info toastrDefaultInfo">Launch Info Toast</button>
+							<button type="button" class="btn btn-danger toastrDefaultError">Launch Error Toast</button>
+							<button type="button" class="btn btn-warning toastrDefaultWarning">Launch Warning Toast</button>
+							<div class="text-muted mt-3">
+								For more examples look at <a href="https://codeseven.github.io/toastr/">https://codeseven.github.io/toastr/</a>
+							</div>
+						</div>
+						<!-- /.card -->
+					</div>
+
+
+		<div class="modal fade" id="modal-default">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Default Modal</h4>
+						<button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<div class="modal fade bg-light" id="modal-overlay">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="overlay">
+						<i class="fas fa-2x fa-sync fa-spin"></i>
+					</div>
+					<div class="modal-header">
+						<h4 class="modal-title">Default Modal</h4>
+						<button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<div class="modal fade" id="modal-primary">
+			<div class="modal-dialog">
+				<div class="modal-content bg-primary">
+					<div class="modal-header">
+						<h4 class="modal-title">Primary Modal</h4>
+						<button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-outline-light">Save changes</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<div class="modal fade" id="modal-secondary">
+			<div class="modal-dialog">
+				<div class="modal-content bg-secondary">
+					<div class="modal-header">
+						<h4 class="modal-title">Secondary Modal</h4>
+						<button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-outline-light">Save changes</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<div class="modal fade" id="modal-info">
+			<div class="modal-dialog">
+				<div class="modal-content bg-info">
+					<div class="modal-header">
+						<h4 class="modal-title">Info Modal</h4>
+						<button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-outline-light">Save changes</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<div class="modal fade" id="modal-warning">
+			<div class="modal-dialog">
+				<div class="modal-content bg-warning">
+					<div class="modal-header">
+						<h4 class="modal-title">Warning Modal</h4>
+						<button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true"></span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-outline-dark">Save changes</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<div class="modal fade" id="modal-success">
+			<div class="modal-dialog">
+				<div class="modal-content bg-success">
+					<div class="modal-header">
+						<h4 class="modal-title">Success Modal</h4>
+						<button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-outline-light">Save changes</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<div class="modal fade" id="modal-danger">
+			<div class="modal-dialog">
+				<div class="modal-content bg-danger">
+					<div class="modal-header">
+						<h4 class="modal-title">Danger Modal</h4>
+						<button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true"></span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-outline-light">Save changes</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<div class="modal fade" id="modal-sm">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Small Modal</h4>
+						<button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true"></span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<div class="modal fade" id="modal-lg">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Large Modal</h4>
+						<button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true"></span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<div class="modal fade" id="modal-xl">
+			<div class="modal-dialog modal-xl">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Extra Large Modal</h4>
+						<button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true"></span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+	</section>
+	<!-- /.content -->
+
+<!-- Page specific script -->
+<script id="codesource">
+
+$('.swalDefaultSuccess1').click(function() {
+    $.modalx({
+      icon: 'success',
+      title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    })
+  });
+  $('.swalDefaultInfo1').click(function() {
+      $.modalx({
+      icon: 'info',
+      title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    })
+  });
+  $('.swalDefaultError1').click(function() {
+      $.modalx({
+      icon: 'error',
+      title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    })
+  });
+  $('.swalDefaultWarning1').click(function() {
+      $.modalx({
+      icon: 'warning',
+      title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    })
+  });
+  $('.swalDefaultQuestion1').click(function() {
+      $.modalx({
+      icon: 'question',
+      title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    })
+  });
+  
+</script>
+  <script id="codesource2">
+$('.swalDefaultSuccess').click(function() {
+    $.toastx({
+      icon: 'success',
+      title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    })
+  });
+  $('.swalDefaultInfo').click(function() {
+      $.toastx({
+      icon: 'info',
+      title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    })
+  });
+  $('.swalDefaultError').click(function() {
+      $.toastx({
+      icon: 'error',
+      title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    })
+  });
+  $('.swalDefaultWarning').click(function() {
+      $.toastx({
+      icon: 'warning',
+      title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    })
+  });
+  $('.swalDefaultQuestion').click(function() {
+      $.toastx({
+      icon: 'question',
+      title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    })
+  });
+</script>
+<script id="codesource1">
+
+  $.tiny('modal').then(function(Swal) {
+
+
+    $('.toastrDefaultSuccess').click(function() {
+      toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    });
+    $('.toastrDefaultInfo').click(function() {
+      toastr.info('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    });
+    $('.toastrDefaultError').click(function() {
+      toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    });
+    $('.toastrDefaultWarning').click(function() {
+      toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    });
+
+    $('.toastsDefaultDefault').click(function() {
+      $(document).toasts('create', {
+        title: 'Toast Title',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultTopLeft').click(function() {
+      $(document).toasts('create', {
+        title: 'Toast Title',
+        position: 'topLeft',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultBottomRight').click(function() {
+      $(document).toasts('create', {
+        title: 'Toast Title',
+        position: 'bottomRight',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultBottomLeft').click(function() {
+      $(document).toasts('create', {
+        title: 'Toast Title',
+        position: 'bottomLeft',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultAutohide').click(function() {
+      $(document).toasts('create', {
+        title: 'Toast Title',
+        autohide: true,
+        delay: 750,
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultNotFixed').click(function() {
+      $(document).toasts('create', {
+        title: 'Toast Title',
+        fixed: false,
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultFull').click(function() {
+      $(document).toasts('create', {
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        icon: 'fas fa-envelope fa-lg',
+      })
+    });
+    $('.toastsDefaultFullImage').click(function() {
+      $(document).toasts('create', {
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        image: '{ui.assets}/img/user3-128x128.jpg',
+        imageAlt: 'User Picture',
+      })
+    });
+    $('.toastsDefaultSuccess').click(function() {
+      $(document).toasts('create', {
+        class: 'bg-success',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultInfo').click(function() {
+      $(document).toasts('create', {
+        class: 'bg-info',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultWarning').click(function() {
+      $(document).toasts('create', {
+        class: 'bg-warning',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultDanger').click(function() {
+      $(document).toasts('create', {
+        class: 'bg-danger',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultMaroon').click(function() {
+      $(document).toasts('create', {
+        class: 'bg-maroon',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+  });
+</script>
+
+ {template pub/admin/main-footer.html}

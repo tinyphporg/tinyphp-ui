@@ -1,0 +1,86 @@
+{template pub/admin/main-header.html} 
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- .content-header -->
+    <section class="content-header">
+        <div class="content-title">
+            <div class="content-title-heading">
+                <div class="content-title-icon">
+                    <i class="bi bi-diamond icon-gradient bg-mean-fruit"></i>
+                </div>
+                <div class="">
+                    折叠页(手风琴)
+                    <div class="content-title-subheading"><code>.accordion .accordion-flush</code></div>
+                </div>
+            </div> 
+            <div class="content-title-actions">
+                <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://v5.bootcss.com/docs/components/accordion/">
+                <i class="bi bi-bootstrap"></i>
+                More on Bootstrap</a>
+            </div>
+        </div>
+    </section>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="main-content">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs content-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">标准</button>
+            </li>
+        </ul>
+                    <div class="card main-card vh-100">
+
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <!-- we are adding the accordion ID so Bootstrap's collapse plugin detects it -->
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+
+                                        <h4 class="accordion-header" >
+                                            <a class="accordion-button" data-bs-toggle="collapse" href="#collapseOne"> Collapsible Group Item #1 </a>
+                                        </h4>
+
+                                    <div id="collapseOne" class="accordion-collapse collapse show" data-parent="#accordion">
+                                        <div class="accordion-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+
+                                        <h4 class="accordion-header" >
+                                            <a class="accordion-button collapsed" data-bs-toggle="collapse" href="#collapseTwo"> Collapsible Group Danger </a>
+                                    </h4>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" data-parent="#accordion">
+                                        <div class="accordion-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+
+                                        <h4 class="accordion-header">
+                                            <a class="accordion-button collapsed" data-bs-toggle="collapse" href="#collapseThree"> Collapsible Group Success </a>
+                                        </h4>
+
+                                    <div id="collapseThree" class="accordion-collapse collapse" data-parent="#accordion">
+                                        <div class="accordion-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mt-5">HTML CODE</p>
+                            <hr>
+                            
+                            <code class="language-html" data-text-target="#accordionExample"></code>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+               
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+{template pub/admin/main-footer.html}
