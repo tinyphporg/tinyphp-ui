@@ -30,20 +30,20 @@ const PUBLIC_PATH = IS_PROD ? PROD_PUBLIC_PATH : DEV_PUBLIC_PATH
 
 // replace tag
 const replaceTag = (sourceText) => {
-    let replaceText = sourceText.replace(/{ui\.(admin|lib|assets|publicpath)}/g, (matchText) => {
+    let replaceText = sourceText.replace(/<ui:(admin|lib|assets|publicpath)>/g, (matchText) => {
         switch (matchText) {
-            case '{ui.admin}':
+            case '<ui:admin>':
                 return `<script data-ui-public-path="${DEV_PUBLIC_PATH}" src="${DEV_PUBLIC_PATH}js/tinyphp-ui.admin.js"></script>`
-            case '{ui.lib}':
+            case '<ui:lib>':
                 return `<script data-ui-public-path="${DEV_PUBLIC_PATH}" src="${DEV_PUBLIC_PATH}js/tinyphp-ui.js"></script>`
-            case '{ui.assets}':
+            case '<ui:assets>':
                 return  PUBLIC_PATH + 'assets/'
-            case '{ui.publicpath}':
+            case '<ui:publicpath>':
                 return PUBLIC_PATH
         }
         return ''
     })
-    return replaceText.replace(/\{template\s+(.*?)(\|tinyphp-ui)?\s*\}/g, (_, mpath) => {
+    return replaceText.replace(/\<(?:tinyphp\-ui|)?:template\s+(.*?)\s*\>/g, (_, mpath) => {
         let fpath = path.resolve(BUILD_PAGE_DIR, mpath)
         if (!fs.existsSync(fpath)) {
             return ''

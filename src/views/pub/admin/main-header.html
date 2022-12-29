@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{$uiadmin['title']}</title>
 <!-- ui.admin -->
-{ui.admin}
+<ui:admin plugins="alert">
 <!-- ./ui.admin -->
 </head>
 
@@ -27,7 +27,7 @@
 				</button>
 
 				<a class="header-center">
-					<img class="header-logo" src="{ui.assets}img/tinyphp-logo.png" />
+					<img class="header-logo" src="<ui:assets>img/tinyphp-logo.png" />
 				</a>
 				<button class="header-right btn">
 					<i class="bi bi-three-dots-vertical"></i>
@@ -48,24 +48,26 @@
 						</a>
 					</li>
 					 -->
-					{loop $uiadmin['nav'] $navIndex $navItem} {if is_array($navItem['children']) && $navItem['children']}
+					<:loop $uiadmin['nav'] $navIndex $navItem> 
+					<:if is_array($navItem['children']) && $navItem['children']>
 					<li class="nav-item d-none d-sm-inline-block dropdown">
 						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">{$navItem['name']}</a>
 						<ul class="dropdown-menu">
-							{loop $navItem['children'] $navChild}
+							<:loop $navItem['children'] $navChild>
 							<li>
 								<a class="dropdown-item" href="{$navChild['href']}">{$navChild['name']}</a>
 							</li>
-							{/loop}
+							</:loop>
 						</ul>
 					</li>
-					{else}
+					<:else>
 					<li class="nav-item d-none d-sm-inline-block">
 						<a class="nav-link p-2" href="{$navItem['href']}">
-							{if $navItem['icon']} <i class="{$navItem['icon']}"></i> {/if} {$navItem['name']}
+							<:if $navItem['icon']> <i class="{$navItem['icon']}"></i> </:if> {$navItem['name']}
 						</a>
 					</li>
-					{/if} {/loop}
+					</:if> 
+					</:loop>
 				</ul>
 
 				<!-- 右侧功能区-->
@@ -80,7 +82,7 @@
 							<a href="#" class="dropdown-item">
 								<!-- Message Start -->
 								<div class="media">
-									<img src="{ui.assets}img/avatar/avatar-3.png" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+									<img src="<ui:assets>img/avatar/avatar-3.png" alt="User Avatar" class="img-size-50 mr-3 img-circle">
 									<div class="media-body">
 										<h3 class="dropdown-item-title">
 											Brad Diesel
@@ -100,7 +102,7 @@
 							<a href="#" class="dropdown-item">
 								<!-- Message Start -->
 								<div class="media">
-									<img src="{ui.assets}img/avatar/avatar-4.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
+									<img src="<ui:assets>img/avatar/avatar-4.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
 									<div class="media-body">
 										<h3 class="dropdown-item-title">
 											John Pierce
@@ -120,7 +122,7 @@
 							<a href="#" class="dropdown-item">
 								<!-- Message Start -->
 								<div class="media">
-									<img src="{ui.assets}/avatar/avatar-5.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
+									<img src="<ui:assets>/avatar/avatar-5.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
 									<div class="media-body">
 										<h3 class="dropdown-item-title">
 											Nora Silvester
@@ -197,12 +199,12 @@
 					<!-- 用户信息功能区开始 -->
 					<li class="nav-item dropdown user-menu header-right-border">
 						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-							<img src="{ui.assets}img/avatar/avatar-5.png" class="icon icon-circle elevation-2" alt="User Image">
+							<img src="<ui:assets>img/avatar/avatar-5.png" class="icon icon-circle elevation-2" alt="User Image">
 						</a>
 						<ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
 							<!-- User image -->
 							<li class="dropdown-header bg-primary dropdown-user">
-								<img src="{ui.assets}img/avatar/avatar-5.png" class="user-img" alt="User Image">
+								<img src="<ui:assets>img/avatar/avatar-5.png" class="user-img" alt="User Image">
 
 								<p class="text-white">
 									Da.Jin - Web Developer <small>Member since Nov. 2012</small>
@@ -252,5 +254,5 @@
 			<!-- /.header-content 头部主体部分结束 -->
 		</header>
 		<!-- .main-sidebar 左侧菜单栏开始 -->
-		{template pub/admin/main-sidebar.html}
+		<:template pub/admin/main-sidebar.html>
 		<!-- /.main-sidebar 左侧菜单栏结束 -->

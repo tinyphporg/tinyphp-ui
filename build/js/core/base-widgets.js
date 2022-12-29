@@ -27,8 +27,9 @@ import TodoList from '../widgets/TodoList'
 
 import HighLight from '../widgets/highlight'
 import Select2 from '../widgets/select2'
-import Pageination from '../widgets/Pagination'
+import Pageination from '../widgets/pagination'
 import Treeview from '../widgets/treeview'
+import Datatable from '../widgets/datatables'
 
 // bootstrap widgets
 const bootstrapWidgets = {
@@ -66,7 +67,8 @@ const baseWidgets = {
   TodoList,
 Treeview,
   HighLight,
-  Select2    
+  Select2,
+  Datatable,  
 }
 
 window.bootstrap = bootstrapWidgets

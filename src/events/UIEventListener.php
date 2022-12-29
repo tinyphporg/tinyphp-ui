@@ -15,13 +15,14 @@ namespace Tiny\UI\Event;
 use Tiny\MVC\Event\RequestEventListenerInterface;
 use Tiny\MVC\Event\MvcEvent;
 use Tiny\MVC\Application\ApplicationBase;
-use Tiny\MVC\Module\ModuleManager;
 use Tiny\MVC\Module\Module;
 use Tiny\MVC\Application\Properties;
-use Tiny\MVC\View\Engine\Template;
-use Tiny\UI\Template\UIViewTemplatePlugin;
-use Tiny\UI\Helper\UIViewHelper;
 use Tiny\MVC\Event\RouteEventListenerInterface;
+use Tiny\MVC\View\Engine\Tagger\Tagger;
+use Tiny\UI\UITagParser;
+use Tiny\UI\Widget\DataTable;
+use Tiny\UI\Widget\Messagebox;
+use Tiny\UI\Widget\Pagination;
 
 /**
  * UI事件插件
@@ -53,6 +54,17 @@ class UIEventListener implements RequestEventListenerInterface, RouteEventListen
      * @var Properties
      */
     protected $properties;
+    
+    /**
+     * 预定义部件
+     *
+     * @var array
+     */
+    protected $widgets = [
+        DataTable::class,
+        Messagebox::class,
+        Pagination::class
+    ];
     
     /**
      * 构造函数
@@ -98,23 +110,37 @@ class UIEventListener implements RequestEventListenerInterface, RouteEventListen
             'dev_admin_public_path' => $setting['dev']['admin_public_path'],
         ];
         $engines[] = [
-            'engine' => Template::class,
-            'config' => [],
-            'plugins' => [
-                [
-                    'plugin' => UIViewTemplatePlugin::class,
-                    'config' => $templatePluginConfig
+            'engine' => Tagger::class,
+            'config' => [
+                'parsers' => [
+                    [
+                        'parser' => UITagParser::class,
+                        'config' => $templatePluginConfig
+                    ]
                 ]
             ]
         ];
         $this->properties['view.engines'] = $engines;
         
         // helpers;
-        $helpers = (array)$this->properties['view.helpers'];
-        $helpers[] = [
-            'helper' => UIViewHelper::class
-        ];
-        $this->properties['view.helpers'] = $helpers;
+        // $helpers = (array)$this->properties['view.helpers'];
+        // $helpers[] = [
+        // 'helper' => UIViewHelper::class
+        // ];
+        // $this->properties['view.helpers'] = $helpers;
+        
+        // widget
+        $widgets = (array)$this->properties['view.widgets'];
+        foreach ($this->widgets as $alias => $widgetClass) {
+            if (!is_string($alias)) {
+                $alias = '';
+            }
+            $widgets[] = [
+                'widget' => $widgetClass,
+                'alias' => $alias
+            ];
+        }
+        $this->properties['view.widgets'] = $widgets;
         
         $this->initViewAssigns($setting);
     }
@@ -242,7 +268,7 @@ class UIEventListener implements RequestEventListenerInterface, RouteEventListen
         
         $ui['headerExtra'] = '';
         if (preg_match("/(<h1[^>]*>(.*?)<\/h1>(.*?))<h[2-7][^>]*>/s", $content, $matchs)) {
-            $title =  $matchs[2];
+            $title = $matchs[2];
             $lead = $matchs[3];
             $contentHeader = <<<EOT
             <div class="docs-content-header my-5">
@@ -255,7 +281,7 @@ class UIEventListener implements RequestEventListenerInterface, RouteEventListen
             $content = str_replace($matchs[1], '', $content);
             $ui['headerExtra'] = $contentHeader;
         }
-       
+        
         if ($ui) {
             $this->app->getView()->assign('ui', $ui);
         }

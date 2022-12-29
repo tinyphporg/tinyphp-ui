@@ -6,7 +6,7 @@
 <meta name="description" content="TinyPHP Frameworks, 高性能的响应式敏捷开发框架">
 <title>TinyPHP frameworks|tinyphp.org</title>
 <!-- ui.lib -->
-{ui.lib}
+<ui:lib>
 <!-- ./ui.lib -->
 </head>
 <body class="page-docs">
@@ -26,8 +26,8 @@
 
 			<!-- logo -->
 			<a class="navbar-brand p-0 me-2" href="" aria-label="logo">
-				<img class="header-logo" src="{ui.assets}/img/tinyphp-logo.png" />
-				<img class="header-mini-logo" src="{ui.assets}/img/tinyphp-icon.png" />
+				<img class="header-logo" src="<ui:assets>/img/tinyphp-logo.png" />
+				<img class="header-mini-logo" src="<ui:assets>/img/tinyphp-icon.png" />
 			</a>
 			<!-- end logo -->
 
@@ -93,7 +93,7 @@
 <!-- .main-has-sidebar 是否显示左侧菜单栏 -->
 <div class="main-wrapper main-has-sidebar">
     <!-- .main-sidebar  -->
-    {template pub/app/main-sidebar.html|tinyphp-ui}
+    <tinyphp-ui:template pub/app/main-sidebar.html >
 
 <!-- .main-content 主体部分开始 -->
 <!-- .content-has-menu 控制是否左右布局 -->

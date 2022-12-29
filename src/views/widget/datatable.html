@@ -1,0 +1,47 @@
+<tinyphp-ui:template pub/app/main-header.html>
+<div class="content-header">
+
+<div class="docs-content-header my-5">
+<h1 class=docs-content-title" id="content">部件 DataTable</h1>
+<div class="docs-content-lead">
+
+<p>前端基于datatable.net+juqery+bootstrap，实现数据的展现和处理</p>
+</div>
+</div>
+</div>
+
+ <div class="content-menu">
+        <ul class="docs-menu p-1">
+          <li class="docs-menu-header">索引</li>
+                        <li class="ms-1"><a href="#ui-menu-0">TinyPHP</a></li>          <li class="ms-3"><a href="#ui-menu-1">TinyPHP Framework</a></li>            <li class="ms-2"><a href="#ui-menu-2">适用场景</a></li>             <li class="ms-2"><a href="#ui-menu-3">快速开始</a></li>             <li class="ms-2"><a href="#ui-menu-4">核心组件</a></li>             <li class="ms-2"><a href="#ui-menu-5">运行环境</a></li>             <li class="ms-3"><a href="#ui-menu-6">CentOS X64 7.4+</a></li>          <li class="ms-3"><a href="#ui-menu-7">docker</a></li>           <li class="ms-2"><a href="#ui-menu-8">中文手册</a></li>         </ul>
+</div> 
+<div class="content-body">
+
+<widget:datatable class="table" id="example" ajax-url="/uidemo/getdatatable" ajax-type="post" ajax-data-axxxx="ccc" ajax-src="data" page-length=30 length-menu="10, 25, 50, 75, 100" search-builder="false" columns="id:ID,name:姓名,ip:注册IP,status:状态,num:数量,dateline:注册时间,action:操作"  search-builder="ip,status" search-columns="ip"  custom-columns="ip,status" title="用户表"  order-columns="node_id" />
+<p class="mt-5 mb-1"> 通过 TinyPHP视图引擎的标签初始化</p>
+<textarea class="language-html">
+&ltwidget:datatable /&gt
+ajax-url 获取数据的url
+ajax-type post|get 默认为post
+ajax-data-xxxx 自定义post的数据
+ajax-src  自定义获取服务端返回数据的节点名 默认为data
+page-length 每页数据数目 默认为20
+length-menu 可供选择的每页数据数据  默认为[20,40,60,80,-1] -1为全部 数据量大慎用
+search-builder true|false 默认为true 是否开始自定义精准搜索
+columns    字段:字段名称,字段B:字段B名称 创建单元格的数据字段名定义
+custom-columns 自定义数据列显示  ,分隔 默认为全部
+search-columns  搜索默认查找的字段名
+order-columns 运行排序的字段名
+
+// 事件
+preinit.dt 可更改配置
+inited.dt  获取table实例 进行后续操作
+</textarea>
+
+</div>
+<script>
+$('#example').on('preinit.dt', function(event, options, dataTable) {
+    options['aaaa'] = 'qasdad';
+})
+</script>
+<tinyphp-ui:template pub/app/main-footer.html>

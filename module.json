@@ -41,8 +41,7 @@
 	"autoloader": {
 		"global": null,
 		"ignores": [
-			"Tiny\\UI\\Template\\UIViewTemplatePlugin",
-			"Tiny\\UI\\Helper\\UIViewHelper"
+			"Tiny\\UI\\UITagParser"
 		],
 		"static": {
 			"web": true,

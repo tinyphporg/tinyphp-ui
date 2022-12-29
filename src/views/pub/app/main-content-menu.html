@@ -1,7 +1,7 @@
 <div class="content-menu">
 		<ul class="docs-menu p-1">
 		  <li class="docs-menu-header">索引</li>
-			{loop $ui['menu'] $menuItem}
-			<li {if $menuItem['class']}class="{$menuItem['class']}"{/if}><a href="{$menuItem['href']}">{$menuItem['name']}</a></li> {/loop}
+			<:loop $ui['menu'] $menuItem>
+			<li <:if $menuItem['class']>class="{$menuItem['class']}"</:if> ><a href="{$menuItem['href']}">{$menuItem['name']}</a></li> </:loop>
 		</ul>
 </div>

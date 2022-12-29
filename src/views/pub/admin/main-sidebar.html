@@ -1,50 +1,54 @@
 <!-- 左侧菜单栏主体 -->
 <aside class="main-sidebar {$uiadmin['sidebar_bg']}" id="main-sidebar-navs">
 
-    <!-- .sidebar-header 品牌标识-->
-    <div class="sidebar-header">
-        <a href="index1.html" class="brand-link">
-            <img src="{ui.assets}/img/tinyphp-icon.png" alt="TinyphpUI" class="brand-image" />
-            <span class="brand-text font-weight-light">tinyphp-ui</span>
-        </a>
-        <!-- 左侧菜单栏推拉按钮 -->
-        <a class="brand-pushmenu" data-widget="pushmenu" href="#" role="button">
-            <i class="bi bi-list"></i>
-        </a>
-    </div>
+	<!-- .sidebar-header 品牌标识-->
+	<div class="sidebar-header">
+		<a href="index1.html" class="brand-link">
+			<img src="<ui:assets>/img/tinyphp-icon.png" alt="TinyphpUI" class="brand-image" />
+			<span class="brand-text font-weight-light">tinyphp-ui</span>
+		</a>
+		<!-- 左侧菜单栏推拉按钮 -->
+		<a class="brand-pushmenu" data-widget="pushmenu" href="#" role="button">
+			<i class="bi bi-list"></i>
+		</a>
+	</div>
 
-    <!-- .sidebar-body 菜单栏主体部分开始-->
-    <nav class="sidebar-body">
-    
-        <!-- .sidebar-menu 菜单栏 -->
-        <ul class="sidebar-menu nav nav-pills flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        
-				{loop $uiadmin['sidebar'] $sidebar} {if $sidebar['isHeading']}
-				<li class="sidebar-heading">{$sidebar['name']}</li>
-				{else}
-				<li class="nav-item">
-					<a href="{$sidebar['href']}" class="nav-link">
-						{if $sidebar['icon']}<i class="nav-icon {$sidebar['icon']}"></i>{/if}
-						<p>
-							{$sidebar['name']}{if $sidebar['children']}<i class="bi bi-chevron-up right"></i>{/if}
-						</p>
-					</a>
-					{if $sidebar['children']}
-					<ul class="nav nav-treeview">
-						{loop $sidebar['children'] $schild}
-						<li class="nav-item">
-							<a href="{$schild['href']}" class="nav-link">
-								{if $schild['icon']} <i class="nav-icon {$schild['icon']}"></i>{/if}
-								<p>{$schild['name']}</p>
-							</a>
-						</li>
-						{/loop}
-					</ul>
-					{/if}
-				</li>
-				{/if} {/loop}
-        <!-- /.sidebar-menu -->
-    </nav>
-    <!-- /.sidebar -->
+	<!-- .sidebar-body 菜单栏主体部分开始-->
+	<nav class="sidebar-body">
+
+		<!-- .sidebar-menu 菜单栏 -->
+		<ul class="sidebar-menu nav nav-pills flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+			<:loop $uiadmin['sidebar'] $sidebar> <:if $sidebar['isHeading']>
+			<li class="sidebar-heading">{$sidebar['name']}</li>
+			<:else>
+			<li class="nav-item">
+				<a href="{$sidebar['href']}" class="nav-link">
+					<:if $sidebar['icon']>
+					<i class="nav-icon {$sidebar['icon']}"></i></:if>
+					<p>
+						{$sidebar['name']}
+						<:if $sidebar['children']>
+						<i class="bi bi-chevron-up right"></i></:if>
+					</p>
+				</a>
+				<:if $sidebar['children']>
+				<ul class="nav nav-treeview">
+					<:loop $sidebar['children'] $schild>
+					<li class="nav-item">
+						<a href="{$schild['href']}" class="nav-link">
+							<:if $schild['icon']> <i class="nav-icon {$schild['icon']}"></i></:if>
+							<p>{$schild['name']}</p>
+						</a>
+					</li>
+					</:loop>
+				</ul>
+				</:if>
+			</li>
+			</:if></:loop>
+
+			<!-- /.sidebar-menu -->
+	</nav>
+	<!-- /.sidebar -->
 </aside>
 <!-- /.main-sidebar -->

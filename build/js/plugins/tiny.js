@@ -29,6 +29,25 @@ class Tiny extends BasePlugin {
             tiny: load,
             load:load
         }
+        
+        this.jqueryFnExtend = {
+            serializeObject: this.serializeObject
+        }
+    }
+    
+    serializeObject = function() {
+        let obj = {}
+        $.each(this.serializeArray(), function(){
+            if (obj[this.name] !== undefined) {
+                if (!isArray(obj[this.name])) {
+                    obj[this.name] = [obj[this.name]]
+                }
+                obj[this.name].push(this.value || '')
+            } else {
+                obj[this.name] = this.value || ''
+            }  
+        })
+        return obj
     }
 }
 export default Tiny

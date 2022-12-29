@@ -437,11 +437,22 @@ return [
             ]
         ],
         [
-            'name' => 'Widgets 部件',
+            'name' => 'TINYPHP-UI WIDGETS',
+            'isHeading' => true
+        ],
+        [
+            'name' => 'DataTable',
+            'href' => '/uidemo/datatable',
+            'icon' => 'bi bi-columns-gap',
+            'children' => []
+        ],
+        [
+            'name' => 'UI小部件',
             'href' => '/uidemo/admin/widgets/widgets.html',
             'icon' => 'bi bi-columns-gap',
             'children' => []
         ],
+        
         [
             'name' => 'TINYPHP-UI PAGES',
             'isHeading' => true

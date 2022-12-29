@@ -11,14 +11,3 @@
 @import "./admin/layouts";
 @import "./admin/pages";
 
-.pagination input.page-link-input {
-  max-width: $font-size-base * 4;
-}
-
-.pagination-lg input.page-link-input {
-  max-width: $font-size-lg * 4;
-}
-
-.pagination-sm input.page-link-input {
-  max-width: $font-size-sm * 4;
-}
