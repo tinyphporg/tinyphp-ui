@@ -201,6 +201,7 @@ class UIViewTemplatePlugin implements TemplatePluginInterface
      */
     public function onParseTag($tagName, $tagBody, $extra = NULL)
     {
+        echo $tagName;
         if (!in_array($tagName, self::PARSE_TAG_LIST)) {
             return false;
         }
