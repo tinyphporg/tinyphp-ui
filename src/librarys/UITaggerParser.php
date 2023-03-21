@@ -1,18 +1,19 @@
-<?php
+<?php 
 /**
  *
  * @copyright (C), 2013-, King.
- * @name UIViewTemplatePlugin.php
+ * @name UITaggerParser.php
  * @author King
  * @version stable 1.0
- * @Date 2017年3月12日下午2:05:36
- * @Class List
- * @Function List
- * @History King 2021年11月16日下午5:40:10 0 第一次建立该文件
- *          King 2021年11月16日下午5:40:10 1 修改
- *          King 2021年11月16日下午5:40:10 stable 1.0.01 审定
+ * @Date 2023年3月21日下午5:46:49
+ * @Description
+ * @Class List 1.
+ * @Function List 1.
+ * @History King 2023年3月21日下午5:46:49 第一次建立该文件
+ *          King 2023年3月21日下午5:46:49 修改
+ *         
  */
-namespace Tiny\UI\Template;
+namespace Tiny\UI\Tagger;
 
 use Tiny\MVC\View\Engine\Tagger\Parser\ParserInterface;
 
@@ -23,21 +24,27 @@ use Tiny\MVC\View\Engine\Tagger\Parser\ParserInterface;
  * @package Tiny.MVC.View.UI
  * @since King 2021年11月16日下午5:40:10
  * @final King 2021年11月16日下午5:40:10
- *       
+ *
  */
-class UIViewTemplatePlugin implements  ParserInterface
+class UITaggerParser implements  ParserInterface
 {
+    /**
+     * 解析器的命名空间
+     * 
+     * @var string
+     */
+    const PARSER_NAMESPACE = 'ui';
     
     /**
      * 可解析的标签列表
      *
      * @var array
      */
-    const PARSE_TAG_LIST = [
-        'ui.lib',
-        'ui.admin',
-        'ui.jslib',
-        'ui.assets',
+    const PARSER_TAGS = [
+        'lib',
+        'admin',
+        'jslib',
+        'assets',
         'pagination' // {splitpage,url="http://demo.tinycn.com/%s", index="1"}
     ];
     
@@ -180,13 +187,12 @@ class UIViewTemplatePlugin implements  ParserInterface
         return $template;
     }
     
-    /**
-     *
-     * {@inheritdoc}
-     * @see \Tiny\MVC\View\Engine\Template\TemplatePluginInterface::onParseCloseTag()
-     */
-    public function onParseCloseTag($tagName)
+
+    public function onParseCloseTag(string $tagName, $namespace = '')
     {
+        if (!$namespace != 'ui') {
+            return false;
+        }
         if (!in_array($tagName, self::PARSE_TAG_LIST)) {
             return false;
         }
@@ -258,8 +264,8 @@ class UIViewTemplatePlugin implements  ParserInterface
             array_walk($plugins, function ($value) {
                 return trim($value);
             });
-            $pluginStr = '"' . join('","', $plugins) . '"';
-            $pluginStr = <<<EOT
+                $pluginStr = '"' . join('","', $plugins) . '"';
+                $pluginStr = <<<EOT
             <script type="text/javascript">
                 (function(window){
                     window.tinyphp_ui_config = {"plugins" : [{$pluginStr}]}
@@ -275,7 +281,7 @@ class UIViewTemplatePlugin implements  ParserInterface
         }
         return <<<EOT
         <?php
-        if (!\$this->__tinyphp_ui_library_injected) 
+        if (!\$this->__tinyphp_ui_library_injected)
         {
             \$this->__tinyphp_ui_library_injected = true;
             echo '{$pluginStr}';

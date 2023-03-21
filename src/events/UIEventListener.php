@@ -22,6 +22,7 @@ use Tiny\MVC\View\Engine\Template;
 use Tiny\UI\Template\UIViewTemplatePlugin;
 use Tiny\UI\Helper\UIViewHelper;
 use Tiny\MVC\Event\RouteEventListenerInterface;
+use Tiny\MVC\View\Engine\Tagger\Tagger;
 
 /**
  * UI事件插件
@@ -98,14 +99,14 @@ class UIEventListener implements RequestEventListenerInterface, RouteEventListen
             'dev_admin_public_path' => $setting['dev']['admin_public_path'],
         ];
         $engines[] = [
-            'engine' => Template::class,
-            'config' => [],
-            'plugins' => [
+            'engine' => Tagger::class,
+            'config' => [
+            'parsers' => [
                 [
-                    'plugin' => UIViewTemplatePlugin::class,
+                    'parser' => UIViewTemplatePlugin::class,
                     'config' => $templatePluginConfig
                 ]
-            ]
+            ]]
         ];
         $this->properties['view.engines'] = $engines;
         
@@ -115,7 +116,6 @@ class UIEventListener implements RequestEventListenerInterface, RouteEventListen
             'helper' => UIViewHelper::class
         ];
         $this->properties['view.helpers'] = $helpers;
-        
         $this->initViewAssigns($setting);
     }
     
