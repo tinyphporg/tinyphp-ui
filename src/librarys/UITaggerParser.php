@@ -13,7 +13,7 @@
  *          King 2023年3月21日下午5:46:49 修改
  *         
  */
-namespace Tiny\UI\Tagger;
+namespace Tiny\UI;
 
 use Tiny\MVC\View\Engine\Tagger\Parser\ParserInterface;
 
@@ -45,7 +45,7 @@ class UITaggerParser implements  ParserInterface
         'admin',
         'jslib',
         'assets',
-        'pagination' // {splitpage,url="http://demo.tinycn.com/%s", index="1"}
+//        'pagination' // {splitpage,url="http://demo.tinycn.com/%s", index="1"}
     ];
     
     /**
@@ -53,38 +53,31 @@ class UITaggerParser implements  ParserInterface
      *
      * @var string
      */
-    const UI_FRONTEND_INJECT_DEFAULT = 'head';
+    const INJECT_DEFAULT = 'head';
     
     /**
      * 默认插入前端库的位置列表
      *
      * @var array
      */
-    const UI_FRONTEND_INJECT_LIST = [
+    const INJECT_LIST = [
         'head',
         'body'
     ];
     
     /**
-     * 当前template实例
-     *
-     * @var Template
-     */
-    protected $template;
-    
-    /**
-     * 当前URL插件的配置数组
+     * 当前解析器的配置数组
      *
      * @var array
      */
-    protected $templateConfig;
+    protected $config;
     
     /**
      * 是否自动注入前端库
      *
      * @var boolean
      */
-    protected $inject = self::UI_FRONTEND_INJECT_DEFAULT;
+    protected $inject = self::INJECT_DEFAULT;
     
     /**
      * 是否注入
@@ -115,13 +108,6 @@ class UITaggerParser implements  ParserInterface
     protected $devPublicPath;
     
     /**
-     * 开发模式下的公共后台地址
-     *
-     * @var string
-     */
-    protected $devAdminPublicPath;
-    
-    /**
      * 解析静态资源的公共访问地址
      *
      * @var string
@@ -129,16 +115,14 @@ class UITaggerParser implements  ParserInterface
     protected $assetsPublicPath;
     
     /**
-     *
-     * @autowired
-     *
-     * {@inheritdoc}
-     * @see \Tiny\MVC\View\Engine\Template\TemplatePluginInterface::setTemplateConfig()
+     * 根据配置
+     * 
+     * @param array $config
      */
-    public function setTemplateConfig(Template $template, array $config)
+    public function __construct(array $config)
     {
-        $this->template = $template;
-        $this->templateConfig = $config;
+        print_r($config);
+        $this->config = $config;
         if (isset($config['public_path'])) {
             $this->publicPath = (string)$config['public_path'];
             $this->assetsPublicPath = $this->publicPath . 'assets/';
@@ -146,16 +130,15 @@ class UITaggerParser implements  ParserInterface
         
         // 兼容开发模式
         $this->isDev = (bool)$config['dev_enabled'];
-        if ($this->isDev && isset($config['dev_public_path'])) {
+        if (isset($config['dev_public_path'])) {
             $this->devPublicPath = (string)$config['dev_public_path'];
-            $this->devAdminPublicPath = (string)$config['dev_admin_public_path'];
         }
         if (!isset($config['inject'])) {
             return;
         }
         if ($config['inject']) {
             $inject = (string)$config['inject'];
-            $inject = in_array($inject, self::UI_FRONTEND_INJECT_LIST) ? $inject : self::UI_FRONTEND_INJECT_DEFAULT;
+            $inject = in_array($inject, self::INJECT_LIST) ? $inject : self::INJECT_DEFAULT;
             $this->inject = $inject;
         } else {
             $this->inject = false;
@@ -163,8 +146,9 @@ class UITaggerParser implements  ParserInterface
     }
     
     /**
-     *
-     * @param string $tpath
+     * 解析模板标签
+     * 
+     * @param string $tpath 模板路径
      */
     public function onParseTemplatePath($tpath, bool $isAbsolute = false, array $variables = [])
     {
@@ -172,7 +156,7 @@ class UITaggerParser implements  ParserInterface
     }
     
     /**
-     * 解析前发生
+     * 解析前动作
      *
      * @param string $template 解析前的模板字符串
      * @return false|string
@@ -187,38 +171,40 @@ class UITaggerParser implements  ParserInterface
         return $template;
     }
     
-
-    public function onParseCloseTag(string $tagName, $namespace = '')
+   /**
+    * 解析关闭的模板标签
+    * 
+    * {@inheritDoc}
+    * @see \Tiny\MVC\View\Engine\Tagger\Parser\ParserInterface::onParseCloseTag()
+    */
+    public function onParseCloseTag($tagName, $namespace = '')
     {
         if (!$namespace != 'ui') {
             return false;
         }
-        if (!in_array($tagName, self::PARSE_TAG_LIST)) {
+        if (!in_array($tagName, self::PARSER_TAGS)) {
             return false;
         }
         return '';
     }
     
     /**
-     *
-     * {@inheritdoc}
-     * @see \Tiny\MVC\View\Engine\Template\TemplatePluginInterface::onParseTag()
+     * 
+     * {@inheritDoc}
+     * @see \Tiny\MVC\View\Engine\Tagger\Parser\ParserInterface::onParseTag()
      */
-    public function onParseTag($tagName, $tagBody, $extra = NULL)
+    public function onParseTag($tagName, $namespace = '', array $params = [])
     {
-        echo $tagName;
-        if (!in_array($tagName, self::PARSE_TAG_LIST)) {
+        if (!in_array($tagName, self::PARSER_TAGS)) {
             return false;
         }
         switch ($tagName) {
-            case 'ui.lib':
-                return $this->parseUILibraryTag($extra);
-            case 'ui.admin':
-                return $this->parseUILibraryTag($extra, true);
-            case 'ui.assets':
-                return $this->parseAssetsTag();
-            case 'pagination':
-                return (new Pagination())->OnParseTag($tagName, $tagBody, $extra);
+            case 'lib':
+                return $this->parseUILibraryTag($params);
+            case 'admin':
+                return $this->parseUILibraryTag($params, true);
+            case 'assets':
+                return $this->assetsPublicPath;
         }
     }
     
@@ -245,47 +231,34 @@ class UITaggerParser implements  ParserInterface
     }
     
     /**
-     * 解析assetstag
-     */
-    protected function parseAssetsTag()
-    {
-        return $this->assetsPublicPath;
-    }
-    
-    /**
      * 解析UI library库标签
      *
      * @return string
      */
-    protected function parseUILibraryTag($extra = '', $isAdmin = false)
+    protected function parseUILibraryTag(array $params = [], $isAdmin = false)
     {
-        if ($extra) {
-            $plugins = explode(',', $extra);
-            array_walk($plugins, function ($value) {
-                return trim($value);
-            });
-                $pluginStr = '"' . join('","', $plugins) . '"';
-                $pluginStr = <<<EOT
+        if ($params) {
+                $paramText  = json_encode($params);
+                $paramText = <<<EOT
             <script type="text/javascript">
                 (function(window){
-                    window.tinyphp_ui_config = {"plugins" : [{$pluginStr}]}
+                    window.tinyphp_ui_config = $paramString
                 })(window);
             </script>
             EOT;
         }
-        if ($this->isDev) {
-            $lib = sprintf('<script src="%s"></script>', $isAdmin ? $this->devAdminPublicPath : $this->devPublicPath);
-        } else {
-            $libName = $isAdmin ? 'admin.' : '';
-            $lib = sprintf('<link href="%scss/tinyphp-ui.%smin.css" rel="stylesheet"/><script src="%sjs/tinyphp-ui.%smin.js"></script>', $this->publicPath, $libName, $this->publicPath, $libName);
+        $adminText = $isAdmin ? 'admin.' : '';
+        $libText = sprintf('<script src="%sjs/tinyphp-ui.%sjs"></script>', $this->isDev ? $this->devPublicPath : $this->devPublicPath, $adminText);
+        if (!$this->isDev) {
+            $libText = sprintf('<link href="%scss/tinyphp-ui.%smin.css" rel="stylesheet"/>', $this->publicPath, $adminText);
         }
         return <<<EOT
         <?php
         if (!\$this->__tinyphp_ui_library_injected)
         {
             \$this->__tinyphp_ui_library_injected = true;
-            echo '{$pluginStr}';
-            echo '{$lib}';
+            echo '{$paramText}';
+            echo '{$libText}';
         }
         ?>
         EOT;

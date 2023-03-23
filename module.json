@@ -13,8 +13,7 @@
 		"helper": "\\Tiny\\MVC\\View\\UI\\Helper\\UIViewHelper",
 		"dev": {
 			"enabled": true,
-			"public_path": "http://127.0.0.1:8080/js/tinyphp-ui.js",
-			"admin_public_path": "http://127.0.0.1:8080/js/tinyphp-ui.admin.js"
+			"public_path": "http://127.0.0.1:8080/"
 		},
 		"assigns": [
 			"ui",
@@ -41,7 +40,7 @@
 	"autoloader": {
 		"global": null,
 		"ignores": [
-			"Tiny\\UI\\Template\\UIViewTemplatePlugin",
+			"Tiny\\UI\\UITaggerParser",
 			"Tiny\\UI\\Helper\\UIViewHelper"
 		],
 		"static": {
