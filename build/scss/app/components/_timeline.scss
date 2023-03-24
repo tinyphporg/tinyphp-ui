@@ -1,0 +1,162 @@
+//
+// Component: Timeline
+//
+.timeline {
+  position: relative;
+  padding: 0;
+  margin: 0 0 45px;
+  // The line
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 31px;
+    width: 4px;
+    margin: 0;
+    background-color: $gray-300;
+    content: "";
+
+    @include border-radius($border-radius);
+  }
+  // Element
+  > div {
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 15px;
+
+    &::before,
+    &::after {
+      display: table;
+      content: "";
+    }
+    // The content
+    > .timeline-item {
+      position: relative;
+      padding: 0;
+      margin-top: 0;
+      margin-right: 15px;
+      margin-left: 60px;
+      color: $gray-700;
+      background-color: $white;
+      // The time and header
+      > .time {
+        float: right;
+        padding: 10px;
+        font-size: 12px;
+        color: #999;
+      }
+      // Header
+      > .timeline-header {
+        padding: 10px;
+        margin: 0;
+        border-bottom: 1px solid $card-border-color;
+        font-size: 16px;
+        line-height: 1.1;
+        color: $gray-700;
+        // Link in header
+        > a {
+          font-weight: 600;
+        }
+      }
+      // Item body and footer
+      > .timeline-body,
+      > .timeline-footer {
+        padding: 10px;
+      }
+
+      > .timeline-body {
+        > img {
+          margin: 10px;
+        }
+
+        > dl,
+        ol,
+        ul {
+          margin: 0;
+        }
+      }
+
+      > .timeline-footer {
+        > a {
+          color: $white;
+        }
+      }
+
+      @include box-shadow($card-shadow);
+      @include border-radius($border-radius);
+    }
+    // The icons at line
+    > .fa,
+    > .fas,
+    > .far,
+    > .fab,
+    > .fal,
+    > .fad,
+    > .svg-inline--fa,
+    > .ion {
+      position: absolute;
+      top: 0;
+      left: 18px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      font-size: 16px;
+      line-height: 30px;
+      text-align: center;
+      background-color: $gray-500;
+    }
+
+    > .svg-inline--fa {
+      padding: 7px;
+    }
+  }
+  // Time label
+  > .time-label {
+    > span {
+      display: inline-block;
+      padding: 5px;
+      font-weight: 600;
+      background-color: $white;
+
+      @include border-radius(4px);
+    }
+  }
+}
+
+.timeline-inverse {
+  > div {
+    > .timeline-item {
+      border: 1px solid $gray-300;
+      background-color: $gray-100;
+
+      > .timeline-header {
+        border-bottom-color: $gray-300;
+      }
+
+      @include box-shadow(none);
+    }
+  }
+}
+
+.dark-mode {
+  .timeline {
+    &::before {
+      background-color: $gray-600;
+    }
+
+    > div > .timeline-item {
+      border-color: $gray-600;
+      color: $white;
+      background-color: $dark;
+
+      > .timeline-header {
+        border-color: $gray-600;
+        color: $gray-400;
+      }
+
+      > .time {
+        color: $gray-400;
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+//
+// Mixins: Backgrounds
+//
+
+// Background Variant
+@mixin background-variant($name, $color) {
+  .bg-#{$name} {
+    background-color: #{$color} !important;
+
+    &,
+    > a {
+      color: color-contrast($color) !important;
+    }
+
+    &.btn {
+      &:hover {
+        border-color: darken($color, 10%);
+        color: darken(color-contrast($color), 7.5%);
+      }
+
+      &:not(:disabled, .disabled):active,
+      &:not(:disabled, .disabled).active,
+      &:active,
+      &.active {
+        border-color: darken($color, 12.5%);
+        color: color-contrast(darken($color, 10%));
+        background-color: darken($color, 10%) !important;
+      }
+    }
+  }
+}
+
+// Background Gradient Variant
+@mixin background-gradient-variant($name, $color) {
+  .bg-gradient-#{$name} {
+    color: color-contrast($color);
+    background: $color linear-gradient(180deg, mix($body-bg, $color, 15%), $color) repeat-x !important;
+
+    &.btn {
+      &.disabled,
+      &:disabled,
+      &:not(:disabled, .disabled):active,
+      &:not(:disabled, .disabled).active,
+      .show > &.dropdown-toggle {
+        background-image: none !important;
+      }
+
+      &:hover {
+        border-color: darken($color, 10%);
+        color: darken(color-contrast($color), 7.5%);
+        background: $color linear-gradient(180deg, mix($body-bg, darken($color, 7.5%), 15%), darken($color, 7.5%)) repeat-x !important;
+      }
+
+      &:not(:disabled, .disabled):active,
+      &:not(:disabled, .disabled).active,
+      &:active,
+      &.active {
+        border-color: darken($color, 12.5%);
+        color: color-contrast(darken($color, 10%));
+        background: $color linear-gradient(180deg, mix($body-bg, darken($color, 10%), 15%), darken($color, 10%)) repeat-x !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{template pub/admin/main-header.html}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- .content-header -->
+    <section class="content-header">
+        <div class="content-title">
+            <div class="content-title-heading">
+                <div class="content-title-icon">
+                    <i class="bi bi-menu-button icon-gradient bg-mean-fruit"></i>
+                </div>
+                <div class="">
+                    Uplot 小巧高性能的图表库
+                    <div class="content-title-subheading">各种图表</div>
+                </div>
+            </div>
+            <div class="content-title-actions">
+                <a class="btn btn-dark btn-icon btn-shadow me-2" target="_blank" href="https://itsjavi.com/bootstrap-colorpicker/"> <i class="bi bi-filetype-doc"></i> Docs
+                </a> <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://github.com/itsjavi/bootstrap-colorpicker"> <i class="bi bi-github"></i> View on Github
+                </a>
+
+            </div>
+        </div>
+    </section>
+    <!-- /.content-header -->
+
+	<!-- Main content -->
+	<section class="main-content">
+
+			<!-- AREA CHART -->
+			<div class="card main-card mb-2">
+				<div class="card-header">
+					<h3 class="card-title">Area Chart</h3>
+
+					<div class="card-tools">
+						<button type="button" class="btn btn-tool" data-card-widget="collapse">
+							<i class="fas fa-minus"></i>
+						</button>
+						<button type="button" class="btn btn-tool" data-card-widget="remove">
+							<i class="fas fa-times"></i>
+						</button>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="chart">
+						<div id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+					</div>
+				</div>
+				<!-- /.card-body -->
+			</div>
+			<!-- /.card -->
+
+			<!-- LINE CHART -->
+			<div class="card main-card">
+				<div class="card-header">
+					<h3 class="card-title">Line Chart</h3>
+
+					<div class="card-tools">
+						<button type="button" class="btn btn-tool" data-card-widget="collapse">
+							<i class="fas fa-minus"></i>
+						</button>
+						<button type="button" class="btn btn-tool" data-card-widget="remove">
+							<i class="fas fa-times"></i>
+						</button>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="chart">
+						<div id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+					</div>
+				</div>
+				<!-- /.card-body -->
+			</div>
+			<!-- /.card -->
+
+            <div class="row">
+            <div class="col-sm-12">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">Javascript Code</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <code class="language-javascript" data-text-target="#codesource"></code>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->         
+            </div>
+
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<script id="codesource">
+  $.load('uplot').then(function (uPlot) {
+    /* uPlot
+     * -------
+     * Here we will create a few charts using uPlot
+     */
+
+    function getSize(elementId) {
+      return {
+        width: document.getElementById(elementId).offsetWidth,
+        height: document.getElementById(elementId).offsetHeight,
+      }
+    }
+
+    let data = [
+      [0, 1, 2, 3, 4, 5, 6],
+      [28, 48, 40, 19, 86, 27, 90],
+      [65, 59, 80, 81, 56, 55, 40]
+    ];
+
+    //--------------
+    //- AREA CHART -
+    //--------------
+
+    const optsAreaChart = {
+      ... getSize('areaChart'),
+      scales: {
+        x: {
+          time: false,
+        },
+        y: {
+          range: [0, 100],
+        },
+      },
+      series: [
+        {},
+        {
+          fill: 'rgba(60,141,188,0.7)',
+          stroke: 'rgba(60,141,188,1)',
+        },
+        {
+          stroke: '#c1c7d1',
+          fill: 'rgba(210, 214, 222, .7)',
+        },
+      ],
+    };
+
+    let areaChart = new uPlot(optsAreaChart, data, document.getElementById('areaChart'));
+
+    const optsLineChart = {
+      ... getSize('lineChart'),
+      scales: {
+        x: {
+          time: false,
+        },
+        y: {
+          range: [0, 100],
+        },
+      },
+      series: [
+        {},
+        {
+          fill: 'transparent',
+          width: 5,
+          stroke: 'rgba(60,141,188,1)',
+        },
+        {
+          stroke: '#c1c7d1',
+          width: 5,
+          fill: 'transparent',
+        },
+      ],
+    };
+
+    let lineChart = new uPlot(optsLineChart, data, document.getElementById('lineChart'));
+
+    window.addEventListener("resize", e => {
+      areaChart.setSize(getSize('areaChart'));
+      lineChart.setSize(getSize('lineChart'));
+    });
+  })
+</script>

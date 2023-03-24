@@ -1,0 +1,34 @@
+.main-wrapper {
+
+   @include media-breakpoint-up(md) {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      grid-template-areas: "sidebar content";
+      gap: 1.5rem;        
+      .main-sidebar {
+        grid-area: sidebar;
+      }
+      .main-content {
+        grid-area: content;
+      }
+    }
+    
+  &:not(.main-has-sidebar) {
+    .main-sidebar {
+      display: none;
+    }
+    .sidebar-toggler {
+      display: none;
+    }
+  }
+  
+  &.main-has-sidebar {
+    @include media-breakpoint-up(lg) {
+        grid-template-columns: 1fr 5fr;
+    }
+    @include media-breakpoint-up(xxl) {
+        grid-template-columns: 1fr 6fr;
+    }
+  }
+  
+}

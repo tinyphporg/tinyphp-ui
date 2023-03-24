@@ -1,0 +1,118 @@
+//
+// Pages: Login & Register
+//
+.login-logo,
+.register-logo {
+  margin-bottom: .9rem;
+  font-weight: 300;
+  font-size: 2.1rem;
+  text-align: center;
+
+  a {
+    color: $gray-700;
+  }
+}
+
+.login-page,
+.register-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $gray-200;
+}
+
+.login-box,
+.register-box {
+  width: 360px;
+
+  .card {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+    width: 90%;
+    margin-top: .5rem;
+  }
+}
+
+.login-card-body,
+.register-card-body {
+  padding: 20px;
+  border-top: 0;
+  color: #666;
+  background-color: $white;
+
+  .input-group {
+    .form-control {
+      border-right: 0;
+
+      &:focus {
+        box-shadow: none;
+
+        ~ .input-group-prepend .input-group-text,
+        ~ .input-group-append .input-group-text {
+          border-color: $input-focus-border-color;
+        }
+      }
+
+      &.is-valid {
+        &:focus {
+          box-shadow: none;
+        }
+
+        ~ .input-group-prepend .input-group-text,
+        ~ .input-group-append .input-group-text {
+          border-color: $success;
+        }
+      }
+
+      &.is-invalid {
+        &:focus {
+          box-shadow: none;
+        }
+
+        ~ .input-group-append .input-group-text {
+          border-color: $danger;
+        }
+      }
+    }
+
+    .input-group-text {
+      border-left: 0;
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+      color: #777;
+      background-color: transparent;
+      transition: $input-transition;
+    }
+  }
+}
+
+.login-box-msg,
+.register-box-msg {
+  padding: 0 20px 20px;
+  margin: 0;
+  text-align: center;
+}
+
+.social-auth-links {
+  margin: 10px 0;
+}
+
+.dark-mode {
+  .login-card-body,
+  .register-card-body {
+    border-color: $gray-600;
+    color: $white;
+    background-color: $dark;
+  }
+
+  .login-logo,
+  .register-logo {
+    a {
+      color: $white;
+    }
+  }
+}

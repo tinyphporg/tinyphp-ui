@@ -1,0 +1,480 @@
+//
+// Misc: Miscellaneous
+//
+
+.border-transparent {
+  border-color: transparent !important;
+}
+
+// Description Blocks
+.description-block {
+  display: block;
+  margin: 10px 0;
+  text-align: center;
+
+  &.margin-bottom {
+    margin-bottom: 25px;
+  }
+
+  > .description-header {
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  > .description-text {
+    text-transform: uppercase;
+  }
+
+  // Description Block Extension
+  .description-icon {
+    font-size: 16px;
+  }
+}
+
+// List utility classes
+.list-group-unbordered {
+  > .list-group-item {
+    padding-right: 0;
+    padding-left: 0;
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+  }
+}
+
+.list-header {
+  padding: 10px 4px;
+  font-weight: 700;
+  font-size: 15px;
+  color: $gray-600;
+}
+
+.list-seperator {
+  height: 1px;
+  margin: 15px 0 9px;
+  background-color: $card-border-color;
+}
+
+.list-link {
+  > a {
+    padding: 4px;
+    color: $gray-600;
+
+    &:hover {
+      color: $gray-900;
+    }
+  }
+}
+
+// User block
+.user-block {
+  float: left;
+
+  img {
+    float: left;
+    width: 40px;
+    height: 40px;
+  }
+
+  .username,
+  .description,
+  .comment {
+    display: block;
+    margin-left: 50px;
+  }
+
+  .username {
+    margin-top: -1px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .description {
+    margin-top: -3px;
+    font-size: 13px;
+    color: $gray-600;
+  }
+
+  &.user-block-sm {
+    img {
+      width: $img-size-sm;
+      height: $img-size-sm;
+    }
+
+    .username,
+    .description,
+    .comment {
+      margin-left: 40px;
+    }
+
+    .username {
+      font-size: 14px;
+    }
+  }
+}
+
+// Image sizes
+.img-sm,
+.img-md,
+.img-lg {
+  float: left;
+}
+
+.img-sm {
+  width: $img-size-sm;
+  height: $img-size-sm;
+
+  + .img-push {
+    margin-left: $img-size-sm + $img-size-push;
+  }
+}
+
+.img-md {
+  width: $img-size-md;
+  height: $img-size-md;
+
+  + .img-push {
+    margin-left: $img-size-md + $img-size-push;
+  }
+}
+
+.img-lg {
+  width: $img-size-lg;
+  height: $img-size-lg;
+
+  + .img-push {
+    margin-left: $img-size-lg + $img-size-push;
+  }
+}
+
+// Image bordered
+.img-bordered {
+  padding: 3px;
+  border: 3px solid $gray-500;
+}
+
+.img-bordered-sm {
+  padding: 2px;
+  border: 2px solid $gray-500;
+}
+
+// Rounded and Circle Images
+.img-rounded {
+  @include border-radius($border-radius);
+}
+
+.img-circle {
+  @include border-radius(50%);
+}
+
+// Image sizes
+.img-size-64,
+.img-size-50,
+.img-size-32 {
+  height: auto;
+}
+
+.img-size-64 {
+  width: 64px;
+}
+
+.img-size-50 {
+  width: 50px;
+}
+
+.img-size-32 {
+  width: 32px;
+}
+
+// Block sizes
+.size-32,
+.size-40,
+.size-50 {
+  display: block;
+  text-align: center;
+}
+
+.size-32 {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+
+.size-40 {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.size-50 {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+
+// General attachemnt block
+.attachment-block {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid $card-border-color;
+  background-color: $gray-100;
+
+  .attachment-img {
+    float: left;
+    max-width: 100px;
+    height: auto;
+    max-height: 100px;
+  }
+
+  .attachment-pushed {
+    margin-left: 110px;
+  }
+
+  .attachment-heading {
+    margin: 0;
+  }
+
+  .attachment-text {
+    color: $gray-700;
+  }
+}
+
+// Overlays for Card, InfoBox & SmallBox
+.card,
+.overlay-wrapper,
+.info-box,
+.small-box {
+  // Box overlay for LOADING STATE effect
+  > .overlay,
+  > .loading-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .overlay {
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($white, .7);
+
+    > .fa,
+    > .fas,
+    > .far,
+    > .fab,
+    > .fal,
+    > .fad,
+    > .svg-inline--fa,
+    > .ion {
+      color: $gray-800;
+    }
+
+    &.dark {
+      background-color: rgba($black, .5);
+
+      > .fa,
+      > .fas,
+      > .far,
+      > .fab,
+      > .fal,
+      > .fad,
+      > .svg-inline--fa,
+      > .ion {
+        color: $gray-400;
+      }
+    }
+
+    @include border-radius($border-radius);
+  }
+}
+
+.tab-pane {
+  // Box overlay for LOADING STATE effect on Tab Panels
+  > .overlay-wrapper {
+    position: relative;
+
+    > .overlay {
+      flex-direction: column;
+      width: calc(100% + 2 * #{$card-spacer-x});
+      height: calc(100% + 2 * #{$card-spacer-x});
+      margin-top: -$card-spacer-x;
+      margin-left: -$card-spacer-x;
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+
+      &.dark {
+        color: $white;
+      }
+    }
+  }
+}
+
+// Scroll To Top
+.back-to-top {
+  position: fixed;
+  z-index: $zindex-control-sidebar + 1;
+  bottom: 1.25rem;
+  right: 1.25rem;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+// Pre
+pre {
+  padding: .75rem;
+}
+
+// Blockquotes styles
+blockquote {
+  padding: .5em .7rem;
+  margin: 1.5em .7rem;
+  border-left: .7rem solid $primary;
+  background-color: $white;
+
+  .box & {
+    background-color: $gray-200;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: $primary;
+  }
+
+  @each $color, $value in $theme-colors {
+    &.quote-#{$color} {
+      border-color: $value;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: $value;
+      }
+    }
+  }
+
+  @each $color, $value in $colors {
+    &.quote-#{$color} {
+      border-color: $value;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: $value;
+      }
+    }
+  }
+}
+
+// Tab Custom Content
+
+.tab-custom-content {
+  padding-top: .5rem;
+  margin-top: .5rem;
+  border-top: $nav-tabs-border-width solid $nav-tabs-border-color;
+}
+
+.nav + .tab-custom-content {
+  padding-bottom: .5rem;
+  margin-top: 0;
+  margin-bottom: .5rem;
+  border-top: none;
+  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+}
+
+// Badge BTN Style
+.badge-btn {
+  padding: $button-padding-y-xs * 2 $button-padding-x-xs * 2;
+  border-radius: $button-border-radius-xs;
+  font-weight: 400;
+  font-size: $button-font-size-xs;
+}
+
+.badge-btn.badge-pill {
+  padding: .375rem .6rem;
+}
+
+.dark-mode {
+  a:not(.btn):hover {
+    color: lighten($link-color, 10%);
+  }
+
+  .attachment-block {
+    background-color: lighten($dark, 3.75%);
+
+    .attachment-text {
+      color: $gray-400;
+    }
+  }
+
+  blockquote {
+    background-color: lighten($dark, 5%);
+
+    @each $color, $value in $theme-colors {
+      &.quote-#{$color} {
+        border-color: $value;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          color: $value;
+        }
+      }
+    }
+
+    @each $color, $value in $colors {
+      &.quote-#{$color} {
+        border-color: $value;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          color: $value;
+        }
+      }
+    }
+  }
+
+  .close,
+  .mailbox-attachment-close {
+    text-shadow: 0 1px 0 $gray-700;
+    color: $gray-500;
+  }
+
+  .tab-custom-content {
+    border-color: $gray-600;
+  }
+
+  .list-group-item {
+    border-color: $gray-600;
+    background-color: $dark;
+  }
+}

@@ -1,0 +1,52 @@
+//
+// Component: Nav
+//
+.dark-mode {
+  .nav-pills .nav-link {
+    color: $gray-400;
+  }
+
+  .nav-tabs {
+    border-color: lighten($dark, 15%);
+
+    .nav-link:focus,
+    .nav-link:hover {
+      border-color: lighten($dark, 15%);
+    }
+
+    .nav-item.show .nav-link,
+    .nav-link.active {
+      border-color: lighten($dark, 15%) lighten($dark, 15%) transparent lighten($dark, 15%);
+      color: $white;
+      background-color: $dark;
+    }
+
+    &.flex-column {
+      .nav-item.show .nav-link,
+      .nav-link {
+        &.active,
+        &:focus,
+        &:hover {
+          border-color: lighten($dark, 15%) transparent lighten($dark, 15%) lighten($dark, 15%);
+        }
+
+        &:focus,
+        &:hover {
+          background-color: lighten($dark, 5%);
+        }
+      }
+
+      &.nav-tabs-right {
+        border-color: lighten($dark, 15%);
+
+        .nav-link {
+          &.active,
+          &:focus,
+          &:hover {
+            border-color: lighten($dark, 15%) lighten($dark, 15%) lighten($dark, 15%) transparent;
+          }
+        }
+      }
+    }
+  }
+}

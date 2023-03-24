@@ -1,0 +1,245 @@
+//
+// Core: Layout
+//
+
+html.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+.main-wrapper {
+  min-height: 100%;
+  background: $main-bg;
+}
+
+body.sidebar-collapse:not(.sidebar-mini-xs, .sidebar-mini-md, .sidebar-mini) {
+  .content-wrapper,
+  .main-footer,
+  .main-header {
+    &,
+    &::before {
+      margin-left: 0;
+    }
+  }
+}
+
+body.sidebar-collapse:not(.sidebar-mini-md, .sidebar-mini-xs, .layout-top-nav) {
+  .content-wrapper,
+  .main-footer,
+  .main-header {
+    @include media-breakpoint-up(md) {
+      margin-left: 0;
+    }
+  }
+}
+
+body:not(.sidebar-mini-md, .sidebar-mini-xs, .layout-top-nav) {
+  .content-wrapper,
+  .main-footer,
+  .main-header {
+    @include media-breakpoint-up(md) {
+      margin-left: $sidebar-width;
+
+      .sidebar-collapse & {
+        margin-left: 0;
+      }
+
+      @include transition(margin-left $transition-speed $transition-fn);
+    }
+
+    @include media-breakpoint-down(md) {
+      margin-left: 0;
+    }
+  }
+}
+
+.sidebar-mini-md {
+  .content-wrapper,
+  .main-footer,
+  .main-header {
+    @include media-breakpoint-up(md) {
+      margin-left: $sidebar-width;
+
+      .sidebar-collapse & {
+        margin-left: $sidebar-mini-width;
+      }
+
+      @include transition(margin-left $transition-speed $transition-fn);
+    }
+
+    @include media-breakpoint-down(md) {
+      // margin-left: $sidebar-mini-width;
+      margin-left: 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin-left: 0;
+    }
+  }
+}
+
+.sidebar-mini-xs {
+  .content-wrapper,
+  .main-footer,
+  .main-header {
+    @include media-breakpoint-up(md) {
+      margin-left: $sidebar-width;
+
+      .sidebar-collapse & {
+        margin-left: $sidebar-mini-width;
+      }
+
+      @include transition(margin-left $transition-speed $transition-fn);
+    }
+
+    @include media-breakpoint-down(md) {
+      margin-left: $sidebar-mini-width;
+    }
+  }
+}
+
+body:not(.sidebar-mini-md, .sidebar-mini-xs) {
+  @include media-breakpoint-down(lg) {
+    &.sidebar-open,
+    &.sidebar-is-opening {
+      .main-sidebar {
+        margin-top: $header-height;
+        .sidebar-header {
+          display: none;
+        }
+      }
+
+      .main-header {
+        margin-left: 0;
+      }
+    }
+  }
+}
+     
+.content-wrapper {
+  > .content {
+    padding: $content-padding-y $content-padding-x;
+  }
+}
+
+.main-sidebar {
+  &,
+  &::before {
+    width: $sidebar-width;
+    $local-sidebar-transition: margin-left $transition-speed $transition-fn, width $transition-speed $transition-fn;
+
+    @include transition($local-sidebar-transition);
+  }
+
+  .sidebar-collapse:not(.sidebar-mini, .sidebar-mini-md, .sidebar-mini-xs) & {
+    &,
+    &::before {
+      box-shadow: none !important;
+    }
+  }
+
+  .sidebar-collapse & {
+    &,
+    &::before {
+      margin-left: -$sidebar-width;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &,
+    &::before {
+      margin-left: -$sidebar-width;
+      box-shadow: none !important;
+    }
+
+    .sidebar-open & {
+      &,
+      &::before {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.main-footer {
+  padding: $main-footer-padding;
+  border-top: $main-footer-border-top;
+  color: lighten($gray-700, 25%);
+  background-color: $main-footer-bg;
+
+  .text-sm &,
+  &.text-sm {
+    padding: $main-footer-padding-sm;
+  }
+}
+
+.content-header {
+  padding: 15px $content-padding-x;
+
+  .text-sm & {
+    padding: 10px $content-padding-x;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 1.8rem;
+
+    .text-sm & {
+      font-size: 1.5rem;
+    }
+  }
+
+  .breadcrumb {
+    padding: 0;
+    margin-bottom: 0;
+    line-height: 1.8rem;
+    background-color: transparent;
+
+    .text-sm & {
+      line-height: 1.5rem;
+    }
+  }
+}
+
+.hold-transition {
+  .content-wrapper,
+  .main-header,
+  .main-sidebar,
+  .main-sidebar *,
+  .control-sidebar,
+  .control-sidebar *,
+  .main-footer {
+    transition: none !important;
+    animation-duration: 0s !important;
+  }
+}
+
+.dark-mode {
+  color: $white;
+  background-color: $dark-main-bg;
+
+  .breadcrumb-item {
+    &.active,
+    + .breadcrumb-item::before {
+      color: $gray-500;
+    }
+  }
+
+  .main-footer {
+    border-color: lighten($dark, 10%);
+    background-color: $dark;
+  }
+
+  .content-wrapper {
+    color: $white;
+    background-color: lighten($dark, 7.5%);
+
+    .content-header {
+      color: $white;
+    }
+  }
+}

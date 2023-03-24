@@ -1,0 +1,48 @@
+.control-sidebar {
+  
+  .offcanvas-header {
+    background-color: $card-cap-bg !important;
+  }
+    
+  .offcanvas-body {
+    padding:0;
+  }
+            
+  .list-group {
+    margin:1rem
+  }
+  
+  .list-group-item .btn {
+    margin:.3rem .3rem;
+    line-height:24px;
+    height:24px;
+    width:24px;
+    border-radius: 50%;
+    opacity: .7;
+    &:hover, &.active {
+        opacity: 1;
+    }
+ }
+ 
+             
+  .control-heading {
+    padding: 1rem;
+    margin: 1rem 0;   
+    background-color: $card-cap-bg !important; 
+    border-bottom: 1px solid shift-color($card-cap-bg, 5%);
+    border-top: 1px solid shift-color($card-cap-bg, 5%);  
+  }
+  
+  .control-checkbox {
+    border:1px solid $light;
+    padding:.5rem;
+    margin:1rem;
+    border-radius:.3rem;
+    color:rgba(#000, 0.7);
+    .form-check-label{
+        font-weight:500;
+    }
+  }
+  
+
+}

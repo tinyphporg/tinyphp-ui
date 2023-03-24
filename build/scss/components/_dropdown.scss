@@ -1,0 +1,150 @@
+//
+// Component: Dropdown
+//
+
+// General Dropdown Rules
+//.dropdown-item {
+//  &:first-of-type {
+//    @include border-top-radius($border-radius);
+//  }
+//  &:last-of-type {
+//    @include border-bottom-radius($border-radius);
+//  }
+//}
+
+.dropdown-item-title {
+  margin: 0;
+  font-size: $font-size-base;
+}
+
+.dropdown-icon {
+  &::after {
+    margin-left: 0;
+  }
+}
+
+// Dropdown Sizes
+.dropdown-menu-lg {
+  min-width: 280px;
+  max-width: 300px;
+  padding: 0;
+
+  .dropdown-divider {
+    margin: 0;
+  }
+
+  .dropdown-item {
+    padding: $dropdown-padding-y $dropdown-item-padding-x;
+  }
+
+  p {
+    margin: 0;
+    white-space: normal;
+  }
+}
+
+// Dropdown Submenu
+.dropdown-submenu {
+  position: relative;
+
+  > a::after {
+    float: right;
+    margin-top: .5rem;
+    margin-left: .5rem;
+
+    @include caret-end();
+  }
+
+  > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
+
+// Dropdown Hover
+.dropdown-hover {
+  &:hover,
+  &.nav-item.dropdown:hover,
+  .dropdown-submenu:hover,
+  &.dropdown-submenu:hover {
+    > .dropdown-menu {
+      display: block;
+    }
+  }
+}
+
+// Dropdown Sizes
+.dropdown-menu-xl {
+  min-width: 360px;
+  max-width: 420px;
+  padding: 0;
+
+  .dropdown-divider {
+    margin: 0;
+  }
+
+  .dropdown-item {
+    padding: $dropdown-padding-y $dropdown-item-padding-x;
+  }
+
+  p {
+    margin: 0;
+    white-space: normal;
+  }
+}
+
+// Dropdown header and footer
+.dropdown-footer,
+.dropdown-header {
+  display: block;
+  padding: .5rem $dropdown-item-padding-x;
+  font-size: $font-size-sm;
+  &.dropdown-user {
+    text-align: center;
+    .user-img 
+    {
+        box-shadow: map-get($elevations, 2);
+        border-radius:50%;    
+    }
+}
+}
+
+.dropdown-body {
+    padding:.5rem $dropdown-item-padding-x;
+}
+
+.dropdown-footer {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+// Add fade animation to dropdown menus by appending
+// the class .animated-dropdown-menu to the .dropdown-menu ul (or ol)
+.open:not(.dropup) > .animated-dropdown-menu {
+  backface-visibility: visible !important;
+
+  @include animation(flipInX .7s both);
+}
+
+
+
+.dark-mode {
+  .dropdown-menu {
+    color: $white;
+    background-color: $dark;
+  }
+
+  .dropdown-item {
+    color: $white;
+
+    &:focus,
+    &:hover {
+      background-color: lighten($dark, 5%);
+    }
+  }
+
+  .dropdown-divider {
+    border-color: $gray-600;
+  }
+
+}

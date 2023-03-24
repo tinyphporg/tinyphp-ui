@@ -1,0 +1,72 @@
+//
+// Mixins: Navbar
+//
+
+// Navbar Variant
+@mixin navbar-variant($name, $color) {
+  .navbar-#{$name} {
+    color: color-contrast($color) !important;
+    background-color: $color;
+
+    .nav-link {
+      // color:color-contrast($color);
+      color: color-contrast($color) !important;
+    }
+
+    &.navbar-light {
+      .form-control-navbar {
+        &::placeholder {
+          color: rgba($gray-800, .8);
+        }
+
+        &,
+        + .input-group-append > .btn-navbar {
+          border-color: darken($color, 9%);
+          color: rgba($gray-800, .8);
+          background-color: darken($color, 4%);
+        }
+
+        &:focus {
+          &::placeholder {
+            color: $gray-800;
+          }
+
+          &,
+          + .input-group-append .btn-navbar {
+            border-color: darken($color, 9%) !important;
+            color: $gray-800;
+            background-color: darken($color, 5%);
+          }
+        }
+      }
+    }
+
+    &.navbar-dark {
+      .form-control-navbar {
+        &::placeholder {
+          color: rgba($white, .8);
+        }
+
+        &,
+        + .input-group-append > .btn-navbar {
+          border-color: lighten($color, 9%);
+          color: rgba($white, .8);
+          background-color: lighten($color, 4%);
+        }
+
+        &:focus {
+          &::placeholder {
+            color: $white;
+          }
+
+          &,
+          + .input-group-append .btn-navbar {
+            border-color: lighten($color, 9%) !important;
+            color: $white;
+            background-color: lighten($color, 5%);
+          }
+        }
+      }
+    }
+  }
+}

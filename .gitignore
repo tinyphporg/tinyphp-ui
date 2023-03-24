@@ -1,0 +1,14 @@
+.buildpath
+.project
+*.log
+.git
+.settings
+.cache
+/vendor/
+/node_modules
+.DS_Store
+*.phar
+src/js/assets/adminlte/*
+package-lock.json
+*.lock
+build/htmls/

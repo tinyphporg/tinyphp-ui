@@ -1,0 +1,105 @@
+//
+// Component: Progress Bar
+//
+//General CSS
+
+@keyframes progress-active {
+  0% {
+    opacity: .4;
+    width: 0
+  }
+  100% {
+    opacity: 0;
+    width: 100%
+  }
+}
+
+.progress {
+
+  // Vertical bars
+  &.vertical {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 200px;
+    margin-right: 10px;
+
+    > .progress-bar {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    //Sizes
+    &.sm,
+    &.progress-sm {
+      width: 20px;
+    }
+
+    &.xs,
+    &.progress-xs {
+      width: 10px;
+    }
+
+    &.xxs,
+    &.progress-xxs {
+      width: 3px;
+    }
+  }
+  
+  // 进度条动画
+  &.progress-animated, .progress-animated {
+    position: relative;
+
+    &::after {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $white;
+      animation: progress-active 2s ease infinite;
+    }
+  }
+
+  @include box-shadow(none);
+  @include border-radius($progress-bar-border-radius);
+}
+
+
+
+
+
+.progress-group {
+  margin-bottom: map-get($spacers, 2);
+}
+
+// size variation
+.progress-sm {
+  height: 10px;
+}
+
+.progress-xs {
+  height: 7px;
+}
+
+.progress-xxs {
+  height: 3px;
+}
+
+// Remove margins from progress bars when put in a table
+.table {
+  tr > td {
+    .progress {
+      margin: 0;
+    }
+  }
+}
+
+.dark-mode {
+  .progress {
+    background: lighten($dark, 7.5%);
+  }
+}

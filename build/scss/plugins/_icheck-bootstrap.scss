@@ -1,0 +1,82 @@
+//
+// Plugin: iCheck Bootstrap
+//
+
+// iCheck colors (theme colors)
+@import "icheck-bootstrap/icheck-bootstrap.css";
+
+@each $name, $value in $colors {
+  .icheck-#{$name} {
+    & > input:first-child:not(:checked):not(:disabled):hover + label::before,
+    & > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+        border-color: shift-color($value, 10%);
+     }
+
+    & > input:first-child:checked + label::before,
+    & > input:first-child:checked + input[type="hidden"] + label::before {
+      background-color: $value;
+      border-color: shift-color($value, 10%);
+    }
+  }
+}
+
+@each $name, $value in $theme-colors {
+  .icheck-#{$name} {
+    & > input:first-child:not(:checked):not(:disabled):hover + label::before,
+    & > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+        border-color: shift-color($value, 10%);
+     }
+
+    & > input:first-child:checked + label::before,
+    & > input:first-child:checked + input[type="hidden"] + label::before {
+      background-color: $value;
+      border-color: shift-color($value, 10%);
+    }
+  }
+}
+
+.dark-mode {
+  [class*="icheck-"] > input:first-child:not(:checked) {
+    + input[type="hidden"] + label::before,
+    + label::before {
+      border-color: $gray-600;
+    }
+  }
+  // iCheck colors (theme colors)
+  @each $name, $color in $theme-colors-alt {
+    .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):hover + label::before,
+    .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+      border-color: #{$color};
+    }
+
+    .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):focus + label::before,
+    .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):focus + input[type="hidden"] + label::before {
+      border-color: #{$color};
+    }
+
+    .icheck-#{$name} > input:first-child:checked + label::before,
+    .icheck-#{$name} > input:first-child:checked + input[type="hidden"] + label::before {
+      border-color: #{$color};
+      background-color: #{$color};
+    }
+  }
+
+  // iCheck colors (colors)
+  @each $name, $color in $colors-alt {
+    .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):hover + label::before,
+    .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
+      border-color: #{$color};
+    }
+
+    .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):focus + label::before,
+    .icheck-#{$name} > input:first-child:not(:checked):not(:disabled):focus + input[type="hidden"] + label::before {
+      border-color: #{$color};
+    }
+
+    .icheck-#{$name} > input:first-child:checked + label::before,
+    .icheck-#{$name} > input:first-child:checked + input[type="hidden"] + label::before {
+      border-color: #{$color};
+      background-color: #{$color};
+    }
+  }
+}

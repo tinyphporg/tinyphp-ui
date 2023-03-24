@@ -1,0 +1,102 @@
+{template pub/admin/main-header.html}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+	<!-- .content-header -->
+	<section class="content-header">
+		<div class="content-title">
+			<div class="content-title-heading">
+				<div class="content-title-icon">
+					<i class="bi bi-input-cursor-text icon-gradient bg-mean-fruit"></i>
+				</div>
+				<div class="">
+					InputMask 输入格式验证
+					<div class="content-title-subheading">各种格式的输入格式验证</div>
+				</div>
+			</div>
+			<div class="content-title-actions">
+             <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://github.com/RobinHerbots/Inputmask"> <i class="bi bi-github"></i> View on Github
+				</a>
+
+			</div>
+		</div>
+	</section>
+	<!-- /.content-header -->
+
+	<!-- Main content -->
+	<section class="main-content">
+		<div class="card main-card">
+			<div class="card-header">
+				<h3 class="card-title">InputMask</h3>
+
+			</div>
+			<div class="card-body">
+				<div class="row mb-2 ">
+					<div class="form-group  col-2">
+						<label class="col">Date masks:</label>
+						<div class="input-group">
+							<span class="input-group-text"><i class="far fa-calendar-alt"></i></span> <input type="text" class="form-control" id="datemask" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" inputmode="numeric">
+						</div>
+					</div>
+				</div>
+				<div class="row mb-2">
+					<div class="form-group  col-2">
+						<div class="input-group">
+							<span class="input-group-text"><i class="far fa-calendar-alt"></i></span> <input type="text" class="form-control" id="datemask2" data-inputmask-alias="datetime" data-inputmask-inputformat="mm/dd/yyyy" data-mask="" inputmode="numeric">
+						</div>
+
+					</div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="form-group col-2">
+						<label>Phone mask:</label>
+						<div class="input-group">
+							<span class="input-group-text"><i class="fas fa-phone"></i></span> <input type="text" class="form-control" data-inputmask="&quot;mask&quot;: &quot;0999-99999999&quot;" data-mask="" inputmode="text">
+						</div>
+
+					</div>
+				</div>
+				<div class="row mb-2">
+					<div class="form-group col-2">
+						<label>Mobile phone mask:</label>
+						<div class="input-group">
+							<span class="input-group-text"><i class="fas fa-phone"></i></span> <input type="text" class="form-control" data-inputmask="'mask': ['199-9999-9999', '+099 199-9999-9999']" data-mask="" inputmode="text">
+						</div>
+
+					</div>
+				</div>
+				<div class="row mb-2">
+					<div class="form-group col-2">
+						<label>IP mask:</label>
+						<div class="input-group">
+							<span class="input-group-text"><i class="fas fa-laptop"></i></span> <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask="" inputmode="decimal">
+						</div>
+
+					</div>
+				</div>
+				<hr>
+				<label>source code:</label>
+				<code class="language-javascript" data-text-target="#codesource"> </code>
+
+
+			</div>
+			<!-- /.card -->
+		</div>
+
+
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<script id="codesource">
+$.load('inputmask').then(()=>{
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    
+	$('input[data-inputmask]').inputmask();
+})
+</script>
+{template pub/admin/main-footer.html}

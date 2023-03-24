@@ -1,0 +1,86 @@
+//
+// Component: Pagination
+//
+.pagination-month {
+  .page-item {
+    justify-self: stretch;
+
+    .page-link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: none;
+    }
+
+    &:first-child,
+    &:last-child {
+      .page-link {
+        height: 100%;
+        font-size: $font-size-lg;
+      }
+    }
+
+    .page-month {
+      margin-bottom: 0;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-lg;
+    }
+
+    .page-year {
+      margin-bottom: 0;
+    }
+  }
+
+  &.pagination-lg {
+    .page-month {
+      font-size: ($font-size-lg * 1.25);
+    }
+  }
+
+  &.pagination-sm {
+    .page-month {
+      font-size: ($font-size-base);
+    }
+  }
+}
+
+.dark-mode {
+  .page-item {
+    &.disabled a,
+    &.disabled .page-link {
+      border-color: $gray-600 !important;
+      color: $gray-600;
+      background-color: lighten($dark, 2.5%) !important;
+    }
+
+    .page-link {
+      color: $primary-alt;
+    }
+
+    &.active {
+      .page-link {
+        color: $white;
+        background-color: $primary-alt;
+
+        &:hover,
+        &:focus {
+          color: $gray-400 !important;
+        }
+      }
+    }
+
+    &:not(.active) {
+      .page-link {
+        border-color: $gray-600;
+        background-color: $dark;
+
+        &:hover,
+        &:focus {
+          color: lighten($primary-alt, 5%);
+          background-color: lighten($dark, 5%);
+        }
+      }
+    }
+  }
+}

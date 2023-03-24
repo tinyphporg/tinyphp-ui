@@ -1,0 +1,350 @@
+<html>
+<head>
+</head>
+<body>
+
+	<!-- tinyphp debug start -->
+	{ui.lib|a}
+	<style>
+.tinyphp-debug-box .card-body p {
+	font-size: 14px;
+	margin: 0;
+	padding: 0
+}
+
+.tinyphp-debug-box  .card small {
+	cursor: default
+}
+</style>
+
+	<div class="container-fluid m-0 p-0 tinyphp-debug-container">
+
+		{if $debugFirstException}
+		<!-- Exception Start -->
+		<div class="row tinyphp-debug-exception">
+			<div class="card border-0">
+				<div class="card-body">
+					<h1 class="card-title">
+						<strong>{$debugFirstException['type']}</strong>
+					</h1>
+					<p class="card-text">
+						<b>{$debugFirstException['handler']}: </b>{$debugFirstException['message']}.<br /> <b>Line: </b>{$debugFirstException['line']}<br /> <b>File: </b>{$debugFirstException['file']}<br /> <b>Trace: </b> {$debugFirstException['traceString']}
+					</p>
+
+					<div class="row bg-light rounded mx-1 p-2" style="font-size: 13px;">
+						<div class="col col-1  text-left" style="max-width: 60px">
+							{loop $debugFirstException['codes'] $code}
+							<p class="{if $code[2]}fw-bold{/if} p-1 m-0">{$code[0]}</p>
+							{/loop}
+						</div>
+						<div class="col rounded tinyphp-debug-code" id="TINYPHP_DEBUG_CODE">
+							{loop $debugFirstException['codes'] $code}
+							<p class="p-1 m-0"{if $code[2]}{/if}>{$code[1]}</p>
+							{/loop}
+						</div>
+					</div>
+					{if $debugExceptions} <br /> {loop $debugExceptions $de}
+					<p>{$de}</p>
+					{/loop} {/if}
+				</div>
+
+			</div>
+		</div>
+		<!-- Exception End -->
+		{/if}
+
+
+		<!-- debugbox Start -->
+		<div class="row tinyphp-debug-box">
+
+			<!-- EXEC BOX Start -->
+			<div class="card border-0">
+				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxExec">
+					<h4 class="my-2 fs-6 fw-normal">
+						<small>Total Time: {$debugInterval} second(s), Total Memory: {$debugMemory} M.</small>
+					</h4>
+				</div>
+
+				<div id="debugBoxExec" class="collapse show">
+					<div class="card-body">
+						<p>URL:{$request->url}</p>
+						{if $request->referer}
+						<p>Referer: {$request->referer}</p>
+						{/if} {if $debugRouterName}
+						<p>Dispatcher: ({$debugControllerName}->{$debugActionName})</p>
+						<p>Matched Route: {$debugRouterName}</p>
+						<p>Route Matched URI: {$debugRouterUrl}</p>
+						<p>Route Matched Router Params: {$debugRouterParams}</p>
+						{/if}
+
+
+					</div>
+				</div>
+			</div>
+			<!-- EXEC BOX End -->
+
+			<!-- SQL Helper Start -->
+			<div class="card border-0">
+				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxSqlHelper">
+					<h4 class="my-2 fs-6 fw-normal">
+						<small>SQL Total Time: {$debugDbTimeTotal} second(s), {$debugDbQueryTotal} querys.</small>
+					</h4>
+				</div>
+
+				<div id="debugBoxSqlHelper" class="collapse show">
+					<div class="card-body" id="TINYPHP_DEBUG_SQL_HELPER">
+						{loop $debugDbQuerys $query}
+						<p>
+							<span>{$query['engine']} : </span> <span class="font_green">{$query['sql']}</span> <span>Exec Time: </span><span class="font_red">{$query['time']}<span class="font_blue"> s.</span>
+							</span>
+						</p>
+						{/loop}
+					</div>
+				</div>
+			</div>
+			<!-- SQL Helper End -->
+
+			<!-- View Start -->
+			<div class="card border-0">
+				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxView">
+					<h4 class="my-2 fs-6 fw-normal">
+						<small>Views</small>
+					</h4>
+				</div>
+
+				<div id="debugBoxView" class="collapse hide">
+					<div class="card-body">
+						<p>视图变量: ${eval echo join(',$', array_keys($debugViewAssign))}</p>
+
+						{loop $debugViewPaths $vpath}
+						<p>[{$vpath[2]}]{$vpath[0]}:&nbsp;{$vpath[1]}</p>
+						{/loop}
+					</div>
+				</div>
+			</div>
+			<!-- View End -->
+
+
+			<!-- Const Start -->
+			<div class="card border-0">
+				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxVar">
+					<h4 class="my-2 fs-6 fw-normal">
+						<small>Variables</small>
+					</h4>
+				</div>
+
+				<div id="debugBoxVar" class="collapse hide">
+					<div class="card-body">
+						<p>以下为未经框架处理的原生数据, 仅供参考,请勿直接调用\\$_GET,\\$_POST,\\$_COOKIE三个全局数组.应在控制器内，,以$this->get,$this->post,$this->cookie获取.</p>
+						<p>Const</p>
+
+						{loop $debugConstants['user'] $key $val}
+						<p>{$key} = {$val}</p>
+						{/loop}
+
+						<p>
+							<b>_GET</b>
+						</p>
+						{loop $request->get $key $val}
+						<p>{$key} = "{$val}"</p>
+						{/loop}
+						<p>
+							<b>_POST</b>
+						</p>
+						{loop $request->post $key $val}
+						<p>{$key} = "{$val}"</p>
+						{/loop}
+						<p>
+							<b>_COOKIE</b>
+						</p>
+						{loop $request->cookie $key $val}
+						<p>{$key} = "{$val}"</p>
+						{/loop}
+						<p>
+							<b>_SESSION</b>
+						</p>
+						{loop $request->session $key $val}
+						<p>{$key} = "{$val}"</p>
+						{/loop}
+						<p>
+							<b>_SERVER</b>
+						</p>
+						{loop $request->server $key $val}
+						<p>{$key} = "{$val}"</p>
+						{/loop}
+						<p>
+							<b>_argv</b>
+						</p>
+						{loop $request->server['argv'] $key $val}
+						<p>{$key} = "{$val}"</p>
+						{/loop}
+					</div>
+				</div>
+			</div>
+			<!-- Const End -->
+
+			<!-- Include Start -->
+			<div class="card border-0">
+				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxInclude">
+					<h4 class="my-2 fs-6 fw-normal">
+						<small>Includes</small>
+					</h4>
+				</div>
+
+				<div id="debugBoxInclude" class="collapse hide">
+					<div class="card-body">
+						<p>
+							<b>loaded extensions</b>
+						</p>
+						<p>"{eval echo join(',', $debugExts)}"</p>
+						<p>
+							<b>INCLUDE FILES</b>
+						</p>
+						{loop $debugIncludeFiles $key $val}
+						<p>{$key} = "{$val}"</p>
+						{/loop}
+						<p>
+							<b>INCLUDE PATHS</b>
+						</p>
+						<p>$debugIncludePaths</p>
+					</div>
+				</div>
+			</div>
+			<!-- Include End -->
+
+			<!-- Docs Start -->
+			<div class="card border-0">
+				<div class="card-header" data-bs-toggle="collapse" data-bs-target="#debugBoxDocs">
+					<h4 onclick="__TINYPHP_DEBUG.showdoc('TINYPHP_DEBUG_DOCS', 'TINYPHP_DEBUG_IFRAME', '{$debugDocUrl}')" class="my-2 fs-6 fw-normal">
+						<small style="cusor: default">Docs</small>
+					</h4>
+				</div>
+				<div id="debugBoxDocs" class="collapse">
+					<div id="TINYPHP_DEBUG_DOCS" class="card-body"></div>
+				</div>
+			</div>
+			<!-- Docs End -->
+			<!-- sss-->
+
+		</div>
+	</div>
+	<script type="text/javascript">
+
+(function(window) {
+    var document = window.document;
+    var __D = function(id) {
+        return document.getElementById(id);
+    }
+    __D.traversalChildNodes = function (f) {
+        if (!f) { return; }
+        for (var i in f.childNodes) {
+            if (f.childNodes[i].nodeType != 3) {
+                __D.traversalChildNodes(f.childNodes[i]);
+                continue;
+            }
+            if (f.childNodes.length == 1) {
+                f.innerHTML = __D.highLight(f.childNodes[i].data);
+            }
+            else if (f.childNodes[i + 1]) {
+                    var obj = document.createElement('SPAN');
+                    obj.innerHTML = __D.highLight(f.childNodes[i].data);
+                    f.insertBefore(obj, f.childNodes[i + 1]);
+                    f.childNodes[i].data = '';
+            }
+            else if (f.childNodes.length == i + 1) {
+                    var obj = document.createElement('SPAN');
+                    obj.innerHTML = __D.highLight(f.childNodes[i].data);
+                    f.appendChild(obj)
+                    f.childNodes[i].data = '';
+            }
+        }
+    }    
+    __D.traversalChildNodesSql = function(f) {
+        if (!f) { return; }
+        for (var i in f.childNodes)
+        {
+            if (f.childNodes[i].nodeType != 3){
+                __D.traversalChildNodesSql(f.childNodes[i]);
+                continue;
+            }
+            if (f.childNodes.length == 1) {
+                f.innerHTML = __D.highLightSql(f.childNodes[i].data);
+            }
+            else if (f.childNodes[i + 1]) {
+                var obj = document.createElement('SPAN');
+                obj.innerHTML = __D.highLightSql(f.childNodes[i].data);
+                f.insertBefore(obj, f.childNodes[i + 1]);
+                f.childNodes[i].data = '';
+            }
+            else if (f.childNodes.length == i + 1) {
+                var obj = document.createElement('SPAN');
+                obj.innerHTML = __D.highLightSql(f.childNodes[i].data);
+                f.appendChild(obj)
+                f.childNodes[i].data = '';
+            }
+        }
+    }
+
+    __D.highLight = function(string) {
+        if (!string) {
+            return string;
+        }
+        string = string.replace(/(('.+')|(".+"))/gm, "<span class=\"text-success\">$1</span>");
+        string = string.replace(/(public|var|if|else|elseif|show|array|__construct|static|private|protected|class|throw|show|\->|;|throw|\(|\)|\{|\}|\=>|return|new|\$this|(\:\:)|function|self) /igm, "<span class=\"text-primary\"> $1 </span>");
+        string = string.replace(/(\/\*.*\*\/)/gm, "<span class=\"text-success\">$1</span>");
+        string = string.replace(/(\$[A-Za-z]{1}([a-zA-Z0-9]*)?)/gm, "<span class=\"\">$1</span>");
+        string = string.replace(/(\s+\d+\s+)/gm, "<span class=\"text-primary\">$1</span>");
+        string = string.replace(/(\/\/.*)/gm, "<span class=\"text-black-50\">$1</span>");
+        return string;
+    }
+
+    __D.highLightSql = function(string) {
+        if (!string) {
+            return string;
+        }
+        string = string.replace(/(('.+')|(".+")|(`.+`))/gm, "<span class=\"text-warning\">$1</span>");
+        string = string.replace(/(INSERT |SELECT |ORDER |BY | JOIN | FROM | LIMIT | DESC | AND | ON | WHERE |\(|\))/igm, "<span class=\"text-primary\">$1</span>");
+        string = string.replace(/(\s+\d+\s+)/gm, "<span class=\"text-danger\">$1</span>");
+        return string;
+    }
+    
+    __D.showdoc = function(id, fid, url) {
+        if (!__D(fid)) {
+            var element = document.createElement('iframe');
+            element.id = fid;
+            element.frameBorder = 0;
+            element.scrollHeight = 0;
+            element.width = "100%";
+            element.src = url;
+            element.onload = function() {
+                var height = __D.getWH(this.contentWindow.document.body).height;
+                this.height = (height + 10)+ 'px';
+                this.contentWindow.onbeforeunload = function() {
+                    element.height = 'auto';
+                }
+           }            
+            __D(id).appendChild(element);
+        } else {
+            
+            __D(fid).src = url;
+        }
+        return false;
+    }
+    
+    //得到页面长和宽
+    __D.getWH = function() {
+        var s = arguments[0] || document.getElementsByTag('BODY')[0];
+        return { width: Math.max(s.scrollWidth, s.clientWidth), height: Math.max(s.scrollHeight, s.clientHeight)};
+    }
+
+    __D.getHeight = function() {
+        return __D.getWH(arguments[0]).height;
+    }
+    __D.traversalChildNodesSql(__D('TINYPHP_DEBUG_SQL_HELPER'));
+    __D.traversalChildNodes(__D('TINYPHP_DEBUG_CODE'));
+    window.__TINYPHP_DEBUG = __D;
+})(window);
+</script>
+	<!-- tinyphp debug end -->
+</body>
+</html>

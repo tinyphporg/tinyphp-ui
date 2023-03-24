@@ -1,0 +1,578 @@
+{template pub/admin/main-header.html} 
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+	<!-- .content-header -->
+	<section class="content-header">
+		<div class="content-title">
+			<div class="content-title-heading">
+				<div class="content-title-icon">
+					<i class="bi bi-menu-button icon-gradient bg-mean-fruit"></i>
+				</div>
+				<div class="">
+					首页
+					<div class="content-title-subheading">仪表盘</div>
+				</div>
+			</div>
+			<div class="content-title-actions">
+				<a class="btn btn-dark btn-icon btn-shadow me-2" target="_blank" href="http://www.flotcharts.org/"> <i class="bi bi-filetype-doc"></i> Docs
+				</a> <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://github.com/BeppiMenozzi/Knob"> <i class="bi bi-github"></i> View on Github
+				</a>
+			</div>
+		</div>
+	</section>
+	<!-- /.content-header -->
+  
+	<!-- Main content -->
+	<section class="main-content">
+		<div class="row">
+			<div class="col-md-6 col-xl-4">
+				<div class="card main-card mb-3 widget-box">
+					<div class="widget-box-outer">
+						<div class="widget-box-wrapper">
+							<div class="widget-box-left">
+								<div class="widget-heading">订单总量</div>
+								<div class="widget-subheading">统计至年底</div>
+							</div>
+							<div class="widget-box-right">
+								<div class="widget-numbers text-success">1896</div>
+							</div>
+						</div>
+						<div class="widget-progress-wrapper">
+							<div class="progress-sm progress">
+								<div role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-primary" style="width: 71%;"></div>
+							</div>
+							<div class="progress-sub-label">
+								<div class="sub-label-left">同比增长</div>
+								<div class="sub-label-right">71%</div>
+							</div>
+						</div>
+					</div>
+				</div>   
+			</div>
+			<div class="col-md-6 col-xl-4">
+				<div class="card main-card mb-3 widget-box">
+					<div class="widget-box-outer">
+						<div class="widget-box-wrapper">
+							<div class="widget-box-left">
+								<div class="widget-heading">产品销售总额</div>
+								<div class="widget-subheading">GMV</div>
+							</div>
+							<div class="widget-box-right">
+								<div class="widget-numbers text-warning">￥3M</div>
+							</div>
+						</div>
+						<div class="widget-progress-wrapper">
+							<div class="progress-sm progress-animated progress">
+								<div role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-danger" style="width: 85%;"></div>
+							</div>
+							<div class="progress-sub-label">
+								<div class="sub-label-left">销售额增长</div>
+								<div class="sub-label-right">85%</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-xl-4">
+				<div class="card main-card mb-3 widget-box">
+					<div class="widget-box-outer">
+						<div class="widget-box-wrapper">
+							<div class="widget-box-left">
+								<div class="widget-heading">新客户</div>
+								<div class="widget-subheading">潜在客户增量</div>
+							</div>
+							<div class="widget-box-right">
+								<div class="widget-numbers text-danger">45,9%</div>
+							</div>
+						</div>
+						<div class="widget-progress-wrapper">
+							<div class="progress-sm progress-animated progress">
+								<div role="progressbar" aria-valuenow="46" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-success" style="width: 46%;"></div>
+							</div>
+							<div class="progress-sub-label">
+								<div class="sub-label-left">社交媒体粉丝增长</div>
+								<div class="sub-label-right">46%</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- AREA CHART -->
+                    <div class="card main-card m-2">
+                        <div class="card-header">
+                            <h3 class="card-title">Area Chart</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart">
+                                <div id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+
+                    <!-- DONUT CHART -->
+                    <div class="card main-card m-2">
+                        <div class="card-header">
+                            <h3 class="card-title">Donut Chart</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+
+                    <!-- PIE CHART -->
+                    <div class="card main-card m-2">
+                        <div class="card-header">
+                            <h3 class="card-title">Pie Chart</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+
+                </div>
+                <!-- /.col (LEFT) -->
+                <div class="col-md-6">
+                    <!-- LINE CHART -->
+                    <div class="card main-card m-2">
+                        <div class="card-header">
+                            <h3 class="card-title">Line Chart</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart">
+                                <div id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+
+                    <!-- BAR CHART -->
+                    <div class="card main-card m-2">
+                        <div class="card-header">
+                            <h3 class="card-title">Bar Chart</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart">
+                                <div id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+ 
+                    <!-- STACKED BAR CHART -->
+                    <div class="card main-card m-2">
+                        <div class="card-header">
+                            <h3 class="card-title">Stacked Bar Chart</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart">
+                                <div id="stackedBarChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+
+                </div>
+                <!-- /.col (RIGHT) -->
+            </div>
+            <!-- /.row -->
+
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<script>
+		
+    /* ChartJS
+     * -------
+     * Here we will create a few charts using ChartJS
+     */
+
+    //--------------
+    //- AREA CHART -
+    //--------------
+    // Get context with jQuery - using jQuery's .get() method.
+
+    $('#areaChart').echartx(
+            {
+                xAxis : {
+                    type : 'category',
+                    boundaryGap : false
+                },
+                yAxis : {
+                    type : 'value',
+                    boundaryGap : [ 0, '30%' ]
+                },
+                visualMap : {
+                    type : 'piecewise',
+                    show : false,
+                    dimension : 0,
+                    seriesIndex : 0,
+                    pieces : [ {
+                        gt : 1,
+                        lt : 3,
+                        color : 'rgba(0, 0, 180, 0.4)'
+                    }, {
+                        gt : 5,
+                        lt : 7,
+                        color : 'rgba(0, 0, 180, 0.4)'
+                    } ]
+                },
+                series : [ {
+                    type : 'line',
+                    smooth : 0.6,
+                    symbol : 'none',
+                    lineStyle : {
+                        color : '#5470C6',
+                        width : 5
+                    },
+                    markLine : {
+                        symbol : [ 'none', 'none' ],
+                        label : {
+                            show : false
+                        },
+                        data : [ {
+                            xAxis : 1
+                        }, {
+                            xAxis : 3
+                        }, {
+                            xAxis : 5
+                        }, {
+                            xAxis : 7
+                        } ]
+                    },
+                    areaStyle : {},
+                    data : [ [ '2019-10-10', 200 ], [ '2019-10-11', 560 ],
+                            [ '2019-10-12', 750 ], [ '2019-10-13', 580 ],
+                            [ '2019-10-14', 250 ], [ '2019-10-15', 300 ],
+                            [ '2019-10-16', 450 ], [ '2019-10-17', 300 ],
+                            [ '2019-10-18', 100 ] ]
+                } ]
+            })
+
+    //-------------
+    //- LINE CHART -
+    //--------------
+
+    $('#lineChart').echartx({
+        xAxis : {
+            type : 'category',
+            data : [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ]
+        },
+        yAxis : {
+            type : 'value'
+        },
+        series : [ {
+            data : [ 150, 230, 224, 218, 135, 147, 260 ],
+            type : 'line'
+        } ]
+    });
+
+    //-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+
+    $('#donutChart').echartx({
+        tooltip : {
+            trigger : 'item'
+        },
+        legend : {
+            top : '5%',
+            left : 'center'
+        },
+        series : [ {
+            name : 'Access From',
+            type : 'pie',
+            radius : [ '40%', '70%' ],
+            avoidLabelOverlap : false,
+            label : {
+                show : false,
+                position : 'center'
+            },
+            emphasis : {
+                label : {
+                    show : true,
+                    fontSize : '40',
+                    fontWeight : 'bold'
+                }
+            },
+            labelLine : {
+                show : false
+            },
+            data : [ {
+                value : 1048,
+                name : 'Search Engine'
+            }, {
+                value : 735,
+                name : 'Direct'
+            }, {
+                value : 580,
+                name : 'Email'
+            }, {
+                value : 484,
+                name : 'Union Ads'
+            }, {
+                value : 300,
+                name : 'Video Ads'
+            } ]
+        } ]
+    });
+
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    $('#pieChart').echartx({
+        title : {
+            text : 'Referer of a Website',
+            subtext : 'Fake Data',
+            left : 'center'
+        },
+        tooltip : {
+            trigger : 'item'
+        },
+        legend : {
+            orient : 'vertical',
+            left : 'left'
+        },
+        series : [ {
+            name : 'Access From',
+            type : 'pie',
+            radius : '50%',
+            data : [ {
+                value : 1048,
+                name : 'Search Engine'
+            }, {
+                value : 735,
+                name : 'Direct'
+            }, {
+                value : 580,
+                name : 'Email'
+            }, {
+                value : 484,
+                name : 'Union Ads'
+            }, {
+                value : 300,
+                name : 'Video Ads'
+            } ],
+            emphasis : {
+                itemStyle : {
+                    shadowBlur : 10,
+                    shadowOffsetX : 0,
+                    shadowColor : 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        } ]
+    })
+
+    //-------------
+    //- BAR CHART -
+    //-------------
+    $('#barChart').echartx({
+        tooltip : {
+            trigger : 'axis',
+            axisPointer : {
+                type : 'shadow'
+            }
+        },
+        grid : {
+            left : '3%',
+            right : '4%',
+            bottom : '3%',
+            containLabel : true
+        },
+        xAxis : [ {
+            type : 'category',
+            data : [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ],
+            axisTick : {
+                alignWithLabel : true
+            }
+        } ],
+        yAxis : [ {
+            type : 'value'
+        } ],
+        series : [ {
+            name : 'Direct',
+            type : 'bar',
+            barWidth : '60%',
+            data : [ 10, 52, 200, 334, 390, 330, 220 ]
+        } ]
+    });
+
+    //---------------------
+    //- STACKED BAR CHART -
+    //---------------------    
+    var colors = [ '#5470C6', '#91CC75', '#EE6666' ];
+    $('#stackedBarChart').echartx(
+            {
+                color : colors,
+                tooltip : {
+                    trigger : 'axis',
+                    axisPointer : {
+                        type : 'cross'
+                    }
+                },
+                grid : {
+                    right : '20%'
+                },
+                toolbox : {
+                    feature : {
+                        dataView : {
+                            show : true,
+                            readOnly : false
+                        },
+                        restore : {
+                            show : true
+                        },
+                        saveAsImage : {
+                            show : true
+                        }
+                    }
+                },
+                legend : {
+                    data : [ 'Evaporation', 'Precipitation', 'Temperature' ]
+                },
+                xAxis : [ {
+                    type : 'category',
+                    axisTick : {
+                        alignWithLabel : true
+                    },
+                    // prettier-ignore
+                    data : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
+                            'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
+                } ],
+                yAxis : [ {
+                    type : 'value',
+                    name : 'Evaporation',
+                    position : 'right',
+                    alignTicks : true,
+                    axisLine : {
+                        show : true,
+                        lineStyle : {
+                            color : colors[0]
+                        }
+                    },
+                    axisLabel : {
+                        formatter : '{value} ml'
+                    }
+                }, {
+                    type : 'value',
+                    name : 'Precipitation',
+                    position : 'right',
+                    alignTicks : true,
+                    offset : 80,
+                    axisLine : {
+                        show : true,
+                        lineStyle : {
+                            color : colors[1]
+                        }
+                    },
+                    axisLabel : {
+                        formatter : '{value} ml'
+                    }
+                }, {
+                    type : 'value',
+                    name : '温度',
+                    position : 'left',
+                    alignTicks : true,
+                    axisLine : {
+                        show : true,
+                        lineStyle : {
+                            color : colors[2]
+                        }
+                    },
+                    axisLabel : {
+                        formatter : '{value} °C'
+                    }
+                } ],
+                series : [
+                        {
+                            name : 'Evaporation',
+                            type : 'bar',
+                            data : [ 2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6,
+                                    162.2, 32.6, 20.0, 6.4, 3.3 ]
+                        },
+                        {
+                            name : 'Precipitation',
+                            type : 'bar',
+                            yAxisIndex : 1,
+                            data : [ 2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6,
+                                    182.2, 48.7, 18.8, 6.0, 2.3 ]
+                        },
+                        {
+                            name : 'Temperature',
+                            type : 'line',
+                            yAxisIndex : 2,
+                            data : [ 2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4,
+                                    23.0, 16.5, 12.0, 6.2 ]
+                        } ]
+            });		
+</script>
+{template pub/admin/main-footer.html}

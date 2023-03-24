@@ -1,0 +1,65 @@
+// Ribbon
+.ribbon-wrapper {
+  position: absolute;
+  z-index: 10;
+  top: -2px;
+  right: -2px;
+  width: $ribbon-wrapper-size;
+  height: $ribbon-wrapper-size;
+  overflow: hidden;
+
+  &.ribbon-lg {
+    width: $ribbon-lg-wrapper-size;
+    height: $ribbon-lg-wrapper-size;
+
+    .ribbon {
+      top: $ribbon-lg-top;
+      right: $ribbon-lg-right;
+      width: $ribbon-lg-width;
+    }
+  }
+
+  &.ribbon-xl {
+    width: $ribbon-xl-wrapper-size;
+    height: $ribbon-xl-wrapper-size;
+
+    .ribbon {
+      top: $ribbon-xl-top;
+      right: $ribbon-xl-right;
+      width: $ribbon-xl-width;
+    }
+  }
+
+  .ribbon {
+    position: relative;
+    top: $ribbon-top;
+    right: $ribbon-right;
+    width: $ribbon-width;
+    padding: $ribbon-padding;
+    font-size: $ribbon-font-size;
+    line-height: $ribbon-line-height;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 -1px 0 rgba($black, .4);
+    box-shadow: 0 0 $ribbon-border-size rgba($black, .3);
+    transform: rotate(45deg);
+
+    &::before,
+    &::after {
+      position: absolute;
+      bottom: -$ribbon-border-size;
+      border-top: $ribbon-border-size solid #9e9e9e;
+      border-left: $ribbon-border-size solid transparent;
+      content: "";
+      border-right: $ribbon-border-size solid transparent;
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+  }
+}

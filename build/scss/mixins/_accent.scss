@@ -1,0 +1,61 @@
+//
+// Mixins: Accent
+//
+
+// Accent Variant
+@mixin accent-variant($name, $color) {
+  $link-color: $color;
+  .accent-#{$name} {
+    $link-hover-color: darken($color, 15%);
+    $pagination-active-bg: $color;
+    $pagination-active-border-color: $color;
+
+    .btn-link,
+    a:not(.dropdown-item, .btn-app, .nav-link, .page-link, .btn),
+    .nav-tabs .nav-link {
+      color: $link-color;
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+
+    .dropdown-item {
+      &:active,
+      &.active {
+        color: color-contrast($color);
+        background-color: $color;
+      }
+    }
+
+    .page-item {
+      .page-link {
+        color: $link-color;
+      }
+
+      &.active a,
+      &.active .page-link {
+        border-color: $pagination-active-border-color;
+        color: $pagination-active-color;
+        background-color: $pagination-active-bg;
+      }
+
+      &.disabled a,
+      &.disabled .page-link {
+        border-color: $pagination-disabled-border-color;
+        color: $pagination-disabled-color;
+        background-color: $pagination-disabled-bg;
+      }
+    }
+  }
+  .dark-mode.accent-#{$name} {
+    .page-item {
+      .page-link {
+        &:hover,
+        &:focus {
+          color: lighten($link-color, 5%);
+        }
+      }
+    }
+  }
+}

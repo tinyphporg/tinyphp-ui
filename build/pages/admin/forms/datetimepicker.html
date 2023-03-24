@@ -1,0 +1,80 @@
+{template pub/admin/main-header.html}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+	<!-- .content-header -->
+	<section class="content-header">
+		<div class="content-title">
+			<div class="content-title-heading">
+				<div class="content-title-icon">
+					<i class="fa fa-clock-o icon-gradient bg-mean-fruit"></i>
+				</div>
+				<div class="">
+					DateTimePicker 时间选择器
+					<div class="content-title-subheading">日期选择器，时间选择器</div>
+				</div>
+			</div>
+			<div class="content-title-actions">
+				<a class="btn btn-dark btn-icon btn-shadow me-2" target="_blank" href="https://getdatepicker.com/"> <i class="bi bi-filetype-doc"></i> Docs
+				</a> <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://github.com/tempusdominus/bootstrap-4"> <i class="bi bi-github"></i> View on Github
+				</a>
+
+			</div>
+		</div>
+	</section>
+	<!-- /.content-header -->
+
+	<!-- Main content -->
+	<section class="main-content">
+		<div class="card main-card">
+			<div class="card-header">
+				<h3 class="card-title">DateTimePicker</h3>
+			</div>
+			<div class="card-body row">
+				<div class="form-group m-3 col-2">
+					<label>日期</label>
+					<div class="input-group date" data-target-input="nearest">
+						<input type="text" class="form-control datetimepicker-input" id="reservationdate" data-target="#reservationdate" />
+						<div class="input-group-text" data-target="#reservationdate" data-toggle="datetimepicker">
+							<i class="fa fa-calendar"></i>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group m-3 col-2">
+					<label>日期和时间:</label>
+					<div class="input-group date" data-target-input="nearest">
+						<input type="text" class="form-control datetimepicker-input" id="reservationdatetime" data-target="#reservationdatetime" />
+						<div class="input-group-text" data-target="#reservationdatetime" data-toggle="datetimepicker">
+							<i class="fa fa-calendar"></i>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<label>source code:</label>
+				<code class="language-javascript" data-text-target="#codesource"></code>
+			</div>
+			<!-- /.card -->
+		</div>
+
+
+
+
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<script id="codesource">
+$.load('datetimepicker').then(()=>{
+	
+	// datetimepicker
+	$('#reservationdate').datetimepicker();
+	
+	// timepicker
+	$('#reservationdatetime').datetimepicker({
+		format: "LT"
+	});
+})
+</script>
+{template pub/admin/main-footer.html}

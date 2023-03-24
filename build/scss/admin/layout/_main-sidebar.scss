@@ -1,0 +1,277 @@
+@use "sass:math";
+//
+// Component: Main Sidebar
+//
+
+@keyframes pushmenu-hover {
+  0%,
+  90%,
+  100% { transform: rotate(0) scale(1); }
+  20%,
+  40% { transform: rotate(-45deg) scale(1.2); }
+  30%,
+  50% { transform: rotate(45deg) scale(1.2); }
+}
+
+.main-sidebar {
+  position: fixed;
+  z-index: $zindex-main-sidebar;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  float: none;
+  width: $sidebar-width;
+  height: inherit;
+  min-height: 100%;
+  overflow-y: hidden;
+  background: $white;
+  box-shadow: 7px 0 60px rgba(0, 0, 0, 0.05);
+
+  a,a.nav-link{
+    color: $theme-default-link-color;
+  }
+
+  a:hover,
+  a.active{
+    color: $theme-default-link-hover;
+  }
+
+  .sidebar-is-opening & .brand-pushmenu > i::before {
+    animation: pushmenu-hover .5s linear 2;
+  }
+
+  body.sidebar-collapse & {
+    .brand-pushmenu > i::before {
+      content: "\F659";
+    }
+    a.nav-link:hover,a.nav-link.active {
+      background:transparent !important;
+    }    
+  }
+
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    height: $header-height;
+    padding-left: calc($sidebar-padding-x/2);
+    line-height: $header-height;
+
+    & > .brand-link {
+      display: flex;
+      flex-direction: row;
+      width: $sidebar-width - $sidebar-brand-pushmenu-width;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .brand-link {
+      display: block;
+      width: $sidebar-width - $sidebar-brand-pushmenu-width;
+      padding: ($brand-link-padding-y + $header-padding-y) $sidebar-padding-x;
+      font-size: $navbar-brand-font-size;
+      line-height: $line-height-lg;
+      white-space: nowrap;
+      transition: width $transition-speed $transition-fn;
+
+      &:hover {
+        text-decoration: none;
+        color: $white;
+      }
+
+      .brand-image {
+        float: left;
+        width: auto;
+        max-height: 33px;
+        margin-right: .5rem;
+      }
+    }
+
+    & > .brand-pushmenu {
+      padding: ($brand-link-padding-y + $header-padding-y) $sidebar-padding-x;
+      font-size: $navbar-brand-font-size * 1.5;
+      line-height: 2rem;
+      white-space: nowrap;
+      color: $theme-default-link-hover;
+      $brand-link-padding-y:  $navbar-padding-y;
+
+      & > i {
+        align-self: center;
+      }
+    }
+  }
+
+
+
+  .sidebar-body {
+    height: calc(100% - (#{$header-height} + #{$header-bottom-border-width}));
+    padding-top: $sidebar-padding-y;
+    padding-right: $sidebar-padding-x;
+    padding-bottom: $sidebar-padding-y;
+    padding-left: $sidebar-padding-x;
+    overflow-x: none;
+    //overflow-y: initial;
+    overflow-y: auto;
+
+    @include scrollbar-width-thin();
+  }
+
+
+  // Sidebar navigation menu
+  .sidebar-menu {
+    .sidebar-heading {
+      padding: $nav-link-padding-y ($nav-link-padding-y * 1.5);
+      font-weight: 700;
+      font-size: .9rem;
+      color: $theme-default-text-color;
+    }
+
+    .nav-item {
+      > .nav-link {
+        i,
+        .right {
+          color: shift-color($theme-default-link-color, -20%);
+
+          @include transition(transform $transition-fn $transition-speed);
+        }
+      }
+    }
+
+    .nav-link > .right,
+    .nav-link > p > .right {
+      position: absolute;
+      top: .7rem;
+      right: 1rem;
+
+      i,
+      span {
+        margin-left: .5rem;
+      }
+
+      &:nth-child(2) {
+        right: 2.2rem;
+      }
+    }
+
+    .nav-link:hover,.nav-link.active {
+      color: $theme-default-link-hover;
+      background-color: $theme-defaule-link-bg;
+    }
+
+    .menu-open {
+      > .nav-treeview {
+        display: block;
+      }
+    }
+
+    .menu-open,
+    .menu-is-opening {
+      > .nav-link {
+        i.right {
+          @include rotate(-180deg);
+        }
+      }
+    }
+
+    // First Level
+    > .nav-item {
+      margin-bottom: 0;
+
+      .nav-icon {
+        width: $sidebar-nav-icon-width;
+        margin-right: .5rem;
+        margin-left: .05rem;
+        font-size: 1.2rem;
+        text-align: center;
+        opacity:.3;
+        &.fa,
+        &.fas,
+        &.far,
+        &.fab,
+        &.fal,
+        &.fad,
+        &.svg-inline--fa,
+        &.ion {
+          font-size: 1.1rem;
+        }
+      }
+
+      .float-right {
+        margin-top: 3px;
+      }
+    }
+
+    // Tree view menu
+    .nav-treeview {
+      position: relative;
+      display: none;
+      list-style: none;
+      height: auto;
+      padding: 0;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: calc(.7rem + $sidebar-nav-icon-width / 2);
+        width: 3px;
+        height: 100%;
+        border-radius: 15px;
+        background: $theme-defaule-link-bg;
+        opacity: 1;
+        content: "";
+      }
+
+      & .nav-treeview::before {
+        left: 1rem;
+      }
+
+      > .nav-item {
+        > .nav-link {
+          transition: margin $transition-speed $transition-fn;
+
+          > .nav-icon {
+            //width: $sidebar-nav-icon-width;
+            display: none;
+          }
+        }
+      }
+    }
+
+    .nav-link p {
+      display: inline;
+      margin: 0;
+      white-space: normal;
+    }
+  }
+
+  // Remove Firefox Focusring
+  a {
+    &:-moz-focusring {
+      border: 0;
+      outline: none;
+    }
+  }
+
+  @each $name, $text-color in $bg-text-colors {
+    &.bg-#{$name} {
+        @include sidebar-theme-color($text-color);
+    }
+  }
+}
+
+.sidebar-is-opening .sidebar-menu {
+  .nav-link p {
+    animation-name: fadeIn;
+    animation-duration: $transition-speed;
+    animation-fill-mode: both;
+  }
+}
+
+
+// dark-mode
+.dark-mode {
+    .main-sidebar {
+        background:$dark;
+        @include sidebar-theme-color($bg-color-text-light);
+    }
+}
+//

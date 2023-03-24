@@ -1,0 +1,68 @@
+@use "sass:map";
+@use 'sass:math';
+
+// MAIN HEADER
+// --------------------------------------------------------
+$brand-link-padding-y:  $navbar-padding-y;
+
+$header-bottom-border-width: $border-width !default;
+$header-bottom-border-color: $gray-300 !default;
+$header-padding-y: .5rem;
+$header-bottom-border: $header-bottom-border-width solid $header-bottom-border-color !default;
+$header-link-padding-y: ($navbar-padding-y) !default;
+
+$header-height: 60px !default;
+
+$nav-link-sm-padding-y: .35rem !default;
+$nav-link-sm-height: ($font-size-sm * $line-height-sm + $nav-link-sm-padding-y * 1.785) !default;
+$header-height-sm-inner: ($nav-link-sm-height + ($header-link-padding-y * 2)) !default;
+$header-height-sm: calc(#{$header-height-sm-inner} + #{$header-bottom-border-width}) !default;
+
+// Main header skins
+$header-dark-form-control-bg: $gray-800 !default;
+$header-dark-form-control-focused-bg: $gray-700 !default;
+$header-dark-form-control-focused-color: $gray-400 !default;
+$header-dark-form-control-border-color: $gray-600 !default;
+$header-dark-form-control-focused-border-color: $gray-600 !default;
+$header-dark-placeholder-color: rgba($white, .6) !default;
+
+$header-light-form-control-bg: darken($gray-200, 5%) !default;
+$header-light-form-control-focused-bg: darken($gray-200, 7.5%) !default;
+$header-light-form-control-focused-color: $gray-400 !default;
+$header-light-form-control-border-color: $gray-400 !default;
+$header-light-form-control-focused-border-color: darken($gray-400, 2.5%) !default;
+$header-light-placeholder-color: rgb(0 0 0 / 60%) !default;
+
+// MAIN FOOTER
+// --------------------------------------------------------
+$main-footer-padding: 1rem !default;
+$main-footer-padding-sm: $main-footer-padding * .812 !default;
+$main-footer-border-top-width: 1px !default;
+$main-footer-border-top-color: $gray-300 !default;
+$main-footer-border-top: $main-footer-border-top-width solid $main-footer-border-top-color !default;
+$main-footer-height-inner: (($font-size-base * $line-height-base) + ($main-footer-padding * 2)) !default;
+$main-footer-height: calc(#{$main-footer-height-inner} + #{$main-footer-border-top-width}) !default;
+$main-footer-height-sm-inner: (($font-size-sm * $line-height-base) + ($main-footer-padding-sm * 2)) !default;
+$main-footer-height-sm: calc(#{$main-footer-height-sm-inner} + #{$main-footer-border-top-width}) !default;
+$main-footer-bg: $white !default;
+
+
+
+
+// Sidebar
+$sidebar-width: 280px !default;
+$sidebar-padding-x: 1rem !default;
+$sidebar-padding-y: 0 !default;
+$sidebar-custom-height: 4rem !default;
+$sidebar-custom-height-lg: 6rem !default;
+$sidebar-custom-height-xl: 8rem !default;
+$sidebar-custom-padding-x: .85rem !default;
+$sidebar-custom-padding-y: .5rem !default;
+
+
+// SIDEBAR MINI
+// --------------------------------------------------------
+$sidebar-mini-width: ($nav-link-padding-x + $sidebar-padding-x + .5rem) * 2 !default;
+$sidebar-nav-icon-width: $sidebar-mini-width - (($sidebar-padding-x + $nav-link-padding-x) * 2) !default;
+$sidebar-user-image-width: $sidebar-nav-icon-width + math.div($nav-link-padding-x, 2) !default;
+$sidebar-brand-pushmenu-width: 50px;

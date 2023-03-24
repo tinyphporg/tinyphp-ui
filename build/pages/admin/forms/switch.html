@@ -1,0 +1,73 @@
+{template pub/admin/main-header.html}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+	<!-- .content-header -->
+	<section class="content-header">
+		<div class="content-title">
+			<div class="content-title-heading">
+				<div class="content-title-icon">
+					<i class="bi bi-menu-button icon-gradient bg-mean-fruit"></i>
+				</div>
+				<div class="">
+					SWitch 滑块
+					<div class="content-title-subheading">https://github.com/Bttstrp/bootstrap-switch</div>
+				</div>
+			</div>
+			<div class="content-title-actions">
+			<a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://github.com/Bttstrp/bootstrap-switch"> <i class="bi bi-github"></i> View on Github
+				</a>
+
+			</div>
+		</div>
+	</section>
+	<!-- /.content-header -->
+
+
+	<!-- Main content -->
+	<section class="main-content">
+		<div class="card main-card">
+		<div class="card-header">
+		              <h3 class="card-title">
+                    SWitch 滑块
+                </h3>
+		</div>
+			<div class="card-body">
+
+
+				<input type="checkbox" name="my-checkbox" checked data-bootstrap-switch> 
+				<input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success"> 
+				<hr>
+				<input type="checkbox" name="my-checkbox"  data-bootstrap-switch data-off-color="danger" data-on-color="success" data-off-text="禁用" data-on-text="启用"> <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+				<hr>
+				<label>source code:</label>
+				<code class="language-javascript" data-text-target="#codesource"> </code>
+
+
+
+			</div>
+			<!-- /.card -->
+
+		</div>
+
+
+
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<script id="codesource">
+	$("input[data-bootstrap-switch]").each(function() {
+		$(this).switchx({
+			'state' : $(this).prop('checked'),
+			onSwitchChange : function(event, state) {
+				if (state == true) {
+					$(this).val("1");
+				} else {
+					$(this).val("2");
+				}
+			}
+		});
+	});
+</script>
+{template pub/admin/main-footer.html}

@@ -1,0 +1,13 @@
+.dark-mode {
+  :root {
+    // Custom variable values only support SassScript inside `#{}`.
+    @each $color, $value in $colors-alt {
+      --ui-#{$color}: #{$value};
+    }
+
+    @each $color, $value in $theme-colors-alt {
+      --ui-#{$color}: #{$value};
+    }
+  }
+}
+//

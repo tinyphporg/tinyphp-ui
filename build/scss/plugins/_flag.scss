@@ -1,0 +1,13 @@
+$flag-icons-path: "flag-icons/flags" !default;
+
+@import "flag-icons/sass/flag-icons.scss";
+
+.icon.fi,
+.icon.fi::before {
+  //padding: .5rem;
+  //width: 2rem;
+  //height: 2rem;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: 1.5rem;
+}

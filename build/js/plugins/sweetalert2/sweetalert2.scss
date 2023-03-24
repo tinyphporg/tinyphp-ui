@@ -1,0 +1,13 @@
+
+// Theme Variables
+// Color
+$bootstrap-primary: #0d6efd !default;
+$bootstrap-success:  #198754 !default;
+$bootstrap-danger: #dc3545 !default;
+$bootstrap-warning: #ffc107 !default;
+$bootstrap-info:  #0dcaf0 !default;
+$bootstrap-secondary: #6c757d !default;
+@import '@sweetalert2/theme-bootstrap-4/bootstrap-4.scss';
+
+@debug $bootstrap-primary;
+@debug $swal2-confirm-button-background-color;

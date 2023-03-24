@@ -1,0 +1,68 @@
+
+.page-docs {
+    
+  .main-content {
+    padding: 0px 2rem 1rem;
+    .docs-content-header {
+      margin-bottom: 3rem;
+      margin-top: 3rem;
+      .docs-content-lead {
+        font-size:calc($font-size-base * 1.1);
+    }
+
+    }
+    .docs-content-body {
+       h1 {
+         display:none;
+         //font-size: calc(1.301rem + 0.612vw);
+       }
+    }    
+    blockquote {
+        padding:1.5rem; 
+        line-height:1.5rem;
+        border:1px solid $light;
+        border-left:4px solid $info;
+        color:rgba($dark, .8);
+        border-radius: 0 .25rem .25rem 0;
+    }   
+    pre .cm-editor {
+        background-color:$light;
+    }     
+    }
+    
+
+    
+  @include media-breakpoint-up(md) {    
+    .sidebar-body {
+      position: sticky;
+      top: 5rem;
+      height: 100vh;
+    }
+  
+     .content-menu {
+      position: sticky;
+      z-index: 2;
+      top: 5rem;
+      right: 0;
+    }
+  }
+  
+  .docs-menu {
+      list-style: none;
+      padding-left: 1rem;
+      margin: 0;
+      color:rgba($dark, .8);
+      a {
+      color: inherit;
+    }
+  .docs-menu-header {
+    font-size:calc($font-size-base * 1.1);
+    border-bottom:1px solid #ccc;
+    padding: .75rem 0;
+    margin-bottom: .75rem;
+}    
+    li {
+        margin-bottom:.25rem;
+    }    
+ }  
+}

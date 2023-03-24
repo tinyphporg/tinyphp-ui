@@ -1,0 +1,31 @@
+<aside class="main-sidebar bg-light">
+	<nav class="collapse sidebar-body" id="uiMainSidebar" aria-label="Docs navigation">
+		<ul class="sidebar-menu" data-widget="treeview">
+			{loop $ui['sidebar'] $sidebarIndex $sidebar}
+			{if $sidebar['isHeading']}
+                <li class="sidebar-heading">{$sidebar['name']}</li>
+                {else}
+			<li class="nav-item">
+				<a href="{$sidebar['href']}" class="nav-link">
+
+					<p>{$sidebar['name']}</p>
+					{if $sidebar['children']}
+					<!-- 下拉子菜单的下拉箭头class -->
+					<i class="bi bi-chevron-up right"></i> {/if}
+				</a>
+				{if $sidebar['children']}
+				<ul class="nav-treeview">
+					{loop $sidebar['children'] $sidebarChildIndex $sidebarChild}
+					<li class="nav-item">
+						<a href="{$sidebarChild['href']}" class="nav-link">{$sidebarChild['name']}</a>
+					</li>
+					{/loop}
+				</ul>
+				{/if}
+			</li>
+			{/if}
+			{/loop}
+		</ul>
+		{$ui['sidebarExtra']}
+	</nav>
+</aside>

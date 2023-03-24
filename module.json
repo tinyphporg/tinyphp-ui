@@ -1,0 +1,72 @@
+{
+	"name": "tinyphp-ui",
+	"namespace": "Tiny\\UI",
+	"desc": "tinyphp前端UI库",
+	"type": "module",
+	"version": "1.0.0",
+	"init": true,
+	"index": "./src",
+	"setting": {
+		"public_path": "/static/tinyphp-ui/",
+		"inject": true,
+		"template_plugin": "\\Tiny\\MVC\\View\\UI\\Template\\UIViewTemplatePlugin",
+		"helper": "\\Tiny\\MVC\\View\\UI\\Helper\\UIViewHelper",
+		"dev": {
+			"enabled": true,
+			"public_path": "http://127.0.0.1:8080/"
+		},
+		"assigns": [
+			"ui",
+			"uiadmin"
+		],
+		"installer": {
+			"param_name": "ui-install",
+			"install_path": "tinyphp-ui/",
+			"event_listener": "\\Tiny\\MVC\\View\\UI\\EventListener\\UIInstallerEventListener"
+		}
+	},
+	"routes": [
+		{
+			"route": "pathinfo",
+			"rule": {
+				"checkRegex": "#^/(uidemo)#is",
+				"values": {
+					
+				},
+				"priority": -1
+			}
+		}
+	],
+	"autoloader": {
+		"global": null,
+		"ignores": [
+			"Tiny\\UI\\UITaggerParser",
+			"Tiny\\UI\\Helper\\UIViewHelper"
+		],
+		"static": {
+			"web": true,
+			"paths": [
+				{
+					"from": "./dist",
+					"to": "./",
+					"exclude": "",
+					"replace": []
+				}
+			]
+		},
+		"namespaces": {
+			
+		}
+	},
+	"config": true,
+	"lang": true,
+	"eventlistener": [
+		{
+			"class": "Tiny\\UI\\Event\\UIEventListener",
+			"priority": -999
+		}
+	],
+	"require": {
+		
+	}
+}

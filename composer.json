@@ -1,0 +1,18 @@
+{
+    "name": "tinyphporg/tinyphp-ui",
+    "description": "基于tinyphp-framework，面向PHP全栈工程师，继承了Bootstrap5+webpack5+jquery的前端UI库，提供管理后台UI和前端UI，及各种JS组件库。",
+    "type": "library",
+    "version": "2.0.0",
+    "minimum-stability": "stable",    
+    "author": {
+        "name": "Da.Jin",
+        "email": "da.jin@tinyphp.org"
+    },
+    "require": {
+        "php": ">7.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+        }
+    }
+}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{$ui['description']}">
+<title>{$ui['title']}</title>
+<!-- ui.lib -->
+{ui.lib}
+<!-- ./ui.lib -->
+</head>
+<body{if $ui['bodyClass']} class="{$ui['bodyClass']}"{/if}>
+	<!-- .main-header 头部 -->
+	<header class="main-header  navbar navbar-expand-md">
+
+		<!-- flex容器 -->
+		<nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
+            
+            {if $ui['sidebar']}
+            <!-- sidebar  button on mobile-->
+            <button class="navbar-toggler  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#uiMainSidebar" aria-controls="uiMainSidebar" aria-expanded="false" aria-label="Toggle  sidebar">
+            <i class="bi bi-list icon-pushmenu"></i>
+            </button>
+            <!-- sidebar button on mobile -->
+            {/if}
+                    
+			<!-- logo -->
+			<a class="navbar-brand p-0 me-2" href="{$ui['logo']['url']}" aria-label="logo">
+				{if $ui['logo']['img']}
+				<img class="header-logo" src="{$ui['logo']['img']}" />
+				{else}
+				<img class="header-logo" src="{ui.assets}/img/tinyphp-logo.png" />
+				{/if} {if $ui['logo']['miniImg']}
+				<img class="header-logo" src="{$ui['logo']['miniImg']}" />
+				{else}
+				<img class="header-mini-logo" src="{ui.assets}/img/tinyphp-icon.png" />
+				{/if}
+			</a>
+			<!-- end logo -->
+
+            <!-- mobile navbar button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#uiMainNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-three-dots-vertical"></i>
+            </button>
+			<div class="offcanvas offcanvas-end" tabindex="-1" id="uiMainNavbar" aria-labelledby="uiNavbarOffcanvasLabel">
+				<div class="offcanvas-header pb-0">
+					<h5 class="offcanvas-title text-white" id="uiNavbarOffcanvasLabel">{$ui['name']}</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
+
+				<div class="offcanvas-body pt-0">
+					<hr class="d-md-none text-white-50">
+					<ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">
+						{loop $ui['nav'] $navIndex $navItem} {if is_array($navItem['children']) && $navItem['children']}
+						<li class="nav-item col-6 col-md-auto dropdown">
+							<a class="nav-link p-2 dropdown-toggle" href="#" data-bs-toggle="dropdown">{$navItem['name']}</a>
+
+							<ul class="dropdown-menu">
+								{loop $navItem['children'] $navChild}
+								<li>
+									<a class="dropdown-item" href="{$navChild['href']}">{$navChild['name']}</a>
+								</li>
+								{/loop}
+							</ul>
+						</li>
+						{else}
+						<li class="nav-item col-6 col-md-auto">
+							<a class="nav-link p-2" href="{$navItem['href']}">{$navItem['name']}</a>
+						</li>
+						{/if} {/loop}
+					</ul>
+
+					{if is_array($ui['navIcon']) && $ui['navIcon']}
+					<hr class="d-md-none text-white-50">
+					<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+						{loop $ui['navIcon'] $navIcon}
+						<li class="nav-item col-6 col-md-auto">
+							<a class="nav-link p-2" href="{$navIcon['href']}" target="_blank" rel="noopener">
+								<i class="{$navIcon['class']}" title="{$navIcon['name']}"> </i>
+								<span class="d-md-none mx-1">{$navIcon['name']}</span>
+							</a>
+						</li>
+						{/loop}
+					</ul>
+					{/if} {$ui['navExtra']}
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- .main-wrapper 主体布局 -->
+	<!-- .main-has-sidebar 是否显示左侧菜单栏 -->
+	<div class="main-wrapper {if $ui['sidebar']}main-has-sidebar{/if}">
+		{if $ui['sidebar']}
+		<!-- .main-sidebar  -->
+		{template pub/app/main-sidebar.html} {/if}
+		<!-- .main-content 主体部分开始 -->
+		<!-- .content-has-menu 控制是否左右布局 -->
+		<main class="main-content {if $ui['menu']}content-has-menu{/if}">

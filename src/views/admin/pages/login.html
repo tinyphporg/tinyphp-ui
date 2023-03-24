@@ -1,0 +1,143 @@
+{template pub/admin/main-headless.html}
+ 
+<main class="main-login">
+
+    <section class="p-0 d-flex align-items-center position-relative overflow-hidden">
+    
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left -->
+                <div class="col-12 col-lg-6 d-md-flex align-items-center justify-content-center bg-primary bg-opacity-10 vh-lg-100">
+                    <div class="p-3 p-lg-5">
+                        <!-- Title -->
+                        <div class="text-center">
+                            <h2 class="fw-bold">TINYPHP-UI</h2>
+                            <p class="d-none d-sm-block mb-0 h6 fw-light">基于敏捷开发理念设计的高性能 PHP MVC 框架</p>
+                        </div>
+                        <!-- SVG Image -->
+                        <img src="{ui.assets}img/elements/02.svg" class="mt-5 w-100 h-auto" alt="">
+                        <!-- Info -->
+                        <div class="d-none d-sm-flex mt-5 align-items-center justify-content-center">
+                            <!-- Avatar group -->
+                            <div class="d-flex mb-2 mb-sm-0 ms-auto position-relative">
+                                    <img class="icon icon-circle "   src="{ui.assets}img/avatar/01.jpg" alt="avatar">
+                                    <img class="icon icon-circle "   src="{ui.assets}img/avatar/02.jpg" alt="avatar">
+                                    <img class="icon icon-circle "   src="{ui.assets}img/avatar/03.jpg" alt="avatar">
+                                    <img class="icon icon-circle"   src="{ui.assets}img/avatar/04.jpg" alt="avatar">
+                            </div>
+                            <!-- Content -->
+                            <p class="mb-0 h6 fw-light ms-0 ms-sm-3">4k+ 成员已加入我们。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right -->
+                <div class="col-12 col-lg-6 m-auto">
+                    <div class="row my-5">
+                        <div class="col-sm-10 col-xl-8   m-auto">
+                            <!-- Title -->
+                            <h1 class="fs-2 ">登录</h1>
+                            <p class="lead mb-4">欢迎你的加入，成为践行敏捷开发理念的全栈开发者.</p>
+
+                            <!-- Form START -->
+                            <form id="loginForm">
+                                <!-- Email -->
+                                <div class="mb-4">
+                                    <div class="form-floating">
+                                  
+                                        <input type="text"  name="id" class="form-control " placeholder="ID" id="loginId">
+                                          <label for="loginId">ID</label>
+                                    </div>
+                                </div>
+                                <!-- Password -->
+                                <div class="mb-4">
+                                    <div class="form-floating">
+                                      
+                                        <input type="password" name="password" class="form-control" placeholder="密码" id="loginPassword" />
+                                        <label for="loginPassword">密码</label>
+                                    </div>
+                                </div>
+                                <!-- Check box -->
+                                <div class="mb-4 d-flex justify-content-between mb-4">
+                                    <div class="form-check">
+                                        <input type="checkbox"  name="isremember" class="form-check-input" id="loginIsRemember"/>
+                                        <label class="form-check-label" for="exampleCheck1">记住我的登录状态</label>
+                                    </div>
+                                    <a  class="fs-6 ms-auto" href="/admin/">返回首页</a>
+                                </div>
+                                <!-- Button -->
+                                <div class="align-items-center mt-0">
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary mb-0 btn-lg btn-shadow " type="button">登录</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- Form END -->
+
+   
+
+                        </div>
+                    </div> <!-- Row END -->
+                </div>
+            </div> <!-- Row END -->
+        </div>
+    </section>
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+<script>
+//惰性加载 jquery-validation 模块
+$.tiny('validation').then(function() {
+    // 设置默认值
+    $.validator.setDefaults({
+        validClass : "is-valid",     // 验证成功的样式
+        errorClass : "is-invalid",   // 验证失败的样式
+        submitHandler : function() { // 提交后的回调函数
+              $.alert("表单提交成功!");
+        }
+    });
+    
+    // 实例化
+    $('#loginForm').validate({
+        rules : {
+            id : {
+                required : true,
+//                email : true,
+            },
+            password : {
+                required : true,
+                minlength : 8
+            }
+        },
+        messages : {
+            id : {
+                required : "请输入一个邮件地址",
+//                email : "请输入正确的邮件地址"
+            },
+            password : {
+                required : "请输入一个密码",
+                minlength : "您的密码至少需要5个字节"
+            }
+        },
+        onclick : function(element) {
+            if (!$(element).is(':checked')) {
+                $(element).addClass('is-invalid').removeClass('is-valid');
+            } else {
+                    $(element).removeClass('is-invalid').addClass('is-valid');
+            }
+        },
+        errorElement : 'span',
+            errorPlacement : function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-floating').append(error);
+            },
+            highlight : function(element, errorClass, validClass) {
+                $(element).addClass(errorClass).removeClass(validClass);
+            },
+            unhighlight : function(element, errorClass, validClass) {
+                $(element).removeClass(errorClass).addClass(validClass);
+            }
+        });
+    });
+</script>
+</body>
+</html> 

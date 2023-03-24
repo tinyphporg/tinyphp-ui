@@ -1,0 +1,79 @@
+//
+// Misc: Colors
+//
+
+body {
+  color: $theme-default-link-color;
+
+  a {
+    color: $theme-default-link-hover;
+  }
+
+  a:hover,
+  a.active {
+    color: $theme-default-link-hover;
+  }
+}
+
+// extra bgs
+@each $name, $gradients in $bg-gradients {
+  .bg-#{$name} {
+    background-image: #{$gradients};
+  }
+}
+
+
+// Backgrund Color Disabled
+[class^="bg-"].disabled {
+  opacity: .65;
+}
+
+// Text muted hover
+a.text-muted:hover {
+  color: map-get($theme-colors, primary) !important;
+}
+
+// Link Styles
+.link-muted {
+  color: darken($gray-500, 30%);
+
+  &:hover,
+  &:focus {
+    color: darken($gray-500, 40%);
+  }
+}
+
+.link-black {
+  color: $gray-600;
+
+  &:hover,
+  &:focus {
+    color: lighten($gray-500, 20%);
+  }
+}
+
+.dark-mode {
+  .bg-light {
+    color: $white !important;
+    background-color: lighten($dark, 7.5%) !important;
+  }
+
+  .text-black,
+  .text-dark,
+  .link-black,
+  .link-dark {
+    color: $gray-400;
+  }
+
+  // Background colors (theme colors)
+  @each $name, $color in $theme-colors-alt {
+    @include background-variant($name, $color);
+  }
+
+  // Background colors (colors)
+  @each $name, $color in $colors-alt {
+    @include background-variant($name, $color);
+  }
+}
+
+//

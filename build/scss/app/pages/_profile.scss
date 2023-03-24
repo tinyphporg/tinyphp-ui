@@ -1,0 +1,43 @@
+//
+// Pages: Profile
+//
+.profile-user-img {
+  width: 100px;
+  padding: 3px;
+  margin: 0 auto;
+  border: 3px solid $gray-500;
+}
+
+.profile-username {
+  margin-top: 5px;
+  font-size: 21px;
+}
+
+.post {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid $gray-500;
+  color: #666;
+
+  &:last-of-type {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .user-block {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .row {
+    width: 100%;
+  }
+}
+
+.dark-mode {
+  .post {
+    border-color: $gray-600;
+    color: $white;
+  }
+}

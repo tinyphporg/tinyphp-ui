@@ -1,0 +1,121 @@
+{template pub/admin/main-header.html} 
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- .content-header -->
+    <section class="content-header">
+        <div class="content-title">
+            <div class="content-title-heading">
+                <div class="content-title-icon">
+                    <i class="bi bi-menu-button icon-gradient bg-mean-fruit"></i>
+                </div>
+                <div class="">
+                    Select2 菜单美化
+                    <div class="content-title-subheading">多种选项框</div>
+                </div>
+            </div>
+            <div class="content-title-actions">
+                <a class="btn btn-dark btn-icon btn-shadow me-2" target="_blank" href="https://select2.org/"> <i class="bi bi-filetype-doc"></i> Docs
+                </a> <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://github.com/select2/select2"> <i class="bi bi-github"></i> View on Github
+                </a>
+
+            </div>
+        </div>
+    </section>
+    <!-- /.content-header -->
+
+	<!-- Main content -->
+	<section class="content">
+			<div class="row">
+				<!-- left column -->
+				<div class="col-md-12">
+					<!-- jquery validation -->
+					<div class="card main-card elevation-2 border-0">
+                    <div class="card-header">
+                    <h3 class="card-title">Select2</h3>
+                    </div>
+						<!-- /.card-header -->
+						<!-- form start -->
+						<div class="card-body">
+							
+							<div class="row">
+							<div class="form-group my-3 col-md-6">
+							<h3 class="card-title">Select2</h3>
+							<div class="form-group m-2">
+								<select class="form-control" id="id_select2_demo1" data-ui-widget="select2">
+									<option value="">-----demo1-----</option>
+									<option value="1">OPS-COFFEE-A</option>
+									<option value="2">OPS-COFFEE-B</option>
+									<option value="3">OPS-COFFEE-C</option>
+									<option value="4">OPS-COFFEE-D</option>
+									<option value="5">OPS-COFFEE-E</option>
+									<option value="6">OPS-COFFEE-F</option>
+									<option value="7">OPS-COFFEE-G</option>
+								</select>
+								</div>
+								<div class="form-group m-2">
+								<select class="form-control m-2" id="id_select2_demo2" >
+                                    <option value="">-----demo2-----</option>
+                                    <option value="1">OPS-COFFEE-A</option>
+                                    <option value="2">OPS-COFFEE-B</option>
+                                    <option value="3">OPS-COFFEE-C</option>
+                                    <option value="4">OPS-COFFEE-D</option>
+                                    <option value="5">OPS-COFFEE-E</option>
+                                    <option value="6">OPS-COFFEE-F</option>
+                                    <option value="7">OPS-COFFEE-G</option>
+                                </select>
+                                </div>
+                                <div class="form-group m-2">
+                                <select class="form-control m-2" id="id_select2_demo3" >
+                                    <option value="">-----demo3-----</option>
+                                    <option value="1">OPS-COFFEE-A</option>
+                                    <option value="2">OPS-COFFEE-B</option>
+                                    <option value="3">OPS-COFFEE-C</option>
+                                    <option value="4">OPS-COFFEE-D</option>
+                                    <option value="5">OPS-COFFEE-E</option>
+                                    <option value="6">OPS-COFFEE-F</option>
+                                    <option value="7">OPS-COFFEE-G</option>
+                                </select>
+                                </div>  
+                                   
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>                              
+							</div>
+							<div class="form-group my-3 col-md-6">
+							<h3 class="card-title">Source code</h3>
+							<code class="language-javascript" data-text-target="#codesource"></code>
+
+							 
+							 
+							</div>
+                            </div>
+						</div>
+						<!-- /.card-body -->
+
+					</div>
+					<!-- /.card -->
+				</div>
+				<!--/.col (left) -->
+				<!-- right column -->
+				<div class="col-md-6">
+				
+				</div>
+				<!--/.col (right) -->
+			</div>
+			<!-- /.row -->
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Page specific script -->
+<script id="codesource">
+// 惰性加载方式
+$('#id_select2_demo2').select2x({})
+
+$.load('select2').then(() => {
+    // Select2 自带的方式
+    $('#id_select2_demo3').select2({})
+})
+</script>
+{template pub/admin/main-footer.html}

@@ -1,0 +1,28 @@
+//
+// Component: Carousel
+//
+.carousel-control-custom-icon {
+  .carousel-control-prev & {
+    margin-left: -20px;
+  }
+
+  .carousel-control-next & {
+    margin-right: 20px;
+  }
+
+  > .fa,
+  > .fas,
+  > .far,
+  > .fab,
+  > .fal,
+  > .fad,
+  > .svg-inline--fa,
+  > .ion {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    display: inline-block;
+    margin-top: -20px;
+    font-size: 40px;
+  }
+}

@@ -1,0 +1,80 @@
+//
+// Component: Modals
+//
+// Overlay
+.modal-dialog {
+  .overlay {
+    position: absolute;
+    z-index: ($zindex-modal + 2);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -$modal-content-border-width;
+    color: darken($gray-600, 2.5%);
+    background-color: rgba($black, .7);
+
+    @include border-radius($modal-content-border-radius);
+  }
+}
+
+// BG Color Variations Fixes
+.modal-content {
+  &.bg-warning {
+    .modal-header,
+    .modal-footer {
+      border-color: $gray-800;
+    }
+  }
+
+  &.bg-primary,
+  &.bg-secondary,
+  &.bg-info,
+  &.bg-danger,
+  &.bg-success{
+    .btn-close {
+      text-shadow: 0 1px 0 $black;
+      color: $white !important;
+    }
+    .btn-close { 
+        filter: $btn-close-white-filter;
+    }
+  }
+}
+
+.dark-mode {
+  .modal-header,
+  .modal-footer {
+    border-color: $gray-600;
+  }
+
+  .modal-content {
+    background-color: $dark;
+
+    &.bg-warning {
+      .modal-header,
+      .modal-footer {
+        border-color: $gray-600;
+      }
+
+      .btn-close {
+        text-shadow: 0 1px 0 $gray-700 !important;
+        color: $dark !important;
+      }
+    }
+
+    &.bg-primary,
+    &.bg-secondary,
+    &.bg-info,
+    &.bg-danger,
+    &.bg-success {
+      .modal-header,
+      .modal-footer {
+        border-color: $white;
+      }
+    }
+  }
+}

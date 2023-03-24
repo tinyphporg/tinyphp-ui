@@ -1,0 +1,117 @@
+{template pub/admin/main-header.html}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- .content-header -->
+    <section class="content-header">
+        <div class="content-title">
+            <div class="content-title-heading">
+                <div class="content-title-icon">
+                    <i class="bi bi-menu-button icon-gradient bg-mean-fruit"></i>
+                </div>
+                <div class="">
+                    Sparklins 微型图表
+                    <div class="content-title-subheading">各种图表</div>
+                </div>
+            </div>
+            <div class="content-title-actions">
+                <a class="btn btn-dark btn-icon btn-shadow me-2" target="_blank" href="https://omnipotent.net/jquery.sparkline/"> <i class="bi bi-filetype-doc"></i> Docs
+                </a> <a class="btn btn-success btn-icon btn-shadow" target="_blank" href="https://github.com/gwatts/jquery.sparkline"> <i class="bi bi-github"></i> View on Github
+                </a>
+
+            </div>
+        </div>
+    </section>
+    <!-- /.content-header -->
+
+	<!-- Main content -->
+	<section class="main-content">
+
+
+			<div class="row">
+				<div class="col-12">
+					<div class="card main-card mb-2" >
+						<div class="card-header">
+							<h3 class="card-title">
+								<i class="far fa-chart-bar"></i> Sparklines
+							</h3>
+
+							<div class="card-tools">
+								<button type="button" class="btn btn-tool" data-card-widget="collapse">
+									<i class="fas fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-tool" data-card-widget="remove">
+									<i class="fas fa-times"></i>
+								</button>
+							</div>
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body">
+							<div class="row">
+								<div class="col-4 text-center">
+									<div id="sparkline-1"></div>
+								</div>
+								<!-- ./col -->
+								<div class="col-4 text-center">
+									<div id="sparkline-2"></div>
+								</div>
+								<!-- ./col -->
+								<div class="col-4 text-center">
+									<div id="sparkline-3"></div>
+								</div>
+								<!-- ./col -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.card-body -->
+					</div>
+					<!-- /.card -->
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.row -->
+
+            <div class="row">
+            <div class="col-sm-12">
+                    <div class="card main-card mb-2">
+                        <div class="card-header">
+                            <h3 class="card-title">Javascript Code</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <code class="language-javascript" data-text-target="#codesource"></code>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->         
+            </div>
+            
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<script id="codesource">
+  $.load('sparklines').then(function (Sparkline) {
+
+    //INITIALIZE SPARKLINE CHARTS
+    var sparkline1 = new Sparkline($('#sparkline-1')[0], { width: 240, height: 70, lineColor: '#92c1dc', endColor: '#92c1dc' })
+    var sparkline2 = new Sparkline($('#sparkline-2')[0], { width: 240, height: 70, lineColor: '#f56954', endColor: '#f56954' })
+    var sparkline3 = new Sparkline($('#sparkline-3')[0], { width: 240, height: 70, lineColor: '#3af221', endColor: '#3af221' })
+
+    sparkline1.draw([1000, 1200, 920, 927, 931, 1027, 819, 930, 1021])
+    sparkline2.draw([515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921])
+    sparkline3.draw([15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21])
+
+  })
+
+</script>

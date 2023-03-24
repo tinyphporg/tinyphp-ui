@@ -1,0 +1,123 @@
+.content-wrapper {
+  .content-header {
+    position: relative;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: rgb(255 255 255 / 45%);
+  }
+
+  .layout-navbar-fixed & {
+    margin-top: $header-height;
+  }
+  .content-title {
+    display: flex;
+    align-items: center;
+    font-size: $font-size-base * 1.5;
+
+    .content-title-heading {
+      display: flex;
+      align-items: center;
+      
+    }
+    
+    .content-title-subheading {
+        font-size: $font-size-base;
+        opacity:.6;
+    }
+    .content-title-icon i {
+      display: flex;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      padding: .83rem;
+      text-align: center;
+      line-height:60px;
+      margin-right: 30px;
+      font-size: 2rem;
+      box-shadow: 0 .46875rem 2.1875rem rgb(4 9 20 / 3%), 0 .9375rem 1.40625rem rgb(4 9 20 / 3%), 0 .25rem .53125rem rgb(4 9 20 / 5%), 0 .125rem .1875rem rgb(4 9 20 / 3%);
+    }
+
+    .content-title-actions {
+      display: flex;
+      width: auto;
+      margin-left: auto;
+    }
+  }
+  .main-content {
+    padding: 0 1.8rem;
+    .content-tabs {
+      border-bottom:0;
+      margin-bottom: 1rem;
+      .nav-link {
+        border:0;  
+        margin: 0 0.75rem 0 0;
+        border-radius:.25rem;
+        position: relative;
+      }
+ 
+      .nav-link.active,.nav-link:hover {
+        background:transparent;
+        //background: $primary;
+        z-index:0;
+        color:#fff;
+        border-radius: 5%;
+        
+      }  
+            
+    .nav-link.active::before,  .nav-link:hover::before {
+       transform: scale(1);
+       border-radius: .25rem;
+       opacity: 1;
+       background: #3f6ad8;
+       box-shadow: 0 .125rem .625rem rgba($primary, .4), 0 .0625rem .125rem rgba($primary, .5);
+    }
+
+    .nav-link::before {
+    height: 100%;
+    top: 0;
+     z-index: -1;
+    bottom: auto;
+    border-radius: 100%;
+    opacity: .5;
+    transform: scale(0);
+    width: 100%;
+    left: 0;
+    content: "";
+    position:absolute;
+    display: block;
+    background:transparent;
+    
+    transition: all .5s;
+    }      
+
+   } 
+  }
+  @include media-breakpoint-down(lg) {
+  .main-content {
+    padding: 0 .9rem;    
+    }
+    .content-title {
+      &, 
+      .content-title-heading,
+      .content-title-actions {
+        display: block;
+        text-align: center;
+      }
+      .content-title-actions {
+        margin: 1rem auto 0;
+     }
+     .content-title-icon{
+        display:none;
+      }        
+  }
+  }
+}
+
+
+.dark-mode {
+    .content-wrapper {
+        .content-header {
+            background:rgba(#000, .3) !important;
+        }
+    }
+}
