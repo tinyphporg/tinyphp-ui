@@ -121,7 +121,6 @@ class UITaggerParser implements  ParserInterface
      */
     public function __construct(array $config)
     {
-        print_r($config);
         $this->config = $config;
         if (isset($config['public_path'])) {
             $this->publicPath = (string)$config['public_path'];
