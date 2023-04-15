@@ -10,11 +10,11 @@
  * @Function List function_container
  * @History King 2022年3月5日上午10:13:14 2017年3月8日下午4:20:28 0 第一次建立该文件
  */
-namespace Tiny\UI\Helper;
+namespace Tiny\UI\Widget;
 
 use Tiny\MVC\View\View;
-use Tiny\MVC\View\Helper\ViewHelperInterface;
 use Tiny\Tiny;
+use Tiny\MVC\View\Widget\WidgetInterface;
 
 /**
  * 提示窗
@@ -23,7 +23,7 @@ use Tiny\Tiny;
  * @since 2022年3月5日上午10:13:24
  * @final 2022年3月5日上午10:13:24
  */
-class Messagebox implements ViewHelperInterface
+class Messagebox implements WidgetInterface
 {
     
     /**
@@ -31,9 +31,7 @@ class Messagebox implements ViewHelperInterface
      *
      * @var array
      */
-    const HELPER_NAME_LIST = [
-        'messagebox'
-    ];
+    const WIDGET_NAME = 'messagebox';
     
     /**
      * View 当前view实例
@@ -75,10 +73,9 @@ class Messagebox implements ViewHelperInterface
      *
      * @param View $view
      */
-    public function setViewHelperConfig(View $view, array $config)
+    public function __construct(View $view)
     {
         $this->view = $view;
-        $this->config = $config;
         $this->helpers['ui'] = $this;
     }
     
@@ -87,9 +84,10 @@ class Messagebox implements ViewHelperInterface
      *
      * @param string $hname
      */
-    public function matchHelperByName($hname)
+    public function parseTag(array $params = [])
     {
-        return in_array($hname, self::HELPER_NAME_LIST);
+        print_r($params);
+        return sprintf("<?php echo \$view->messagebox->show(\"%s\", '%s');?>", 'aaa', 'aaaa');
     }
     
     /**
@@ -109,9 +107,9 @@ class Messagebox implements ViewHelperInterface
         $messageBox = [
             'title' => $subject,
             'subject' => $subject,
-            'messageTitle' => $title,
-            'tourl' => $toUrl,
-            'message' => $message,
+            'title' => $title,
+            'url' => $toUrl,
+            'content' => $message,
             'timeout' => $timeout
         ];
         $this->view->display('helper/messagebox.htm', [

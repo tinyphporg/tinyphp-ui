@@ -23,6 +23,7 @@ use Tiny\UI\Helper\UIViewHelper;
 use Tiny\MVC\Event\RouteEventListenerInterface;
 use Tiny\MVC\View\Engine\Tagger\Tagger;
 use Tiny\UI\UITaggerParser;
+use Tiny\UI\Widget\Messagebox;
 
 /**
  * UI事件插件
@@ -54,6 +55,15 @@ class UIEventListener implements RequestEventListenerInterface, RouteEventListen
      * @var Properties
      */
     protected $properties;
+    
+    /**
+     * 预置的部件类
+     * 
+     * @var array
+     */
+    protected $widgetClasses = [
+        Messagebox::class
+    ]; 
     
     /**
      * 构造函数
@@ -109,12 +119,14 @@ class UIEventListener implements RequestEventListenerInterface, RouteEventListen
         ];
         $this->properties['view.engines'] = $engines;
         
-        // helpers;
-        $helpers = (array)$this->properties['view.helpers'];
-        $helpers[] = [
-            'helper' => UIViewHelper::class
-        ];
-        $this->properties['view.helpers'] = $helpers;
+        // widgets;
+       $widgets = (array)$this->properties['view.widgets'];
+       foreach($this->widgetClasses as $widgetClass) {
+           $widgets[] = [
+               'widget' => $widgetClass
+            ];
+       }
+       $this->properties['view.widgets'] = $widgets;
         $this->initViewAssigns($setting);
     }
     

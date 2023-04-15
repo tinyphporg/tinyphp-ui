@@ -17,11 +17,8 @@
  *        King 2020年6月1日14:21 stable 1.0 审定
  *
  */
-namespace Tiny\UI\Template;
-
-use Tiny\MVC\View\Engine\Template\TemplatePluginInterface;
+namespace Tiny\UI\Widget;
 use Tiny\UI\UIException;
-use Tiny\MVC\View\Engine\Template\TagAttributesParser;
 
 /**
  * 简单分页类

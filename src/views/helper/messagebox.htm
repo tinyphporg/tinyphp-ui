@@ -1,4 +1,4 @@
- {template pub/header.htm}
+ {template pub/app/main-header.html}
 <div class="card" style="margin: 10% 15%">
 	<h5 class="card-header">{$messagebox['subject']}</h5>
 	<div class="card-body">
@@ -31,4 +31,4 @@
     }
 })('TINY_UI_messageTimeout', 'TINY_UI_messageGoto', '{$messagebox['timeout']}', '{$messagebox['tourl']}');
 </script>
-{template pub/footer.htm}
+{template pub/app/main-footer.html}
