@@ -9,11 +9,11 @@
  * @Class List class
  * @Function List function_container
  * @History King 2022年3月5日上午10:13:14 2017年3月8日下午4:20:28 0 第一次建立该文件
+ *          King 2023年4月16日 修改为widget
  */
 namespace Tiny\UI\Widget;
 
 use Tiny\MVC\View\View;
-use Tiny\Tiny;
 use Tiny\MVC\View\Widget\WidgetInterface;
 
 /**
@@ -27,46 +27,11 @@ class Messagebox implements WidgetInterface
 {
     
     /**
-     * 可匹配的助手ID
-     *
-     * @var array
-     */
-    const WIDGET_NAME = 'messagebox';
-    
-    /**
      * View 当前view实例
      *
      * @var View
      */
     protected $view;
-    
-    /**
-     * 配置
-     *
-     * @var array
-     */
-    protected $config;
-    
-    /**
-     * 标题
-     *
-     * @var string
-     */
-    protected $subject = '提示';
-    
-    /**
-     * 超时跳转时间
-     *
-     * @var integer
-     */
-    protected $timeout = 15;
-    
-    /**
-     * 代理的Helper实例
-     *
-     * @var array
-     */
-    protected $helpers = [];
     
     /**
      * 设置View实例
@@ -76,7 +41,6 @@ class Messagebox implements WidgetInterface
     public function __construct(View $view)
     {
         $this->view = $view;
-        $this->helpers['ui'] = $this;
     }
     
     /**
@@ -86,34 +50,32 @@ class Messagebox implements WidgetInterface
      */
     public function parseTag(array $params = [])
     {
-        print_r($params);
-        return sprintf("<?php echo \$view->messagebox->show(\"%s\", '%s');?>", 'aaa', 'aaaa');
+        $subject = (string)$params['subject'] ?: '提示';
+        $url = (string)$params['url'];
+        $timeout = (int)$params['timeout'] ?: 5;
+        $content = (string)$params['content'];
+        return sprintf('<?php echo $view->messagebox->fetch("%s", "%s", "%s", %d, true);?>', $subject, $content, $url, $timeout);
     }
     
     /**
-     * 显示一个弹窗提示
+     * 显示弹窗
      *
-     * @param string $message 消息体
-     * @param string $toUrl 跳转URL
-     * @param string $subject 标题
-     * @param int $timeout 超时跳转
-     * @param string $title 标题
+     * @param array $params 弹窗参数
      */
-    public function show($message, $toUrl = NULL, $subject = NULL, $timeout = NULL, $title = NULL)
+    public function fetch(string $content, string $subject = null, string $url = null, int $timeout = 5, bool $isWidget = false)
     {
-        $subject = trim($subject) ?: $this->subject;
-        $toUrl = trim($toUrl) ?: Tiny::getApplication()->request->referer;
-        $timeout = (int)$timeout ?: $this->timeout;
-        $messageBox = [
-            'title' => $subject,
-            'subject' => $subject,
-            'title' => $title,
-            'url' => $toUrl,
-            'content' => $message,
-            'timeout' => $timeout
-        ];
-        $this->view->display('helper/messagebox.htm', [
-            'messagebox' => $messageBox
+        $subject = $subject ?: '提示';
+        if ($timeout < 5) {
+            $timeout = 5;
+        }
+        return $this->view->fetch('widget/messagebox.html', [
+            'messagebox' => [
+                'subject' => $subject,
+                'url' => $url,
+                'content' => $content,
+                'timeout' => $timeout
+            ],
+            'iswidget' => $isWidget
         ]);
     }
 }

@@ -15,10 +15,11 @@
  *      <author>    <time>                        <version >   <desc>
  *        King      Mon Jan 23 16:31:14 CST 2012  Beta 1.0           第一次建立该文件
  *        King 2020年6月1日14:21 stable 1.0 审定
+ *        King 2023年4月16日 修改为widget
  *
  */
 namespace Tiny\UI\Widget;
-use Tiny\UI\UIException;
+use Tiny\MVC\View\Widget\WidgetInterface;
 
 /**
  * 简单分页类
@@ -27,89 +28,26 @@ use Tiny\UI\UIException;
  * @since Mon Jan 23 16:31:57 CST 2012
  * @final Mon Jan 23 16:31:57 CST 2012
  */
-class Pagination implements TemplatePluginInterface
+class Pagination implements WidgetInterface
 {
-    use TagAttributesParser;
-    
     /**
-     * 支持解析的组件
-     *
-     * @var array
+     * 
+     * {@inheritDoc}
+     * @see \Tiny\MVC\View\Widget\WidgetInterface::parseTag()
      */
-    const PARSE_TAG_LIST = [
-        'pagination'
-    ];
-    
-    /**
-     * 解析并输出结果
-     *
-     * @param string $tagBody
-     * @param string $extra
-     * @throws UIException
-     */
-    public static function output($tagBody, $extra)
+    public function parseTag(array $params = [])
     {
-        $options = self::parseAttr($tagBody);
-        if (FALSE === $options) {
-            throw new UIException("Faild to parse the tag named splitpage: invalid arguments");
+        if (!$params || !key_exists('url', $params)) {
+            return false;
         }
-        if (!key_exists('url', $options)) {
-            throw new UIException('Invlid arguments: url is not exists');
-        }
-        $url = (string)$options['url'];
-        $recordTotal = (int)$options['total'] > 0 ? (int)$options['total'] : 0;
-        $pageId = (int)$options['id'] > 0 ? (int)$options['id'] : 1;
-        $pageSize = (int)$options['size'] > 0 ? (int)$options['size'] : 20;
+        $url = (string)$params['url'];
+        $recordTotal = (int)$params['total'] > 0 ? (int)$params['total'] : 0;
+        $pageId = (int)$params['id'] > 0 ? (int)$params['id'] : 1;
+        $pageSize = (int)$params['size'] > 0 ? (int)$params['size'] : 20;
         $pageTotal = ceil($recordTotal / $pageSize);
-        $limit = (int)$options['limit'] > 0 ? (int)$options['limit'] : 6;
-        echo self::getBody($url, $pageId, $pageTotal, $limit, $extra);
-    }
-    
-    /**
-     * 解析前发生
-     *
-     * @param string $template 解析前的模板字符串
-     * @return false|string
-     */
-    public function onPreParse($template)
-    {
-        return false;
-    }
-    
-    /**
-     *
-     * {@inheritdoc}
-     * @see \Tiny\MVC\View\Engine\Template\TemplatePluginInterface::onParseCloseTag()
-     */
-    public function onParseCloseTag($tagName)
-    {
-        if (!in_array($tagName, self::PARSE_TAG_LIST)) {
-            return false;
-        }
-        return '';
-    }
-    
-    /**
-     * 解析后发生
-     *
-     * @param string $template 解析后的模板字符串
-     * @return false|string
-     */
-    public function onPostParse($template)
-    {
-    }
-    
-    /**
-     *
-     * {@inheritdoc}
-     * @see \Tiny\MVC\View\Engine\Template\TemplatePluginInterface::onParseTag()
-     */
-    public function onParseTag($tagName, $tagBody, $extra = NULL)
-    {
-        if (!in_array($tagName, self::PARSE_TAG_LIST)) {
-            return false;
-        }
-        return sprintf('<?php %s::output("%s", "%s") ?>', self::class, addcslashes($tagBody, '"'), $extra);
+        $limit = (int)$params['limit'] > 0 ? (int)$params['limit'] : 6;
+        $className = (string)$params['class'];
+        return sprintf('<?php echo $view->page->fetch("%s","%s", "%s", "%s", "%s" ) ?>', $url, $pageId, $pageTotal, $limit, $className);
     }
     
     /**
@@ -121,7 +59,7 @@ class Pagination implements TemplatePluginInterface
      * @param string $pre 后缀
      * @return string
      */
-    private static function getBody($url, $index, $total, $limit, $extra)
+    public function fetch($url, $index, $total, $limit, $extra)
     {
         if ($index > 1) {
             $backPage = $index - 1;

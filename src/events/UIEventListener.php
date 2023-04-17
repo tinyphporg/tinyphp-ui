@@ -15,15 +15,13 @@ namespace Tiny\UI\Event;
 use Tiny\MVC\Event\RequestEventListenerInterface;
 use Tiny\MVC\Event\MvcEvent;
 use Tiny\MVC\Application\ApplicationBase;
-use Tiny\MVC\Module\ModuleManager;
 use Tiny\MVC\Module\Module;
 use Tiny\MVC\Application\Properties;
-use Tiny\UI\Template\UIViewTemplatePlugin;
-use Tiny\UI\Helper\UIViewHelper;
 use Tiny\MVC\Event\RouteEventListenerInterface;
 use Tiny\MVC\View\Engine\Tagger\Tagger;
 use Tiny\UI\UITaggerParser;
 use Tiny\UI\Widget\Messagebox;
+use Tiny\UI\Widget\Pagination;
 
 /**
  * UI事件插件
@@ -62,7 +60,8 @@ class UIEventListener implements RequestEventListenerInterface, RouteEventListen
      * @var array
      */
     protected $widgetClasses = [
-        Messagebox::class
+        Messagebox::class,
+        'page' => Pagination::class
     ]; 
     
     /**
@@ -121,9 +120,10 @@ class UIEventListener implements RequestEventListenerInterface, RouteEventListen
         
         // widgets;
        $widgets = (array)$this->properties['view.widgets'];
-       foreach($this->widgetClasses as $widgetClass) {
+       foreach($this->widgetClasses as $key => $widgetClass) {
+           $alias   = is_string($key)? $key : '';
            $widgets[] = [
-               'widget' => $widgetClass
+               'widget' => $widgetClass, 'alias' => $alias
             ];
        }
        $this->properties['view.widgets'] = $widgets;

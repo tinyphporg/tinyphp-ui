@@ -20,6 +20,7 @@ use Tiny\MVC\Application\ApplicationBase;
 use Tiny\MVC\Event\MvcEvent;
 use Tiny\MVC\View\UI\UIException;
 use Tiny\MVC\Event\RouteEventListenerInterface;
+use Tiny\MVC\Application\WebApplication;
 
 /**
  * 模板库的绝对路径
@@ -78,6 +79,9 @@ class UIDebugEventListener implements RouteEventListenerInterface
      */
     public function onRouterStartup(MvcEvent $event, array $params)
     {
+        if (!$this->app instanceof WebApplication) {
+            return;
+        }
         $routePath = $this->app->request->uri;
         if (!preg_match('/^\\/pages\/([^\?]*)?/is', $routePath)) {
             return;
@@ -98,6 +102,7 @@ class UIDebugEventListener implements RouteEventListenerInterface
             $tconfigInstance = new Configuration($configDir);
             $tAssigns = $tconfigInstance->get();
         }
+        
         // config
         $config = $this->app->getConfig();
         $pagesAssign = ($config && $config['pages']) ? [

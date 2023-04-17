@@ -1,9 +1,11 @@
- {template pub/app/main-header.html}
+{if !$isWidget} 
+{eval $ui['title'] = $messagebox['subject']}
+{template pub/app/main-header.html}
+{/if}
 <div class="card" style="margin: 10% 15%">
 	<h5 class="card-header">{$messagebox['subject']}</h5>
 	<div class="card-body">
-		<h5 class="card-title">{$messagebox['title']}</h5>
-		<p class="card-text">{$messagebox['message']}</p>
+		<p class="card-text">{$messagebox['content']}</p>
 		<a id="TINY_UI_messageGoto" href="javascript:void(0)" class="btn btn-primary">确认返回</a>
 	</div>
 	<div class="card-footer text-muted">
@@ -13,7 +15,7 @@
 <script type="text/javascript">
 (function(id, gid, timeout, url) {
     timeout = parseInt(timeout) || 15;
-    url = url || '/';
+    url = url || document.referrer || '/';
     var messageToUrl = function(t) {
         if (t == 0) { 
             location.href = url;
@@ -22,13 +24,15 @@
         document.getElementById(id).innerHTML = t;
         t--;
         setTimeout(function(){
-            //messageToUrl(t);
+            messageToUrl(t);
         }, 1000);
     } 
     messageToUrl(timeout);
     document.getElementById(gid).onclick = function() {
         location.href = url;
     }
-})('TINY_UI_messageTimeout', 'TINY_UI_messageGoto', '{$messagebox['timeout']}', '{$messagebox['tourl']}');
+})('TINY_UI_messageTimeout', 'TINY_UI_messageGoto', '{$messagebox["timeout"]}', '{$messagebox["url"]}');
 </script>
+{if !$isWidget} 
 {template pub/app/main-footer.html}
+{/if}
