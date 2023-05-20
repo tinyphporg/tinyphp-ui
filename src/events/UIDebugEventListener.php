@@ -18,9 +18,9 @@ namespace Tiny\MVC\View\UI\EventListener;
 use Tiny\Config\Configuration;
 use Tiny\MVC\Application\ApplicationBase;
 use Tiny\MVC\Event\MvcEvent;
-use Tiny\MVC\View\UI\UIException;
 use Tiny\MVC\Event\RouteEventListenerInterface;
 use Tiny\MVC\Application\WebApplication;
+use Tiny\UI\UIException;
 
 /**
  * 模板库的绝对路径
