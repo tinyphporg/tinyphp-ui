@@ -248,7 +248,7 @@ class UITaggerParser implements  ParserInterface
         }
         $adminText = $isAdmin ? 'admin.' : '';
         if ($this->isDev) {
-            $libText = sprintf('<script src="%sjs/tinyphp-ui.%smin.js"></script>', $this->devPublicPath, $adminText);
+            $libText = sprintf('<script src="%sjs/tinyphp-ui.%sjs"></script>', $this->devPublicPath, $adminText);
         } else {
             $libText = sprintf('<script src="%sjs/tinyphp-ui.%smin.js"></script>', $this->publicPath, $adminText);
             $libText .= sprintf('<link href="%scss/tinyphp-ui.%smin.css" rel="stylesheet"/>', $this->publicPath, $adminText);
